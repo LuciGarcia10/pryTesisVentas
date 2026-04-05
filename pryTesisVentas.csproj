@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsConsultas.cs" />
     <Compile Include="clsDetallePedido.cs" />
     <Compile Include="clsPedido.cs" />
     <Compile Include="frmAñadirProducto.cs">

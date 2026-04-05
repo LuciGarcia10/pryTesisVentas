@@ -30,27 +30,55 @@ namespace pryTesisVentas
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            // --- AJUSTE DE TAMAÑO DEL CONTENEDOR ---
+            try
+            {
+                // GANANCIAS (Mes Actual) - Usamos el Label lblGanancias
+                decimal gananciasMes = clsConsultas.ObtenerGananciasMesActual();
+                if (gananciasMes >= 1000)
+                    lblGanancias.Text = "$" + (gananciasMes / 1000).ToString("N1") + "k";
+                else
+                    lblGanancias.Text = gananciasMes.ToString("C0");
+
+                // BALANCE (Ventas - Compras) - Usamos el Label lblBalance
+                decimal balanceTotal = clsConsultas.ObtenerBalanceTotal();
+                if (Math.Abs(balanceTotal) >= 1000)
+                    lblBalance.Text = "$" + (balanceTotal / 1000).ToString("N1") + "k";
+                else
+                    lblBalance.Text = balanceTotal.ToString("C0");
+
+                // Color del Balance: Rojo si es pérdida, Gris oscuro si es ganancia
+                lblBalance.ForeColor = (balanceTotal < 0) ? Color.Red : Color.FromArgb(64, 64, 64);
+
+                // PEDIDOS TOTALES (Cuadrito de la derecha)
+                // IMPORTANTE: Cambiá 'lblPedidosTotales' por el nombre exacto de tu diseño
+                decimal cantPedidos = clsConsultas.ObtenerTotalVentas();
+                if (cantPedidos >= 1000)
+                    lblPedidosTotales.Text = (cantPedidos / 1000).ToString("N1") + "k";
+                else
+                    lblPedidosTotales.Text = cantPedidos.ToString("N0"); // "N0" porque son unidades, no pesos
+            }
+            catch (Exception ex)
+            {
+                // Si hay error en la base, lo vemos en la consola pero el programa sigue
+                Console.WriteLine("Error al cargar indicadores: " + ex.Message);
+            }
+
+            // AJUSTE DE GRÁFICOS (UI) 
             Control contenedor = chartClientes.Parent;
             if (contenedor != null)
             {
-                contenedor.Width = 220;  // Tamaño reducido (antes 400)
-                contenedor.Height = 220; // Tamaño reducido (antes 400)
-
-                if (contenedor is Panel)
-                {
-                    ((Panel)contenedor).AutoScroll = false;
-                }
+                contenedor.Width = 220;
+                contenedor.Height = 220;
+                if (contenedor is Panel) ((Panel)contenedor).AutoScroll = false;
             }
 
-            // --- AJUSTE DE TAMAÑO DEL CHART ---
             chartClientes.Location = new Point(10, 10);
-            chartClientes.Width = 200;  // Antes 300
-            chartClientes.Height = 200; // Antes 300
+            chartClientes.Width = 200;
+            chartClientes.Height = 200;
 
-            // --- GRÁFICO DE GANANCIAS (Barras) ---
-            chart1.Series.Clear();
-            var serieGanancias = chart1.Series.Add("Ganancias");
+            // GRÁFICO DE BARRAS (GANANCIAS MENSUALES) 
+            crtGananciasMensuales.Series.Clear();
+            var serieGanancias = crtGananciasMensuales.Series.Add("Ganancias");
             serieGanancias.ChartType = SeriesChartType.Column;
 
             string[] meses = { "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" };
@@ -59,25 +87,21 @@ namespace pryTesisVentas
             for (int i = 0; i < meses.Length; i++)
             {
                 int p = serieGanancias.Points.AddXY(meses[i], valores[i]);
-                // Color verde para Agosto, celeste claro para el resto
+                // Color verde DigitalFarma para Agosto, celeste para el resto
                 serieGanancias.Points[p].Color = (meses[i] == "Ago") ? Color.FromArgb(0, 182, 147) : Color.FromArgb(220, 243, 239);
             }
-            chart1.ChartAreas[0].AxisX.Interval = 1;
+            crtGananciasMensuales.ChartAreas[0].AxisX.Interval = 1;
 
-            // --- CONFIGURAR GRÁFICO DE DONA ---
+            // ESTILOS DE TABLAS Y CÍRCULOS
             ConfigurarGraficoClientes();
 
-            // --- ESTILOS DE DATAGRID Y CÍRCULOS ---
             dgvVentas.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64);
             dgvVentas.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gray;
 
+            // Iconos circulares para que queden pro
             HacerCirculo(pcbGanancias);
             HacerCirculo(pcbBalance);
             HacerCirculo(pcbPedido);
-
-            // --- CARGA DE DATOS REALES ---
-            //ConfigurarColumnasGrilla();
-            //CargarDatosDesdeBD();
         }
         public void HacerCirculo(Control control)
         {
@@ -146,6 +170,7 @@ namespace pryTesisVentas
             }
             chartClientes.Invalidate();
         }
+        
         private void chart1_Click(object sender, EventArgs e)
         {
 
@@ -299,6 +324,11 @@ namespace pryTesisVentas
             {
                 lblBuscador.Visible = true;
             }
+        }
+
+        private void pnlBalance_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         //Para cargar los datos en la Grilla desde la BD
