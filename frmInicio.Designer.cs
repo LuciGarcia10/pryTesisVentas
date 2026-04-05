@@ -30,11 +30,11 @@
         {
             System.Windows.Forms.ComboBox cmbVentas;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -539,7 +539,6 @@
             this.pnlGanancias.Name = "pnlGanancias";
             this.pnlGanancias.Size = new System.Drawing.Size(307, 100);
             this.pnlGanancias.TabIndex = 0;
-            this.pnlGanancias.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // lblGanancias
             // 
@@ -594,7 +593,6 @@
             this.pnlBalance.Name = "pnlBalance";
             this.pnlBalance.Size = new System.Drawing.Size(309, 100);
             this.pnlBalance.TabIndex = 2;
-            this.pnlBalance.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBalance_Paint);
             // 
             // lblBalance
             // 
@@ -652,7 +650,6 @@
             this.pnlPrevisualizacion.Name = "pnlPrevisualizacion";
             this.pnlPrevisualizacion.Size = new System.Drawing.Size(616, 339);
             this.pnlPrevisualizacion.TabIndex = 6;
-            this.pnlPrevisualizacion.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint_1);
             // 
             // lblPorcentajesdelmes
             // 
@@ -695,25 +692,24 @@
             // 
             // crtGananciasMensuales
             // 
-            chartArea3.AxisX.MajorGrid.Enabled = false;
-            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea3.AxisX2.LineColor = System.Drawing.Color.LightGray;
-            chartArea3.AxisY.MajorGrid.Enabled = false;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea3.AxisY2.LineColor = System.Drawing.Color.LightGray;
-            chartArea3.Name = "ChartArea1";
-            this.crtGananciasMensuales.ChartAreas.Add(chartArea3);
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisX2.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisY2.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.Name = "ChartArea1";
+            this.crtGananciasMensuales.ChartAreas.Add(chartArea1);
             this.crtGananciasMensuales.Location = new System.Drawing.Point(3, 80);
             this.crtGananciasMensuales.Name = "crtGananciasMensuales";
-            series3.ChartArea = "ChartArea1";
-            series3.CustomProperties = "PointWidth=0.6";
-            series3.Name = "Series1";
-            series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            this.crtGananciasMensuales.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.CustomProperties = "PointWidth=0.6";
+            series1.Name = "Series1";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.crtGananciasMensuales.Series.Add(series1);
             this.crtGananciasMensuales.Size = new System.Drawing.Size(599, 191);
             this.crtGananciasMensuales.TabIndex = 4;
             this.crtGananciasMensuales.Text = "chart1";
-            this.crtGananciasMensuales.Click += new System.EventHandler(this.chart1_Click);
             // 
             // lblPrevi
             // 
@@ -773,30 +769,31 @@
             // 
             // chartClientes
             // 
-            chartArea4.InnerPlotPosition.Auto = false;
-            chartArea4.InnerPlotPosition.Height = 95F;
-            chartArea4.InnerPlotPosition.Width = 63.73417F;
-            chartArea4.InnerPlotPosition.X = 18.13291F;
-            chartArea4.InnerPlotPosition.Y = 2.5F;
-            chartArea4.Name = "ChartArea1";
-            chartArea4.Position.Auto = false;
-            chartArea4.Position.Height = 90F;
-            chartArea4.Position.Width = 90F;
-            chartArea4.Position.X = 5F;
-            chartArea4.Position.Y = 5F;
-            this.chartClientes.ChartAreas.Add(chartArea4);
+            chartArea2.InnerPlotPosition.Auto = false;
+            chartArea2.InnerPlotPosition.Height = 95F;
+            chartArea2.InnerPlotPosition.Width = 63.73417F;
+            chartArea2.InnerPlotPosition.X = 18.13291F;
+            chartArea2.InnerPlotPosition.Y = 2.5F;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 90F;
+            chartArea2.Position.Width = 90F;
+            chartArea2.Position.X = 5F;
+            chartArea2.Position.Y = 5F;
+            this.chartClientes.ChartAreas.Add(chartArea2);
             this.chartClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chartClientes.Location = new System.Drawing.Point(0, 59);
             this.chartClientes.Name = "chartClientes";
             this.chartClientes.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.CustomProperties = "DoughnutRadius=40";
-            series4.Name = "SeriesProgreso";
-            this.chartClientes.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.CustomProperties = "DoughnutRadius=40";
+            series2.Name = "SeriesProgreso";
+            this.chartClientes.Series.Add(series2);
             this.chartClientes.Size = new System.Drawing.Size(326, 280);
             this.chartClientes.TabIndex = 10;
             this.chartClientes.Text = "chart2";
+            this.chartClientes.Click += new System.EventHandler(this.chartClientes_Click_1);
             // 
             // pnlVentasdeProductos
             // 
@@ -809,7 +806,6 @@
             this.pnlVentasdeProductos.Name = "pnlVentasdeProductos";
             this.pnlVentasdeProductos.Size = new System.Drawing.Size(945, 401);
             this.pnlVentasdeProductos.TabIndex = 8;
-            this.pnlVentasdeProductos.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // ptbVentas
             // 
@@ -844,14 +840,14 @@
             this.Stock,
             this.Precio,
             this.VentasTotales});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVentas.EnableHeadersVisualStyles = false;
             this.dgvVentas.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvVentas.Location = new System.Drawing.Point(51, 60);

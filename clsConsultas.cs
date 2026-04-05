@@ -11,13 +11,18 @@ namespace pryTesisVentas
     {
         // Agregamos 'static' para llamarlo sin crear 'new'
         //Pedidos Totales
+        // 1. Centralizamos la cadena de conexión para cambiarla una sola vez acá
+        // RECUERDA: Pon tu cadena real (la que sacaste del Explorador de Servidores)
+        private static string cadena = "Server=TU_SERVIDOR;Database=DigitalFarma;Trusted_Connection=True;";
+
+        // PEDIDOS TOTALES 
         public static decimal ObtenerTotalVentas()
         {
             decimal total = 0;
-            string cadenaConexion = "tu_cadena_aqui";
-            string consulta = "SELECT SUM(total_pedido) FROM Pedidos";
+            // Cambié SUM por COUNT porque son "Pedidos Totales" (unidades)
+            string consulta = "SELECT COUNT(*) FROM Pedidos";
 
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            using (SqlConnection conexion = new SqlConnection(cadena))
             {
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 try
@@ -29,26 +34,22 @@ namespace pryTesisVentas
                 }
                 catch (Exception ex)
                 {
-                    System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
+                    System.Windows.Forms.MessageBox.Show("Error en Pedidos Totales: " + ex.Message);
                 }
             }
             return total;
         }
 
-        //Ganancias
+        // GANANCIAS DEL MES ACTUAL 
         public static decimal ObtenerGananciasMesActual()
         {
             decimal total = 0;
-            // RECUERDA: Cambia esto por tu cadena de conexión real
-            string cadenaConexion = "tu_cadena_de_conexion_aqui";
-
-            // SQL que suma el total de pedidos filtrando por el mes y año actual
             string consulta = @"SELECT SUM(total_pedido) 
-                        FROM Pedidos 
-                        WHERE MONTH(fecha) = MONTH(GETDATE()) 
-                        AND YEAR(fecha) = YEAR(GETDATE())";
+                                FROM Pedidos 
+                                WHERE MONTH(fecha) = MONTH(GETDATE()) 
+                                AND YEAR(fecha) = YEAR(GETDATE())";
 
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            using (SqlConnection conexion = new SqlConnection(cadena))
             {
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 try
@@ -56,9 +57,7 @@ namespace pryTesisVentas
                     conexion.Open();
                     var resultado = comando.ExecuteScalar();
                     if (resultado != DBNull.Value && resultado != null)
-                    {
                         total = Convert.ToDecimal(resultado);
-                    }
                 }
                 catch (Exception ex)
                 {
@@ -68,35 +67,61 @@ namespace pryTesisVentas
             return total;
         }
 
-        //Balance
+        // BALANCE (VENTAS - COMPRAS)
         public static decimal ObtenerBalanceTotal()
         {
             decimal ventas = 0;
             decimal compras = 0;
-            string cadenaConexion = "tu_cadena_aqui";
 
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            using (SqlConnection conexion = new SqlConnection(cadena))
             {
                 try
                 {
                     conexion.Open();
-
-                    // 1. Sumamos las ventas
+                    // Suma de Ventas
                     SqlCommand cmdVentas = new SqlCommand("SELECT SUM(total_pedido) FROM Pedidos", conexion);
                     var resVentas = cmdVentas.ExecuteScalar();
-                    if (resVentas != DBNull.Value) ventas = Convert.ToDecimal(resVentas);
+                    if (resVentas != DBNull.Value && resVentas != null) ventas = Convert.ToDecimal(resVentas);
 
-                    // 2. Sumamos las compras (Asumiendo que tenés una tabla 'Compras')
+                    // Suma de Compras
                     SqlCommand cmdCompras = new SqlCommand("SELECT SUM(monto_compra) FROM Compras", conexion);
                     var resCompras = cmdCompras.ExecuteScalar();
-                    if (resCompras != DBNull.Value) compras = Convert.ToDecimal(resCompras);
+                    if (resCompras != DBNull.Value && resCompras != null) compras = Convert.ToDecimal(resCompras);
                 }
                 catch (Exception ex)
                 {
                     System.Windows.Forms.MessageBox.Show("Error en Balance: " + ex.Message);
                 }
             }
-            return ventas - compras; // El balance es la ganancia real neta
+            return ventas - compras;
         }
+
+        // ESTADÍSTICAS PARA EL GRÁFICO CIRCULAR (CLIENTES)
+        // Este método devuelve 3 valores para la dona
+        public static (int nuevos, int antiguos) ObtenerEstadisticasClientes()
+        {
+            int nuevos = 0;
+            int totales = 0;
+
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    // Contamos los clientes que entraron este mes
+                    SqlCommand cmdNuevos = new SqlCommand("SELECT COUNT(*) FROM Clientes WHERE MONTH(fecha_registro) = MONTH(GETDATE())", conexion);
+                    nuevos = (int)cmdNuevos.ExecuteScalar();
+
+                    // Contamos todos los clientes
+                    SqlCommand cmdTotal = new SqlCommand("SELECT COUNT(*) FROM Clientes", conexion);
+                    totales = (int)cmdTotal.ExecuteScalar();
+                }
+                catch { /* Si falla devolvemos 0 */ }
+            }
+
+            int antiguos = totales - nuevos;
+            return (nuevos, antiguos);
+        }
+    
     }
 }

@@ -23,11 +23,6 @@ namespace pryTesisVentas
            
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
         private void frmInicio_Load(object sender, EventArgs e)
         {
             try
@@ -50,7 +45,6 @@ namespace pryTesisVentas
                 lblBalance.ForeColor = (balanceTotal < 0) ? Color.Red : Color.FromArgb(64, 64, 64);
 
                 // PEDIDOS TOTALES (Cuadrito de la derecha)
-                // IMPORTANTE: Cambiá 'lblPedidosTotales' por el nombre exacto de tu diseño
                 decimal cantPedidos = clsConsultas.ObtenerTotalVentas();
                 if (cantPedidos >= 1000)
                     lblPedidosTotales.Text = (cantPedidos / 1000).ToString("N1") + "k";
@@ -98,7 +92,7 @@ namespace pryTesisVentas
             dgvVentas.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64);
             dgvVentas.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gray;
 
-            // Iconos circulares para que queden pro
+            // Iconos circulares 
             HacerCirculo(pcbGanancias);
             HacerCirculo(pcbBalance);
             HacerCirculo(pcbPedido);
@@ -171,45 +165,6 @@ namespace pryTesisVentas
             chartClientes.Invalidate();
         }
         
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void chartClientes_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtBuscador_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -326,10 +281,12 @@ namespace pryTesisVentas
             }
         }
 
-        private void pnlBalance_Paint(object sender, PaintEventArgs e)
+        private void chartClientes_Click_1(object sender, EventArgs e)
         {
 
         }
+
+
 
         //Para cargar los datos en la Grilla desde la BD
 
