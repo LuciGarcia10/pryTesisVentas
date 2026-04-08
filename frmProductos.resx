@@ -3201,10 +3201,10 @@
   <metadata name="Acciones.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="pictureBox10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pcbClientes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAATAAAAEqCAYAAACStgwOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAexxJREFUeF7tvVvzZdl11ckn6P4C8AEa+h3MOxie+oFb9CO23G9AcwnslwZbvGED
+        vwAADr8BOAVTJAAAexxJREFUeF7tvVvzZdl11ckn6P4C8AEa+h3MOxie+oFb9CO23G9AcwnslwZbvGED
         JgLZ0d2AzUs3lg0RjWVxsY1tQBdbHYEkWwaVLKtou3QpSZWqS5ZUVZJOxzgrR84xx5xr7X0u/8z8Z54V
         MWLNOeZc+5+3/cu199nnnD9wuI3buI3buKfjD7hxG7dxG7dxX8YNYLdxG7dxb8cNYLdxG7dxb8cNYLdx
         G7dxb8cNYLdxG7dxb8cNYLdxG7dxb8cNYLdxG7dxb8cNYLdxG7dxb8cNYLdxG7dxb8cNYLdxG7dxb8cN
@@ -3732,10 +3732,10 @@
         cQPYbdzGbdzbcQPYbdzGbdzbcQPYbdzGbdzb8f8D05FqcToekXoAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pcbPendientes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAATIAAAEbCAYAAABZZQg7AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAcy5JREFUeF7tvU+3ZWlS3scnwF8APoAtfQChuS008kxajBEaGWwhrYVGMrRmphHS
+        vwAADr8BOAVTJAAAcy5JREFUeF7tvU+3ZWlS3scnwF8APoAtfQChuS008kxajBEaGWwhrYVGMrRmphHS
         RIwEaMY/ywYEWrJbQAPd0OC1DIgWdCHoNtDQXV3/K7Oqq/rP8Yob9WQ88UTEu/c+59zMm5lnr/WsN+KJ
         ePfNys7z69j77HPut5xux+24HbfjOT++RY3bcTtux+143o4byG7H7bgdz/1xA9ntuB2347k/biC7Hbfj
         djz3xw1kt+Ps4+unb54+PH396rLz3o7bceS4gex2lEMB9c7pg9NXTo+e6K9Ob5/+8vTW6f87vXn609Nr
@@ -4232,7 +4232,7 @@
   <data name="pcbGanancias.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASoAAAEgCAYAAAADoT5JAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAe0pJREFUeF7tvcvXZdl11Zl/QdUfUPYfUJg+mH7Z0KoGr0ETP2hhgzEF7hRgVw8b
+        vwAADr8BOAVTJAAAe0pJREFUeF7tvcvXZdl11Zl/QdUfUPYfUJg+mH7Z0KoGr0ETP2hhgzEF7hRgVw8b
         MAwwoyiQRQs/KGqAbRmwsAVY8kM0JGwJnJIsAU7JSisz8hGRj0jJt8a8O2asueZae59z73e/iC8i7hlj
         aq8119rni/gy9k/7nHvuvS8drsf1uB7X444fL7lxPa7H9bged+24gup6XI/rceePK6iux/W4Hnf+uILq
         elyP63Hnjyuorsfm8Y3D7x8eHr5xeO/wweHB4eHh7cN7hzcO7z7Wa4cHh9873J9KezGfwjlx7utxPbaO

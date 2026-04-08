@@ -96,6 +96,7 @@ namespace pryTesisVentas
         }
         private void frmProductos_Load(object sender, EventArgs e)
         {
+            // CONFIGURACIÓN DE LA GRILLA (LO QUE YA TENÍAS)
             // 1. ESTO VA PRIMERO: Apagamos el generador automático antes de hacer nada
             dgvProductos.AutoGenerateColumns = false;
 
@@ -108,7 +109,53 @@ namespace pryTesisVentas
             cmbOrden.Items.Add("Más viejo");
             cmbOrden.Items.Add("Prioridad");
             cmbOrden.SelectedIndex = 0;
+
+            // --- 1. CARGA DE INDICADORES (DATOS REALES) ---
+            try
+            {
+                // Traemos Clientes Nuevos del mes (con formato de miles)
+                int nuevos = (int)clsConsultas.ObtenerClientesNuevosMes();
+                lblNumeroClientesNuevos.Text = nuevos.ToString("N0");
+
+                // Traemos Total de Clientes
+                int totales = (int)clsConsultas.ObtenerTotalClientes();
+                lblNumeroClientes.Text = totales.ToString("N0");
+
+                // Traemos Pedidos Pendientes
+                int pendientes = (int)clsConsultas.ObtenerPedidosPendientes();
+                lblNumeroPedidospendientes.Text = pendientes.ToString();
+
+                // Aplicamos el círculo a los PictureBox de los iconos
+                HacerCirculo(pcbGanancias);
+                HacerCirculo(pcbClientes);
+                HacerCirculo(pcbPendientes);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en indicadores de productos: " + ex.Message);
+            }
+
+            // CONFIGURACIÓN DE COMBOS
+            cmbOrden.Items.Clear();
+            cmbOrden.Items.Add("Más nuevo");
+            cmbOrden.Items.Add("Más viejo");
+            cmbOrden.Items.Add("Prioridad");
+            cmbOrden.SelectedIndex = 0;
+
+            // --- 4. CARGAR LOS PRODUCTOS EN LA TABLA ---
+            // CargarProductosDesdeBD(); // Recordá crear este método para llenar el DataGridView
         }
+
+        // Pegá esto al final de la clase frmProductos, antes de que cierre el último }
+        public void HacerCirculo(Control control)
+        {
+            using (System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath())
+            {
+                gp.AddEllipse(0, 0, control.Width, control.Height);
+                control.Region = new Region(gp);
+            }
+        }
+
         private void ConfigurarColumnasAcciones()
         {
             // 1. LIMPIEZA TOTAL
@@ -143,15 +190,6 @@ namespace pryTesisVentas
             dgvProductos.Columns.Add(colEliminar);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void cmbFiltrar_DropDown(object sender, EventArgs e)
-        {
-
-        }
 
         private void cmbFiltrar_MouseClick(object sender, MouseEventArgs e)
         {

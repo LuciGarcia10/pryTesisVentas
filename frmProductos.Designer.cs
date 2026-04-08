@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -70,6 +70,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.pnlBuscador = new System.Windows.Forms.Panel();
+            this.lblBuscar = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblProductos = new System.Windows.Forms.Label();
@@ -84,21 +85,20 @@
             this.lblNumeroClientes = new System.Windows.Forms.Label();
             this.lblPorcentajeClientes = new System.Windows.Forms.Label();
             this.lblClientes = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pcbClientes = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblNumeroPedidospendientes = new System.Windows.Forms.Label();
             this.lblPedidospendientes = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pcbPendientes = new System.Windows.Forms.PictureBox();
             this.panelGanancias = new System.Windows.Forms.Panel();
             this.lblPorcentajeClientesNuevos = new System.Windows.Forms.Label();
             this.lblNumeroClientesNuevos = new System.Windows.Forms.Label();
             this.lblClientesnuevos = new System.Windows.Forms.Label();
             this.pcbGanancias = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.lblBuscarArriba = new System.Windows.Forms.Label();
             this.txtBuscarArriba = new System.Windows.Forms.TextBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.lblBuscar = new System.Windows.Forms.Label();
-            this.lblBuscarArriba = new System.Windows.Forms.Label();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -123,9 +123,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbClientes)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPendientes)).BeginInit();
             this.panelGanancias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).BeginInit();
             this.panel12.SuspendLayout();
@@ -559,7 +559,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(160, 39);
             this.panel1.TabIndex = 13;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -592,6 +591,19 @@
             this.pnlBuscador.Name = "pnlBuscador";
             this.pnlBuscador.Size = new System.Drawing.Size(198, 33);
             this.pnlBuscador.TabIndex = 12;
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.lblBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lblBuscar.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblBuscar.Location = new System.Drawing.Point(38, 6);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(59, 20);
+            this.lblBuscar.TabIndex = 17;
+            this.lblBuscar.Text = "Buscar";
+            this.lblBuscar.Click += new System.EventHandler(this.lblBuscar_Click);
             // 
             // txtBuscar
             // 
@@ -642,14 +654,14 @@
             this.FechaVencimiento,
             this.Precio,
             this.Acciones});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProductos.EnableHeadersVisualStyles = false;
             this.dgvProductos.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvProductos.Location = new System.Drawing.Point(25, 113);
@@ -710,7 +722,7 @@
             this.panel3.Controls.Add(this.lblNumeroClientes);
             this.panel3.Controls.Add(this.lblPorcentajeClientes);
             this.panel3.Controls.Add(this.lblClientes);
-            this.panel3.Controls.Add(this.pictureBox10);
+            this.panel3.Controls.Add(this.pcbClientes);
             this.panel3.Location = new System.Drawing.Point(666, 81);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(307, 100);
@@ -747,16 +759,16 @@
             this.lblClientes.TabIndex = 1;
             this.lblClientes.Text = "Clientes";
             // 
-            // pictureBox10
+            // pcbClientes
             // 
-            this.pictureBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(16, 21);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(84, 69);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 0;
-            this.pictureBox10.TabStop = false;
+            this.pcbClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pcbClientes.Image = ((System.Drawing.Image)(resources.GetObject("pcbClientes.Image")));
+            this.pcbClientes.Location = new System.Drawing.Point(16, 21);
+            this.pcbClientes.Name = "pcbClientes";
+            this.pcbClientes.Size = new System.Drawing.Size(84, 69);
+            this.pcbClientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbClientes.TabIndex = 0;
+            this.pcbClientes.TabStop = false;
             // 
             // panel4
             // 
@@ -764,7 +776,7 @@
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel4.Controls.Add(this.lblNumeroPedidospendientes);
             this.panel4.Controls.Add(this.lblPedidospendientes);
-            this.panel4.Controls.Add(this.pictureBox11);
+            this.panel4.Controls.Add(this.pcbPendientes);
             this.panel4.Location = new System.Drawing.Point(1001, 81);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(307, 100);
@@ -790,16 +802,16 @@
             this.lblPedidospendientes.TabIndex = 1;
             this.lblPedidospendientes.Text = "Pedidos pendientes";
             // 
-            // pictureBox11
+            // pcbPendientes
             // 
-            this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(16, 21);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(84, 69);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 0;
-            this.pictureBox11.TabStop = false;
+            this.pcbPendientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pcbPendientes.Image = ((System.Drawing.Image)(resources.GetObject("pcbPendientes.Image")));
+            this.pcbPendientes.Location = new System.Drawing.Point(16, 21);
+            this.pcbPendientes.Name = "pcbPendientes";
+            this.pcbPendientes.Size = new System.Drawing.Size(84, 69);
+            this.pcbPendientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbPendientes.TabIndex = 0;
+            this.pcbPendientes.TabStop = false;
             // 
             // panelGanancias
             // 
@@ -868,6 +880,19 @@
             this.panel12.Size = new System.Drawing.Size(307, 33);
             this.panel12.TabIndex = 14;
             // 
+            // lblBuscarArriba
+            // 
+            this.lblBuscarArriba.AutoSize = true;
+            this.lblBuscarArriba.BackColor = System.Drawing.Color.Transparent;
+            this.lblBuscarArriba.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lblBuscarArriba.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblBuscarArriba.Location = new System.Drawing.Point(38, 7);
+            this.lblBuscarArriba.Name = "lblBuscarArriba";
+            this.lblBuscarArriba.Size = new System.Drawing.Size(59, 20);
+            this.lblBuscarArriba.TabIndex = 18;
+            this.lblBuscarArriba.Text = "Buscar";
+            this.lblBuscarArriba.Click += new System.EventHandler(this.lblBuscarArriba_Click);
+            // 
             // txtBuscarArriba
             // 
             this.txtBuscarArriba.BackColor = System.Drawing.Color.White;
@@ -891,32 +916,6 @@
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox12.TabIndex = 11;
             this.pictureBox12.TabStop = false;
-            // 
-            // lblBuscar
-            // 
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.lblBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblBuscar.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblBuscar.Location = new System.Drawing.Point(38, 6);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(59, 20);
-            this.lblBuscar.TabIndex = 17;
-            this.lblBuscar.Text = "Buscar";
-            this.lblBuscar.Click += new System.EventHandler(this.lblBuscar_Click);
-            // 
-            // lblBuscarArriba
-            // 
-            this.lblBuscarArriba.AutoSize = true;
-            this.lblBuscarArriba.BackColor = System.Drawing.Color.Transparent;
-            this.lblBuscarArriba.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblBuscarArriba.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblBuscarArriba.Location = new System.Drawing.Point(38, 7);
-            this.lblBuscarArriba.Name = "lblBuscarArriba";
-            this.lblBuscarArriba.Size = new System.Drawing.Size(59, 20);
-            this.lblBuscarArriba.TabIndex = 18;
-            this.lblBuscarArriba.Text = "Buscar";
-            this.lblBuscarArriba.Click += new System.EventHandler(this.lblBuscarArriba_Click);
             // 
             // frmProductos
             // 
@@ -967,10 +966,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbClientes)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPendientes)).EndInit();
             this.panelGanancias.ResumeLayout(false);
             this.panelGanancias.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).EndInit();
@@ -1035,10 +1034,10 @@
         private System.Windows.Forms.Panel pnlcmbOrden;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblClientes;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pcbClientes;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblPedidospendientes;
-        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pcbPendientes;
         private System.Windows.Forms.Panel panelGanancias;
         private System.Windows.Forms.Label lblClientesnuevos;
         private System.Windows.Forms.PictureBox pcbGanancias;

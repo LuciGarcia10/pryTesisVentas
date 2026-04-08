@@ -122,6 +122,59 @@ namespace pryTesisVentas
             int antiguos = totales - nuevos;
             return (nuevos, antiguos);
         }
-    
+
+        // Graficos de frmProductos:
+        // CLIENTES NUEVOS (Conteo de registros del mes actual)
+        public static int ObtenerClientesNuevosMes()
+        {
+            int total = 0;
+            string consulta = "SELECT COUNT(*) FROM Clientes WHERE MONTH(fecha_registro) = MONTH(GETDATE()) AND YEAR(fecha_registro) = YEAR(GETDATE())";
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    total = (int)new SqlCommand(consulta, conexion).ExecuteScalar();
+                }
+                catch { /* Manejar error */ }
+            }
+            return total;
+        }
+
+        // TOTAL DE CLIENTES (Todos los registros) 
+        public static int ObtenerTotalClientes()
+        {
+            int total = 0;
+            string consulta = "SELECT COUNT(*) FROM Clientes";
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    total = (int)new SqlCommand(consulta, conexion).ExecuteScalar();
+                }
+                catch { /* Manejar error */ }
+            }
+            return total;
+        }
+
+        // PEDIDOS PENDIENTES (Pedidos que aún no se entregaron/pagaron)
+        public static int ObtenerPedidosPendientes()
+        {
+            int total = 0;
+            // Asumiendo que tienes una columna 'estado' en tu tabla Pedidos
+            string consulta = "SELECT COUNT(*) FROM Pedidos WHERE estado = 'Pendiente'";
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    total = (int)new SqlCommand(consulta, conexion).ExecuteScalar();
+                }
+                catch { /* Manejar error */ }
+            }
+            return total;
+        }
+
     }
 }
