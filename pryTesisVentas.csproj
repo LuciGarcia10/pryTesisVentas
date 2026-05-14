@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConsultas.cs" />
+    <Compile Include="clsCuentasC.cs" />
     <Compile Include="clsDetallePedido.cs" />
     <Compile Include="clsPedido.cs" />
     <Compile Include="frmAñadirProducto.cs">
@@ -56,11 +57,23 @@
     <Compile Include="frmAñadirProducto.Designer.cs">
       <DependentUpon>frmAñadirProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCuentasCorrientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCuentasCorrientes.Designer.cs">
+      <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDetallePedido.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDetallePedido.Designer.cs">
       <DependentUpon>frmDetallePedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFiltroClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFiltroClientes.Designer.cs">
+      <DependentUpon>FrmFiltroClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmFiltroPedidos.cs">
       <SubType>Form</SubType>
@@ -85,6 +98,12 @@
     </Compile>
     <Compile Include="frmAyuda.Designer.cs">
       <DependentUpon>frmAyuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNuevoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevoCliente.Designer.cs">
+      <DependentUpon>FrmNuevoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNuevoPedido.cs">
       <SubType>Form</SubType>
@@ -114,8 +133,14 @@
     <EmbeddedResource Include="frmAñadirProducto.resx">
       <DependentUpon>frmAñadirProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCuentasCorrientes.resx">
+      <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDetallePedido.resx">
       <DependentUpon>frmDetallePedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFiltroClientes.resx">
+      <DependentUpon>FrmFiltroClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFiltroPedidos.resx">
       <DependentUpon>frmFiltroPedidos.cs</DependentUpon>
@@ -128,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAyuda.resx">
       <DependentUpon>frmAyuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoCliente.resx">
+      <DependentUpon>FrmNuevoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoPedido.resx">
       <DependentUpon>frmNuevoPedido.cs</DependentUpon>
@@ -169,6 +197,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Captura de pantalla 2026-03-17 194007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

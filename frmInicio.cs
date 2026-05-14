@@ -224,8 +224,8 @@ namespace pryTesisVentas
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            // frmClientes frm = new frmClientes();
-            // frm.ShowDialog();
+            frmCuentasCorrientes frm = new frmCuentasCorrientes();
+            frm.ShowDialog();
         }
 
         private void btnAyuda_Click(object sender, EventArgs e)

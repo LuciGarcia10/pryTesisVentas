@@ -29,7 +29,8 @@ namespace pryTesisVentas
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
-
+            frmAyuda frm = new frmAyuda();
+            frm.ShowDialog();
         }
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -464,6 +465,30 @@ namespace pryTesisVentas
             {
                 lblBuscarArriba.Visible = true;
             }
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            frmInicio frm = new frmInicio();
+            frm.ShowDialog();
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            //frmVentas frm = new frmVentas();
+            //frm.ShowDialog();
+        }
+
+        private void btnPedidos_Click(object sender, EventArgs e)
+        {
+            frmPedidos frm = new frmPedidos();
+            frm.ShowDialog();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            frmCuentasCorrientes frm = new frmCuentasCorrientes();
+            frm.ShowDialog();
         }
 
 

@@ -176,5 +176,13 @@ namespace pryTesisVentas
             return total;
         }
 
+        /*public static List<clsCuentasC> ObtenerCuentasCorrientes()
+        {
+            List<clsCuentasC> lista = new List<clsCuentasC>();
+            string consulta = "SELECT IdAfiliado, NombreyAp, ObraSocial, Estado, Saldo FROM CuentasCorrientes";
+             //... lógica de conexión similar a ObtenerTotalVentas() ...
+            return lista;
+        }*/
+
     }
 }
