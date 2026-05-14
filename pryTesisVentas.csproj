@@ -123,6 +123,7 @@
     <Compile Include="frmProductos.Designer.cs">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\PedidoDrogueria.cs" />
     <Compile Include="PanelRedondeado.cs">
       <SubType>Component</SubType>
     </Compile>
