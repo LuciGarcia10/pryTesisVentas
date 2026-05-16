@@ -57,6 +57,12 @@
     <Compile Include="frmAñadirProducto.Designer.cs">
       <DependentUpon>frmAñadirProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCarrito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCarrito.Designer.cs">
+      <DependentUpon>frmCarrito.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCuentasCorrientes.cs">
       <SubType>Form</SubType>
     </Compile>
