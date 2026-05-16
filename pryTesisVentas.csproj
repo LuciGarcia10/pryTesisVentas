@@ -57,6 +57,12 @@
     <Compile Include="frmAñadirProducto.Designer.cs">
       <DependentUpon>frmAñadirProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCarrito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCarrito.Designer.cs">
+      <DependentUpon>frmCarrito.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCuentasCorrientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAñadirProducto.resx">
       <DependentUpon>frmAñadirProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCarrito.resx">
+      <DependentUpon>frmCarrito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCuentasCorrientes.resx">
       <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>

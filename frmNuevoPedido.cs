@@ -91,12 +91,15 @@ namespace pryTesisVentas
         {
             if (carrito.Count == 0)
             {
-                MessageBox.Show("El carrito está vacío.");
+                MessageBox.Show("El carrito está vacío.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            // Aquí llamarías a tu ventana de "Ver Carrito"
-            MessageBox.Show("Tenés " + carrito.Count + " productos listos para pedir.");
+
+            // Ahora que frmCarrito existe, esto va a compilar de diez:
+            frmCarrito ventanaCarrito = new frmCarrito(carrito);
+            ventanaCarrito.ShowDialog();
         }
+        
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
