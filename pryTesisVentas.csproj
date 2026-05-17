@@ -140,6 +140,9 @@
     <EmbeddedResource Include="frmAñadirProducto.resx">
       <DependentUpon>frmAñadirProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCarrito.resx">
+      <DependentUpon>frmCarrito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCuentasCorrientes.resx">
       <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>
     </EmbeddedResource>
