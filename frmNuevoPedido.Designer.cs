@@ -57,7 +57,7 @@
             // 
             this.lblNombredelProducto.AutoSize = true;
             this.lblNombredelProducto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombredelProducto.Location = new System.Drawing.Point(12, 54);
+            this.lblNombredelProducto.Location = new System.Drawing.Point(12, 57);
             this.lblNombredelProducto.Name = "lblNombredelProducto";
             this.lblNombredelProducto.Size = new System.Drawing.Size(195, 25);
             this.lblNombredelProducto.TabIndex = 2;
@@ -65,10 +65,10 @@
             // 
             // txtNombreProducto
             // 
-            this.txtNombreProducto.Location = new System.Drawing.Point(12, 84);
+            this.txtNombreProducto.Location = new System.Drawing.Point(12, 88);
             this.txtNombreProducto.Multiline = true;
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(304, 39);
+            this.txtNombreProducto.Size = new System.Drawing.Size(304, 41);
             this.txtNombreProducto.TabIndex = 3;
             this.txtNombreProducto.TextChanged += new System.EventHandler(this.txtNombreProducto_TextChanged);
             this.txtNombreProducto.Enter += new System.EventHandler(this.txtNombreProducto_Enter);
@@ -78,9 +78,9 @@
             // 
             this.lblNombreProducto.AutoSize = true;
             this.lblNombreProducto.BackColor = System.Drawing.Color.White;
-            this.lblNombreProducto.Location = new System.Drawing.Point(17, 96);
+            this.lblNombreProducto.Location = new System.Drawing.Point(17, 101);
             this.lblNombreProducto.Name = "lblNombreProducto";
-            this.lblNombreProducto.Size = new System.Drawing.Size(240, 20);
+            this.lblNombreProducto.Size = new System.Drawing.Size(237, 21);
             this.lblNombreProducto.TabIndex = 4;
             this.lblNombreProducto.Text = "Escribir el nombre del Producto...";
             this.lblNombreProducto.Click += new System.EventHandler(this.lblNombreProducto_Click);
@@ -89,7 +89,7 @@
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(12, 138);
+            this.lblCantidad.Location = new System.Drawing.Point(12, 145);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(88, 25);
             this.lblCantidad.TabIndex = 5;
@@ -97,16 +97,16 @@
             // 
             // numCantidad
             // 
-            this.numCantidad.Location = new System.Drawing.Point(12, 171);
+            this.numCantidad.Location = new System.Drawing.Point(12, 180);
             this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(304, 26);
+            this.numCantidad.Size = new System.Drawing.Size(304, 29);
             this.numCantidad.TabIndex = 24;
             // 
             // lblProveedores
             // 
             this.lblProveedores.AutoSize = true;
             this.lblProveedores.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProveedores.Location = new System.Drawing.Point(12, 216);
+            this.lblProveedores.Location = new System.Drawing.Point(12, 227);
             this.lblProveedores.Name = "lblProveedores";
             this.lblProveedores.Size = new System.Drawing.Size(118, 25);
             this.lblProveedores.TabIndex = 25;
@@ -120,18 +120,18 @@
             "Drogueria Suiza",
             "Drogueria del Sud",
             "Belleza"});
-            this.cmbProveedores.Location = new System.Drawing.Point(12, 251);
+            this.cmbProveedores.Location = new System.Drawing.Point(12, 264);
             this.cmbProveedores.Name = "cmbProveedores";
-            this.cmbProveedores.Size = new System.Drawing.Size(304, 28);
+            this.cmbProveedores.Size = new System.Drawing.Size(304, 29);
             this.cmbProveedores.TabIndex = 26;
             this.cmbProveedores.Text = "Elegir Proveedor...";
             // 
             // btnVerCarrito
             // 
             this.btnVerCarrito.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.btnVerCarrito.Location = new System.Drawing.Point(12, 293);
+            this.btnVerCarrito.Location = new System.Drawing.Point(12, 308);
             this.btnVerCarrito.Name = "btnVerCarrito";
-            this.btnVerCarrito.Size = new System.Drawing.Size(149, 40);
+            this.btnVerCarrito.Size = new System.Drawing.Size(149, 42);
             this.btnVerCarrito.TabIndex = 27;
             this.btnVerCarrito.Text = "Ver Carrito";
             this.btnVerCarrito.UseVisualStyleBackColor = false;
@@ -141,9 +141,9 @@
             // 
             this.btnAgregaralCarrito.BackColor = System.Drawing.Color.Teal;
             this.btnAgregaralCarrito.ForeColor = System.Drawing.Color.White;
-            this.btnAgregaralCarrito.Location = new System.Drawing.Point(167, 295);
+            this.btnAgregaralCarrito.Location = new System.Drawing.Point(167, 310);
             this.btnAgregaralCarrito.Name = "btnAgregaralCarrito";
-            this.btnAgregaralCarrito.Size = new System.Drawing.Size(149, 40);
+            this.btnAgregaralCarrito.Size = new System.Drawing.Size(149, 42);
             this.btnAgregaralCarrito.TabIndex = 28;
             this.btnAgregaralCarrito.Text = "Agregar al Carrito";
             this.btnAgregaralCarrito.UseVisualStyleBackColor = false;
@@ -164,9 +164,9 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(28)))), ((int)(((byte)(3)))));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(58, 346);
+            this.btnCancelar.Location = new System.Drawing.Point(58, 363);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(224, 40);
+            this.btnCancelar.Size = new System.Drawing.Size(224, 42);
             this.btnCancelar.TabIndex = 30;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -174,9 +174,9 @@
             // 
             // frmNuevoPedido
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 398);
+            this.ClientSize = new System.Drawing.Size(323, 418);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblHacerPedido1);
             this.Controls.Add(this.btnAgregaralCarrito);
@@ -189,6 +189,7 @@
             this.Controls.Add(this.txtNombreProducto);
             this.Controls.Add(this.lblNombredelProducto);
             this.Controls.Add(this.lblHacerPedido);
+            this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmNuevoPedido";
             this.Text = "frmNuevoPedido";

@@ -94,10 +94,11 @@
             // 
             // dtpVencimiento
             // 
+            this.dtpVencimiento.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpVencimiento.Location = new System.Drawing.Point(12, 303);
             this.dtpVencimiento.Name = "dtpVencimiento";
-            this.dtpVencimiento.Size = new System.Drawing.Size(320, 26);
+            this.dtpVencimiento.Size = new System.Drawing.Size(320, 29);
             this.dtpVencimiento.TabIndex = 5;
             // 
             // btnCancelar
@@ -127,6 +128,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(12, 80);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
@@ -135,6 +137,7 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Items.AddRange(new object[] {
             "Salud",
@@ -144,14 +147,15 @@
             "Medicamento con Receta"});
             this.cmbCategoria.Location = new System.Drawing.Point(12, 157);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(320, 28);
+            this.cmbCategoria.Size = new System.Drawing.Size(320, 29);
             this.cmbCategoria.TabIndex = 22;
             // 
             // numCantidad
             // 
+            this.numCantidad.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numCantidad.Location = new System.Drawing.Point(16, 230);
             this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(320, 26);
+            this.numCantidad.Size = new System.Drawing.Size(320, 29);
             this.numCantidad.TabIndex = 23;
             // 
             // frmAñadirProducto

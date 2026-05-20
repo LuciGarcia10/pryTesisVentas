@@ -286,6 +286,11 @@ namespace pryTesisVentas
 
         }
 
+        private void pnlClintes_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
 
 
         //Para cargar los datos en la Grilla desde la BD

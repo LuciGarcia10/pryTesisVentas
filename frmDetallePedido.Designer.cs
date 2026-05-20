@@ -46,7 +46,7 @@
             // 
             this.lblDetallePedido.AutoSize = true;
             this.lblDetallePedido.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetallePedido.Location = new System.Drawing.Point(12, 14);
+            this.lblDetallePedido.Location = new System.Drawing.Point(12, 15);
             this.lblDetallePedido.Name = "lblDetallePedido";
             this.lblDetallePedido.Size = new System.Drawing.Size(134, 25);
             this.lblDetallePedido.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             this.lblNPedido.AutoSize = true;
             this.lblNPedido.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNPedido.Location = new System.Drawing.Point(20, 63);
+            this.lblNPedido.Location = new System.Drawing.Point(20, 66);
             this.lblNPedido.Name = "lblNPedido";
             this.lblNPedido.Size = new System.Drawing.Size(87, 25);
             this.lblNPedido.TabIndex = 1;
@@ -64,10 +64,11 @@
             // 
             // txtNumeroPedido
             // 
-            this.txtNumeroPedido.Location = new System.Drawing.Point(123, 60);
+            this.txtNumeroPedido.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroPedido.Location = new System.Drawing.Point(123, 63);
             this.txtNumeroPedido.Multiline = true;
             this.txtNumeroPedido.Name = "txtNumeroPedido";
-            this.txtNumeroPedido.Size = new System.Drawing.Size(290, 33);
+            this.txtNumeroPedido.Size = new System.Drawing.Size(290, 34);
             this.txtNumeroPedido.TabIndex = 2;
             // 
             // btnBuscar
@@ -75,9 +76,9 @@
             this.btnBuscar.BackColor = System.Drawing.Color.Teal;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(419, 60);
+            this.btnBuscar.Location = new System.Drawing.Point(419, 63);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(107, 34);
+            this.btnBuscar.Size = new System.Drawing.Size(107, 36);
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -89,11 +90,11 @@
             this.Cantidad,
             this.Producto,
             this.Precio});
-            this.dgvDetalles.Location = new System.Drawing.Point(17, 114);
+            this.dgvDetalles.Location = new System.Drawing.Point(17, 120);
             this.dgvDetalles.Name = "dgvDetalles";
             this.dgvDetalles.RowHeadersWidth = 62;
             this.dgvDetalles.RowTemplate.Height = 28;
-            this.dgvDetalles.Size = new System.Drawing.Size(509, 227);
+            this.dgvDetalles.Size = new System.Drawing.Size(509, 238);
             this.dgvDetalles.TabIndex = 4;
             // 
             // Cantidad
@@ -121,7 +122,7 @@
             // 
             this.lblPrecioTotal.AutoSize = true;
             this.lblPrecioTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
-            this.lblPrecioTotal.Location = new System.Drawing.Point(299, 360);
+            this.lblPrecioTotal.Location = new System.Drawing.Point(299, 378);
             this.lblPrecioTotal.Name = "lblPrecioTotal";
             this.lblPrecioTotal.Size = new System.Drawing.Size(95, 21);
             this.lblPrecioTotal.TabIndex = 5;
@@ -132,10 +133,10 @@
             // 
             this.txtPrecioTotal.BackColor = System.Drawing.Color.White;
             this.txtPrecioTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrecioTotal.Location = new System.Drawing.Point(400, 360);
+            this.txtPrecioTotal.Location = new System.Drawing.Point(400, 378);
             this.txtPrecioTotal.Name = "txtPrecioTotal";
             this.txtPrecioTotal.ReadOnly = true;
-            this.txtPrecioTotal.Size = new System.Drawing.Size(126, 26);
+            this.txtPrecioTotal.Size = new System.Drawing.Size(126, 29);
             this.txtPrecioTotal.TabIndex = 6;
             this.txtPrecioTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -156,10 +157,10 @@
             // 
             // frmDetallePedido
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(538, 412);
+            this.ClientSize = new System.Drawing.Size(538, 433);
             this.Controls.Add(this.lblCerrar);
             this.Controls.Add(this.txtPrecioTotal);
             this.Controls.Add(this.lblPrecioTotal);
@@ -168,6 +169,7 @@
             this.Controls.Add(this.txtNumeroPedido);
             this.Controls.Add(this.lblNPedido);
             this.Controls.Add(this.lblDetallePedido);
+            this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDetallePedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

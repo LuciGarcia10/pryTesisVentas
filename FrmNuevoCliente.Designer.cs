@@ -48,104 +48,109 @@
             // LblNombre
             // 
             this.LblNombre.AutoSize = true;
-            this.LblNombre.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombre.Location = new System.Drawing.Point(44, 87);
+            this.LblNombre.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombre.Location = new System.Drawing.Point(44, 81);
             this.LblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblNombre.Name = "LblNombre";
-            this.LblNombre.Size = new System.Drawing.Size(59, 16);
+            this.LblNombre.Size = new System.Drawing.Size(89, 28);
             this.LblNombre.TabIndex = 0;
             this.LblNombre.Text = "Nombre";
             // 
             // LblApellido
             // 
             this.LblApellido.AutoSize = true;
-            this.LblApellido.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblApellido.Location = new System.Drawing.Point(44, 149);
+            this.LblApellido.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblApellido.Location = new System.Drawing.Point(44, 143);
             this.LblApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblApellido.Name = "LblApellido";
-            this.LblApellido.Size = new System.Drawing.Size(63, 16);
+            this.LblApellido.Size = new System.Drawing.Size(91, 28);
             this.LblApellido.TabIndex = 1;
             this.LblApellido.Text = "Apellido";
             // 
             // TxtNombreC
             // 
+            this.TxtNombreC.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombreC.Location = new System.Drawing.Point(47, 107);
             this.TxtNombreC.Name = "TxtNombreC";
-            this.TxtNombreC.Size = new System.Drawing.Size(196, 23);
+            this.TxtNombreC.Size = new System.Drawing.Size(196, 34);
             this.TxtNombreC.TabIndex = 2;
             // 
             // TxtApC
             // 
+            this.TxtApC.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtApC.Location = new System.Drawing.Point(47, 169);
             this.TxtApC.Name = "TxtApC";
-            this.TxtApC.Size = new System.Drawing.Size(196, 23);
+            this.TxtApC.Size = new System.Drawing.Size(196, 34);
             this.TxtApC.TabIndex = 3;
             // 
             // LblNAfiliado
             // 
             this.LblNAfiliado.AutoSize = true;
-            this.LblNAfiliado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNAfiliado.Location = new System.Drawing.Point(44, 30);
+            this.LblNAfiliado.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNAfiliado.Location = new System.Drawing.Point(44, 22);
             this.LblNAfiliado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblNAfiliado.Name = "LblNAfiliado";
-            this.LblNAfiliado.Size = new System.Drawing.Size(99, 16);
+            this.LblNAfiliado.Size = new System.Drawing.Size(146, 28);
             this.LblNAfiliado.TabIndex = 4;
             this.LblNAfiliado.Text = "N° de Afiliado";
             // 
             // TxtNAfiliado
             // 
+            this.TxtNAfiliado.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNAfiliado.Location = new System.Drawing.Point(47, 50);
             this.TxtNAfiliado.Name = "TxtNAfiliado";
-            this.TxtNAfiliado.Size = new System.Drawing.Size(196, 23);
+            this.TxtNAfiliado.Size = new System.Drawing.Size(196, 34);
             this.TxtNAfiliado.TabIndex = 5;
             // 
             // LblObraSocial
             // 
             this.LblObraSocial.AutoSize = true;
-            this.LblObraSocial.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblObraSocial.Location = new System.Drawing.Point(297, 30);
+            this.LblObraSocial.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblObraSocial.Location = new System.Drawing.Point(297, 24);
             this.LblObraSocial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblObraSocial.Name = "LblObraSocial";
-            this.LblObraSocial.Size = new System.Drawing.Size(85, 16);
+            this.LblObraSocial.Size = new System.Drawing.Size(120, 28);
             this.LblObraSocial.TabIndex = 6;
             this.LblObraSocial.Text = "Obra Social";
             // 
             // LblECuenta
             // 
             this.LblECuenta.AutoSize = true;
-            this.LblECuenta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblECuenta.Location = new System.Drawing.Point(297, 87);
+            this.LblECuenta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblECuenta.Location = new System.Drawing.Point(297, 81);
             this.LblECuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblECuenta.Name = "LblECuenta";
-            this.LblECuenta.Size = new System.Drawing.Size(120, 16);
+            this.LblECuenta.Size = new System.Drawing.Size(174, 28);
             this.LblECuenta.TabIndex = 7;
             this.LblECuenta.Text = "Estado de cuenta";
             // 
             // LblSaldoC
             // 
             this.LblSaldoC.AutoSize = true;
-            this.LblSaldoC.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSaldoC.Location = new System.Drawing.Point(297, 149);
+            this.LblSaldoC.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSaldoC.Location = new System.Drawing.Point(297, 141);
             this.LblSaldoC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblSaldoC.Name = "LblSaldoC";
-            this.LblSaldoC.Size = new System.Drawing.Size(44, 16);
+            this.LblSaldoC.Size = new System.Drawing.Size(64, 28);
             this.LblSaldoC.TabIndex = 8;
             this.LblSaldoC.Text = "Saldo";
             // 
             // CmbObraS
             // 
+            this.CmbObraS.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbObraS.FormattingEnabled = true;
             this.CmbObraS.Location = new System.Drawing.Point(300, 50);
             this.CmbObraS.Name = "CmbObraS";
-            this.CmbObraS.Size = new System.Drawing.Size(196, 25);
+            this.CmbObraS.Size = new System.Drawing.Size(196, 36);
             this.CmbObraS.TabIndex = 12;
             // 
             // CmbECuenta
             // 
+            this.CmbECuenta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbECuenta.FormattingEnabled = true;
             this.CmbECuenta.Location = new System.Drawing.Point(300, 107);
             this.CmbECuenta.Name = "CmbECuenta";
-            this.CmbECuenta.Size = new System.Drawing.Size(196, 25);
+            this.CmbECuenta.Size = new System.Drawing.Size(196, 36);
             this.CmbECuenta.TabIndex = 13;
             // 
             // BtnAgregarC
@@ -177,15 +182,16 @@
             // 
             // numSaldo
             // 
+            this.numSaldo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numSaldo.Location = new System.Drawing.Point(300, 167);
             this.numSaldo.Margin = new System.Windows.Forms.Padding(2);
             this.numSaldo.Name = "numSaldo";
-            this.numSaldo.Size = new System.Drawing.Size(196, 23);
+            this.numSaldo.Size = new System.Drawing.Size(196, 34);
             this.numSaldo.TabIndex = 24;
             // 
             // FrmNuevoCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 292);
             this.Controls.Add(this.numSaldo);
