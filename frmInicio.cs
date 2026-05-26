@@ -286,10 +286,16 @@ namespace pryTesisVentas
 
         }
 
+<<<<<<< HEAD
         private void btnUsuario_Click(object sender, EventArgs e)
         {
             FrmPerfil frm = new FrmPerfil();
             frm.ShowDialog();
+=======
+        private void pnlClintes_Paint(object sender, PaintEventArgs e)
+        {
+
+>>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
         }
 
 

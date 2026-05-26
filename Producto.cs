@@ -16,5 +16,8 @@ namespace pryTesisVentas
 
         // Esta es la que usas para ordenar en el ComboBox
         public DateTime FechaVencimiento { get; set; }
+
+        
     }
+
 }

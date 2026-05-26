@@ -102,12 +102,20 @@
             // 
             // dtpVencimiento
             // 
+<<<<<<< HEAD
             this.dtpVencimiento.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
+            this.dtpVencimiento.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
             this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpVencimiento.Location = new System.Drawing.Point(30, 221);
             this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpVencimiento.Name = "dtpVencimiento";
+<<<<<<< HEAD
             this.dtpVencimiento.Size = new System.Drawing.Size(215, 23);
+=======
+            this.dtpVencimiento.Size = new System.Drawing.Size(320, 29);
+>>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
             this.dtpVencimiento.TabIndex = 5;
             // 
             // btnCancelar
@@ -139,9 +147,14 @@
             // 
             // txtNombre
             // 
+<<<<<<< HEAD
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(27, 55);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+=======
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(12, 80);
+>>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(215, 23);
@@ -149,7 +162,11 @@
             // 
             // cmbCategoria
             // 
+<<<<<<< HEAD
             this.cmbCategoria.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
+            this.cmbCategoria.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Items.AddRange(new object[] {
             "Salud",
@@ -160,16 +177,27 @@
             this.cmbCategoria.Location = new System.Drawing.Point(27, 110);
             this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbCategoria.Name = "cmbCategoria";
+<<<<<<< HEAD
             this.cmbCategoria.Size = new System.Drawing.Size(215, 23);
+=======
+            this.cmbCategoria.Size = new System.Drawing.Size(320, 29);
+>>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
             this.cmbCategoria.TabIndex = 22;
             // 
             // numCantidad
             // 
+<<<<<<< HEAD
             this.numCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numCantidad.Location = new System.Drawing.Point(30, 163);
             this.numCantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numCantidad.Name = "numCantidad";
             this.numCantidad.Size = new System.Drawing.Size(213, 23);
+=======
+            this.numCantidad.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numCantidad.Location = new System.Drawing.Point(16, 230);
+            this.numCantidad.Name = "numCantidad";
+            this.numCantidad.Size = new System.Drawing.Size(320, 29);
+>>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
             this.numCantidad.TabIndex = 23;
             // 
             // pictureBox6
