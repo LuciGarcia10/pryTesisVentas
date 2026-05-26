@@ -286,6 +286,12 @@ namespace pryTesisVentas
 
         }
 
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            FrmPerfil frm = new FrmPerfil();
+            frm.ShowDialog();
+        }
+
 
 
         //Para cargar los datos en la Grilla desde la BD

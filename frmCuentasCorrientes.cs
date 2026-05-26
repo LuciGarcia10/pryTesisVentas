@@ -33,7 +33,41 @@ namespace pryTesisVentas
             // 3. Mostramos los datos
             ActualizarGrilla(listaCuentas);
 
+            // "Acciones" es el nombre que veo en tu lista de columnas
+            ///////////////////////////dgvCuentasC.Columns["Acciones"].DefaultCellStyle.NullValue = null;
 
+        }
+
+        private void ConfigurarColumnasAcciones()
+        {
+            // ... tus columnas de datos (DNI, Nombre, etc.) ...
+
+            // 1. Botón VER (Ojo)
+            DataGridViewImageColumn colVer = new DataGridViewImageColumn();
+            colVer.Name = "btnVer";
+            colVer.HeaderText = "Acciones"; // Título de la sección
+            colVer.Image = Properties.Resources.Lupita; // Usa tus recursos
+            colVer.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            colVer.Width = 40;
+            dgvCuentasC.Columns.Add(colVer);
+
+            // 2. Botón EDITAR (Lápiz)
+            DataGridViewImageColumn colEditar = new DataGridViewImageColumn();
+            colEditar.Name = "btnEditar";
+            colEditar.HeaderText = ""; // Vacío para que parezca la misma sección
+            colEditar.Image = Properties.Resources.ptbEditar; // Asegúrate de tener este recurso
+            colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            colEditar.Width = 40;
+            dgvCuentasC.Columns.Add(colEditar);
+
+            // 3. Botón ELIMINAR (Tacho)
+            DataGridViewImageColumn colEliminar = new DataGridViewImageColumn();
+            colEliminar.Name = "btnEliminar";
+            colEliminar.HeaderText = "";
+            colEliminar.Image = Properties.Resources.ptbBorrar; //
+            colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            colEliminar.Width = 40;
+            dgvCuentasC.Columns.Add(colEliminar);
         }
         private void CargarDatosPrueba()
         {
@@ -139,5 +173,70 @@ namespace pryTesisVentas
 
             ventanaFiltro.ShowDialog(this);
         }
+
+        private void dgvCuentasC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            if (dgvCuentasC.Columns[e.ColumnIndex].Name == "ColAcciones")
+            {
+                // Obtenemos la posición del clic relativa a la celda
+                var relativeX = dgvCuentasC.PointToClient(Cursor.Position).X - dgvCuentasC.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).X;
+
+                // Definimos rangos aproximados según el ancho de tus iconos (ej: 30px cada uno)
+                if (relativeX > 0 && relativeX <= 35)
+                {
+                    MessageBox.Show("Clic en VER");
+                }
+                else if (relativeX > 35 && relativeX <= 70)
+                {
+                    MessageBox.Show("Clic en EDITAR");
+                }
+                else if (relativeX > 70)
+                {
+                    MessageBox.Show("Clic en BORRAR");
+                }
+            }
+        }
+
+        private void dgvCuentasC_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvCuentasC.Columns[e.ColumnIndex].Name == "ClmAcciones")
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                // 1. Definimos un tamaño estándar para los iconos (20x20 o 18x18)
+                int tamañoIcono = 20;
+
+                // 2. Cargamos las imágenes
+                Image ver = Properties.Resources.Lupita;
+                Image editar = Properties.Resources.ptbEditar;
+                Image borrar = Properties.Resources.ptbBorrar;
+
+                // 3. Calculamos posiciones horizontales con el nuevo tamaño fijo
+                // Ajustamos el margen para que queden centradas en la columna
+                int espacioEntreIconos = 10;
+                int xVer = e.CellBounds.Left + 15; // Ajusta este 15 para centrar el bloque
+                int xEditar = xVer + tamañoIcono + espacioEntreIconos;
+                int xBorrar = xEditar + tamañoIcono + espacioEntreIconos;
+
+                // 4. Calculamos posición vertical centrada
+                int y = e.CellBounds.Top + (e.CellBounds.Height - tamañoIcono) / 2;
+
+                // 5. DIBUJAMOS con el tamaño forzado (tamañoIcono, tamañoIcono)
+                e.Graphics.DrawImage(ver, new Rectangle(xVer, y, tamañoIcono, tamañoIcono));
+                e.Graphics.DrawImage(editar, new Rectangle(xEditar, y, tamañoIcono, tamañoIcono));
+                e.Graphics.DrawImage(borrar, new Rectangle(xBorrar, y, tamañoIcono, tamañoIcono));
+
+                e.Handled = true;
+            }
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            FrmPerfil frm = new FrmPerfil();
+            frm.ShowDialog();
+        }
     }
+    
 }

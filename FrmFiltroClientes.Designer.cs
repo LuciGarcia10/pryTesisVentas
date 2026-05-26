@@ -53,10 +53,10 @@
             this.btnResetearTodo.BackColor = System.Drawing.Color.LightCyan;
             this.btnResetearTodo.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetearTodo.ForeColor = System.Drawing.Color.Black;
-            this.btnResetearTodo.Location = new System.Drawing.Point(29, 273);
+            this.btnResetearTodo.Location = new System.Drawing.Point(22, 273);
             this.btnResetearTodo.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetearTodo.Name = "btnResetearTodo";
-            this.btnResetearTodo.Size = new System.Drawing.Size(242, 36);
+            this.btnResetearTodo.Size = new System.Drawing.Size(214, 36);
             this.btnResetearTodo.TabIndex = 44;
             this.btnResetearTodo.Text = "Resetear todo";
             this.btnResetearTodo.UseVisualStyleBackColor = false;
@@ -67,7 +67,7 @@
             this.btnAplicarFiltros.BackColor = System.Drawing.Color.Teal;
             this.btnAplicarFiltros.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAplicarFiltros.ForeColor = System.Drawing.Color.White;
-            this.btnAplicarFiltros.Location = new System.Drawing.Point(302, 273);
+            this.btnAplicarFiltros.Location = new System.Drawing.Point(241, 273);
             this.btnAplicarFiltros.Margin = new System.Windows.Forms.Padding(2);
             this.btnAplicarFiltros.Name = "btnAplicarFiltros";
             this.btnAplicarFiltros.Size = new System.Drawing.Size(242, 36);
@@ -78,11 +78,11 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(29, 154);
+            this.txtNombre.Location = new System.Drawing.Point(22, 144);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(242, 23);
+            this.txtNombre.Size = new System.Drawing.Size(227, 23);
             this.txtNombre.TabIndex = 41;
             this.txtNombre.Text = "Escribir el nombre...";
             // 
@@ -91,7 +91,7 @@
             this.lblResetearNombre.AutoSize = true;
             this.lblResetearNombre.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResetearNombre.ForeColor = System.Drawing.Color.Teal;
-            this.lblResetearNombre.Location = new System.Drawing.Point(204, 123);
+            this.lblResetearNombre.Location = new System.Drawing.Point(182, 113);
             this.lblResetearNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResetearNombre.Name = "lblResetearNombre";
             this.lblResetearNombre.Size = new System.Drawing.Size(67, 19);
@@ -103,7 +103,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(25, 123);
+            this.lblNombre.Location = new System.Drawing.Point(18, 113);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(65, 19);
@@ -112,11 +112,11 @@
             // 
             // txtIngresarNumero
             // 
-            this.txtIngresarNumero.Location = new System.Drawing.Point(29, 79);
+            this.txtIngresarNumero.Location = new System.Drawing.Point(22, 69);
             this.txtIngresarNumero.Margin = new System.Windows.Forms.Padding(2);
             this.txtIngresarNumero.Multiline = true;
             this.txtIngresarNumero.Name = "txtIngresarNumero";
-            this.txtIngresarNumero.Size = new System.Drawing.Size(242, 23);
+            this.txtIngresarNumero.Size = new System.Drawing.Size(227, 23);
             this.txtIngresarNumero.TabIndex = 37;
             this.txtIngresarNumero.Text = "Ingresa el N° de Afiliado...";
             // 
@@ -125,7 +125,7 @@
             this.lblResetearNumero.AutoSize = true;
             this.lblResetearNumero.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResetearNumero.ForeColor = System.Drawing.Color.Teal;
-            this.lblResetearNumero.Location = new System.Drawing.Point(204, 48);
+            this.lblResetearNumero.Location = new System.Drawing.Point(182, 38);
             this.lblResetearNumero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResetearNumero.Name = "lblResetearNumero";
             this.lblResetearNumero.Size = new System.Drawing.Size(67, 19);
@@ -137,7 +137,7 @@
             // 
             this.lblNdeAfiliado.AutoSize = true;
             this.lblNdeAfiliado.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNdeAfiliado.Location = new System.Drawing.Point(25, 48);
+            this.lblNdeAfiliado.Location = new System.Drawing.Point(18, 38);
             this.lblNdeAfiliado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNdeAfiliado.Name = "lblNdeAfiliado";
             this.lblNdeAfiliado.Size = new System.Drawing.Size(103, 19);
@@ -146,11 +146,11 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(29, 226);
+            this.txtApellido.Location = new System.Drawing.Point(22, 216);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Multiline = true;
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(242, 23);
+            this.txtApellido.Size = new System.Drawing.Size(227, 23);
             this.txtApellido.TabIndex = 47;
             this.txtApellido.Text = "Escribir el apellido...";
             // 
@@ -159,7 +159,7 @@
             this.lblResetearAp.AutoSize = true;
             this.lblResetearAp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResetearAp.ForeColor = System.Drawing.Color.Teal;
-            this.lblResetearAp.Location = new System.Drawing.Point(204, 195);
+            this.lblResetearAp.Location = new System.Drawing.Point(182, 185);
             this.lblResetearAp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResetearAp.Name = "lblResetearAp";
             this.lblResetearAp.Size = new System.Drawing.Size(67, 19);
@@ -171,7 +171,7 @@
             // 
             this.lblAp.AutoSize = true;
             this.lblAp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAp.Location = new System.Drawing.Point(25, 195);
+            this.lblAp.Location = new System.Drawing.Point(18, 185);
             this.lblAp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAp.Name = "lblAp";
             this.lblAp.Size = new System.Drawing.Size(66, 19);
@@ -182,7 +182,7 @@
             // 
             this.lblOS.AutoSize = true;
             this.lblOS.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOS.Location = new System.Drawing.Point(298, 48);
+            this.lblOS.Location = new System.Drawing.Point(260, 36);
             this.lblOS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblOS.Name = "lblOS";
             this.lblOS.Size = new System.Drawing.Size(87, 19);
@@ -193,7 +193,7 @@
             // 
             this.lblECuenta.AutoSize = true;
             this.lblECuenta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblECuenta.Location = new System.Drawing.Point(298, 123);
+            this.lblECuenta.Location = new System.Drawing.Point(260, 111);
             this.lblECuenta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblECuenta.Name = "lblECuenta";
             this.lblECuenta.Size = new System.Drawing.Size(124, 19);
@@ -203,18 +203,18 @@
             // CmbOS
             // 
             this.CmbOS.FormattingEnabled = true;
-            this.CmbOS.Location = new System.Drawing.Point(302, 79);
+            this.CmbOS.Location = new System.Drawing.Point(264, 67);
             this.CmbOS.Name = "CmbOS";
-            this.CmbOS.Size = new System.Drawing.Size(242, 21);
+            this.CmbOS.Size = new System.Drawing.Size(219, 21);
             this.CmbOS.TabIndex = 51;
             this.CmbOS.Text = "Seleccionar Obra Social";
             // 
             // CmbECuenta
             // 
             this.CmbECuenta.FormattingEnabled = true;
-            this.CmbECuenta.Location = new System.Drawing.Point(302, 158);
+            this.CmbECuenta.Location = new System.Drawing.Point(264, 146);
             this.CmbECuenta.Name = "CmbECuenta";
-            this.CmbECuenta.Size = new System.Drawing.Size(242, 21);
+            this.CmbECuenta.Size = new System.Drawing.Size(219, 21);
             this.CmbECuenta.TabIndex = 52;
             this.CmbECuenta.Text = "Seleccionar Estado de Cuenta";
             // 
@@ -232,7 +232,7 @@
             // pctCerrar
             // 
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
-            this.pctCerrar.Location = new System.Drawing.Point(533, 11);
+            this.pctCerrar.Location = new System.Drawing.Point(462, 11);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.pctCerrar.Name = "pctCerrar";
             this.pctCerrar.Size = new System.Drawing.Size(21, 18);
@@ -245,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 331);
+            this.ClientSize = new System.Drawing.Size(499, 331);
             this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.lblFiltrar);
             this.Controls.Add(this.CmbECuenta);

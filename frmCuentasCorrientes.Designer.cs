@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCuentasCorrientes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -104,7 +105,7 @@
             this.ClmObraS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmEstadoCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmSaldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmAcciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ClmAcciones = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -214,6 +215,7 @@
             this.btnUsuario.TabIndex = 40;
             this.btnUsuario.Text = "Funes Garcia";
             this.btnUsuario.UseVisualStyleBackColor = true;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // panel10
             // 
@@ -876,7 +878,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnLimpiar.BackColor = System.Drawing.Color.LightCyan;
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
             this.btnLimpiar.Location = new System.Drawing.Point(722, 10);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
@@ -973,14 +975,14 @@
             this.ClmSaldo,
             this.ClmAcciones});
             this.dgvCuentasC.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCuentasC.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCuentasC.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCuentasC.EnableHeadersVisualStyles = false;
             this.dgvCuentasC.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvCuentasC.Location = new System.Drawing.Point(17, 73);
@@ -991,6 +993,8 @@
             this.dgvCuentasC.RowTemplate.Height = 70;
             this.dgvCuentasC.Size = new System.Drawing.Size(812, 395);
             this.dgvCuentasC.TabIndex = 11;
+            this.dgvCuentasC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCuentasC_CellClick);
+            this.dgvCuentasC.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvCuentasC_CellPainting);
             // 
             // ClmAfiliado
             // 
@@ -1046,8 +1050,14 @@
             // 
             // ClmAcciones
             // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            this.ClmAcciones.DefaultCellStyle = dataGridViewCellStyle2;
             this.ClmAcciones.HeaderText = "Acciones";
+            this.ClmAcciones.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.ClmAcciones.Name = "ClmAcciones";
+            this.ClmAcciones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ClmAcciones.Width = 55;
             // 
             // frmCuentasCorrientes
@@ -1192,6 +1202,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmObraS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmEstadoCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmSaldo;
-        private System.Windows.Forms.DataGridViewButtonColumn ClmAcciones;
+        private System.Windows.Forms.DataGridViewImageColumn ClmAcciones;
     }
 }

@@ -149,7 +149,7 @@
             cmbVentas.Items.AddRange(new object[] {
             "Ultimos 30 dias"});
             cmbVentas.Location = new System.Drawing.Point(367, 9);
-            cmbVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            cmbVentas.Margin = new System.Windows.Forms.Padding(2);
             cmbVentas.Name = "cmbVentas";
             cmbVentas.Size = new System.Drawing.Size(99, 21);
             cmbVentas.TabIndex = 12;
@@ -167,7 +167,7 @@
             this.pnlContenedorPrincipal.Controls.Add(this.lblDigitalFarma);
             this.pnlContenedorPrincipal.Controls.Add(this.pctLogo);
             this.pnlContenedorPrincipal.Location = new System.Drawing.Point(-1, 0);
-            this.pnlContenedorPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlContenedorPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
             this.pnlContenedorPrincipal.Size = new System.Drawing.Size(194, 604);
             this.pnlContenedorPrincipal.TabIndex = 1;
@@ -179,7 +179,7 @@
             this.panel2.Controls.Add(this.lblDescri);
             this.panel2.Controls.Add(this.btnUsuario);
             this.panel2.Location = new System.Drawing.Point(1, 538);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(192, 64);
             this.panel2.TabIndex = 42;
@@ -200,7 +200,7 @@
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(16, 19);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(25, 22);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -223,12 +223,13 @@
             // btnUsuario
             // 
             this.btnUsuario.Location = new System.Drawing.Point(8, 3);
-            this.btnUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.Size = new System.Drawing.Size(182, 57);
             this.btnUsuario.TabIndex = 40;
             this.btnUsuario.Text = "Funes Garcia";
             this.btnUsuario.UseVisualStyleBackColor = true;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // panel10
             // 
@@ -237,7 +238,7 @@
             this.panel10.Controls.Add(this.ptbBotonAyuda);
             this.panel10.Controls.Add(this.btnAyuda);
             this.panel10.Location = new System.Drawing.Point(6, 317);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.panel10.Size = new System.Drawing.Size(161, 31);
@@ -259,7 +260,7 @@
             // 
             this.ptbBotonAyuda.Image = ((System.Drawing.Image)(resources.GetObject("ptbBotonAyuda.Image")));
             this.ptbBotonAyuda.Location = new System.Drawing.Point(3, 4);
-            this.ptbBotonAyuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ptbBotonAyuda.Margin = new System.Windows.Forms.Padding(2);
             this.ptbBotonAyuda.Name = "ptbBotonAyuda";
             this.ptbBotonAyuda.Size = new System.Drawing.Size(25, 22);
             this.ptbBotonAyuda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -273,7 +274,7 @@
             this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAyuda.ForeColor = System.Drawing.Color.Black;
             this.btnAyuda.Location = new System.Drawing.Point(2, 2);
-            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2);
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(157, 26);
             this.btnAyuda.TabIndex = 34;
@@ -288,7 +289,7 @@
             this.panel9.Controls.Add(this.ptbBotonClientes);
             this.panel9.Controls.Add(this.btnClientes);
             this.panel9.Location = new System.Drawing.Point(6, 268);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.panel9.Size = new System.Drawing.Size(161, 31);
@@ -310,7 +311,7 @@
             // 
             this.ptbBotonClientes.Image = ((System.Drawing.Image)(resources.GetObject("ptbBotonClientes.Image")));
             this.ptbBotonClientes.Location = new System.Drawing.Point(3, 5);
-            this.ptbBotonClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ptbBotonClientes.Margin = new System.Windows.Forms.Padding(2);
             this.ptbBotonClientes.Name = "ptbBotonClientes";
             this.ptbBotonClientes.Size = new System.Drawing.Size(25, 22);
             this.ptbBotonClientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -324,7 +325,7 @@
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.ForeColor = System.Drawing.Color.Black;
             this.btnClientes.Location = new System.Drawing.Point(2, 2);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(2);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(157, 26);
             this.btnClientes.TabIndex = 34;
@@ -339,7 +340,7 @@
             this.panel8.Controls.Add(this.ptbBotonProductos);
             this.panel8.Controls.Add(this.btnProductos);
             this.panel8.Location = new System.Drawing.Point(6, 222);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.panel8.Size = new System.Drawing.Size(161, 31);
@@ -361,7 +362,7 @@
             // 
             this.ptbBotonProductos.Image = ((System.Drawing.Image)(resources.GetObject("ptbBotonProductos.Image")));
             this.ptbBotonProductos.Location = new System.Drawing.Point(3, 4);
-            this.ptbBotonProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ptbBotonProductos.Margin = new System.Windows.Forms.Padding(2);
             this.ptbBotonProductos.Name = "ptbBotonProductos";
             this.ptbBotonProductos.Size = new System.Drawing.Size(25, 22);
             this.ptbBotonProductos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -375,7 +376,7 @@
             this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductos.ForeColor = System.Drawing.Color.Black;
             this.btnProductos.Location = new System.Drawing.Point(3, 2);
-            this.btnProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(2);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(156, 26);
             this.btnProductos.TabIndex = 34;
@@ -390,7 +391,7 @@
             this.panel7.Controls.Add(this.ptbBotonPedidos);
             this.panel7.Controls.Add(this.btnPedidos);
             this.panel7.Location = new System.Drawing.Point(6, 172);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.panel7.Size = new System.Drawing.Size(161, 31);
@@ -412,7 +413,7 @@
             // 
             this.ptbBotonPedidos.Image = ((System.Drawing.Image)(resources.GetObject("ptbBotonPedidos.Image")));
             this.ptbBotonPedidos.Location = new System.Drawing.Point(3, 4);
-            this.ptbBotonPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ptbBotonPedidos.Margin = new System.Windows.Forms.Padding(2);
             this.ptbBotonPedidos.Name = "ptbBotonPedidos";
             this.ptbBotonPedidos.Size = new System.Drawing.Size(25, 22);
             this.ptbBotonPedidos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -426,7 +427,7 @@
             this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPedidos.ForeColor = System.Drawing.Color.Black;
             this.btnPedidos.Location = new System.Drawing.Point(3, 2);
-            this.btnPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPedidos.Margin = new System.Windows.Forms.Padding(2);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(156, 26);
             this.btnPedidos.TabIndex = 34;
@@ -441,7 +442,7 @@
             this.panel6.Controls.Add(this.lblFlechaVentas);
             this.panel6.Controls.Add(this.btnVentas);
             this.panel6.Location = new System.Drawing.Point(6, 125);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.panel6.Size = new System.Drawing.Size(161, 31);
@@ -451,7 +452,7 @@
             // 
             this.ptbBotonVentas.Image = ((System.Drawing.Image)(resources.GetObject("ptbBotonVentas.Image")));
             this.ptbBotonVentas.Location = new System.Drawing.Point(3, 5);
-            this.ptbBotonVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ptbBotonVentas.Margin = new System.Windows.Forms.Padding(2);
             this.ptbBotonVentas.Name = "ptbBotonVentas";
             this.ptbBotonVentas.Size = new System.Drawing.Size(25, 22);
             this.ptbBotonVentas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -477,7 +478,7 @@
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentas.ForeColor = System.Drawing.Color.Black;
             this.btnVentas.Location = new System.Drawing.Point(2, 2);
-            this.btnVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVentas.Margin = new System.Windows.Forms.Padding(2);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(157, 26);
             this.btnVentas.TabIndex = 34;
@@ -492,7 +493,7 @@
             this.pnlInicio.Controls.Add(this.btnInicio);
             this.pnlInicio.Controls.Add(this.pictureBox3);
             this.pnlInicio.Location = new System.Drawing.Point(6, 75);
-            this.pnlInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlInicio.Margin = new System.Windows.Forms.Padding(2);
             this.pnlInicio.Name = "pnlInicio";
             this.pnlInicio.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.pnlInicio.Size = new System.Drawing.Size(161, 31);
@@ -516,7 +517,7 @@
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.Location = new System.Drawing.Point(27, 2);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(2);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(133, 26);
             this.btnInicio.TabIndex = 34;
@@ -529,7 +530,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(2, 3);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(25, 23);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -551,7 +552,7 @@
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
             this.pctLogo.Location = new System.Drawing.Point(9, 8);
-            this.pctLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pctLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(48, 46);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -567,7 +568,7 @@
             this.pnlGanancias.Controls.Add(this.lblGana);
             this.pnlGanancias.Controls.Add(this.pcbGanancias);
             this.pnlGanancias.Location = new System.Drawing.Point(218, 33);
-            this.pnlGanancias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlGanancias.Margin = new System.Windows.Forms.Padding(2);
             this.pnlGanancias.Name = "pnlGanancias";
             this.pnlGanancias.Size = new System.Drawing.Size(205, 65);
             this.pnlGanancias.TabIndex = 0;
@@ -611,7 +612,7 @@
             this.pcbGanancias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.pcbGanancias.Image = ((System.Drawing.Image)(resources.GetObject("pcbGanancias.Image")));
             this.pcbGanancias.Location = new System.Drawing.Point(11, 14);
-            this.pcbGanancias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pcbGanancias.Margin = new System.Windows.Forms.Padding(2);
             this.pcbGanancias.Name = "pcbGanancias";
             this.pcbGanancias.Size = new System.Drawing.Size(56, 45);
             this.pcbGanancias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -626,7 +627,7 @@
             this.pnlBalance.Controls.Add(this.lblBalan);
             this.pnlBalance.Controls.Add(this.pcbBalance);
             this.pnlBalance.Location = new System.Drawing.Point(427, 33);
-            this.pnlBalance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlBalance.Margin = new System.Windows.Forms.Padding(2);
             this.pnlBalance.Name = "pnlBalance";
             this.pnlBalance.Size = new System.Drawing.Size(206, 65);
             this.pnlBalance.TabIndex = 2;
@@ -670,7 +671,7 @@
             this.pcbBalance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(203)))), ((int)(((byte)(255)))));
             this.pcbBalance.Image = ((System.Drawing.Image)(resources.GetObject("pcbBalance.Image")));
             this.pcbBalance.Location = new System.Drawing.Point(5, 9);
-            this.pcbBalance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pcbBalance.Margin = new System.Windows.Forms.Padding(2);
             this.pcbBalance.Name = "pcbBalance";
             this.pcbBalance.Size = new System.Drawing.Size(59, 49);
             this.pcbBalance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -688,7 +689,7 @@
             this.pnlPrevisualizacion.Controls.Add(this.lblPrevi);
             this.pnlPrevisualizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlPrevisualizacion.Location = new System.Drawing.Point(216, 108);
-            this.pnlPrevisualizacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlPrevisualizacion.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPrevisualizacion.Name = "pnlPrevisualizacion";
             this.pnlPrevisualizacion.Size = new System.Drawing.Size(411, 220);
             this.pnlPrevisualizacion.TabIndex = 6;
@@ -730,7 +731,7 @@
             "Mes pasodo",
             "Historico"});
             this.cmbPrevi.Location = new System.Drawing.Point(319, 18);
-            this.cmbPrevi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbPrevi.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPrevi.Name = "cmbPrevi";
             this.cmbPrevi.Size = new System.Drawing.Size(82, 21);
             this.cmbPrevi.TabIndex = 6;
@@ -746,7 +747,7 @@
             chartArea1.Name = "ChartArea1";
             this.crtGananciasMensuales.ChartAreas.Add(chartArea1);
             this.crtGananciasMensuales.Location = new System.Drawing.Point(2, 52);
-            this.crtGananciasMensuales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.crtGananciasMensuales.Margin = new System.Windows.Forms.Padding(2);
             this.crtGananciasMensuales.Name = "crtGananciasMensuales";
             series1.ChartArea = "ChartArea1";
             series1.CustomProperties = "PointWidth=0.6";
@@ -777,7 +778,7 @@
             this.pnlClintes.Controls.Add(this.ldlClientes);
             this.pnlClintes.Controls.Add(this.chartClientes);
             this.pnlClintes.Location = new System.Drawing.Point(631, 108);
-            this.pnlClintes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlClintes.Margin = new System.Windows.Forms.Padding(2);
             this.pnlClintes.Name = "pnlClintes";
             this.pnlClintes.Size = new System.Drawing.Size(217, 220);
             this.pnlClintes.TabIndex = 7;
@@ -834,7 +835,7 @@
             this.chartClientes.ChartAreas.Add(chartArea2);
             this.chartClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chartClientes.Location = new System.Drawing.Point(0, 38);
-            this.chartClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartClientes.Margin = new System.Windows.Forms.Padding(2);
             this.chartClientes.Name = "chartClientes";
             this.chartClientes.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             series2.ChartArea = "ChartArea1";
@@ -855,7 +856,7 @@
             this.pnlVentasdeProductos.Controls.Add(this.lblVentas);
             this.pnlVentasdeProductos.Controls.Add(this.dgvVentas);
             this.pnlVentasdeProductos.Location = new System.Drawing.Point(218, 343);
-            this.pnlVentasdeProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlVentasdeProductos.Margin = new System.Windows.Forms.Padding(2);
             this.pnlVentasdeProductos.Name = "pnlVentasdeProductos";
             this.pnlVentasdeProductos.Size = new System.Drawing.Size(630, 261);
             this.pnlVentasdeProductos.TabIndex = 8;
@@ -864,7 +865,7 @@
             // 
             this.ptbVentas.Image = ((System.Drawing.Image)(resources.GetObject("ptbVentas.Image")));
             this.ptbVentas.Location = new System.Drawing.Point(5, 8);
-            this.ptbVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ptbVentas.Margin = new System.Windows.Forms.Padding(2);
             this.ptbVentas.Name = "ptbVentas";
             this.ptbVentas.Size = new System.Drawing.Size(26, 23);
             this.ptbVentas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -906,7 +907,7 @@
             this.dgvVentas.EnableHeadersVisualStyles = false;
             this.dgvVentas.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvVentas.Location = new System.Drawing.Point(34, 39);
-            this.dgvVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvVentas.Margin = new System.Windows.Forms.Padding(2);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.RowHeadersVisible = false;
             this.dgvVentas.RowHeadersWidth = 62;
@@ -951,7 +952,7 @@
             this.pnlVentasTotales.Controls.Add(this.lblPT);
             this.pnlVentasTotales.Controls.Add(this.pcbPedido);
             this.pnlVentasTotales.Location = new System.Drawing.Point(637, 33);
-            this.pnlVentasTotales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlVentasTotales.Margin = new System.Windows.Forms.Padding(2);
             this.pnlVentasTotales.Name = "pnlVentasTotales";
             this.pnlVentasTotales.Size = new System.Drawing.Size(207, 65);
             this.pnlVentasTotales.TabIndex = 1;
@@ -995,7 +996,7 @@
             this.pcbPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(155)))), ((int)(((byte)(205)))));
             this.pcbPedido.Image = ((System.Drawing.Image)(resources.GetObject("pcbPedido.Image")));
             this.pcbPedido.Location = new System.Drawing.Point(11, 14);
-            this.pcbPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pcbPedido.Margin = new System.Windows.Forms.Padding(2);
             this.pcbPedido.Name = "pcbPedido";
             this.pcbPedido.Size = new System.Drawing.Size(55, 45);
             this.pcbPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1009,7 +1010,7 @@
             this.txtBuscador.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscador.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.txtBuscador.Location = new System.Drawing.Point(27, 3);
-            this.txtBuscador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBuscador.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(84, 15);
             this.txtBuscador.TabIndex = 9;
@@ -1025,7 +1026,7 @@
             this.panel5.Controls.Add(this.txtBuscador);
             this.panel5.Controls.Add(this.pictureBox2);
             this.panel5.Location = new System.Drawing.Point(724, 8);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(120, 21);
             this.panel5.TabIndex = 10;
@@ -1045,7 +1046,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(1, 1);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(21, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1065,7 +1066,7 @@
             this.Controls.Add(this.pnlContenedorPrincipal);
             this.Controls.Add(this.pnlGanancias);
             this.Controls.Add(this.pnlVentasdeProductos);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmInicio";
