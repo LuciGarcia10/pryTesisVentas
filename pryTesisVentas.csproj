@@ -50,12 +50,19 @@
     <Compile Include="clsConsultas.cs" />
     <Compile Include="clsCuentasC.cs" />
     <Compile Include="clsDetallePedido.cs" />
+    <Compile Include="clsDetalleVentas.cs" />
     <Compile Include="clsPedido.cs" />
     <Compile Include="frmAñadirProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAñadirProducto.Designer.cs">
       <DependentUpon>frmAñadirProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAñadirVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAñadirVenta.Designer.cs">
+      <DependentUpon>frmAñadirVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCarrito.cs">
       <SubType>Form</SubType>
@@ -93,6 +100,12 @@
     <Compile Include="frmFiltroProductos.Designer.cs">
       <DependentUpon>frmFiltroProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFiltroVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFiltroVentas.Designer.cs">
+      <DependentUpon>frmFiltroVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +142,13 @@
     <Compile Include="frmProductos.Designer.cs">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVentas.Designer.cs">
+      <DependentUpon>frmVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemCarrito.cs" />
     <Compile Include="Models\PedidoDrogueria.cs" />
     <Compile Include="PanelRedondeado.cs">
       <SubType>Component</SubType>
@@ -139,6 +159,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAñadirProducto.resx">
       <DependentUpon>frmAñadirProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAñadirVenta.resx">
+      <DependentUpon>frmAñadirVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCarrito.resx">
       <DependentUpon>frmCarrito.cs</DependentUpon>
@@ -158,6 +181,9 @@
     <EmbeddedResource Include="frmFiltroProductos.resx">
       <DependentUpon>frmFiltroProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFiltroVentas.resx">
+      <DependentUpon>frmFiltroVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVentas.resx">
+      <DependentUpon>frmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
