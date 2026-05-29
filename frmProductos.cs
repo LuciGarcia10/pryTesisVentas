@@ -491,6 +491,12 @@ namespace pryTesisVentas
             frm.ShowDialog();
         }
 
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            FrmPerfil frm = new FrmPerfil();
+            frm.ShowDialog();
+        }
+
 
 
         // Método para traer la lista de productos desde SQL Server y guardarlos en memoria

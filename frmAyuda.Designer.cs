@@ -190,6 +190,7 @@
             this.btnUsuario.TabIndex = 40;
             this.btnUsuario.Text = "Funes Garcia";
             this.btnUsuario.UseVisualStyleBackColor = true;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // panel10
             // 
@@ -739,9 +740,16 @@
             // 
             this.lblticketsSoporte.AutoSize = true;
             this.lblticketsSoporte.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
+            this.lblticketsSoporte.Location = new System.Drawing.Point(31, 10);
+            this.lblticketsSoporte.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblticketsSoporte.Name = "lblticketsSoporte";
+            this.lblticketsSoporte.Size = new System.Drawing.Size(339, 21);
+=======
             this.lblticketsSoporte.Location = new System.Drawing.Point(46, 15);
             this.lblticketsSoporte.Name = "lblticketsSoporte";
             this.lblticketsSoporte.Size = new System.Drawing.Size(509, 32);
+>>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
             this.lblticketsSoporte.TabIndex = 0;
             this.lblticketsSoporte.Text = "Historial de Tickects de Soporte Pendientes";
             // 
@@ -760,7 +768,11 @@
             this.VentasTotales});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+<<<<<<< HEAD
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+=======
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+>>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;

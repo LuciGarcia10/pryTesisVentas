@@ -286,10 +286,17 @@ namespace pryTesisVentas
 
         }
 
-        private void pnlClintes_Paint(object sender, PaintEventArgs e)
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            FrmPerfil frm = new FrmPerfil();
+            frm.ShowDialog();
+
+        /*private void pnlClintes_Paint(object sender, PaintEventArgs e)
         {
 
-        }
+
+        }*/
 
 
 
@@ -340,7 +347,7 @@ namespace pryTesisVentas
         //             Console.WriteLine("Error: " + ex.Message);
         //         }
         //     }
-        // }
+        }
 
     }
 }
