@@ -95,12 +95,12 @@ namespace pryTesisVentas
             {
                 TxtContraNueva.PasswordChar = '\0'; // Muestra el texto plano
                 // Cambiar el ícono si tenés uno de ojo tachado:
-                BtnVerContra.Image = Properties.Resources.no_ver;
+                BtnVerContra.Image = Properties.Resources.hide;
             }
             else
             {
                 TxtContraNueva.PasswordChar = '●'; // Oculta el texto
-                BtnVerContra.Image = Properties.Resources.ver2;
+                BtnVerContra.Image = Properties.Resources.show;
             }
         }
 

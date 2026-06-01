@@ -106,6 +106,12 @@
     <Compile Include="frmFiltroVentas.Designer.cs">
       <DependentUpon>frmFiltroVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIngresar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIngresar.Designer.cs">
+      <DependentUpon>frmIngresar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,12 @@
     </Compile>
     <Compile Include="frmAyuda.Designer.cs">
       <DependentUpon>frmAyuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmNuevoCliente.cs">
       <SubType>Form</SubType>
@@ -196,6 +208,9 @@
     <EmbeddedResource Include="frmAyuda.resx">
       <DependentUpon>frmAyuda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevoCliente.resx">
       <DependentUpon>FrmNuevoCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +281,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ver2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\hide.png" />
+    <Content Include="Resources\show.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

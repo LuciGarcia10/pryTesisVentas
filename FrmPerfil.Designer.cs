@@ -727,7 +727,7 @@
             // BtnVerContra
             // 
             this.BtnVerContra.BackColor = System.Drawing.Color.Transparent;
-            this.BtnVerContra.BackgroundImage = global::pryTesisVentas.Properties.Resources.ver2;
+            this.BtnVerContra.BackgroundImage = global::pryTesisVentas.Properties.Resources.show;
             this.BtnVerContra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnVerContra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnVerContra.Location = new System.Drawing.Point(215, 397);
