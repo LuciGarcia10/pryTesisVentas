@@ -202,6 +202,9 @@
     <EmbeddedResource Include="frmFiltroVentas.resx">
       <DependentUpon>frmFiltroVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresar.resx">
+      <DependentUpon>frmIngresar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
