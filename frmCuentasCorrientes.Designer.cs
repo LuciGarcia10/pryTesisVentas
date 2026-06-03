@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCuentasCorrientes));
-<<<<<<< HEAD
+
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-=======
+
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
->>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
+            //System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -836,12 +836,12 @@
             // 
             // btnLimpiar
             // 
-<<<<<<< HEAD
+
             this.btnLimpiar.BackColor = System.Drawing.Color.LightCyan;
-=======
+
             this.btnLimpiar.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
->>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
+
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
             this.btnLimpiar.Location = new System.Drawing.Point(1083, 15);
             this.btnLimpiar.Name = "btnLimpiar";
@@ -935,7 +935,7 @@
             this.ClmSaldo,
             this.ClmAcciones});
             this.dgvCuentasC.Cursor = System.Windows.Forms.Cursors.Hand;
-<<<<<<< HEAD
+
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -944,7 +944,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCuentasC.DefaultCellStyle = dataGridViewCellStyle3;
-=======
+
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -953,7 +953,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCuentasC.DefaultCellStyle = dataGridViewCellStyle4;
->>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
+
             this.dgvCuentasC.EnableHeadersVisualStyles = false;
             this.dgvCuentasC.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvCuentasC.Location = new System.Drawing.Point(26, 112);
@@ -1027,11 +1027,11 @@
             dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
             this.ClmAcciones.DefaultCellStyle = dataGridViewCellStyle2;
             this.ClmAcciones.HeaderText = "Acciones";
-<<<<<<< HEAD
+
             this.ClmAcciones.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-=======
+
             this.ClmAcciones.MinimumWidth = 8;
->>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
+
             this.ClmAcciones.Name = "ClmAcciones";
             this.ClmAcciones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ClmAcciones.Width = 55;

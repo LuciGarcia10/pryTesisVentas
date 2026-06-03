@@ -814,12 +814,12 @@
             // 
             this.lblPedidos.AutoSize = true;
             this.lblPedidos.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.lblPedidos.Location = new System.Drawing.Point(46, 8);
             this.lblPedidos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-=======
+
             this.lblPedidos.Location = new System.Drawing.Point(18, 14);
->>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
+
             this.lblPedidos.Name = "lblPedidos";
             this.lblPedidos.Size = new System.Drawing.Size(119, 38);
             this.lblPedidos.TabIndex = 0;
@@ -843,11 +843,11 @@
             this.dgvPedidos.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-<<<<<<< HEAD
+
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-=======
+
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
->>>>>>> e23bb0215a126fa2253483aa43ec951fd9e33879
+
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
