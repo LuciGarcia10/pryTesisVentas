@@ -209,11 +209,11 @@ namespace pryTesisVentas
         private void btnInicio_Click(object sender, EventArgs e)
         {
             // Si el contenido del dashboard está en un control de usuario o quieres recargarlo:
-            //if (this.panelContenedorPrincipal.Controls.Count > 0)
-             //   this.panelContenedorPrincipal.Controls.RemoveAt(0);
+            if (this.pnlContenedorPrincipal.Controls.Count > 0)
+                this.pnlContenedorPrincipal.Controls.RemoveAt(0);
 
             // Aquí podrías recargar los gráficos iniciales
-           // ConfigurarGraficoClientes();
+            ConfigurarGraficoClientes();
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
