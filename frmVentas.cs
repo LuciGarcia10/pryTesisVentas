@@ -99,6 +99,30 @@ namespace pryTesisVentas
             ventanaFiltro.ShowDialog();
         }
 
+        private void btnPedidos_Click(object sender, EventArgs e)
+        {
+            frmPedidos frm = new frmPedidos();
+            frm.ShowDialog();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            frmProductos frm = new frmProductos();
+            frm.ShowDialog();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            frmCuentasCorrientes frm = new frmCuentasCorrientes();
+            frm.ShowDialog();
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            frmAyuda frm = new frmAyuda();
+            frm.ShowDialog();
+        }
+
         //Para cargar los datos en la Grilla desde la BD
 
         // private void ConfigurarColumnasGrilla()
