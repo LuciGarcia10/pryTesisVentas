@@ -742,10 +742,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(18, 10);
+            this.pictureBox2.Location = new System.Drawing.Point(3, 22);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 22);
+            this.pictureBox2.Size = new System.Drawing.Size(40, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 40;
             this.pictureBox2.TabStop = false;
@@ -814,12 +814,8 @@
             // 
             this.lblPedidos.AutoSize = true;
             this.lblPedidos.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.lblPedidos.Location = new System.Drawing.Point(46, 8);
+            this.lblPedidos.Location = new System.Drawing.Point(42, 15);
             this.lblPedidos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-
-            this.lblPedidos.Location = new System.Drawing.Point(18, 14);
-
             this.lblPedidos.Name = "lblPedidos";
             this.lblPedidos.Size = new System.Drawing.Size(119, 38);
             this.lblPedidos.TabIndex = 0;
@@ -843,11 +839,7 @@
             this.dgvPedidos.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
