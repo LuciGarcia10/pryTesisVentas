@@ -24,7 +24,6 @@ namespace pryTesisVentas
             dgvCarrito.DataSource = null;
             dgvCarrito.AutoGenerateColumns = false;
 
-            // Asegúrate de que las columnas coincidan con las de tu diseño
             // (Cantidad, Producto, Precio Total)
         }
         private void frmAñadirVenta_Load(object sender, EventArgs e)
@@ -78,7 +77,7 @@ namespace pryTesisVentas
             dgvCarrito.DataSource = null;
             dgvCarrito.DataSource = listaCarrito;
 
-            // Calcular el precio total acumulado usando LINQ
+            // Calcular el precio total acumulado 
             decimal precioTotalGeneral = listaCarrito.Sum(item => item.PrecioTotal);
 
             // Mostrar el total en el TextBox correspondiente (formateado a dinero)

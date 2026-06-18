@@ -35,19 +35,19 @@ namespace pryTesisVentas
             DateTime desde = dtpDesde.Value.Date;
             DateTime hasta = dtpHasta.Value.Date;
 
-            // Verificamos si eligió algo en el combo o si quedó el texto por defecto
+            // Verificamos si eligio algo en el combo o no
             string catSeleccionada = cmbCategoria.Text;
             bool filtrarPorCategoria = !string.IsNullOrEmpty(catSeleccionada) && catSeleccionada != "Elegir categoría...";
 
             string nombreBusqueda = txtNombre.Text.ToLower().Trim();
 
-            // 3. Filtrado con LINQ (Súper potente)
+            // 3. Filtrado
             var listaFiltrada = listaParaFiltrar.Where(x =>
                 // Filtro de fecha
                 (x.FechaVencimiento.Date >= desde && x.FechaVencimiento.Date <= hasta) &&
-                // Filtro de categoría (si seleccionó una)
+                // Filtro de categoría (si selecciono una)
                 (!filtrarPorCategoria || x.Categoria == catSeleccionada) &&
-                // Filtro de nombre (si escribió algo)
+                // Filtro de nombre (si escribio algo)
                 (string.IsNullOrEmpty(nombreBusqueda) || nombreBusqueda == "elegir el nombre..." || x.Nombre.ToLower().Contains(nombreBusqueda))
             ).ToList();
 

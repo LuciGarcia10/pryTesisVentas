@@ -58,7 +58,7 @@
             this.lblCerrar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblCerrar.Location = new System.Drawing.Point(536, 6);
             this.lblCerrar.Name = "lblCerrar";
-            this.lblCerrar.Size = new System.Drawing.Size(20, 21);
+            this.lblCerrar.Size = new System.Drawing.Size(14, 13);
             this.lblCerrar.TabIndex = 8;
             this.lblCerrar.Text = "X";
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
@@ -101,10 +101,10 @@
             // lblCarrito
             // 
             this.lblCarrito.AutoSize = true;
-            this.lblCarrito.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarrito.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCarrito.Location = new System.Drawing.Point(42, 17);
             this.lblCarrito.Name = "lblCarrito";
-            this.lblCarrito.Size = new System.Drawing.Size(185, 25);
+            this.lblCarrito.Size = new System.Drawing.Size(153, 20);
             this.lblCarrito.TabIndex = 10;
             this.lblCarrito.Text = "Carrito de productos";
             // 
@@ -124,7 +124,7 @@
             this.lblCantidadProductos.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidadProductos.Location = new System.Drawing.Point(12, 274);
             this.lblCantidadProductos.Name = "lblCantidadProductos";
-            this.lblCantidadProductos.Size = new System.Drawing.Size(154, 21);
+            this.lblCantidadProductos.Size = new System.Drawing.Size(107, 13);
             this.lblCantidadProductos.TabIndex = 12;
             this.lblCantidadProductos.Text = "Cantidad Productos";
             // 
@@ -132,9 +132,9 @@
             // 
             this.lblPrecioTotal.AutoSize = true;
             this.lblPrecioTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioTotal.Location = new System.Drawing.Point(303, 280);
+            this.lblPrecioTotal.Location = new System.Drawing.Point(332, 274);
             this.lblPrecioTotal.Name = "lblPrecioTotal";
-            this.lblPrecioTotal.Size = new System.Drawing.Size(95, 21);
+            this.lblPrecioTotal.Size = new System.Drawing.Size(66, 13);
             this.lblPrecioTotal.TabIndex = 13;
             this.lblPrecioTotal.Text = "Precio Total";
             // 
@@ -144,7 +144,7 @@
             this.lblDirecciondeentrega.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDirecciondeentrega.Location = new System.Drawing.Point(12, 318);
             this.lblDirecciondeentrega.Name = "lblDirecciondeentrega";
-            this.lblDirecciondeentrega.Size = new System.Drawing.Size(163, 21);
+            this.lblDirecciondeentrega.Size = new System.Drawing.Size(112, 13);
             this.lblDirecciondeentrega.TabIndex = 14;
             this.lblDirecciondeentrega.Text = "Direccion de entrega";
             // 
@@ -154,39 +154,41 @@
             this.lblFechaestimadadeentrega.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaestimadadeentrega.Location = new System.Drawing.Point(12, 367);
             this.lblFechaestimadadeentrega.Name = "lblFechaestimadadeentrega";
-            this.lblFechaestimadadeentrega.Size = new System.Drawing.Size(206, 21);
+            this.lblFechaestimadadeentrega.Size = new System.Drawing.Size(144, 13);
             this.lblFechaestimadadeentrega.TabIndex = 15;
             this.lblFechaestimadadeentrega.Text = "Fecha estimada de entrega";
             // 
             // txtCantProd
             // 
-            this.txtCantProd.Location = new System.Drawing.Point(172, 272);
+            this.txtCantProd.BackColor = System.Drawing.Color.White;
+            this.txtCantProd.Location = new System.Drawing.Point(162, 271);
             this.txtCantProd.Name = "txtCantProd";
             this.txtCantProd.ReadOnly = true;
-            this.txtCantProd.Size = new System.Drawing.Size(109, 29);
+            this.txtCantProd.Size = new System.Drawing.Size(109, 22);
             this.txtCantProd.TabIndex = 16;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(181, 316);
+            this.txtDireccion.Location = new System.Drawing.Point(162, 315);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(126, 29);
+            this.txtDireccion.Size = new System.Drawing.Size(137, 22);
             this.txtDireccion.TabIndex = 18;
             // 
             // txtPrecioTotal
             // 
-            this.txtPrecioTotal.Location = new System.Drawing.Point(404, 280);
+            this.txtPrecioTotal.BackColor = System.Drawing.Color.White;
+            this.txtPrecioTotal.Location = new System.Drawing.Point(404, 271);
             this.txtPrecioTotal.Name = "txtPrecioTotal";
             this.txtPrecioTotal.ReadOnly = true;
-            this.txtPrecioTotal.Size = new System.Drawing.Size(125, 29);
+            this.txtPrecioTotal.Size = new System.Drawing.Size(125, 22);
             this.txtPrecioTotal.TabIndex = 19;
             // 
             // txtFechaEntrega
             // 
             this.txtFechaEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaEntrega.Location = new System.Drawing.Point(224, 367);
+            this.txtFechaEntrega.Location = new System.Drawing.Point(162, 358);
             this.txtFechaEntrega.Name = "txtFechaEntrega";
-            this.txtFechaEntrega.Size = new System.Drawing.Size(137, 29);
+            this.txtFechaEntrega.Size = new System.Drawing.Size(137, 22);
             this.txtFechaEntrega.TabIndex = 20;
             // 
             // btnPedir
@@ -194,9 +196,9 @@
             this.btnPedir.BackColor = System.Drawing.Color.Teal;
             this.btnPedir.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPedir.ForeColor = System.Drawing.Color.White;
-            this.btnPedir.Location = new System.Drawing.Point(398, 326);
+            this.btnPedir.Location = new System.Drawing.Point(321, 303);
             this.btnPedir.Name = "btnPedir";
-            this.btnPedir.Size = new System.Drawing.Size(131, 37);
+            this.btnPedir.Size = new System.Drawing.Size(208, 37);
             this.btnPedir.TabIndex = 21;
             this.btnPedir.Text = "Pedir";
             this.btnPedir.UseVisualStyleBackColor = false;
@@ -206,9 +208,9 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(398, 369);
+            this.btnCancelar.Location = new System.Drawing.Point(321, 346);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(131, 37);
+            this.btnCancelar.Size = new System.Drawing.Size(208, 34);
             this.btnCancelar.TabIndex = 22;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -216,10 +218,10 @@
             // 
             // frmCarrito
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(563, 425);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(545, 405);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnPedir);
             this.Controls.Add(this.txtFechaEntrega);

@@ -42,8 +42,8 @@ namespace pryTesisVentas
 
         private void frmPedidos_Load(object sender, EventArgs e)
         {
-            //NUEVO: Configuramos la grilla ANTES de cargar los datos 
-            dgvPedidos.AutoGenerateColumns = false; // ESTO ES CLAVE para que no se vea feo
+            //Configuramos la grilla ANTES de cargar los datos 
+            dgvPedidos.AutoGenerateColumns = false;
 
             // 1. Creamos el Pedido 109
             clsPedido p1 = new clsPedido();
@@ -69,7 +69,7 @@ namespace pryTesisVentas
             listaPedidos.Add(p2);
 
             EstilizarGrilla(); // <--- Llamada clave
-                               // ... tu carga de datos de prueba ...
+                               // carga de datos de prueba
             ActualizarGrilla(listaPedidos);
         }
         private void EstilizarGrilla()
@@ -110,8 +110,7 @@ namespace pryTesisVentas
             // 6. Ajuste automático de columnas al ancho total
             dgvPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // 7. Ajuste específico para la columna del Ojito (si existe)
-            // Cambiamos "btnVerDetalle" por el Name que le pusiste a tu columna
+            // 7. Ajuste específico para la columna del Ojito
             if (dgvPedidos.Columns.Contains("btnVerDetalle"))
             {
                 dgvPedidos.Columns["btnVerDetalle"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -132,7 +131,7 @@ namespace pryTesisVentas
             }
             ventanaFiltro.listaParaFiltrar = this.listaPedidos;
 
-            // --- 3. NUEVO: Lógica de posicionamiento ---
+            // --- 3.Lógica de posicionamiento ---
 
             // Le decimos a Windows que nosotros definiremos la ubicación manualmente
             ventanaFiltro.StartPosition = FormStartPosition.Manual;
@@ -143,7 +142,7 @@ namespace pryTesisVentas
             Point puntoAparicion = cmbFiltrar.PointToScreen(new Point(0, cmbFiltrar.Height));
 
             // Si la ventana de filtros es más ancha que el combo, podés restarle un poco a la X 
-            // para que quede alineada a la derecha o centrada. Por ahora probá así:
+            // para que quede alineada a la derecha o centrada.
             ventanaFiltro.Location = puntoAparicion;
 
             // 4. Abrimos la ventana
@@ -207,16 +206,16 @@ namespace pryTesisVentas
 
         private void dgvPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // 1. Verificamos que el clic sea en la columna del ojito (supongamos que es la columna 5)
+            // 1. Verificamos que el clic sea en la columna del ojito 
             // También validamos que no sea el encabezado (e.RowIndex >= 0)
             if (e.RowIndex >= 0 && dgvPedidos.Columns[e.ColumnIndex].Name == "btnVerDetalle")
             {
                 clsPedido pedidoSeleccionado = (clsPedido)dgvPedidos.Rows[e.RowIndex].DataBoundItem;
                 // 3. Creamos la instancia de la ventana de detalle
                 frmDetallePedido ventanaDetalle = new frmDetallePedido();
-                // --- ACÁ VAN LAS DOS LÍNEAS CLAVE ---
+
                 ventanaDetalle.PedidoSeleccionado = pedidoSeleccionado; // Para que muestre el que clickeaste
-                ventanaDetalle.ListaCompleta = this.listaPedidos;      // <--- ESTA ES LA QUE BUSCABAS
+                ventanaDetalle.ListaCompleta = this.listaPedidos;
                 ventanaDetalle.StartPosition = FormStartPosition.CenterParent;
                 ventanaDetalle.ShowDialog(this);
             }

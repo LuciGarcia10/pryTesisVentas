@@ -37,19 +37,18 @@ namespace pryTesisVentas
                 // Calculamos el total
                 decimal total = PedidoSeleccionado.Detalles.Sum(x => x.Precio * x.Cantidad);
 
-                // ASIGNACIÓN: Asegurate que el nombre coincida con tu Label
+                // asignacion
                 txtPrecioTotal.Text = total.ToString("C0"); // El "C" le pone el signo $ automáticamente
             }
         }
 
-        // Agregá este método abajo para que se vea pro
         private void EstilizarGrillaDetalle()
         {
-            // 1. Fondo blanco y sin bordes feos
+            // 1. Fondo blanco y sin bordes
             dgvDetalles.BackgroundColor = Color.White;
             dgvDetalles.BorderStyle = BorderStyle.None;
 
-            // 2. Quitamos la columna gris de la izquierda (la del asterisco)
+            // 2. Quitamos la columna gris de la izquierda
             dgvDetalles.RowHeadersVisible = false;
 
             // 3. Quitamos la fila vacía del final

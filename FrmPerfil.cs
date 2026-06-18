@@ -38,8 +38,7 @@ namespace pryTesisVentas
 
         private void ConfigurarEstilosExclusivos()
         {
-            // Estilizar botón Guardar Cambios al estilo DigitalFarma
-            BtnGuardar.BackColor = Color.FromArgb(0, 105, 92); // Verde esmeralda corporativo
+            BtnGuardar.BackColor = Color.FromArgb(0, 105, 92); 
             BtnGuardar.ForeColor = Color.White;
             BtnGuardar.FlatStyle = FlatStyle.Flat;
             BtnGuardar.FlatAppearance.BorderSize = 0;
@@ -54,7 +53,7 @@ namespace pryTesisVentas
             BtnCambiarFoto.FlatAppearance.BorderSize = 1;
             BtnCambiarFoto.Font = new Font("Segoe UI", 9, FontStyle.Bold);
 
-            // Ajustar propiedades de la grilla de usuarios subordinados
+            // Ajustar propiedades de la grilla de usuarios
             DgvPermisos.BackgroundColor = Color.White;
             DgvPermisos.BorderStyle = BorderStyle.None;
             DgvPermisos.RowHeadersVisible = false;
@@ -82,7 +81,7 @@ namespace pryTesisVentas
                 DataGridViewImageColumn colAccion = new DataGridViewImageColumn();
                 colAccion.Name = "btnAcciones";
                 colAccion.HeaderText = "Acciones";
-                colAccion.Image = Properties.Resources.Lupita; // Podés usar un engranaje o la lupita que ya tenés
+                //colAccion.Image = Properties.Resources.Lupita;
                 colAccion.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 colAccion.Width = 60;
                 DgvPermisos.Columns.Add(colAccion);
@@ -94,7 +93,7 @@ namespace pryTesisVentas
             if (TxtContraNueva.PasswordChar == '●')
             {
                 TxtContraNueva.PasswordChar = '\0'; // Muestra el texto plano
-                // Cambiar el ícono si tenés uno de ojo tachado:
+                // Cambiar el ícono
                 BtnVerContra.Image = Properties.Resources.hide;
             }
             else
@@ -126,7 +125,6 @@ namespace pryTesisVentas
                 return;
             }
 
-            // Simulación de persistencia arquitectónica (Acorde al resto de tus pantallas)
             MessageBox.Show("¡Cambios de perfil guardados con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -142,7 +140,7 @@ namespace pryTesisVentas
 
             if (res == DialogResult.Yes)
             {
-                // 2. Cerramos la aplicación o volvemos al Login según la estructura de tu tesis
+                // 2. Cerramos la aplicación
                 Application.Exit();
             }
         }
@@ -156,13 +154,13 @@ namespace pryTesisVentas
                 var usuarioSeleccionado = DgvPermisos.Rows[e.RowIndex].DataBoundItem as clsUsuarioSimulado;
                 if (usuarioSeleccionado != null)
                 {
-                    // Abrir un cuadro modal o despliegue para conmutar permisos (Admin, Farmacéutico, Cajero)
+                    // Abrir un cuadro de gestion permisos (Admin, Farmacéutico, Cajero)
                     MessageBox.Show($"Abriendo panel de edición de permisos para: {usuarioSeleccionado.Usuario}\nRol actual: {usuarioSeleccionado.Rol}", "Gestión de Permisos");
                 }
             }
         }
 
-        // Clase de soporte exclusiva para mapear la grilla de control del Administrador
+        // Clase para ver la grilla de control del Administrador
         public class clsUsuarioSimulado
         {
             public string Usuario { get; set; }
@@ -184,18 +182,18 @@ namespace pryTesisVentas
             if (string.IsNullOrWhiteSpace(TxtBuscarU.Text))
             {
                 TxtBuscarU.Text = "Buscar usuarios...";
-                TxtBuscarU.ForeColor = Color.Gray; // Color atenuado de guía
+                TxtBuscarU.ForeColor = Color.Gray; // Color gris de guía
             }
         }
         private void TxtBuscarU_TextChanged(object sender, EventArgs e)
         {
-            // 1. Si la lista original está vacía o es nula, salimos para evitar errores
+            // 1. Si la lista original esta vacia o es nula y salimos para evitar errores
             if (listaUsuarios == null) return;
 
-            // 2. Tomamos el texto que ingresó el usuario
+            // 2. Tomamos el texto que ingreso el usuario
             string textoBusqueda = TxtBuscarU.Text.Trim().ToLower();
 
-            // 3. Si el buscador está vacío, volvemos a mostrar todos los registros originales
+            // 3. Si el buscador esta vacio volvemos a mostrar todos los registros originales
             if (string.IsNullOrEmpty(textoBusqueda))
             {
                 DgvPermisos.DataSource = null;
@@ -203,7 +201,7 @@ namespace pryTesisVentas
             }
             else
             {
-                // 4. Filtramos la lista usando LINQ buscando coincidencias en Usuario o en Rol
+                // 4. Filtramos la lista buscando coincidencias en Usuario o en Rol
                 var listaFiltrada = listaUsuarios.Where(x =>
                     x.Usuario.ToLower().Contains(textoBusqueda) ||
                     x.Rol.ToLower().Contains(textoBusqueda)
@@ -214,7 +212,7 @@ namespace pryTesisVentas
                 DgvPermisos.DataSource = listaFiltrada;
             }
 
-            // 6. Volvemos a renombrar las columnas para que mantengan la estética profesional
+            // 6. Volvemos a renombrar las columnas
             if (DgvPermisos.Columns["Usuario"] != null) DgvPermisos.Columns["Usuario"].HeaderText = "Usuario";
             if (DgvPermisos.Columns["Rol"] != null) DgvPermisos.Columns["Rol"].HeaderText = "Rol";
             if (DgvPermisos.Columns["Estado"] != null) DgvPermisos.Columns["Estado"].HeaderText = "Estado";
@@ -228,8 +226,8 @@ namespace pryTesisVentas
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            //frmVentas frm = new frmventas();
-            //frm.ShowDialog();
+            frmVentas frm = new frmVentas();
+            frm.ShowDialog();
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)

@@ -12,7 +12,7 @@ namespace pryTesisVentas
 {
     public partial class frmVentas : Form
     {
-        // Lista global que guardará los productos en la memoria de la PC
+        // Lista global para guardar los productos en la memoria de la PC
         List<Producto> listaProductos = new List<Producto>();
         // Cadena de conexión a tu base de datos en Córdoba
         //string cadenaConexion = "Server=TU_SERVIDOR; Database=DigitalFarma; Integrated Security=True";
@@ -23,7 +23,7 @@ namespace pryTesisVentas
 
         private void frmVentas_Load(object sender, EventArgs e)
         {
-            // CONFIGURACIÓN DE LA GRILLA (LO QUE YA TENÍAS)
+            // CONFIGURACIÓN DE LA GRILLA
             // 1. ESTO VA PRIMERO: Apagamos el generador automático antes de hacer nada
             dgvVentas.AutoGenerateColumns = false;
         }
@@ -92,7 +92,7 @@ namespace pryTesisVentas
             Point puntoAparicion = cmbFiltrar.PointToScreen(new Point(0, cmbFiltrar.Height));
 
             // Si la ventana de filtros es más ancha que el combo, podés restarle un poco a la X 
-            // para que quede alineada a la derecha o centrada. Por ahora probá así:
+            // para que quede alineada a la derecha o centrada.
             ventanaFiltro.Location = puntoAparicion;
 
             // 4. Abrimos la ventana

@@ -33,16 +33,16 @@ namespace pryTesisVentas
             // 3. Mostramos los datos
             ActualizarGrilla(listaCuentas);
 
-            // "Acciones" es el nombre que veo en tu lista de columnas
+            // Acciones
             ///////////////////////////dgvCuentasC.Columns["Acciones"].DefaultCellStyle.NullValue = null;
 
         }
 
         private void ConfigurarColumnasAcciones()
         {
-            // ... tus columnas de datos (DNI, Nombre, etc.) ...
+            // las otras columnas de datos (DNI, Nombre, etc.) 
 
-            // 1. Botón VER (Ojo)
+            //Boton VER
             DataGridViewImageColumn colVer = new DataGridViewImageColumn();
             colVer.Name = "btnVer";
             colVer.HeaderText = "Acciones"; // Título de la sección
@@ -51,7 +51,7 @@ namespace pryTesisVentas
             colVer.Width = 40;
             dgvCuentasC.Columns.Add(colVer);
 
-            // 2. Botón EDITAR (Lápiz)
+            //Boton EDITAR
             DataGridViewImageColumn colEditar = new DataGridViewImageColumn();
             colEditar.Name = "btnEditar";
             colEditar.HeaderText = ""; // Vacío para que parezca la misma sección
@@ -60,7 +60,7 @@ namespace pryTesisVentas
             colEditar.Width = 40;
             dgvCuentasC.Columns.Add(colEditar);
 
-            // 3. Botón ELIMINAR (Tacho)
+            //Boton ELIMINAR
             DataGridViewImageColumn colEliminar = new DataGridViewImageColumn();
             colEliminar.Name = "btnEliminar";
             colEliminar.HeaderText = "";

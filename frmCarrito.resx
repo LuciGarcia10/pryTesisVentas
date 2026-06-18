@@ -126,11 +126,20 @@
   <metadata name="Precio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Cantidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Producto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Precio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMIAAAC6CAYAAAD8kJKdAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAACKxJREFUeF7t3duR1MgWhWEswQHaANoB2gBwAAfAARygDQAHwABwAAfAARwAB3hm
+        vAAADrwBlbxySQAACKxJREFUeF7t3duR1MgWhWEswQHaANoB2gBwAAfAARygDQAHwABwAAfAARwAB3hm
         ZrVKMZqtbtBl587L/h++iHOGiEJk1pK0JKXq0a9fv34D2T2y/wHIiCAABAGYEASAIAATggAQBGBCEACC
         AEwIAkAQgAlBAAgCMCEIAEEAJgQBIAjAxD0I379///327dvmaLvstgIz1yDoy3Z9ff378ePHzdF2EQY8
         xDUIr169Wn0BW6Iw/Pz5c7XdQKogiE6T7HYD6YJwdXW12m4gXRDk27dvq21HbimD8P79+9W2I7eUQdB2
