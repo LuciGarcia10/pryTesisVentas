@@ -20,21 +20,21 @@ namespace pryTesisVentas
 
         private void ConfigurarEstilos()
         {
-            // Opcional: Si quieres que el formulario se vea moderno como los otros
+            
             this.BackColor = Color.White;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            // Estilizar botones si es necesario
-            BtnAgregarC.BackColor = Color.FromArgb(0, 150, 136); // Verde azulado como tus otros forms
+
+            BtnAgregarC.BackColor = Color.FromArgb(0, 150, 136);
             BtnAgregarC.ForeColor = Color.White;
             BtnAgregarC.FlatStyle = FlatStyle.Flat;
             BtnAgregarC.FlatAppearance.BorderSize = 0;
         }
         private void BtnAgregarC_Click(object sender, EventArgs e)
         {
-            // 1. Validar que los campos obligatorios no estén vacíos
+            // 1. Validar que los campos obligatorios no estén vacios
             if (string.IsNullOrWhiteSpace(TxtNombreC.Text) || string.IsNullOrWhiteSpace(TxtApC.Text) || string.IsNullOrWhiteSpace(TxtNAfiliado.Text))
             {
                 MessageBox.Show("Por favor, complete los campos obligatorios (Nombre, apellido y N° de Afiliado).",
@@ -44,16 +44,16 @@ namespace pryTesisVentas
 
             try
             {
-                // 2. Crear la instancia del nuevo cliente usando tu clase clsCuentasC
+                // 2. Crear la instancia del nuevo cliente usando clsCuentasC
                 clsCuentasC nuevoCliente = new clsCuentasC();
                 nuevoCliente.IdAfiliado = int.Parse(TxtNAfiliado.Text);
                 nuevoCliente.Nombre = TxtNombreC.Text;
                 nuevoCliente.Apellido = TxtApC.Text;
-                nuevoCliente.ObraSocial = CmbObraS.Text; // Asumiendo que usas un ComboBox
-                nuevoCliente.Estado = "Al día"; // Estado inicial por defecto
-                nuevoCliente.Saldo = 0;         // Saldo inicial
+                nuevoCliente.ObraSocial = CmbObraS.Text;
+                nuevoCliente.Estado = "Al día"; 
+                nuevoCliente.Saldo = 0;         
 
-                // 3. Lógica para guardar (aca podemos llamar a una función en clsConsultas)
+                // 3. Para guardar 
                // clsConsultas.InsertarCliente(nuevoCliente); 
 
                 // 4. Notificar al formulario padre y cerrar
@@ -93,9 +93,9 @@ namespace pryTesisVentas
             CmbObraS.Items.Add("Swiss Medical");
             CmbObraS.Items.Add("OSDE");
 
-            CmbObraS.SelectedIndex = 0; // Selecciona "Particular" por defecto
+            CmbObraS.SelectedIndex = 0; 
 
-            // Si tienes un combo para el Estado inicial del cliente
+            // Estado inicial del cliente
             if (CmbECuenta != null)
             {
                 CmbECuenta.Items.Clear();

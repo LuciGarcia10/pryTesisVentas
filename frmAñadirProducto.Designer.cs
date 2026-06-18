@@ -93,7 +93,7 @@
             // 
             this.lblFechavencimiento.AutoSize = true;
             this.lblFechavencimiento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechavencimiento.Location = new System.Drawing.Point(27, 202);
+            this.lblFechavencimiento.Location = new System.Drawing.Point(24, 202);
             this.lblFechavencimiento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechavencimiento.Name = "lblFechavencimiento";
             this.lblFechavencimiento.Size = new System.Drawing.Size(140, 17);
@@ -102,20 +102,12 @@
             // 
             // dtpVencimiento
             // 
-
             this.dtpVencimiento.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.dtpVencimiento.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVencimiento.Location = new System.Drawing.Point(30, 221);
-            this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpVencimiento.Location = new System.Drawing.Point(27, 221);
+            this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(2);
             this.dtpVencimiento.Name = "dtpVencimiento";
-
-            this.dtpVencimiento.Size = new System.Drawing.Size(215, 23);
-
-            this.dtpVencimiento.Size = new System.Drawing.Size(320, 29);
-
+            this.dtpVencimiento.Size = new System.Drawing.Size(218, 23);
             this.dtpVencimiento.TabIndex = 5;
             // 
             // btnCancelar
@@ -123,7 +115,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(27, 265);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(99, 40);
             this.btnCancelar.TabIndex = 19;
@@ -137,7 +129,7 @@
             this.btnAñadirproducto.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAñadirproducto.ForeColor = System.Drawing.Color.White;
             this.btnAñadirproducto.Location = new System.Drawing.Point(134, 265);
-            this.btnAñadirproducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAñadirproducto.Margin = new System.Windows.Forms.Padding(2);
             this.btnAñadirproducto.Name = "btnAñadirproducto";
             this.btnAñadirproducto.Size = new System.Drawing.Size(111, 40);
             this.btnAñadirproducto.TabIndex = 20;
@@ -147,14 +139,9 @@
             // 
             // txtNombre
             // 
-
-            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(27, 55);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(12, 80);
-
+            this.txtNombre.Location = new System.Drawing.Point(27, 58);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(215, 23);
@@ -162,11 +149,7 @@
             // 
             // cmbCategoria
             // 
-
-            this.cmbCategoria.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.cmbCategoria.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Items.AddRange(new object[] {
             "Salud",
@@ -175,29 +158,18 @@
             "Medicamento Venta Libre",
             "Medicamento con Receta"});
             this.cmbCategoria.Location = new System.Drawing.Point(27, 110);
-            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategoria.Name = "cmbCategoria";
-
-            this.cmbCategoria.Size = new System.Drawing.Size(215, 23);
-
-            this.cmbCategoria.Size = new System.Drawing.Size(320, 29);
-
+            this.cmbCategoria.Size = new System.Drawing.Size(218, 21);
             this.cmbCategoria.TabIndex = 22;
             // 
             // numCantidad
             // 
-
             this.numCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numCantidad.Location = new System.Drawing.Point(30, 163);
-            this.numCantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numCantidad.Location = new System.Drawing.Point(27, 163);
+            this.numCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(213, 23);
-
-            this.numCantidad.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numCantidad.Location = new System.Drawing.Point(16, 230);
-            this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(320, 29);
-
+            this.numCantidad.Size = new System.Drawing.Size(218, 23);
             this.numCantidad.TabIndex = 23;
             // 
             // pictureBox6
@@ -215,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 316);
+            this.ClientSize = new System.Drawing.Size(280, 337);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.numCantidad);
             this.Controls.Add(this.cmbCategoria);
@@ -230,7 +202,7 @@
             this.Controls.Add(this.lblAñadirproducto);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAñadirProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAñadirProducto";

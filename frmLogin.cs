@@ -57,9 +57,9 @@ namespace pryTesisVentas
             // txtCodigoVerificacion.Visible = true; 
 
             // 3. Actualizar el indicador de progreso visual
-            // Aquí puedes cambiar el color del círculo del PASO 2 en tu panel lateral
+            // Aquí puedes cambiar el color del círculo del PASO 2 en el panel lateral
             //panelPaso1.BackColor = Color.LightGray;
-            //panelPaso2.BackColor = Color.FromArgb(0, 168, 132); // El verde de tu marca
+            //panelPaso2.BackColor = Color.FromArgb(0, 168, 132);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

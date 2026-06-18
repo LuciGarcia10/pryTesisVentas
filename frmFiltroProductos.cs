@@ -35,7 +35,7 @@ namespace pryTesisVentas
 
             string nombreBusqueda = txtNombre.Text.ToLower().Trim();
 
-            // 3. Filtrado con LINQ (Súper potente)
+            // 3. Filtrado 
             var listaFiltrada = listaParaFiltrar.Where(x =>
                 // Filtro de fecha
                 (x.FechaVencimiento.Date >= desde && x.FechaVencimiento.Date <= hasta) &&

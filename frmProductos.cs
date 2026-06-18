@@ -53,7 +53,7 @@ namespace pryTesisVentas
                     // 2. Refrescar la grilla
                     ActualizarGrilla(listaProductos);
 
-                    // 3. (Opcional) Aquí llamarías a tu método para borrar de la Base de Datos
+                    // 3. (Opcional) Aca llamamos al metodo para borrar de la Base de Datos
                     // BorrarProductoBD(prod.Id);
                 }
             }
@@ -66,11 +66,11 @@ namespace pryTesisVentas
             {
                 string opcion = cmbOrden.SelectedItem.ToString();
 
-                // 2. Aplicamos el ordenamiento según la opción elegida
+                // 2. Aplicamos el orden seleccionado
                 if (opcion == "Más nuevo")
                 {
                     // Ordenamos por Fecha de Vencimiento de forma descendente (los más nuevos primero)
-                    // Si prefieres por Fecha de Carga, asegúrate de tener ese campo en tu clase
+                    // Si queremos por Fecha de Carga, tener ese campo en la clase
                     var listaOrdenada = listaProductos.OrderByDescending(x => x.FechaVencimiento).ToList();
                     ActualizarGrilla(listaOrdenada);
                 }
@@ -97,7 +97,7 @@ namespace pryTesisVentas
         }
         private void frmProductos_Load(object sender, EventArgs e)
         {
-            // CONFIGURACIÓN DE LA GRILLA (LO QUE YA TENÍAS)
+            // CONFIGURACIÓN DE LA GRILLA 
             // 1. ESTO VA PRIMERO: Apagamos el generador automático antes de hacer nada
             dgvProductos.AutoGenerateColumns = false;
 
@@ -144,10 +144,9 @@ namespace pryTesisVentas
             cmbOrden.SelectedIndex = 0;
 
             // --- 4. CARGAR LOS PRODUCTOS EN LA TABLA ---
-            // CargarProductosDesdeBD(); // Recordá crear este método para llenar el DataGridView
+            // CargarProductosDesdeBD(); //crear este método para llenar el DataGridView
         }
 
-        // Pegá esto al final de la clase frmProductos, antes de que cierre el último }
         public void HacerCirculo(Control control)
         {
             using (System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath())
@@ -232,9 +231,9 @@ namespace pryTesisVentas
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
 
-                // Definir colores y radio del borde (celeste suave de tu diseño)
-                Color backColor = Color.FromArgb(180, 230, 218); // Ajusta según tu paleta
-                Color borderColor = Color.FromArgb(0, 191, 165); // Verde/Cian más fuerte
+                // Definir colores y radio del borde 
+                Color backColor = Color.FromArgb(180, 230, 218); 
+                Color borderColor = Color.FromArgb(0, 191, 165); 
                 int borderRadius = 5;
 
                 // Calcular rectángulo del botón centrado en la celda
@@ -325,7 +324,6 @@ namespace pryTesisVentas
 
         private void btnAgregarProductos_Click(object sender, EventArgs e)
         {
-            // Asegurate que el nombre coincida letra por letra
             frmAñadirProducto ventana = new frmAñadirProducto();
             // Le decimos que use al formulario principal como centro
             ventana.StartPosition = FormStartPosition.CenterParent;

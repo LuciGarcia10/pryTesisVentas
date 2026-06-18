@@ -13,7 +13,7 @@ namespace pryTesisVentas
 {
     public partial class frmAyuda : Form
     {
-        // Tu cadena de conexión (ajustala a tu servidor local)
+        // cadena de conexión 
         //string cadenaConexion = "Server=TU_SERVIDOR; Database=DigitalFarma; Integrated Security=True";
         public frmAyuda()
         {
@@ -74,7 +74,7 @@ namespace pryTesisVentas
                 btnPregunta.FlatAppearance.BorderSize = 0; // Sin bordes feos
                 btnPregunta.Cursor = Cursors.Hand;
 
-                // El color verde de DigitalFarma para el texto
+                // El color verde para el texto
                 btnPregunta.ForeColor = Color.FromArgb(0, 168, 132);
                 btnPregunta.Font = new Font("Segoe UI", 10, FontStyle.Bold);
 
@@ -96,8 +96,8 @@ namespace pryTesisVentas
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            //frmVentas frm = new frmVentas();
-            //frm.ShowDialog();
+            frmVentas frm = new frmVentas();
+            frm.ShowDialog();
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
