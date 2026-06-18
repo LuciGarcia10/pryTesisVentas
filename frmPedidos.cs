@@ -230,8 +230,8 @@ namespace pryTesisVentas
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            //frmVentas frm = new frmVentas();
-            //frm.ShowDialog();
+            frmVentas frm = new frmVentas();
+            frm.ShowDialog();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
