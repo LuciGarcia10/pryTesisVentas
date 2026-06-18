@@ -89,10 +89,10 @@
             // btnCrearCuenta
             // 
             this.btnCrearCuenta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearCuenta.Location = new System.Drawing.Point(795, 23);
+            this.btnCrearCuenta.Location = new System.Drawing.Point(735, 23);
             this.btnCrearCuenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrearCuenta.Name = "btnCrearCuenta";
-            this.btnCrearCuenta.Size = new System.Drawing.Size(86, 28);
+            this.btnCrearCuenta.Size = new System.Drawing.Size(146, 40);
             this.btnCrearCuenta.TabIndex = 41;
             this.btnCrearCuenta.Text = "Crear cuenta";
             this.btnCrearCuenta.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             // 
             this.lblNoTienesCuenta.AutoSize = true;
             this.lblNoTienesCuenta.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoTienesCuenta.Location = new System.Drawing.Point(533, 27);
+            this.lblNoTienesCuenta.Location = new System.Drawing.Point(453, 30);
             this.lblNoTienesCuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNoTienesCuenta.Name = "lblNoTienesCuenta";
             this.lblNoTienesCuenta.Size = new System.Drawing.Size(263, 21);
@@ -191,6 +191,7 @@
             this.Controls.Add(this.txtContra);
             this.Name = "frmIngresar";
             this.Text = "frmIngresar";
+            this.Load += new System.EventHandler(this.frmIngresar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -25,12 +25,14 @@ namespace pryTesisVentas
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
             }
-            // Validación de credenciales (Requerimiento 7) [cite: 525]
+
+            // Validación de credenciales (Requerimiento 7)
             if (txtMail.Text == "admin@digitalfarma.com" && txtContra.Text == "1234")
             {
-                // Si es correcto, abrimos el formulario principal 
-                //FormMain principal = new FormMain();
-                //principal.Show();
+                frmInicio frm = new frmInicio();
+                frm.Show();
+
+                // 3. Ocultamos el formulario de login actual
                 this.Hide();
             }
             else
@@ -87,6 +89,11 @@ namespace pryTesisVentas
                 txtContra.ForeColor = Color.Gray;
                 txtContra.UseSystemPasswordChar = false; // Muestra la palabra "Contraseña"
             }
+        }
+
+        private void frmIngresar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
