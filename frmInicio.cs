@@ -15,6 +15,8 @@ namespace pryTesisVentas
 {
     public partial class frmInicio : Form
     {
+        public string NombreUsuario { get; set; } = "Usuario";
+        public string RolUsuario { get; set; } = "Invitado";
         // Define tu cadena de conexión aquí (ajusta el nombre del servidor y BD)
         string cadenaConexion = "Server=TU_SERVIDOR;Database=DigitalFarma;Trusted_Connection=True;";
         public frmInicio()
@@ -96,6 +98,32 @@ namespace pryTesisVentas
             HacerCirculo(pcbGanancias);
             HacerCirculo(pcbBalance);
             HacerCirculo(pcbPedido);
+
+            // Asignamos los datos del usuario actual abajo a la izquierda
+            btnUsuario.Text = NombreUsuario; // Mostrará "Valeria"
+            lblRol.Text = RolUsuario;             // Mostrará "Farmaceutica"
+
+            // Aplicar limitaciones según el Rol que viene de la Base de Datos
+            if (RolUsuario == "Farmaceutica" || RolUsuario == "Empleado")
+            {
+                // 1. Ocultar métricas de dinero de la parte superior
+                pnlGanancias.Visible = false;
+                pnlBalance.Visible = false;
+
+                // 2. Si tienes algún botón de reportes o configuraciones en el menú lateral,
+                // puedes desactivarlo aquí para que no puedan presionarlo:
+                // btnConfiguracion.Enabled = false;
+
+                // Opcional: Mostrar un aviso discreto al ingresar
+                MessageBox.Show($"Sesión iniciada: {NombreUsuario} ({RolUsuario}). Acceso limitado a funciones de caja y mostrador.",
+                                "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (RolUsuario == "Administrador")
+            {
+                // El administrador ve absolutamente todo el dashboard completo
+                pnlGanancias.Visible = true;
+                pnlBalance.Visible = true;
+            }
         }
         public void HacerCirculo(Control control)
         {

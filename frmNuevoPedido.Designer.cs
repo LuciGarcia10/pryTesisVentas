@@ -31,17 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNuevoPedido));
             this.lblHacerPedido = new System.Windows.Forms.Label();
             this.lblNombredelProducto = new System.Windows.Forms.Label();
-            this.txtNombreProducto = new System.Windows.Forms.TextBox();
-            this.lblNombreProducto = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblProveedores = new System.Windows.Forms.Label();
             this.cmbProveedores = new System.Windows.Forms.ComboBox();
             this.btnVerCarrito = new System.Windows.Forms.Button();
-            this.btnAgregaralCarrito = new System.Windows.Forms.Button();
+            this.btnAgregararCarrito = new System.Windows.Forms.Button();
             this.lblHacerPedido1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.cmbProductos = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
@@ -53,75 +52,36 @@
             this.lblHacerPedido.Location = new System.Drawing.Point(-559, 8);
             this.lblHacerPedido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHacerPedido.Name = "lblHacerPedido";
-            this.lblHacerPedido.Size = new System.Drawing.Size(81, 15);
+            this.lblHacerPedido.Size = new System.Drawing.Size(125, 25);
             this.lblHacerPedido.TabIndex = 1;
             this.lblHacerPedido.Text = "Hacer Pedido";
             // 
             // lblNombredelProducto
             // 
             this.lblNombredelProducto.AutoSize = true;
-            this.lblNombredelProducto.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombredelProducto.Location = new System.Drawing.Point(34, 63);
-            this.lblNombredelProducto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-
             this.lblNombredelProducto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombredelProducto.Location = new System.Drawing.Point(12, 57);
+            this.lblNombredelProducto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombredelProducto.Name = "lblNombredelProducto";
-            this.lblNombredelProducto.Size = new System.Drawing.Size(140, 17);
+            this.lblNombredelProducto.Size = new System.Drawing.Size(195, 25);
             this.lblNombredelProducto.TabIndex = 2;
             this.lblNombredelProducto.Text = "Nombre del Producto";
-            // 
-            // txtNombreProducto
-            // 
-            this.txtNombreProducto.Location = new System.Drawing.Point(34, 89);
-            this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtNombreProducto.Multiline = true;
-            this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(237, 35);
-            this.txtNombreProducto.Location = new System.Drawing.Point(12, 88);
-            this.txtNombreProducto.Multiline = true;
-            this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(304, 41);
-            this.txtNombreProducto.TabIndex = 3;
-            this.txtNombreProducto.TextChanged += new System.EventHandler(this.txtNombreProducto_TextChanged);
-            this.txtNombreProducto.Enter += new System.EventHandler(this.txtNombreProducto_Enter);
-            this.txtNombreProducto.Leave += new System.EventHandler(this.txtNombreProducto_Leave);
-            // 
-            // lblNombreProducto
-            // 
-            this.lblNombreProducto.AutoSize = true;
-            this.lblNombreProducto.BackColor = System.Drawing.Color.White;
-            this.lblNombreProducto.Location = new System.Drawing.Point(38, 100);
-            this.lblNombreProducto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNombreProducto.Name = "lblNombreProducto";
-            this.lblNombreProducto.Size = new System.Drawing.Size(203, 17);
-            this.lblNombreProducto.Location = new System.Drawing.Point(17, 101);
-            this.lblNombreProducto.Name = "lblNombreProducto";
-            this.lblNombreProducto.Size = new System.Drawing.Size(237, 21);
-            this.lblNombreProducto.TabIndex = 4;
-            this.lblNombreProducto.Text = "Escribir el nombre del Producto...";
-            this.lblNombreProducto.Click += new System.EventHandler(this.lblNombreProducto_Click);
             // 
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(34, 136);
-            this.lblCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidad.Location = new System.Drawing.Point(12, 145);
+            this.lblCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(62, 17);
+            this.lblCantidad.Size = new System.Drawing.Size(88, 25);
             this.lblCantidad.TabIndex = 5;
             this.lblCantidad.Text = "Cantidad";
             // 
             // numCantidad
             // 
-            this.numCantidad.Location = new System.Drawing.Point(34, 163);
-            this.numCantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(237, 25);
             this.numCantidad.Location = new System.Drawing.Point(12, 180);
+            this.numCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.numCantidad.Name = "numCantidad";
             this.numCantidad.Size = new System.Drawing.Size(304, 29);
             this.numCantidad.TabIndex = 24;
@@ -129,13 +89,11 @@
             // lblProveedores
             // 
             this.lblProveedores.AutoSize = true;
-            this.lblProveedores.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProveedores.Location = new System.Drawing.Point(34, 202);
-            this.lblProveedores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProveedores.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProveedores.Location = new System.Drawing.Point(12, 227);
+            this.lblProveedores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProveedores.Name = "lblProveedores";
-            this.lblProveedores.Size = new System.Drawing.Size(84, 17);
+            this.lblProveedores.Size = new System.Drawing.Size(118, 25);
             this.lblProveedores.TabIndex = 25;
             this.lblProveedores.Text = "Proveedores";
             // 
@@ -147,11 +105,8 @@
             "Drogueria Suiza",
             "Drogueria del Sud",
             "Belleza"});
-            this.cmbProveedores.Location = new System.Drawing.Point(34, 231);
-            this.cmbProveedores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cmbProveedores.Name = "cmbProveedores";
-            this.cmbProveedores.Size = new System.Drawing.Size(237, 25);
             this.cmbProveedores.Location = new System.Drawing.Point(12, 264);
+            this.cmbProveedores.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProveedores.Name = "cmbProveedores";
             this.cmbProveedores.Size = new System.Drawing.Size(304, 29);
             this.cmbProveedores.TabIndex = 26;
@@ -159,14 +114,10 @@
             // 
             // btnVerCarrito
             // 
-            this.btnVerCarrito.BackColor = System.Drawing.Color.CadetBlue;
-            this.btnVerCarrito.ForeColor = System.Drawing.Color.White;
-            this.btnVerCarrito.Location = new System.Drawing.Point(197, 18);
-            this.btnVerCarrito.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnVerCarrito.Name = "btnVerCarrito";
-            this.btnVerCarrito.Size = new System.Drawing.Size(94, 34);
             this.btnVerCarrito.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btnVerCarrito.ForeColor = System.Drawing.Color.White;
             this.btnVerCarrito.Location = new System.Drawing.Point(12, 308);
+            this.btnVerCarrito.Margin = new System.Windows.Forms.Padding(2);
             this.btnVerCarrito.Name = "btnVerCarrito";
             this.btnVerCarrito.Size = new System.Drawing.Size(149, 42);
             this.btnVerCarrito.TabIndex = 27;
@@ -174,21 +125,17 @@
             this.btnVerCarrito.UseVisualStyleBackColor = false;
             this.btnVerCarrito.Click += new System.EventHandler(this.btnVerCarrito_Click);
             // 
-            // btnAgregaralCarrito
+            // btnAgregararCarrito
             // 
-            this.btnAgregaralCarrito.BackColor = System.Drawing.Color.Teal;
-            this.btnAgregaralCarrito.ForeColor = System.Drawing.Color.White;
-            this.btnAgregaralCarrito.Location = new System.Drawing.Point(135, 270);
-            this.btnAgregaralCarrito.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAgregaralCarrito.Name = "btnAgregaralCarrito";
-            this.btnAgregaralCarrito.Size = new System.Drawing.Size(144, 34);
-            this.btnAgregaralCarrito.Location = new System.Drawing.Point(167, 310);
-            this.btnAgregaralCarrito.Name = "btnAgregaralCarrito";
-            this.btnAgregaralCarrito.Size = new System.Drawing.Size(149, 42);
-            this.btnAgregaralCarrito.TabIndex = 28;
-            this.btnAgregaralCarrito.Text = "Agregar al Carrito";
-            this.btnAgregaralCarrito.UseVisualStyleBackColor = false;
-            this.btnAgregaralCarrito.Click += new System.EventHandler(this.btnAgregaralCarrito_Click);
+            this.btnAgregararCarrito.BackColor = System.Drawing.Color.Teal;
+            this.btnAgregararCarrito.ForeColor = System.Drawing.Color.White;
+            this.btnAgregararCarrito.Location = new System.Drawing.Point(167, 310);
+            this.btnAgregararCarrito.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregararCarrito.Name = "btnAgregararCarrito";
+            this.btnAgregararCarrito.Size = new System.Drawing.Size(149, 42);
+            this.btnAgregararCarrito.TabIndex = 28;
+            this.btnAgregararCarrito.Text = "Agregar al Carrito";
+            this.btnAgregararCarrito.UseVisualStyleBackColor = false;
             // 
             // lblHacerPedido1
             // 
@@ -197,22 +144,17 @@
             this.lblHacerPedido1.Location = new System.Drawing.Point(49, 25);
             this.lblHacerPedido1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHacerPedido1.Name = "lblHacerPedido1";
-            this.lblHacerPedido1.Size = new System.Drawing.Size(101, 20);
+            this.lblHacerPedido1.Size = new System.Drawing.Size(156, 31);
             this.lblHacerPedido1.TabIndex = 29;
             this.lblHacerPedido1.Text = "Hacer Pedido";
             this.lblHacerPedido1.Click += new System.EventHandler(this.lblHacerPedido1_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Azure;
-            this.btnCancelar.ForeColor = System.Drawing.Color.Teal;
-            this.btnCancelar.Location = new System.Drawing.Point(28, 270);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(103, 34);
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(28)))), ((int)(((byte)(3)))));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(58, 363);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(224, 42);
             this.btnCancelar.TabIndex = 30;
@@ -231,32 +173,34 @@
             this.pictureBox5.TabIndex = 39;
             this.pictureBox5.TabStop = false;
             // 
+            // cmbProductos
+            // 
+            this.cmbProductos.FormattingEnabled = true;
+            this.cmbProductos.Location = new System.Drawing.Point(17, 94);
+            this.cmbProductos.Name = "cmbProductos";
+            this.cmbProductos.Size = new System.Drawing.Size(291, 29);
+            this.cmbProductos.TabIndex = 40;
+            // 
             // frmNuevoPedido
             // 
-
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 333);
-            this.Controls.Add(this.pictureBox5);
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 418);
+            this.Controls.Add(this.cmbProductos);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblHacerPedido1);
-            this.Controls.Add(this.btnAgregaralCarrito);
+            this.Controls.Add(this.btnAgregararCarrito);
             this.Controls.Add(this.btnVerCarrito);
             this.Controls.Add(this.cmbProveedores);
             this.Controls.Add(this.lblProveedores);
             this.Controls.Add(this.numCantidad);
             this.Controls.Add(this.lblCantidad);
-            this.Controls.Add(this.lblNombreProducto);
-            this.Controls.Add(this.txtNombreProducto);
             this.Controls.Add(this.lblNombredelProducto);
             this.Controls.Add(this.lblHacerPedido);
-            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmNuevoPedido";
             this.Text = "frmNuevoPedido";
             this.Load += new System.EventHandler(this.frmNuevoPedido_Load);
@@ -271,16 +215,15 @@
 
         private System.Windows.Forms.Label lblHacerPedido;
         private System.Windows.Forms.Label lblNombredelProducto;
-        private System.Windows.Forms.TextBox txtNombreProducto;
-        private System.Windows.Forms.Label lblNombreProducto;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.NumericUpDown numCantidad;
         private System.Windows.Forms.Label lblProveedores;
         private System.Windows.Forms.ComboBox cmbProveedores;
         private System.Windows.Forms.Button btnVerCarrito;
-        private System.Windows.Forms.Button btnAgregaralCarrito;
+        private System.Windows.Forms.Button btnAgregararCarrito;
         private System.Windows.Forms.Label lblHacerPedido1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.ComboBox cmbProductos;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace pryTesisVentas
 {
@@ -20,19 +21,41 @@ namespace pryTesisVentas
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             // Requerimiento: Verificar que los campos no estén vacíos
-            if (string.IsNullOrEmpty(txtMail.Text) || string.IsNullOrEmpty(txtContra.Text))
+            if (string.IsNullOrEmpty(txtMail.Text) || string.IsNullOrEmpty(txtContra.Text) ||
+                txtMail.Text == "Mail" || txtContra.Text == "Contraseña")
             {
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
             }
 
-            // Validación de credenciales (Requerimiento 7)
+            // Variable para guardar el rol que inició sesión
+            string rolUsuario = "";
+
+            // 1. Validación de credenciales para ADMINISTRADOR
             if (txtMail.Text == "admin@digitalfarma.com" && txtContra.Text == "1234")
             {
+                rolUsuario = "Administrador";
+            }
+            // 2. NUEVO ROL: Validación de credenciales para EMPLEADO/VENDEDOR
+            else if (txtMail.Text == "empleado@digitalfarma.com" && txtContra.Text == "5678")
+            {
+                rolUsuario = "Empleado";
+            }
+            // Puedes agregar más roles aquí usando otros 'else if'
+
+            // Si el rolUsuario cambió, significa que las credenciales son correctas
+            if (rolUsuario != "")
+            {
+                // Creamos el formulario de inicio
                 frmInicio frm = new frmInicio();
+
+                // OPCIONAL: Si quieres pasarle el rol a frmInicio para limitar accesos, 
+                // puedes crear una propiedad pública en frmInicio llamada 'Rol'
+                // frm.Rol = rolUsuario; 
+
                 frm.Show();
 
-                // 3. Ocultamos el formulario de login actual
+                // Ocultamos el formulario de login actual
                 this.Hide();
             }
             else
@@ -73,21 +96,27 @@ namespace pryTesisVentas
 
         private void txtContra_Enter(object sender, EventArgs e)
         {
+            // Cuando el usuario hace clic para escribir, borramos el placeholder
             if (txtContra.Text == "Contraseña")
             {
                 txtContra.Text = "";
                 txtContra.ForeColor = Color.Black;
-                txtContra.UseSystemPasswordChar = true; // Activa los puntitos al escribir
+
+                // ACTIVA ENMASCARADO: Muestra los puntitos del sistema al escribir
+                txtContra.PasswordChar = '*';
             }
         }
 
         private void txtContra_Leave(object sender, EventArgs e)
         {
+            // Si el usuario sale de la caja de texto y no escribió nada
             if (string.IsNullOrWhiteSpace(txtContra.Text))
             {
                 txtContra.Text = "Contraseña";
                 txtContra.ForeColor = Color.Gray;
-                txtContra.UseSystemPasswordChar = false; // Muestra la palabra "Contraseña"
+
+                // DESACTIVA EL ENMASCARADO: Permite que se vuelva a leer la palabra "Contraseña"
+                txtContra.PasswordChar = '\0';
             }
         }
 
