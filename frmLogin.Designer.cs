@@ -32,9 +32,6 @@
             this.pcbContra = new System.Windows.Forms.PictureBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.pctLogo = new System.Windows.Forms.PictureBox();
-            this.LnkPolitica = new System.Windows.Forms.LinkLabel();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.progressBarContra = new System.Windows.Forms.ProgressBar();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblYaTienesCuenta = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,9 +51,10 @@
             // 
             // pcbContra
             // 
-            this.pcbContra.Location = new System.Drawing.Point(662, 310);
+            this.pcbContra.Location = new System.Drawing.Point(441, 202);
+            this.pcbContra.Margin = new System.Windows.Forms.Padding(2);
             this.pcbContra.Name = "pcbContra";
-            this.pcbContra.Size = new System.Drawing.Size(28, 32);
+            this.pcbContra.Size = new System.Drawing.Size(19, 21);
             this.pcbContra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbContra.TabIndex = 34;
             this.pcbContra.TabStop = false;
@@ -66,10 +64,11 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtNombre.Location = new System.Drawing.Point(204, 211);
+            this.txtNombre.Location = new System.Drawing.Point(136, 137);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(246, 41);
+            this.txtNombre.Size = new System.Drawing.Size(165, 28);
             this.txtNombre.TabIndex = 21;
             this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
             this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
@@ -78,52 +77,21 @@
             // 
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(1, 2);
+            this.pctLogo.Location = new System.Drawing.Point(1, 1);
+            this.pctLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(62, 66);
+            this.pctLogo.Size = new System.Drawing.Size(41, 43);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctLogo.TabIndex = 33;
             this.pctLogo.TabStop = false;
             // 
-            // LnkPolitica
-            // 
-            this.LnkPolitica.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LnkPolitica.LinkArea = new System.Windows.Forms.LinkArea(63, 46);
-            this.LnkPolitica.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.LnkPolitica.Location = new System.Drawing.Point(203, 467);
-            this.LnkPolitica.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LnkPolitica.Name = "LnkPolitica";
-            this.LnkPolitica.Size = new System.Drawing.Size(499, 41);
-            this.LnkPolitica.TabIndex = 26;
-            this.LnkPolitica.TabStop = true;
-            this.LnkPolitica.Text = "Al crear una cuenta significa que está de acuerdo con nuestra  Politica de Privac" +
-    "idad y Términos de Servicio.";
-            this.LnkPolitica.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LnkPolitica.UseCompatibleTextRendering = true;
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(521, 384);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(157, 20);
-            this.lblEstado.TabIndex = 32;
-            this.lblEstado.Text = "Contraseña insegura";
-            // 
-            // progressBarContra
-            // 
-            this.progressBarContra.Location = new System.Drawing.Point(204, 367);
-            this.progressBarContra.Name = "progressBarContra";
-            this.progressBarContra.Size = new System.Drawing.Size(496, 11);
-            this.progressBarContra.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBarContra.TabIndex = 31;
-            // 
             // btnIngresar
             // 
             this.btnIngresar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.Location = new System.Drawing.Point(807, 8);
+            this.btnIngresar.Location = new System.Drawing.Point(538, 5);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(98, 39);
+            this.btnIngresar.Size = new System.Drawing.Size(65, 25);
             this.btnIngresar.TabIndex = 30;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -132,10 +100,9 @@
             // lblYaTienesCuenta
             // 
             this.lblYaTienesCuenta.AutoSize = true;
-            this.lblYaTienesCuenta.Location = new System.Drawing.Point(590, 17);
-            this.lblYaTienesCuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblYaTienesCuenta.Location = new System.Drawing.Point(413, 11);
             this.lblYaTienesCuenta.Name = "lblYaTienesCuenta";
-            this.lblYaTienesCuenta.Size = new System.Drawing.Size(178, 20);
+            this.lblYaTienesCuenta.Size = new System.Drawing.Size(120, 13);
             this.lblYaTienesCuenta.TabIndex = 29;
             this.lblYaTienesCuenta.Text = "¿Ya tienes una cuenta?";
             // 
@@ -143,10 +110,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(60, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(40, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(241, 43);
+            this.label2.Size = new System.Drawing.Size(161, 28);
             this.label2.TabIndex = 28;
             this.label2.Text = "DigitalFarma";
             // 
@@ -154,10 +120,9 @@
             // 
             this.lblCrearCuenta.AutoSize = true;
             this.lblCrearCuenta.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrearCuenta.Location = new System.Drawing.Point(282, 142);
-            this.lblCrearCuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCrearCuenta.Location = new System.Drawing.Point(188, 92);
             this.lblCrearCuenta.Name = "lblCrearCuenta";
-            this.lblCrearCuenta.Size = new System.Drawing.Size(371, 47);
+            this.lblCrearCuenta.Size = new System.Drawing.Size(246, 32);
             this.lblCrearCuenta.TabIndex = 27;
             this.lblCrearCuenta.Text = "Crear una cuenta";
             // 
@@ -168,9 +133,10 @@
             this.btnSig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSig.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSig.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSig.Location = new System.Drawing.Point(203, 410);
+            this.btnSig.Location = new System.Drawing.Point(137, 245);
+            this.btnSig.Margin = new System.Windows.Forms.Padding(2);
             this.btnSig.Name = "btnSig";
-            this.btnSig.Size = new System.Drawing.Size(497, 42);
+            this.btnSig.Size = new System.Drawing.Size(331, 27);
             this.btnSig.TabIndex = 25;
             this.btnSig.Text = "SIGUIENTE";
             this.btnSig.UseVisualStyleBackColor = false;
@@ -180,10 +146,11 @@
             // 
             this.txtMail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtMail.Location = new System.Drawing.Point(204, 258);
+            this.txtMail.Location = new System.Drawing.Point(136, 168);
+            this.txtMail.Margin = new System.Windows.Forms.Padding(2);
             this.txtMail.Multiline = true;
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(496, 41);
+            this.txtMail.Size = new System.Drawing.Size(332, 28);
             this.txtMail.TabIndex = 24;
             this.txtMail.Enter += new System.EventHandler(this.txtMail_Enter);
             this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
@@ -192,12 +159,12 @@
             // 
             this.txtContra.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContra.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtContra.Location = new System.Drawing.Point(203, 310);
+            this.txtContra.Location = new System.Drawing.Point(135, 202);
+            this.txtContra.Margin = new System.Windows.Forms.Padding(2);
             this.txtContra.Multiline = true;
             this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(496, 37);
+            this.txtContra.Size = new System.Drawing.Size(332, 25);
             this.txtContra.TabIndex = 23;
-            this.txtContra.TextChanged += new System.EventHandler(this.txtContra_TextChanged);
             this.txtContra.Enter += new System.EventHandler(this.txtContra_Enter);
             this.txtContra.Leave += new System.EventHandler(this.txtContra_Leave);
             // 
@@ -205,10 +172,11 @@
             // 
             this.txtApellido.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtApellido.Location = new System.Drawing.Point(456, 211);
+            this.txtApellido.Location = new System.Drawing.Point(304, 137);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Multiline = true;
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(244, 41);
+            this.txtApellido.Size = new System.Drawing.Size(164, 28);
             this.txtApellido.TabIndex = 22;
             this.txtApellido.Enter += new System.EventHandler(this.txtApellido_Enter);
             this.txtApellido.Leave += new System.EventHandler(this.txtApellido_Leave);
@@ -218,9 +186,10 @@
             this.pnlCrearCuenta.BackColor = System.Drawing.Color.Teal;
             this.pnlCrearCuenta.Controls.Add(this.lblBienvenido);
             this.pnlCrearCuenta.Controls.Add(this.pictureBox1);
-            this.pnlCrearCuenta.Location = new System.Drawing.Point(911, 2);
+            this.pnlCrearCuenta.Location = new System.Drawing.Point(607, 1);
+            this.pnlCrearCuenta.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCrearCuenta.Name = "pnlCrearCuenta";
-            this.pnlCrearCuenta.Size = new System.Drawing.Size(287, 640);
+            this.pnlCrearCuenta.Size = new System.Drawing.Size(191, 416);
             this.pnlCrearCuenta.TabIndex = 20;
             // 
             // lblBienvenido
@@ -228,9 +197,10 @@
             this.lblBienvenido.AutoSize = true;
             this.lblBienvenido.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
             this.lblBienvenido.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblBienvenido.Location = new System.Drawing.Point(56, 375);
+            this.lblBienvenido.Location = new System.Drawing.Point(37, 244);
+            this.lblBienvenido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBienvenido.Name = "lblBienvenido";
-            this.lblBienvenido.Size = new System.Drawing.Size(201, 68);
+            this.lblBienvenido.Size = new System.Drawing.Size(136, 46);
             this.lblBienvenido.TabIndex = 0;
             this.lblBienvenido.Text = "Bienvenido a \r\nDigitalFarma";
             this.lblBienvenido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -239,24 +209,22 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(62, 194);
+            this.pictureBox1.Location = new System.Drawing.Point(41, 126);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 162);
+            this.pictureBox1.Size = new System.Drawing.Size(110, 105);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1194, 642);
+            this.ClientSize = new System.Drawing.Size(796, 417);
             this.Controls.Add(this.pcbContra);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.pctLogo);
-            this.Controls.Add(this.LnkPolitica);
-            this.Controls.Add(this.lblEstado);
-            this.Controls.Add(this.progressBarContra);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblYaTienesCuenta);
             this.Controls.Add(this.label2);
@@ -266,6 +234,7 @@
             this.Controls.Add(this.txtContra);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.pnlCrearCuenta);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmLogin";
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.frmLogin_Load);
@@ -283,9 +252,6 @@
         private System.Windows.Forms.PictureBox pcbContra;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.PictureBox pctLogo;
-        private System.Windows.Forms.LinkLabel LnkPolitica;
-        private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.ProgressBar progressBarContra;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lblYaTienesCuenta;
         private System.Windows.Forms.Label label2;

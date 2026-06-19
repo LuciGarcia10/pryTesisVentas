@@ -48,8 +48,8 @@ namespace pryTesisVentas
             txtApellido.Visible = false;
             txtMail.Visible = false;
             txtContra.Visible = false;
-            lblEstado.Visible = false;
-            progressBarContra.Visible = false;
+            //lblEstado.Visible = false;
+            //progressBarContra.Visible = false;
             pcbContra.Visible = false;
 
             MessageBox.Show("¡Registro completado con éxito!");
@@ -62,13 +62,13 @@ namespace pryTesisVentas
             //panelPaso2.BackColor = Color.FromArgb(0, 168, 132);
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        /*private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Esto abrirá el navegador con los términos legales
-            System.Diagnostics.Process.Start("https://tu-sitio-farma.com/terminos");
-        }
+           // System.Diagnostics.Process.Start("https://tu-sitio-farma.com/terminos");
+        }*/
 
-        private void txtContra_TextChanged(object sender, EventArgs e)
+       /* private void txtContra_TextChanged(object sender, EventArgs e)
         {
             int fuerza = txtContra.Text.Length;
 
@@ -96,7 +96,7 @@ namespace pryTesisVentas
                 lblEstado.ForeColor = Color.MediumSeaGreen;
                 lblEstado.Text = "Contraseña segura";
             }
-        }
+        }*/
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
@@ -221,7 +221,7 @@ namespace pryTesisVentas
                 pcbContra.Image = Properties.Resources.show;
             }
         }
-        private void txtContra_TextChanged_1(object sender, EventArgs e)
+       /* private void txtContra_TextChanged_1(object sender, EventArgs e)
         {
             if (txtContra.ForeColor == Color.Gray) return;
 
@@ -250,6 +250,6 @@ namespace pryTesisVentas
                 lblEstado.ForeColor = Color.MediumSeaGreen;
                 lblEstado.Text = "Contraseña segura";
             }
-        }
+        }*/
     }
 }
