@@ -30,10 +30,10 @@
         {
             System.Windows.Forms.ComboBox cmbVentas;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,6 +81,7 @@
             this.btnInicio = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnlGanancias = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblGanancias = new System.Windows.Forms.Label();
             this.lblPorcentaje1 = new System.Windows.Forms.Label();
             this.lblGana = new System.Windows.Forms.Label();
@@ -119,10 +120,15 @@
             this.lblBuscador = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblPedidosTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblPedidosT = new System.Windows.Forms.Label();
+            this.lblPedidoT = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pnlBuscar = new System.Windows.Forms.Panel();
+            this.lblBuscarArriba = new System.Windows.Forms.Label();
+            this.txtBuscardor = new System.Windows.Forms.TextBox();
+            this.ptbLupa = new System.Windows.Forms.PictureBox();
             cmbVentas = new System.Windows.Forms.ComboBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -164,6 +170,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.pnlBuscar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbVentas
@@ -580,7 +588,6 @@
             this.btnUsuario.TabIndex = 40;
             this.btnUsuario.Text = "Funes Garcia";
             this.btnUsuario.UseVisualStyleBackColor = true;
-            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // lblDigitalFarma
             // 
@@ -672,7 +679,6 @@
             this.btnVentas.TabIndex = 34;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = false;
-            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // pnlInicio
             // 
@@ -729,6 +735,7 @@
             // 
             this.pnlGanancias.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlGanancias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnlGanancias.Controls.Add(this.label11);
             this.pnlGanancias.Controls.Add(this.lblGanancias);
             this.pnlGanancias.Controls.Add(this.lblPorcentaje1);
             this.pnlGanancias.Controls.Add(this.lblGana);
@@ -737,6 +744,16 @@
             this.pnlGanancias.Name = "pnlGanancias";
             this.pnlGanancias.Size = new System.Drawing.Size(308, 100);
             this.pnlGanancias.TabIndex = 0;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(106, 67);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(122, 20);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "↓ 37% este mes";
             // 
             // lblGanancias
             // 
@@ -841,9 +858,9 @@
             this.pnlPrevisualizacion.Controls.Add(this.crtGananciasMensuales);
             this.pnlPrevisualizacion.Controls.Add(this.lblPrevi);
             this.pnlPrevisualizacion.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlPrevisualizacion.Location = new System.Drawing.Point(321, 173);
+            this.pnlPrevisualizacion.Location = new System.Drawing.Point(316, 173);
             this.pnlPrevisualizacion.Name = "pnlPrevisualizacion";
-            this.pnlPrevisualizacion.Size = new System.Drawing.Size(594, 333);
+            this.pnlPrevisualizacion.Size = new System.Drawing.Size(599, 333);
             this.pnlPrevisualizacion.TabIndex = 6;
             // 
             // lblPorcentajesdelmes
@@ -882,20 +899,20 @@
             // 
             // crtGananciasMensuales
             // 
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY2.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.Name = "ChartArea1";
-            this.crtGananciasMensuales.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea3.AxisY.MajorGrid.Enabled = false;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea3.AxisY2.LineColor = System.Drawing.Color.LightGray;
+            chartArea3.Name = "ChartArea1";
+            this.crtGananciasMensuales.ChartAreas.Add(chartArea3);
             this.crtGananciasMensuales.Location = new System.Drawing.Point(7, 92);
             this.crtGananciasMensuales.Name = "crtGananciasMensuales";
-            series1.ChartArea = "ChartArea1";
-            series1.CustomProperties = "PointWidth=0.6";
-            series1.Name = "Series1";
-            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            this.crtGananciasMensuales.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.CustomProperties = "PointWidth=0.6";
+            series3.Name = "Series1";
+            series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.crtGananciasMensuales.Series.Add(series3);
             this.crtGananciasMensuales.Size = new System.Drawing.Size(569, 181);
             this.crtGananciasMensuales.TabIndex = 4;
             this.crtGananciasMensuales.Text = "chart1";
@@ -919,9 +936,9 @@
             this.pnlClintes.Controls.Add(this.ldlClientes);
             this.pnlClintes.Controls.Add(this.chartClientes);
             this.pnlClintes.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlClintes.Location = new System.Drawing.Point(936, 173);
+            this.pnlClintes.Location = new System.Drawing.Point(931, 173);
             this.pnlClintes.Name = "pnlClintes";
-            this.pnlClintes.Size = new System.Drawing.Size(335, 338);
+            this.pnlClintes.Size = new System.Drawing.Size(340, 338);
             this.pnlClintes.TabIndex = 7;
             // 
             // lbl15
@@ -959,28 +976,28 @@
             // 
             // chartClientes
             // 
-            chartArea2.InnerPlotPosition.Auto = false;
-            chartArea2.InnerPlotPosition.Width = 63.73417F;
-            chartArea2.InnerPlotPosition.X = 18.13291F;
-            chartArea2.InnerPlotPosition.Y = 2.5F;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 90F;
-            chartArea2.Position.Width = 90F;
-            chartArea2.Position.X = 5F;
-            chartArea2.Position.Y = 5F;
-            this.chartClientes.ChartAreas.Add(chartArea2);
+            chartArea4.InnerPlotPosition.Auto = false;
+            chartArea4.InnerPlotPosition.Width = 63.73417F;
+            chartArea4.InnerPlotPosition.X = 18.13291F;
+            chartArea4.InnerPlotPosition.Y = 2.5F;
+            chartArea4.Name = "ChartArea1";
+            chartArea4.Position.Auto = false;
+            chartArea4.Position.Height = 90F;
+            chartArea4.Position.Width = 90F;
+            chartArea4.Position.X = 5F;
+            chartArea4.Position.Y = 5F;
+            this.chartClientes.ChartAreas.Add(chartArea4);
             this.chartClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chartClientes.Location = new System.Drawing.Point(0, 88);
             this.chartClientes.Margin = new System.Windows.Forms.Padding(2);
             this.chartClientes.Name = "chartClientes";
             this.chartClientes.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.CustomProperties = "DoughnutRadius=40";
-            series2.Name = "SeriesProgreso";
-            this.chartClientes.Series.Add(series2);
-            this.chartClientes.Size = new System.Drawing.Size(335, 250);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.CustomProperties = "DoughnutRadius=40";
+            series4.Name = "SeriesProgreso";
+            this.chartClientes.Series.Add(series4);
+            this.chartClientes.Size = new System.Drawing.Size(340, 250);
             this.chartClientes.TabIndex = 10;
             this.chartClientes.Text = "chart2";
             this.chartClientes.Click += new System.EventHandler(this.chartClientes_Click_1);
@@ -1038,7 +1055,7 @@
             this.dgvVentas.RowHeadersVisible = false;
             this.dgvVentas.RowHeadersWidth = 62;
             this.dgvVentas.RowTemplate.Height = 70;
-            this.dgvVentas.Size = new System.Drawing.Size(854, 234);
+            this.dgvVentas.Size = new System.Drawing.Size(854, 266);
             this.dgvVentas.TabIndex = 11;
             this.dgvVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             // 
@@ -1174,23 +1191,34 @@
             // 
             this.panel11.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel11.Controls.Add(this.label4);
+            this.panel11.Controls.Add(this.label12);
+            this.panel11.Controls.Add(this.lblPedidosTotal);
             this.panel11.Controls.Add(this.label5);
-            this.panel11.Controls.Add(this.lblPedidosT);
+            this.panel11.Controls.Add(this.lblPedidoT);
             this.panel11.Controls.Add(this.pictureBox11);
             this.panel11.Location = new System.Drawing.Point(963, 45);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(308, 100);
             this.panel11.TabIndex = 12;
             // 
-            // label4
+            // label12
             // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(104, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 38);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "$198k";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(109, 67);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(149, 20);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "↓ 11% esta semana";
+            // 
+            // lblPedidosTotal
+            // 
+            this.lblPedidosTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPedidosTotal.Location = new System.Drawing.Point(104, 32);
+            this.lblPedidosTotal.Name = "lblPedidosTotal";
+            this.lblPedidosTotal.Size = new System.Drawing.Size(100, 38);
+            this.lblPedidosTotal.TabIndex = 3;
+            this.lblPedidosTotal.Text = "$198k";
             // 
             // label5
             // 
@@ -1202,15 +1230,15 @@
             this.label5.Size = new System.Drawing.Size(0, 21);
             this.label5.TabIndex = 4;
             // 
-            // lblPedidosT
+            // lblPedidoT
             // 
-            this.lblPedidosT.AutoSize = true;
-            this.lblPedidosT.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPedidosT.Location = new System.Drawing.Point(106, 14);
-            this.lblPedidosT.Name = "lblPedidosT";
-            this.lblPedidosT.Size = new System.Drawing.Size(102, 19);
-            this.lblPedidosT.TabIndex = 1;
-            this.lblPedidosT.Text = "Pedidos Totales";
+            this.lblPedidoT.AutoSize = true;
+            this.lblPedidoT.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPedidoT.Location = new System.Drawing.Point(106, 14);
+            this.lblPedidoT.Name = "lblPedidoT";
+            this.lblPedidoT.Size = new System.Drawing.Size(102, 19);
+            this.lblPedidoT.TabIndex = 1;
+            this.lblPedidoT.Text = "Pedidos Totales";
             // 
             // pictureBox11
             // 
@@ -1223,11 +1251,59 @@
             this.pictureBox11.TabIndex = 0;
             this.pictureBox11.TabStop = false;
             // 
+            // pnlBuscar
+            // 
+            this.pnlBuscar.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pnlBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnlBuscar.Controls.Add(this.lblBuscarArriba);
+            this.pnlBuscar.Controls.Add(this.txtBuscardor);
+            this.pnlBuscar.Controls.Add(this.ptbLupa);
+            this.pnlBuscar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlBuscar.Location = new System.Drawing.Point(1038, 7);
+            this.pnlBuscar.Name = "pnlBuscar";
+            this.pnlBuscar.Size = new System.Drawing.Size(233, 32);
+            this.pnlBuscar.TabIndex = 16;
+            // 
+            // lblBuscarArriba
+            // 
+            this.lblBuscarArriba.AutoSize = true;
+            this.lblBuscarArriba.BackColor = System.Drawing.Color.Transparent;
+            this.lblBuscarArriba.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lblBuscarArriba.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarArriba.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblBuscarArriba.Location = new System.Drawing.Point(38, 8);
+            this.lblBuscarArriba.Name = "lblBuscarArriba";
+            this.lblBuscarArriba.Size = new System.Drawing.Size(56, 21);
+            this.lblBuscarArriba.TabIndex = 18;
+            this.lblBuscarArriba.Text = "Buscar";
+            // 
+            // txtBuscardor
+            // 
+            this.txtBuscardor.BackColor = System.Drawing.Color.White;
+            this.txtBuscardor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBuscardor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscardor.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtBuscardor.Location = new System.Drawing.Point(40, 5);
+            this.txtBuscardor.Name = "txtBuscardor";
+            this.txtBuscardor.Size = new System.Drawing.Size(126, 22);
+            this.txtBuscardor.TabIndex = 9;
+            // 
+            // ptbLupa
+            // 
+            this.ptbLupa.Image = ((System.Drawing.Image)(resources.GetObject("ptbLupa.Image")));
+            this.ptbLupa.Location = new System.Drawing.Point(2, 2);
+            this.ptbLupa.Name = "ptbLupa";
+            this.ptbLupa.Size = new System.Drawing.Size(32, 27);
+            this.ptbLupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbLupa.TabIndex = 11;
+            this.ptbLupa.TabStop = false;
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 943);
+            this.Controls.Add(this.pnlBuscar);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.pnlClintes);
@@ -1298,6 +1374,9 @@
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.pnlBuscar.ResumeLayout(false);
+            this.pnlBuscar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1389,10 +1468,16 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Button btnUsuario1;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblPedidosTotal;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblPedidosT;
+        private System.Windows.Forms.Label lblPedidoT;
         private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.Panel pnlBuscar;
+        private System.Windows.Forms.Label lblBuscarArriba;
+        private System.Windows.Forms.TextBox txtBuscardor;
+        private System.Windows.Forms.PictureBox ptbLupa;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
 
