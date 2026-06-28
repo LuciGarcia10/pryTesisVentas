@@ -52,7 +52,7 @@
             this.lblHacerPedido.Location = new System.Drawing.Point(-559, 8);
             this.lblHacerPedido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHacerPedido.Name = "lblHacerPedido";
-            this.lblHacerPedido.Size = new System.Drawing.Size(125, 25);
+            this.lblHacerPedido.Size = new System.Drawing.Size(81, 15);
             this.lblHacerPedido.TabIndex = 1;
             this.lblHacerPedido.Text = "Hacer Pedido";
             // 
@@ -60,10 +60,10 @@
             // 
             this.lblNombredelProducto.AutoSize = true;
             this.lblNombredelProducto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombredelProducto.Location = new System.Drawing.Point(12, 57);
+            this.lblNombredelProducto.Location = new System.Drawing.Point(12, 69);
             this.lblNombredelProducto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombredelProducto.Name = "lblNombredelProducto";
-            this.lblNombredelProducto.Size = new System.Drawing.Size(195, 25);
+            this.lblNombredelProducto.Size = new System.Drawing.Size(127, 15);
             this.lblNombredelProducto.TabIndex = 2;
             this.lblNombredelProducto.Text = "Nombre del Producto";
             // 
@@ -71,29 +71,29 @@
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(12, 145);
+            this.lblCantidad.Location = new System.Drawing.Point(12, 129);
             this.lblCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(88, 25);
+            this.lblCantidad.Size = new System.Drawing.Size(55, 15);
             this.lblCantidad.TabIndex = 5;
             this.lblCantidad.Text = "Cantidad";
             // 
             // numCantidad
             // 
-            this.numCantidad.Location = new System.Drawing.Point(12, 180);
+            this.numCantidad.Location = new System.Drawing.Point(15, 146);
             this.numCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(304, 29);
+            this.numCantidad.Size = new System.Drawing.Size(304, 22);
             this.numCantidad.TabIndex = 24;
             // 
             // lblProveedores
             // 
             this.lblProveedores.AutoSize = true;
             this.lblProveedores.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProveedores.Location = new System.Drawing.Point(12, 227);
+            this.lblProveedores.Location = new System.Drawing.Point(12, 185);
             this.lblProveedores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProveedores.Name = "lblProveedores";
-            this.lblProveedores.Size = new System.Drawing.Size(118, 25);
+            this.lblProveedores.Size = new System.Drawing.Size(78, 15);
             this.lblProveedores.TabIndex = 25;
             this.lblProveedores.Text = "Proveedores";
             // 
@@ -105,10 +105,10 @@
             "Drogueria Suiza",
             "Drogueria del Sud",
             "Belleza"});
-            this.cmbProveedores.Location = new System.Drawing.Point(12, 264);
+            this.cmbProveedores.Location = new System.Drawing.Point(11, 202);
             this.cmbProveedores.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProveedores.Name = "cmbProveedores";
-            this.cmbProveedores.Size = new System.Drawing.Size(304, 29);
+            this.cmbProveedores.Size = new System.Drawing.Size(304, 21);
             this.cmbProveedores.TabIndex = 26;
             this.cmbProveedores.Text = "Elegir Proveedor...";
             // 
@@ -116,7 +116,7 @@
             // 
             this.btnVerCarrito.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btnVerCarrito.ForeColor = System.Drawing.Color.White;
-            this.btnVerCarrito.Location = new System.Drawing.Point(12, 308);
+            this.btnVerCarrito.Location = new System.Drawing.Point(11, 240);
             this.btnVerCarrito.Margin = new System.Windows.Forms.Padding(2);
             this.btnVerCarrito.Name = "btnVerCarrito";
             this.btnVerCarrito.Size = new System.Drawing.Size(149, 42);
@@ -129,7 +129,7 @@
             // 
             this.btnAgregararCarrito.BackColor = System.Drawing.Color.Teal;
             this.btnAgregararCarrito.ForeColor = System.Drawing.Color.White;
-            this.btnAgregararCarrito.Location = new System.Drawing.Point(167, 310);
+            this.btnAgregararCarrito.Location = new System.Drawing.Point(163, 240);
             this.btnAgregararCarrito.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregararCarrito.Name = "btnAgregararCarrito";
             this.btnAgregararCarrito.Size = new System.Drawing.Size(149, 42);
@@ -144,7 +144,7 @@
             this.lblHacerPedido1.Location = new System.Drawing.Point(49, 25);
             this.lblHacerPedido1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHacerPedido1.Name = "lblHacerPedido1";
-            this.lblHacerPedido1.Size = new System.Drawing.Size(156, 31);
+            this.lblHacerPedido1.Size = new System.Drawing.Size(101, 20);
             this.lblHacerPedido1.TabIndex = 29;
             this.lblHacerPedido1.Text = "Hacer Pedido";
             this.lblHacerPedido1.Click += new System.EventHandler(this.lblHacerPedido1_Click);
@@ -153,7 +153,7 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(28)))), ((int)(((byte)(3)))));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(58, 363);
+            this.btnCancelar.Location = new System.Drawing.Point(53, 286);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(224, 42);
@@ -176,16 +176,16 @@
             // cmbProductos
             // 
             this.cmbProductos.FormattingEnabled = true;
-            this.cmbProductos.Location = new System.Drawing.Point(17, 94);
+            this.cmbProductos.Location = new System.Drawing.Point(15, 87);
             this.cmbProductos.Name = "cmbProductos";
-            this.cmbProductos.Size = new System.Drawing.Size(291, 29);
+            this.cmbProductos.Size = new System.Drawing.Size(291, 21);
             this.cmbProductos.TabIndex = 40;
             // 
             // frmNuevoPedido
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 418);
+            this.ClientSize = new System.Drawing.Size(323, 338);
             this.Controls.Add(this.cmbProductos);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.btnCancelar);

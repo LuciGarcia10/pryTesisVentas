@@ -26,7 +26,7 @@ namespace pryTesisVentas
         private void CargarProductosDesdeBase()
         {
             // 1. Cadena de conexión a tu base de datos
-            string cadenaConexion = "Server=localhost; Database=DigitalFarmaBD; Integrated Security=True;";
+            string cadenaConexion = "Server=.; Database=BDDigitalFarma; Integrated Security=True;";
 
             // 2. Consulta SQL: Traemos el ID (clave primaria) y el Nombre de los productos
             string query = "SELECT id_producto, nombre_producto FROM Productos ORDER BY nombre_producto ASC";

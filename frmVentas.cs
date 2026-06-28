@@ -15,7 +15,8 @@ namespace pryTesisVentas
         // Lista global para guardar los productos en la memoria de la PC
         List<Producto> listaProductos = new List<Producto>();
         // Cadena de conexión a tu base de datos en Córdoba
-        //string cadenaConexion = "Server=TU_SERVIDOR; Database=DigitalFarma; Integrated Security=True";
+        ///string cadenaConexion = "Server=.; Database=BDDigitalFarma; Integrated Security=True";
+
         public frmVentas()
         {
             InitializeComponent();

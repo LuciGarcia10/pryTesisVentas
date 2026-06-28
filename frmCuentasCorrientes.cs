@@ -13,8 +13,8 @@ namespace pryTesisVentas
 {
     public partial class frmCuentasCorrientes : Form
     {
-        // Listas para manejar los datos en memoria
-        public List<clsCuentasC> listaCuentas = new List<clsCuentasC>();
+       
+
         public frmCuentasCorrientes()
         {
             InitializeComponent();
@@ -23,19 +23,35 @@ namespace pryTesisVentas
 
         private void frmCuentasCorrientes_Load(object sender, EventArgs e)/////
         {
-            // 1.Configuramos la grilla antes de cargar datos
+            // 1. Configuramos los aspectos visuales de la grilla antes de cargar los datos
             dgvCuentasC.AutoGenerateColumns = false;
             EstilizarGrilla();
 
-            // 2. Carga de datos de prueba (Simulando la base de datos)
-            CargarDatosPrueba();
+            // 2. Carga y muestra de datos REALES desde SQL Server
+            CargarDatosDesdeBase();
+        }
 
-            // 3. Mostramos los datos
-            ActualizarGrilla(listaCuentas);
+        private void CargarDatosDesdeBase()
+        {
+            // Definimos la consulta a tu tabla real de Cuentas Corrientes
+            // Asegúrate de que los nombres de las columnas en el diseñador (DataPropertyName) coincidan con estos campos
+            string consulta = "SELECT IdAfiliado, Nombre, Apellido, ObraSocial, Estado, Saldo FROM CuentasCorrientes";
 
-            // Acciones
-            ///////////////////////////dgvCuentasC.Columns["Acciones"].DefaultCellStyle.NullValue = null;
+            // Llamamos a la función estática que lee la conexión directa con el punto (.)
+            clsConsultas.LlenarGrid(consulta, dgvCuentasC);
 
+            // Habilitar o deshabilitar botón limpiar según corresponda
+            if (btnLimpiar != null)
+                btnLimpiar.Enabled = false; // Inicialmente cargado sin filtros
+        }
+        public void ActualizarGrilla(List<clsCuentasC> lista)
+        {
+            // Mantenemos esta función por si tu ventana de filtros (FrmFiltroClientes) te devuelve una lista filtrada en memoria
+            dgvCuentasC.DataSource = null;
+            dgvCuentasC.DataSource = lista;
+
+            if (btnLimpiar != null)
+                btnLimpiar.Enabled = true; // Si se fuerza una lista manual, habilitamos limpiar para regresar a la base
         }
 
         private void ConfigurarColumnasAcciones()
@@ -68,23 +84,6 @@ namespace pryTesisVentas
             colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             colEliminar.Width = 40;
             dgvCuentasC.Columns.Add(colEliminar);
-        }
-        private void CargarDatosPrueba()
-        {
-            listaCuentas.Clear();
-            listaCuentas.Add(new clsCuentasC { IdAfiliado = 1001, Nombre = "Juan", Apellido = "Pérez", ObraSocial = "Apross", Estado = "Al dia", Saldo = 0 });
-            listaCuentas.Add(new clsCuentasC { IdAfiliado = 1002, Nombre = "María", Apellido = "García", ObraSocial = "Swiss Medical", Estado = "Pendiente", Saldo = 15400.50m });
-            listaCuentas.Add(new clsCuentasC { IdAfiliado = 1003, Nombre = "Carlos", Apellido = " López", ObraSocial = "PAMI", Estado = "Vencido", Saldo = 8900.00m });
-        }
-
-        public void ActualizarGrilla(List<clsCuentasC> lista)
-        {
-            dgvCuentasC.DataSource = null;
-            dgvCuentasC.DataSource = lista;
-
-            // Habilitar botón limpiar si hay un filtro aplicado
-            if (btnLimpiar != null)
-                btnLimpiar.Enabled = (lista.Count < listaCuentas.Count);
         }
 
         private void EstilizarGrilla()
@@ -120,8 +119,8 @@ namespace pryTesisVentas
                 ventana.StartPosition = FormStartPosition.CenterParent;
                 if (ventana.ShowDialog() == DialogResult.OK)
                 {
-                    //CargarDatos(); 
-                    ActualizarGrilla(listaCuentas);
+                    // Si se registra un cliente con éxito, refrescamos directamente desde SQL Server
+                    CargarDatosDesdeBase();
                 }
             }
         }
@@ -134,8 +133,8 @@ namespace pryTesisVentas
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            //frmVentas frm = new frmVentas();
-            //frm.ShowDialog();
+            frmVentas frm = new frmVentas();
+            frm.ShowDialog();
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
@@ -158,14 +157,21 @@ namespace pryTesisVentas
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            ActualizarGrilla(listaCuentas);
+            // Al limpiar los filtros, volvemos a consultar el estado actual de la base de datos
+            CargarDatosDesdeBase();
         }
 
         private void pctDesplegar_Click(object sender, EventArgs e)
         {
             FrmFiltroClientes ventanaFiltro = new FrmFiltroClientes();
-            // Pasamos la lista actual de este formulario
-            ventanaFiltro.listaParaFiltrar = this.listaCuentas;
+
+            // Si tu ventana de filtros aún requiere una lista base para procesar en memoria,
+            // podemos convertir el DataSource actual de la grilla (DataTable) a Lista, o pasarle una nueva consulta.
+            // Para mantener compatibilidad con tu código actual:
+            if (dgvCuentasC.DataSource is List<clsCuentasC> listaActual)
+            {
+                ventanaFiltro.listaParaFiltrar = listaActual;
+            }
 
             ventanaFiltro.StartPosition = FormStartPosition.Manual;
             Point puntoAparicion = pctDesplegar.PointToScreen(new Point(0, pctDesplegar.Height));
@@ -201,29 +207,24 @@ namespace pryTesisVentas
 
         private void dgvCuentasC_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex >= 0 && dgvCuentasC.Columns[e.ColumnIndex].Name == "ClmAcciones")
+            // Modificado para que responda tanto si se llama "ClmAcciones" o "ColAcciones" en las propiedades de la grilla
+            if (e.RowIndex >= 0 && (dgvCuentasC.Columns[e.ColumnIndex].Name == "ClmAcciones" || dgvCuentasC.Columns[e.ColumnIndex].Name == "ColAcciones"))
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-                // 1. Definimos un tamaño estándar para los iconos (20x20 o 18x18)
                 int tamañoIcono = 20;
 
-                // 2. Cargamos las imágenes
                 Image ver = Properties.Resources.Lupita;
                 Image editar = Properties.Resources.ptbEditar;
                 Image borrar = Properties.Resources.ptbBorrar;
 
-                // 3. Calculamos posiciones horizontales con el nuevo tamaño fijo
-                // Ajustamos el margen para que queden centradas en la columna
                 int espacioEntreIconos = 10;
-                int xVer = e.CellBounds.Left + 15; // Ajusta este 15 para centrar el bloque
+                int xVer = e.CellBounds.Left + 15;
                 int xEditar = xVer + tamañoIcono + espacioEntreIconos;
                 int xBorrar = xEditar + tamañoIcono + espacioEntreIconos;
 
-                // 4. Calculamos posición vertical centrada
                 int y = e.CellBounds.Top + (e.CellBounds.Height - tamañoIcono) / 2;
 
-                // 5. DIBUJAMOS con el tamaño forzado (tamañoIcono, tamañoIcono)
                 e.Graphics.DrawImage(ver, new Rectangle(xVer, y, tamañoIcono, tamañoIcono));
                 e.Graphics.DrawImage(editar, new Rectangle(xEditar, y, tamañoIcono, tamañoIcono));
                 e.Graphics.DrawImage(borrar, new Rectangle(xBorrar, y, tamañoIcono, tamañoIcono));

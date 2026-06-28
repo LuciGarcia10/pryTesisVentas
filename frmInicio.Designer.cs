@@ -963,7 +963,7 @@
             chartArea1.Name = "ChartArea1";
             this.crtGananciasMensuales.ChartAreas.Add(chartArea1);
             this.crtGananciasMensuales.Location = new System.Drawing.Point(2, 52);
-            this.crtGananciasMensuales.Margin = new System.Windows.Forms.Padding(2);*/
+            this.crtGananciasMensuales.Margin = new System.Windows.Forms.Padding(2);
 
             chartArea5.AxisX.MajorGrid.Enabled = false;
             this.ptbVentas.Location = new System.Drawing.Point(8, 12);

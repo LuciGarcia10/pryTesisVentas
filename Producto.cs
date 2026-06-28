@@ -9,6 +9,7 @@ namespace pryTesisVentas
     public class Producto
     {
         // Estos nombres deben ser IGUALES a los de tu base de datos
+        public int Id { get; set; }
         public int Cantidad { get; set; }
         public string Nombre { get; set; }
         public string Categoria { get; set; }

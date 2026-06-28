@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace pryTesisVentas
         // Lista global que guardará los productos en la memoria de la PC
         List<Producto> listaProductos = new List<Producto>();
         // Cadena de conexión a tu base de datos en Córdoba
-        //string cadenaConexion = "Server=TU_SERVIDOR; Database=DigitalFarma; Integrated Security=True";
+        //string cadena = "Server=.; Database=BDDigitalFarma; Integrated Security=True";
         public frmProductos()
         {
             InitializeComponent();
@@ -37,27 +38,38 @@ namespace pryTesisVentas
             // Evitar errores si se hace clic en el encabezado
             if (e.RowIndex < 0) return;
 
-            // Si hizo clic en la columna "Eliminar"
-            if (dgvProductos.Columns[e.ColumnIndex].Name == "Eliminar")
+            // Si hizo clic en el botón de la columna "btnEliminar"
+            if (dgvProductos.Columns[e.ColumnIndex].Name == "btnEliminar")
             {
-                // Obtenemos el producto de esa fila
                 Producto prod = (Producto)dgvProductos.Rows[e.RowIndex].DataBoundItem;
 
-                DialogResult respuesta = MessageBox.Show($"¿Eliminar {prod.Nombre}?", "DigitalFarma", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult respuesta = MessageBox.Show($"¿Está seguro de que desea eliminar {prod.Nombre} permanentemente del sistema?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    // 1. Borrar de la lista en memoria
-                    listaProductos.Remove(prod);
+                    // 1. Borramos físicamente de la base de datos SQL Server
+                    bool eliminadoOk = clsConsultas.EliminarProducto(prod.Id);
 
-                    // 2. Refrescar la grilla
-                    ActualizarGrilla(listaProductos);
+                    if (eliminadoOk)
+                    {
+                        // 2. Si se borró en SQL Server, lo quitamos de la memoria de la pantalla
+                        listaProductos.Remove(prod);
 
-                    // 3. (Opcional) Aca llamamos al metodo para borrar de la Base de Datos
-                    // BorrarProductoBD(prod.Id);
+                        // 3. Refrescamos la interfaz filtrando lo que queda
+                        ActualizarGrilla(listaProductos);
+                        MessageBox.Show("Producto eliminado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
+            // Si hizo clic en "btnEditar"
+            else if (dgvProductos.Columns[e.ColumnIndex].Name == "btnEditar")
+            {
+                Producto prod = (Producto)dgvProductos.Rows[e.RowIndex].DataBoundItem;
+                MessageBox.Show("Abriendo edición para: " + prod.Nombre);
+                // Aquí abrirías tu formulario de edición pasándole el objeto 'prod'
+            }
         }
+
         private void cmbOrden_SelectedIndexChanged(object sender, EventArgs e)
         {
             // 1. Verificamos que haya una opción seleccionada y que la lista tenga datos
@@ -104,7 +116,7 @@ namespace pryTesisVentas
             // 2. Configuramos las columnas manuales (que ahora incluyen el Clear)
             ConfigurarColumnasAcciones();
 
-            // 3. Cargamos los combos y el resto (lo que ya tenías)
+            // 3. Cargamos los combos y el resto 
             cmbOrden.Items.Clear();
             cmbOrden.Items.Add("Más nuevo");
             cmbOrden.Items.Add("Más viejo");
@@ -144,8 +156,51 @@ namespace pryTesisVentas
             cmbOrden.SelectedIndex = 0;
 
             // --- 4. CARGAR LOS PRODUCTOS EN LA TABLA ---
-            // CargarProductosDesdeBD(); //crear este método para llenar el DataGridView
+            CargarProductosDesdeBD(); //crear este método para llenar el DataGridView
         }
+
+        // Recupera los registros reales de SQL Server y los almacena en la lista global
+        public void CargarProductosDesdeBD()
+        {
+            // Consulta a tu tabla de productos (Asegúrate de incluir la columna de ID o Clave Primaria)
+            string consulta = "SELECT IdProducto, Cantidad, Nombre, Categoria, FechaVencimiento, Precio FROM Productos";
+
+            // Accedemos de forma directa usando la conexión estática unificada
+            using (SqlConnection conexion = new SqlConnection(clsConsultas.cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    SqlCommand comando = new SqlCommand(consulta, conexion);
+                    SqlDataReader lector = comando.ExecuteReader();
+
+                    listaProductos.Clear();
+
+                    while (lector.Read())
+                    {
+                        Producto nuevoProd = new Producto();
+                        // Mapeamos las propiedades (Asegúrate de que la clase Producto tenga la propiedad IdProducto o Id)
+                        nuevoProd.Id = Convert.ToInt32(lector["IdProducto"]);
+                        nuevoProd.Cantidad = Convert.ToInt32(lector["Cantidad"]);
+                        nuevoProd.Nombre = lector["Nombre"].ToString();
+                        nuevoProd.Categoria = lector["Categoria"].ToString();
+                        nuevoProd.FechaVencimiento = Convert.ToDateTime(lector["FechaVencimiento"]);
+                        nuevoProd.Precio = Convert.ToDecimal(lector["Precio"]);
+
+                        listaProductos.Add(nuevoProd);
+                    }
+
+                    // Mostramos la lista completa en la grilla
+                    ActualizarGrilla(listaProductos);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al conectar con la tabla de productos: " + ex.Message, "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
 
         public void HacerCirculo(Control control)
         {
@@ -324,12 +379,15 @@ namespace pryTesisVentas
 
         private void btnAgregarProductos_Click(object sender, EventArgs e)
         {
-            frmAñadirProducto ventana = new frmAñadirProducto();
-            // Le decimos que use al formulario principal como centro
-            ventana.StartPosition = FormStartPosition.CenterParent;
-
-            // Al usar ShowDialog(this), el "this" le indica que el padre es el formulario de Productos
-            ventana.ShowDialog(this);
+            using (frmAñadirProducto ventana = new frmAñadirProducto())
+            {
+                ventana.StartPosition = FormStartPosition.CenterParent;
+                if (ventana.ShowDialog(this) == DialogResult.OK)
+                {
+                    // Si añadió un producto correctamente, refrescamos desde SQL Server
+                    CargarProductosDesdeBD();
+                }
+            }
         }
 
         // Método auxiliar para calcular la geometría de los bordes redondeados
@@ -494,6 +552,8 @@ namespace pryTesisVentas
             FrmPerfil frm = new FrmPerfil();
             frm.ShowDialog();
         }
+
+
 
 
 

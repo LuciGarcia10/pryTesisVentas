@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace pryTesisVentas
         //Pedidos Totales
         // 1. Centralizamos la cadena de conexión para cambiarla una sola vez acá
         // RECUERDA: Pon tu cadena real (la que sacaste del Explorador de Servidores)
-        private static string cadena = "Server=TU_SERVIDOR;Database=DigitalFarma;Trusted_Connection=True;";
+        public static string cadena = "Server=.;Database=BDDigitalFarma;Trusted_Connection=True;TrustServerCertificate=True;";
 
         // PEDIDOS TOTALES 
         public static decimal ObtenerTotalVentas()
@@ -175,6 +176,87 @@ namespace pryTesisVentas
             }
             return total;
         }
+
+        // Método estático para rellenar grillas de forma automática con cualquier consulta
+        public static void LlenarGrid(string consulta, System.Windows.Forms.DataGridView dgv)
+        {
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    SqlDataAdapter adaptador = new SqlDataAdapter(consulta, conexion);
+                    DataTable dt = new DataTable();
+                    adaptador.Fill(dt);
+                    dgv.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Error al cargar la grilla: " + ex.Message);
+                }
+            }
+        }
+
+        // Método estático para registrar un nuevo cliente en SQL Server
+        public static bool RegistrarCliente(string nombre, string apellido, string obraSocial, string estado, decimal saldoInicial)
+        {
+            // Armamos la consulta usando parámetros (@Nombre, @Apellido, etc.) para evitar errores con las comillas y proteger la base
+            string consulta = @"INSERT INTO CuentasCorrientes (Nombre, Apellido, ObraSocial, Estado, Saldo) 
+                        VALUES (@Nombre, @Apellido, @ObraSocial, @Estado, @Saldo)";
+
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+
+                // Pasamos los valores reales de los cuadros de texto a los parámetros
+                comando.Parameters.AddWithValue("@Nombre", nombre);
+                comando.Parameters.AddWithValue("@Apellido", apellido);
+                comando.Parameters.AddWithValue("@ObraSocial", obraSocial);
+                comando.Parameters.AddWithValue("@Estado", estado);
+                comando.Parameters.AddWithValue("@Saldo", saldoInicial);
+
+                try
+                {
+                    conexion.Open();
+                    comando.ExecuteNonQuery(); // Ejecuta el INSERT en SQL Server
+                    return true; // Si todo sale bien, devuelve true
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Error al registrar el cliente en la base de datos: " + ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                    return false; // Si falla, muestra el error y devuelve false
+                }
+            }
+        }
+
+        // Método estático para eliminar un producto de SQL Server
+        public static bool EliminarProducto(int idProducto)
+        {
+            // Reemplaza 'IdProducto' o 'Productos' por los nombres exactos de tu tabla si difieren
+            string consulta = "DELETE FROM Productos WHERE IdProducto = @id";
+
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@id", idProducto);
+
+                try
+                {
+                    conexion.Open();
+                    comando.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Error al eliminar el producto de la base de datos: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+
+
+
 
         /*public static List<clsCuentasC> ObtenerCuentasCorrientes()
         {

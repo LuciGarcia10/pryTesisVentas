@@ -34,41 +34,32 @@ namespace pryTesisVentas
         }
         private void BtnAgregarC_Click(object sender, EventArgs e)
         {
-            // 1. Validar que los campos obligatorios no estén vacios
-            if (string.IsNullOrWhiteSpace(TxtNombreC.Text) || string.IsNullOrWhiteSpace(TxtApC.Text) || string.IsNullOrWhiteSpace(TxtNAfiliado.Text))
+            // 1. Validaciones básicas (para asegurarnos de que no dejen campos vacíos)
+            if (string.IsNullOrWhiteSpace(TxtNombreC.Text) || string.IsNullOrWhiteSpace(TxtApC.Text))
             {
-                MessageBox.Show("Por favor, complete los campos obligatorios (Nombre, apellido y N° de Afiliado).",
-                                "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, complete el Nombre y Apellido del cliente.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            try
+            // 2. Tomamos los valores de la interfaz
+            string nombre = TxtNombreC.Text.Trim();
+            string apellido = TxtApC.Text.Trim();
+            string obraSocial = CmbObraS.Text; // O txtObraSocial según lo que uses
+            string estado = "Al dia"; // Estado por defecto al crear un cliente nuevo
+                                      // 3. Extraemos el valor del NumericUpDown directamente con .Value
+            decimal saldoInicial = numSaldo.Value;
+
+            // 4. Mandamos los datos a la base de datos de SQL Server
+            bool registradoConExito = clsConsultas.RegistrarCliente(nombre, apellido, obraSocial, estado, saldoInicial);
+            if (registradoConExito)
             {
-                // 2. Crear la instancia del nuevo cliente usando clsCuentasC
-                clsCuentasC nuevoCliente = new clsCuentasC();
-                nuevoCliente.IdAfiliado = int.Parse(TxtNAfiliado.Text);
-                nuevoCliente.Nombre = TxtNombreC.Text;
-                nuevoCliente.Apellido = TxtApC.Text;
-                nuevoCliente.ObraSocial = CmbObraS.Text;
-                nuevoCliente.Estado = "Al día"; 
-                nuevoCliente.Saldo = 0;         
+                MessageBox.Show("¡Cliente registrado con éxito en el sistema!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // 3. Para guardar 
-               // clsConsultas.InsertarCliente(nuevoCliente); 
-
-                // 4. Notificar al formulario padre y cerrar
-                MessageBox.Show("Cliente registrado con éxito.", "Información",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                // 4. Indicamos al formulario padre que se guardó correctamente para que refresque la grilla
                 this.DialogResult = DialogResult.OK;
-                this.Close();
+                this.Close(); // Cierra la ventana de carga
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar: " + ex.Message, "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
