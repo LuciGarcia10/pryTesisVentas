@@ -221,18 +221,6 @@ namespace pryTesisVentas
             fh.Show();
         }
 
-        private void btnVentas_Click(object sender, EventArgs e)
-        {
-            frmVentas  frm= new frmVentas();
-            frm.ShowDialog();
-
-        }
-
-        private void btnProductos_Click(object sender, EventArgs e)
-        {
-            frmProductos frm = new frmProductos();
-            frm.ShowDialog();
-        }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
@@ -242,24 +230,6 @@ namespace pryTesisVentas
 
             // Aquí podrías recargar los gráficos iniciales
             ConfigurarGraficoClientes();
-        }
-
-        private void btnPedidos_Click(object sender, EventArgs e)
-        {
-            frmPedidos frm = new frmPedidos();
-            frm.ShowDialog();
-        }
-
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            frmCuentasCorrientes frm = new frmCuentasCorrientes();
-            frm.ShowDialog();
-        }
-
-        private void btnAyuda_Click(object sender, EventArgs e)
-        {
-            frmAyuda frm = new frmAyuda();
-            frm.ShowDialog();
         }
 
         private void txtBuscador_TextChanged_1(object sender, EventArgs e)
@@ -314,19 +284,10 @@ namespace pryTesisVentas
 
         }
 
-
-        private void btnUsuario_Click(object sender, EventArgs e)
-        {
-            FrmPerfil frm = new FrmPerfil();
-            frm.ShowDialog();
-
         /*private void pnlClintes_Paint(object sender, PaintEventArgs e)
         {
 
-
         }*/
-
-
 
         //Para cargar los datos en la Grilla desde la BD
 
@@ -375,6 +336,42 @@ namespace pryTesisVentas
         //             Console.WriteLine("Error: " + ex.Message);
         //         }
         //     }
+       
+
+        private void btnventas1_Click(object sender, EventArgs e)
+        {
+            frmVentas frm = new frmVentas();
+            frm.ShowDialog();
+        }
+
+        private void btnProductos_Click_1(object sender, EventArgs e)
+        {
+            frmProductos frm = new frmProductos();
+            frm.ShowDialog();
+        }
+
+        private void btnUsuario1_Click(object sender, EventArgs e)
+        {
+            FrmPerfil frm = new FrmPerfil();
+            frm.ShowDialog();
+        }
+
+        private void btnPedidos_Click_1(object sender, EventArgs e)
+        {
+            frmPedidos frm = new frmPedidos();
+            frm.ShowDialog();
+        }
+
+        private void btnClientes_Click_1(object sender, EventArgs e)
+        {
+            frmCuentasCorrientes frm = new frmCuentasCorrientes();
+            frm.ShowDialog();
+        }
+
+        private void btnAyuda_Click_1(object sender, EventArgs e)
+        {
+            frmAyuda frm = new frmAyuda();
+            frm.ShowDialog();
         }
 
     }
