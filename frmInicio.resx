@@ -1572,18 +1572,6 @@
   <metadata name="VentasTotales.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Productos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Stock.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Precio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="VentasTotales.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="pcbPedido.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIoAAACACAYAAADUHPECAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -3581,7 +3569,7 @@
   <data name="pictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIoAAACACAYAAADUHPECAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAIYlJREFUeF7t3WtwHmd1B3C+Q78W6MdC20/l/qHTmQKdocMlLVM6tHRIKTSFBHoZ
+        vgAADr4B6kKxwAAAIYlJREFUeF7t3WtwHmd1B3C+Q78W6MdC20/l/qHTmQKdocMlLVM6tHRIKTSFBHoZ
         7kNbSCAtDA23TAt0KNCWQMIl93vigHNxEudGEjuxHV8l27IsWZYty7JkWYr0dM6ze573f/7PeXb31c1y
         8DNzZndf27Ki/eV/zu6+kl8UXsBrcZFfgTW3EMLEbAiDEyHsHg9h21gITwyH8PihEB46GMJ9g1XdL9uB
         6nWpZ4+EsGs8hOHJEMZOxY8jf4/3dzkvhcXFxfh6rPo38J/lY13x79F9+vjx43b8c9Vr9eeBv1bvV/89
