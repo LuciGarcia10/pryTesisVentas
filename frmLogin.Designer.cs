@@ -236,6 +236,7 @@
             this.Controls.Add(this.pnlCrearCuenta);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbContra)).EndInit();

@@ -35,7 +35,7 @@ namespace pryTesisVentas
         {
             // Definimos la consulta a tu tabla real de Cuentas Corrientes
             // Asegúrate de que los nombres de las columnas en el diseñador (DataPropertyName) coincidan con estos campos
-            string consulta = "SELECT IdAfiliado, Nombre, Apellido, ObraSocial, Estado, Saldo FROM CuentasCorrientes";
+            string consulta = "SELECT IdCliente, NroAfiliado, Nombre, Apellido, ObraSocial, Estado, Saldo FROM Clientes";
 
             // Llamamos a la función estática que lee la conexión directa con el punto (.)
             clsConsultas.LlenarGrid(consulta, dgvCuentasC);

@@ -46,13 +46,25 @@ namespace pryTesisVentas
             // Si el rolUsuario cambió, significa que las credenciales son correctas
             if (rolUsuario != "")
             {
+                // --- ¡NUEVA LÓGICA DE RECORDAR CREDENCIALES ACÁ! ---
+                if (chkRecordar.Checked)
+                {
+                    // Guardamos el mail ingresado y activamos el estado en la memoria del disco
+                    Properties.Settings.Default.UsuarioRecordado = txtMail.Text.Trim();
+                    Properties.Settings.Default.RecordarCredenciales = true;
+                }
+                else
+                {
+                    // Si entraron bien pero desmarcaron el botón, borramos el recuerdo
+                    Properties.Settings.Default.UsuarioRecordado = string.Empty;
+                    Properties.Settings.Default.RecordarCredenciales = false;
+                }
+                // Impactamos el guardado de manera física
+                Properties.Settings.Default.Save();
+                // ----------------------------------------------------
+
                 // Creamos el formulario de inicio
                 frmInicio frm = new frmInicio();
-
-                // OPCIONAL: Si quieres pasarle el rol a frmInicio para limitar accesos, 
-                // puedes crear una propiedad pública en frmInicio llamada 'Rol'
-                // frm.Rol = rolUsuario; 
-
                 frm.Show();
 
                 // Ocultamos el formulario de login actual
@@ -122,7 +134,20 @@ namespace pryTesisVentas
 
         private void frmIngresar_Load(object sender, EventArgs e)
         {
+            // Apenas arranca el formulario, le configuramos el asterisco por defecto al cuadro
+            // para asegurarnos de que NUNCA muestre texto limpio si se escribe algo.
+            txtContra.PasswordChar = '*';
+            // Si el sistema recuerda que el usuario tildó el checkbox la última vez:
+            if (Properties.Settings.Default.RecordarCredenciales)
+            {
+                txtMail.Text = Properties.Settings.Default.UsuarioRecordado;
+                txtMail.ForeColor = Color.Black; // Le cambiamos el color a negro porque ya no es el placeholder gris
+                chkRecordar.Checked = true;
 
+                // Le damos el foco directo a la contraseña para que solo tengan que tipear el número
+                txtContra.Focus();
+            }
+            // --------------------------------------------------
         }
     }
 }

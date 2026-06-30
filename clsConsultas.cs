@@ -198,17 +198,18 @@ namespace pryTesisVentas
         }
 
         // Método estático para registrar un nuevo cliente en SQL Server
-        public static bool RegistrarCliente(string nombre, string apellido, string obraSocial, string estado, decimal saldoInicial)
+        public static bool RegistrarCliente(string nroAfiliado, string nombre, string apellido, string obraSocial, string estado, decimal saldoInicial)
         {
             // Armamos la consulta usando parámetros (@Nombre, @Apellido, etc.) para evitar errores con las comillas y proteger la base
-            string consulta = @"INSERT INTO CuentasCorrientes (Nombre, Apellido, ObraSocial, Estado, Saldo) 
-                        VALUES (@Nombre, @Apellido, @ObraSocial, @Estado, @Saldo)";
+            string consulta = @"INSERT INTO Clientes (NroAfiliado,Nombre, Apellido, ObraSocial, Estado, Saldo) 
+                        VALUES (@NroAfiliado, @Nombre, @Apellido, @ObraSocial, @Estado, @Saldo)";
 
             using (SqlConnection conexion = new SqlConnection(cadena))
             {
                 SqlCommand comando = new SqlCommand(consulta, conexion);
 
                 // Pasamos los valores reales de los cuadros de texto a los parámetros
+                comando.Parameters.AddWithValue("@NroAfiliado", nroAfiliado);
                 comando.Parameters.AddWithValue("@Nombre", nombre);
                 comando.Parameters.AddWithValue("@Apellido", apellido);
                 comando.Parameters.AddWithValue("@ObraSocial", obraSocial);

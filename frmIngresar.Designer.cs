@@ -69,7 +69,7 @@
             this.chkRecordar.AutoSize = true;
             this.chkRecordar.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkRecordar.Location = new System.Drawing.Point(147, 238);
-            this.chkRecordar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkRecordar.Margin = new System.Windows.Forms.Padding(2);
             this.chkRecordar.Name = "chkRecordar";
             this.chkRecordar.Size = new System.Drawing.Size(148, 20);
             this.chkRecordar.TabIndex = 43;
@@ -81,7 +81,7 @@
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
             this.pctLogo.Location = new System.Drawing.Point(2, 8);
-            this.pctLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pctLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pctLogo.Name = "pctLogo";
             this.pctLogo.Size = new System.Drawing.Size(41, 44);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,8 +184,9 @@
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtContra);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmIngresar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmIngresar";
             this.Load += new System.EventHandler(this.frmIngresar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();

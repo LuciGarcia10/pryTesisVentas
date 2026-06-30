@@ -42,6 +42,7 @@ namespace pryTesisVentas
             }
 
             // 2. Tomamos los valores de la interfaz
+            string nroAfiliado = TxtNAfiliado.Text.Trim();
             string nombre = TxtNombreC.Text.Trim();
             string apellido = TxtApC.Text.Trim();
             string obraSocial = CmbObraS.Text; // O txtObraSocial según lo que uses
@@ -50,7 +51,7 @@ namespace pryTesisVentas
             decimal saldoInicial = numSaldo.Value;
 
             // 4. Mandamos los datos a la base de datos de SQL Server
-            bool registradoConExito = clsConsultas.RegistrarCliente(nombre, apellido, obraSocial, estado, saldoInicial);
+            bool registradoConExito = clsConsultas.RegistrarCliente(nroAfiliado, nombre, apellido, obraSocial, estado, saldoInicial);
             if (registradoConExito)
             {
                 MessageBox.Show("¡Cliente registrado con éxito en el sistema!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
