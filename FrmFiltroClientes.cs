@@ -21,48 +21,24 @@ namespace pryTesisVentas
 
         private void btnAplicarFiltros_Click(object sender, EventArgs e)
         {
-            // 1. Empezamos con la lista que recibimos
-            var resultado = listaParaFiltrar;
+            // Filtramos de un solo tirón adaptando el NroAfiliado y usando CmbECuenta
+            var resultado = listaParaFiltrar.Where(x =>
+                (string.IsNullOrWhiteSpace(txtNAf.Text) || x.NroAfiliado.ToString().Contains(txtNAf.Text.Trim())) &&
+                (string.IsNullOrWhiteSpace(txtNombre.Text) || (x.Nombre != null && x.Nombre.ToLower().Contains(txtNombre.Text.Trim().ToLower()))) &&
+                (string.IsNullOrWhiteSpace(txtApellido.Text) || (x.Apellido != null && x.Apellido.ToLower().Contains(txtApellido.Text.Trim().ToLower()))) &&
+                (CmbOS.SelectedIndex == -1 || CmbOS.Text == "Todas" || CmbOS.Text == "Seleccionar Obra Social" || (x.ObraSocial != null && x.ObraSocial == CmbOS.Text)) &&
+                (CmbECuenta.SelectedIndex == -1 || string.IsNullOrEmpty(CmbECuenta.Text) || (x.Estado != null && x.Estado == CmbECuenta.Text))
+            ).ToList();
 
-            // 2. Filtro por Obra Social (Validamos que no sea nulo y que no sea la opción por defecto)
-            if (CmbOS.SelectedIndex != -1 && CmbOS.Text != "Todas" && !string.IsNullOrEmpty(CmbOS.Text))
-            {
-                resultado = resultado.Where(x => x.ObraSocial == CmbOS.Text).ToList();
-            }
-
-            // 3. Filtro por Nombre (ignora mayúsculas/minúsculas)
-            if (!string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                resultado = resultado.Where(x => x.Nombre.ToLower().Contains(txtNombre.Text.ToLower())).ToList();
-            }
-
-            // 4. DEVOLVER LOS DATOS Y REFRESCAR
-            if (this.Owner is frmCuentasCorrientes padre)
-            {
-                // Llamamos al método del padre pasándole la nueva lista filtrada
-                padre.ActualizarGrilla(resultado);
-            }
+            // Enviamos el resultado al padre (frmCuentasCorrientes) y cerramos
+            if (this.Owner is frmCuentasCorrientes padre) padre.ActualizarGrilla(resultado);
             this.Close();
         }
 
-        private void lblResetearNumero_Click(object sender, EventArgs e)
-        {
-            txtIngresarNumero.Clear();
-        }
-
-        private void lblResetearNombre_Click(object sender, EventArgs e)
-        {
-            txtNombre.Clear();
-        }
-
-        private void lblResetearAp_Click(object sender, EventArgs e)
-        {
-            txtApellido.Clear();
-        }
 
         private void btnResetearTodo_Click(object sender, EventArgs e)
         {
-            txtIngresarNumero.Clear();
+            txtNAf.Clear();
             txtNombre.Clear();
             txtApellido.Clear();
             if (CmbECuenta != null) CmbECuenta.SelectedIndex = -1;
@@ -72,6 +48,21 @@ namespace pryTesisVentas
         private void pctCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnLimpiarAf_Click(object sender, EventArgs e)
+        {
+            txtNAf.Clear();
+        }
+
+        private void btnLimpiarN_Click(object sender, EventArgs e)
+        {
+            txtNombre.Clear();
+        }
+
+        private void btnLimpiarAp_Click(object sender, EventArgs e)
+        {
+            txtApellido.Clear();
         }
     }
 }

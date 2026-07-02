@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace pryTesisVentas
@@ -213,12 +214,12 @@ namespace pryTesisVentas
             }
         }
 
-        // Método estático para registrar un nuevo cliente en SQL Server
-        public static bool RegistrarCliente(string nroAfiliado, string nombre, string apellido, string obraSocial, string estado, decimal saldoInicial)
+        // OBTENER NUEVO CLIENTE
+        public static bool RegistrarCliente(string nroAfiliado, string dni, string nombre, string apellido, string telefono, string email, string obraSocial, string estado, decimal saldoInicial)
         {
             // Armamos la consulta usando parámetros (@Nombre, @Apellido, etc.) para evitar errores con las comillas y proteger la base
-            string consulta = @"INSERT INTO Clientes (NroAfiliado,Nombre, Apellido, ObraSocial, Estado, Saldo) 
-                        VALUES (@NroAfiliado, @Nombre, @Apellido, @ObraSocial, @Estado, @Saldo)";
+            string consulta = @"INSERT INTO Clientes (NroAfiliado,Dni, Nombre, Apellido, Telefono, Email, ObraSocial, Estado, Saldo) 
+                        VALUES (@NroAfiliado, @Dni, @Nombre, @Apellido, @Telefono, @Email, @ObraSocial, @Estado, @Saldo)";
 
             using (SqlConnection conexion = new SqlConnection(cadena))
             {
@@ -226,10 +227,14 @@ namespace pryTesisVentas
 
                 // Pasamos los valores reales de los cuadros de texto a los parámetros
                 comando.Parameters.AddWithValue("@NroAfiliado", nroAfiliado);
+                comando.Parameters.AddWithValue("@Dni", dni);
                 comando.Parameters.AddWithValue("@Nombre", nombre);
                 comando.Parameters.AddWithValue("@Apellido", apellido);
-                comando.Parameters.AddWithValue("@Telefono", telefono);
+                comando.Parameters.AddWithValue("@Telefono", telefono); 
                 comando.Parameters.AddWithValue("@Email", email);
+                comando.Parameters.AddWithValue("@ObraSocial", obraSocial);
+                comando.Parameters.AddWithValue("@Estado", estado);
+                comando.Parameters.AddWithValue("@Saldo", saldoInicial);
 
                 try
                 {
@@ -243,6 +248,139 @@ namespace pryTesisVentas
                     return false;
                 }
             }
+        }
+
+        //OBTENER CLIENTE POR ID
+        public static DataTable ObtenerClientePorId(string idCliente)
+        {
+            string consulta = "SELECT NroAfiliado, Dni, Nombre, Apellido, Telefono, Email, ObraSocial, Estado, Saldo FROM Clientes WHERE IdCliente = @IdCliente";
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@IdCliente", idCliente);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+                    adaptador.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Error al obtener datos del cliente: " + ex.Message);
+                }
+            }
+            return dt;
+        }
+
+        //MODIFICAR CLIENTE
+        public static bool ModificarCliente(string idCliente, string nroAfiliado, string dni, string nombre, string apellido, string telefono, string email, string obraSocial, decimal saldo)
+        {
+            // Consulta SQL para actualizar los datos usando el ID único del cliente
+            string consulta = @"UPDATE Clientes 
+                        SET NroAfiliado = @NroAfiliado, 
+                            Dni = @Dni, 
+                            Nombre = @Nombre, 
+                            Apellido = @Apellido, 
+                            Telefono = @Telefono, 
+                            Email = @Email, 
+                            ObraSocial = @ObraSocial,
+                            Saldo = @Saldo
+                        WHERE IdCliente = @IdCliente";
+
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+
+                // Pasamos todos los parámetros de forma segura
+                comando.Parameters.AddWithValue("@IdCliente", idCliente);
+                comando.Parameters.AddWithValue("@NroAfiliado", nroAfiliado);
+                comando.Parameters.AddWithValue("@Dni", dni);
+                comando.Parameters.AddWithValue("@Nombre", nombre);
+                comando.Parameters.AddWithValue("@Apellido", apellido);
+                comando.Parameters.AddWithValue("@Telefono", telefono);
+                comando.Parameters.AddWithValue("@Email", email);
+                comando.Parameters.AddWithValue("@ObraSocial", obraSocial);
+                comando.Parameters.AddWithValue("@Saldo", saldo);
+
+                try
+                {
+                    conexion.Open();
+                    comando.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Error al actualizar el cliente: " + ex.Message, "Error de SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
+
+        //ELIMINAR CLIENTE
+        public static bool EliminarCliente(string idCliente)
+        {
+            // Consulta SQL para borrar físicamente la fila
+            string consulta = "DELETE FROM Clientes WHERE IdCliente = @IdCliente";
+
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@IdCliente", idCliente);
+
+                try
+                {
+                    conexion.Open();
+                    comando.ExecuteNonQuery(); // Ejecuta el borrado
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    // Si el cliente ya tiene facturas o deudas asociadas, SQL Server podría rebotar el DELETE por integridad referencial
+                    System.Windows.Forms.MessageBox.Show("No se pudo eliminar el cliente. Motivo: " + ex.Message, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
+
+        //OBTENER LISTA DE CLIENTES
+        public static List<clsCuentasC> ObtenerClientesLista()
+        {
+            List<clsCuentasC> lista = new List<clsCuentasC>();
+            string consulta = "SELECT NroAfiliado, Nombre, Apellido, ObraSocial, Estado, Saldo FROM Clientes";
+
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                try
+                {
+                    conexion.Open();
+                    using (SqlDataReader lector = comando.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            clsCuentasC cliente = new clsCuentasC();
+
+                            // Controlamos nulos de la base de datos para que no rompa
+                            cliente.NroAfiliado = lector["NroAfiliado"] != DBNull.Value ? Convert.ToInt32(lector["NroAfiliado"]) : 0;
+                            cliente.Nombre = lector["Nombre"] != DBNull.Value ? lector["Nombre"].ToString() : "";
+                            cliente.Apellido = lector["Apellido"] != DBNull.Value ? lector["Apellido"].ToString() : "";
+                            cliente.ObraSocial = lector["ObraSocial"] != DBNull.Value ? lector["ObraSocial"].ToString() : "";
+                            cliente.Estado = lector["Estado"] != DBNull.Value ? lector["Estado"].ToString() : "";
+                            cliente.Saldo = lector["Saldo"] != DBNull.Value ? Convert.ToDecimal(lector["Saldo"]) : 0;
+
+                            lista.Add(cliente);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Error al listar clientes para el filtro: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            return lista;
         }
 
         // Método estático para eliminar un producto de SQL Server

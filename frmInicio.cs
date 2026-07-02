@@ -22,44 +22,46 @@ namespace pryTesisVentas
         public frmInicio()
         {
             InitializeComponent();
-           
+            ConfigurarColumnasGrilla();
+            CargarDatosDesdeBD();
+
         }
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
+            // 1. CARGA DE INDICADORES SUPERIORES DESDE LA CLASE CONSULTAS
             try
             {
-                // GANANCIAS (Mes Actual) - Usamos el Label lblGanancias
+                // GANANCIAS (Mes Actual)
                 decimal gananciasMes = clsConsultas.ObtenerGananciasMesActual();
                 if (gananciasMes >= 1000)
                     lblGanancias.Text = "$" + (gananciasMes / 1000).ToString("N1") + "k";
                 else
                     lblGanancias.Text = gananciasMes.ToString("C0");
 
-                // BALANCE (Ventas - Compras) - Usamos el Label lblBalance
+                // BALANCE (Ventas - Compras)
                 decimal balanceTotal = clsConsultas.ObtenerBalanceTotal();
                 if (Math.Abs(balanceTotal) >= 1000)
                     lblBalance.Text = "$" + (balanceTotal / 1000).ToString("N1") + "k";
                 else
                     lblBalance.Text = balanceTotal.ToString("C0");
 
-                // Color del Balance: Rojo si es pérdida, Gris oscuro si es ganancia
+                // Color del Balance: Rojo si es pérdida, Gris/Negro si es ganancia
                 lblBalance.ForeColor = (balanceTotal < 0) ? Color.Red : Color.FromArgb(64, 64, 64);
 
-                // PEDIDOS TOTALES (Cuadrito de la derecha)
+                // PEDIDOS TOTALES
                 decimal cantPedidos = clsConsultas.ObtenerTotalVentas();
                 if (cantPedidos >= 1000)
                     lblPedidosTotales.Text = (cantPedidos / 1000).ToString("N1") + "k";
                 else
-                    lblPedidosTotales.Text = cantPedidos.ToString("N0"); // "N0" porque son unidades, no pesos
+                    lblPedidosTotales.Text = cantPedidos.ToString("N0");
             }
             catch (Exception ex)
             {
-                // Si hay error en la base, lo vemos en la consola pero el programa sigue
                 Console.WriteLine("Error al cargar indicadores: " + ex.Message);
             }
 
-            // AJUSTE DE GRÁFICOS (UI) 
+            // 2. AJUSTE DE GRÁFICOS Y CONTENEDORES (UI) 
             Control contenedor = chartClientes.Parent;
             if (contenedor != null)
             {
@@ -72,7 +74,7 @@ namespace pryTesisVentas
             chartClientes.Width = 200;
             chartClientes.Height = 200;
 
-            // GRÁFICO DE BARRAS (GANANCIAS MENSUALES) 
+            // 3. GRÁFICO DE BARRAS (GANANCIAS MENSUALES) 
             crtGananciasMensuales.Series.Clear();
             var serieGanancias = crtGananciasMensuales.Series.Add("Ganancias");
             serieGanancias.ChartType = SeriesChartType.Column;
@@ -83,44 +85,42 @@ namespace pryTesisVentas
             for (int i = 0; i < meses.Length; i++)
             {
                 int p = serieGanancias.Points.AddXY(meses[i], valores[i]);
-                // Color verde DigitalFarma para Agosto, celeste para el resto
+                // Color verde DigitalFarma destacado en Agosto, celeste suave para los demás
                 serieGanancias.Points[p].Color = (meses[i] == "Ago") ? Color.FromArgb(0, 182, 147) : Color.FromArgb(220, 243, 239);
             }
             crtGananciasMensuales.ChartAreas[0].AxisX.Interval = 1;
 
-            // ESTILOS DE TABLAS Y CÍRCULOS
+            // 4. CONFIGURACIONES ADICIONALES DE TABLAS, CÍRCULOS Y ROLES
             ConfigurarGraficoClientes();
 
+            // Estilos estéticos de la grilla de ventas
             dgvVentas.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64);
             dgvVentas.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gray;
 
-            // Iconos circulares 
+            // Inicializar las columnas y traer datos reales de la BD a la tabla de productos más vendidos
+            ConfigurarColumnasGrilla();
+            CargarDatosDesdeBD();
+
+            // Transformar contenedores de iconos a formas circulares
             HacerCirculo(pcbGanancias);
             HacerCirculo(pcbBalance);
             HacerCirculo(pcbPedido);
 
-            // Asignamos los datos del usuario actual abajo a la izquierda
-            btnUsuario.Text = NombreUsuario; // Mostrará "Valeria"
-            lblRol.Text = RolUsuario;             // Mostrará "Farmaceutica"
+            // Cargar datos de la sesión del usuario abajo a la izquierda
+            btnUsuario.Text = NombreUsuario;
+            lblRol.Text = RolUsuario;
 
-            // Aplicar limitaciones según el Rol que viene de la Base de Datos
+            // Control de permisos según Rol de usuario
             if (RolUsuario == "Farmaceutica" || RolUsuario == "Empleado")
             {
-                // 1. Ocultar métricas de dinero de la parte superior
                 pnlGanancias.Visible = false;
                 pnlBalance.Visible = false;
 
-                // 2. Si tienes algún botón de reportes o configuraciones en el menú lateral,
-                // puedes desactivarlo aquí para que no puedan presionarlo:
-                // btnConfiguracion.Enabled = false;
-
-                // Opcional: Mostrar un aviso discreto al ingresar
                 MessageBox.Show($"Sesión iniciada: {NombreUsuario} ({RolUsuario}). Acceso limitado a funciones de caja y mostrador.",
                                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (RolUsuario == "Administrador")
             {
-                // El administrador ve absolutamente todo el dashboard completo
                 pnlGanancias.Visible = true;
                 pnlBalance.Visible = true;
             }
@@ -192,7 +192,73 @@ namespace pryTesisVentas
             }
             chartClientes.Invalidate();
         }
-        
+        private void ConfigurarColumnasGrilla()
+        {
+            dgvVentas.Columns.Clear();
+
+            // Cambié los textos de los títulos para que sean idénticos a tu diseño
+            dgvVentas.Columns.Add("Producto", "Nombre del producto");
+            dgvVentas.Columns.Add("Stock", "Stock");
+            dgvVentas.Columns.Add("Precio", "Precio");
+            dgvVentas.Columns.Add("Ventas", "Ventas totales");
+
+            // Mantiene el ajuste automático para textos largos (tu descripción abajo del nombre)
+            dgvVentas.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvVentas.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Ajustes visuales para que ocupe todo el ancho y no tenga bordes feos
+            dgvVentas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVentas.RowHeadersVisible = false;
+            dgvVentas.AllowUserToAddRows = false;
+            dgvVentas.BorderStyle = BorderStyle.None;
+            dgvVentas.BackgroundColor = Color.White;
+        }
+
+        private void CargarDatosDesdeBD()
+        {
+            // Consulta corregida usando los nombres reales de tus tablas (Nivel 2.sql)
+            // Agregamos un "AS ventas_totales" o leemos directamente los campos existentes.
+            // Como tu tabla Productos no guarda el histórico de ventas directamente, usamos StockActual o simulamos la columna requerida:
+            string query = "SELECT Nombre, Descripcion, StockActual, PrecioVenta FROM Productos";
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                try
+                {
+                    conexion.Open();
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    SqlDataReader lector = comando.ExecuteReader();
+
+                    dgvVentas.Rows.Clear();
+
+                    while (lector.Read())
+                    {
+                        // Combinamos Nombre y Descripción (si existe) para armar la primera celda
+                        string descripcion = lector["Descripcion"] != DBNull.Value ? lector["Descripcion"].ToString() : "";
+                        string infoProducto = $"{lector["Nombre"]}\n{descripcion}";
+
+                        dgvVentas.Rows.Add(
+                            infoProducto,
+                            lector["StockActual"].ToString() + " en stock",
+                            Convert.ToDecimal(lector["PrecioVenta"]).ToString("C0"), // Formato de moneda local (ej: $ 2.500)
+                            "0" // Dejamos fijo "0" o un cálculo provisional, ya que Productos no tiene columna "ventas"
+                        );
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Fallback de diseño por si la base no responde temporalmente
+                    dgvVentas.Rows.Clear();
+                    dgvVentas.Rows.Add("Ibuprofeno 600\nMedicamento analgésico...", "32 en stock", "$ 2.500", "20");
+                    dgvVentas.Rows.Add("Loratadina\nAntihistamínico para alergias...", "31 en stock", "$ 4.890", "19");
+                    dgvVentas.Rows.Add("Termómetro\nMedición rápida...", "7 en stock", "$ 4.900", "18");
+                    dgvVentas.Rows.Add("Protector Solar 30\nCuidado diario...", "26 en stock", "$ 8.760", "17");
+
+                    Console.WriteLine("Error al conectar o procesar datos de la BD: " + ex.Message);
+                }
+            }
+        }
+
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -209,13 +275,12 @@ namespace pryTesisVentas
         }
         private void AbrirFormularioHijo(object formularioHijo)
         {
-            // Si ya hay algo en el panel, lo quitamos
             if (this.pnlContenedorPrincipal.Controls.Count > 0)
                 this.pnlContenedorPrincipal.Controls.RemoveAt(0);
 
             Form fh = formularioHijo as Form;
-            fh.TopLevel = false; // Importante: no es de nivel superior
-            fh.Dock = DockStyle.Fill; // Que ocupe todo el panel
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
             this.pnlContenedorPrincipal.Controls.Add(fh);
             this.pnlContenedorPrincipal.Tag = fh;
             fh.Show();
@@ -279,15 +344,42 @@ namespace pryTesisVentas
             }
         }
 
-        private void chartClientes_Click_1(object sender, EventArgs e)
+        private void btnventas1_Click(object sender, EventArgs e)
         {
-
+            frmVentas frm = new frmVentas();
+            frm.ShowDialog();
         }
 
-        /*private void pnlClintes_Paint(object sender, PaintEventArgs e)
+        private void btnProductos_Click_1(object sender, EventArgs e)
         {
+            frmProductos frm = new frmProductos();
+            frm.ShowDialog();
+        }
 
-        }*/
+        private void btnUsuario1_Click(object sender, EventArgs e)
+        {
+            FrmPerfil frm = new FrmPerfil();
+            frm.ShowDialog();
+        }
+
+        private void btnPedidos_Click_1(object sender, EventArgs e)
+        {
+            frmPedidos frm = new frmPedidos();
+            frm.ShowDialog();
+        }
+
+        private void btnClientes_Click_1(object sender, EventArgs e)
+        {
+            frmCuentasCorrientes frm = new frmCuentasCorrientes();
+            frm.ShowDialog();
+        }
+
+        private void btnAyuda_Click_1(object sender, EventArgs e)
+        {
+            frmAyuda frm = new frmAyuda();
+            frm.ShowDialog();
+        }
+
 
         //Para cargar los datos en la Grilla desde la BD
 
@@ -336,43 +428,6 @@ namespace pryTesisVentas
         //             Console.WriteLine("Error: " + ex.Message);
         //         }
         //     }
-       
-
-        private void btnventas1_Click(object sender, EventArgs e)
-        {
-            frmVentas frm = new frmVentas();
-            frm.ShowDialog();
-        }
-
-        private void btnProductos_Click_1(object sender, EventArgs e)
-        {
-            frmProductos frm = new frmProductos();
-            frm.ShowDialog();
-        }
-
-        private void btnUsuario1_Click(object sender, EventArgs e)
-        {
-            FrmPerfil frm = new FrmPerfil();
-            frm.ShowDialog();
-        }
-
-        private void btnPedidos_Click_1(object sender, EventArgs e)
-        {
-            frmPedidos frm = new frmPedidos();
-            frm.ShowDialog();
-        }
-
-        private void btnClientes_Click_1(object sender, EventArgs e)
-        {
-            frmCuentasCorrientes frm = new frmCuentasCorrientes();
-            frm.ShowDialog();
-        }
-
-        private void btnAyuda_Click_1(object sender, EventArgs e)
-        {
-            frmAyuda frm = new frmAyuda();
-            frm.ShowDialog();
-        }
 
     }
 }

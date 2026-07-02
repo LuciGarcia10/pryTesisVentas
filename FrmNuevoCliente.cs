@@ -12,6 +12,11 @@ namespace pryTesisVentas
 {
     public partial class FrmNuevoCliente : Form
     {
+        // Creamos una propiedad para definir el modo: "NUEVO", "EDITAR" o "DETALLES"
+        public string Modo { get; set; } = "NUEVO"; // Por defecto arranca en Nuevo
+
+        // Variable para guardar el ID del cliente si vamos a editar o ver detalles
+        public string IdClienteSeleccionado { get; set; }
         public FrmNuevoCliente()
         {
             InitializeComponent();
@@ -32,33 +37,56 @@ namespace pryTesisVentas
             BtnAgregarC.FlatStyle = FlatStyle.Flat;
             BtnAgregarC.FlatAppearance.BorderSize = 0;
         }
+
+        //AGREGAMOS UN CLIENTE A LA BASE DE DATOS
         private void BtnAgregarC_Click(object sender, EventArgs e)
         {
             // 1. Validaciones básicas (para asegurarnos de que no dejen campos vacíos)
-            if (string.IsNullOrWhiteSpace(TxtNombreC.Text) || string.IsNullOrWhiteSpace(TxtApC.Text))
+            if (string.IsNullOrWhiteSpace(TxtNombreC.Text) || string.IsNullOrWhiteSpace(TxtApC.Text) || string.IsNullOrWhiteSpace(TxtDni.Text))
             {
-                MessageBox.Show("Por favor, complete el Nombre y Apellido del cliente.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, complete DNI, Nombre y Apellido del cliente.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. Tomamos los valores de la interfaz
+            // 2. Tomamos los valores de la interfaz (tal cual lo tenías vos)
             string nroAfiliado = TxtNAfiliado.Text.Trim();
+            string dni = TxtDni.Text.Trim();
             string nombre = TxtNombreC.Text.Trim();
             string apellido = TxtApC.Text.Trim();
-            string obraSocial = CmbObraS.Text; // O txtObraSocial según lo que uses
-            string estado = "Al dia"; // Estado por defecto al crear un cliente nuevo
-                                      // 3. Extraemos el valor del NumericUpDown directamente con .Value
+            string telefono = TxtTel.Text.Trim();
+            string email = TxtEmail.Text.Trim();
+            string obraSocial = CmbObraS.Text;
+            string estado = "Al dia";
             decimal saldoInicial = numSaldo.Value;
 
-            // 4. Mandamos los datos a la base de datos de SQL Server
-            bool registradoConExito = clsConsultas.RegistrarCliente(nroAfiliado, nombre, apellido, obraSocial, estado, saldoInicial);
-            if (registradoConExito)
+            // ====================================================================
+            // REUTILIZACIÓN
+            // ====================================================================
+            if (Modo == "EDITAR")
             {
-                MessageBox.Show("¡Cliente registrado con éxito en el sistema!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // 3A. Si el modo es EDITAR, llamamos al método UPDATE pasándole el ID que guardamos al abrir el formulario
+                bool modificadoConExito = clsConsultas.ModificarCliente(IdClienteSeleccionado, nroAfiliado, dni, nombre, apellido, telefono, email, obraSocial, saldoInicial);
 
-                // 4. Indicamos al formulario padre que se guardó correctamente para que refresque la grilla
-                this.DialogResult = DialogResult.OK;
-                this.Close(); // Cierra la ventana de carga
+                if (modificadoConExito)
+                {
+                    MessageBox.Show("¡Cliente modificado con éxito en el sistema!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.DialogResult = DialogResult.OK; // Le avisa a la grilla que se refresque
+                    this.Close(); // Cierra la ventana
+                }
+            }
+            else
+            {
+                // 3B. MODO NUEVO (Tu código original del INSERT)
+                bool registradoConExito = clsConsultas.RegistrarCliente(nroAfiliado, dni, nombre, apellido, telefono, email, obraSocial, estado, saldoInicial);
+
+                if (registradoConExito)
+                {
+                    MessageBox.Show("¡Cliente registrado con éxito en el sistema!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
 
         }
@@ -67,6 +95,8 @@ namespace pryTesisVentas
         {
             this.Close();
         }
+
+        //Para que solo se puedan poner numeros en este campo
         private void TxtNAfiliado_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -94,6 +124,88 @@ namespace pryTesisVentas
                 CmbECuenta.Items.Add("Al día");
                 CmbECuenta.Items.Add("Inactivo");
                 CmbECuenta.SelectedIndex = 0;
+            }
+
+            // ==========================================
+            // REUTILIZACIÓN
+            // ==========================================
+
+            if (Modo == "EDITAR")
+            {
+                this.Text = "Editar Cliente";
+                BtnAgregarC.Text = "Guardar Cambios";
+
+                // El número de afiliado o DNI a veces conviene bloquearlos en la edición para que no los alteren
+                // TxtDni.ReadOnly = true; 
+
+                CargarDatosDelCliente(); // Método que busca en la base de datos y rellena los campos
+            }
+            else if (Modo == "DETALLES")
+            {
+                this.Text = "Información del Cliente";
+
+                // Ocultamos el botón de guardar porque solo es para mirar datos
+                BtnAgregarC.Visible = false;
+
+                // Bloqueamos todos tus campos para que no puedan escribir
+                TxtDni.ReadOnly = true;
+                TxtNombreC.ReadOnly = true;
+                TxtApC.ReadOnly = true;
+                TxtTel.ReadOnly = true;
+                TxtEmail.ReadOnly = true;
+                TxtNAfiliado.ReadOnly = true;
+                CmbObraS.Enabled = false;
+                numSaldo.Enabled = false;
+                if (CmbECuenta != null) CmbECuenta.Enabled = false;
+
+                CargarDatosDelCliente(); // Método que busca en la base de datos y rellena los campos
+            }
+            else
+            {
+                // Modo NUEVO (Título estándar)
+                this.Text = "Registrar Nuevo Cliente";
+                BtnAgregarC.Text = "Guardar";
+            }
+        }
+
+        private void CargarDatosDelCliente()
+        {
+            // 1. Validamos que tengamos un ID válido para buscar
+            if (string.IsNullOrEmpty(IdClienteSeleccionado)) return;
+
+            // 2. Vamos a la base de datos a buscar la info de este cliente
+            DataTable dtCliente = clsConsultas.ObtenerClientePorId(IdClienteSeleccionado);
+
+            // 3. Si encontramos al cliente, rellenamos los campos de la interfaz
+            if (dtCliente.Rows.Count > 0)
+            {
+                DataRow fila = dtCliente.Rows[0];
+
+                TxtNAfiliado.Text = fila["NroAfiliado"].ToString();
+                TxtDni.Text = fila["Dni"].ToString();
+                TxtNombreC.Text = fila["Nombre"].ToString();
+                TxtApC.Text = fila["Apellido"].ToString();
+                TxtTel.Text = fila["Telefono"].ToString();
+                TxtEmail.Text = fila["Email"].ToString();
+
+                // Seleccionamos la obra social en el combo
+                CmbObraS.Text = fila["ObraSocial"].ToString();
+
+                // Si usás el combo de estado, seleccionamos el que corresponda
+                if (CmbECuenta != null)
+                {
+                    CmbECuenta.Text = fila["Estado"].ToString();
+                }
+
+                // Cargamos el saldo en el NumericUpDown
+                if (fila["Saldo"] != DBNull.Value)
+                {
+                    numSaldo.Value = Convert.ToDecimal(fila["Saldo"]);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron los datos del cliente seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

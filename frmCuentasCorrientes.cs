@@ -34,7 +34,6 @@ namespace pryTesisVentas
         private void CargarDatosDesdeBase()
         {
             // Definimos la consulta a tu tabla real de Cuentas Corrientes
-            // Asegúrate de que los nombres de las columnas en el diseñador (DataPropertyName) coincidan con estos campos
             string consulta = "SELECT IdCliente, NroAfiliado, Nombre, Apellido, ObraSocial, Estado, Saldo FROM Clientes";
 
             // Llamamos a la función estática que lee la conexión directa con el punto (.)
@@ -54,56 +53,28 @@ namespace pryTesisVentas
                 btnLimpiar.Enabled = true; // Si se fuerza una lista manual, habilitamos limpiar para regresar a la base
         }
 
-        private void ConfigurarColumnasAcciones()
-        {
-            // las otras columnas de datos (DNI, Nombre, etc.) 
-
-            //Boton VER
-            DataGridViewImageColumn colVer = new DataGridViewImageColumn();
-            colVer.Name = "btnVer";
-            colVer.HeaderText = "Acciones"; // Título de la sección
-            colVer.Image = Properties.Resources.Lupita; // Usa tus recursos
-            colVer.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            colVer.Width = 40;
-            dgvCuentasC.Columns.Add(colVer);
-
-            //Boton EDITAR
-            DataGridViewImageColumn colEditar = new DataGridViewImageColumn();
-            colEditar.Name = "btnEditar";
-            colEditar.HeaderText = ""; // Vacío para que parezca la misma sección
-            colEditar.Image = Properties.Resources.ptbEditar; // Asegúrate de tener este recurso
-            colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            colEditar.Width = 40;
-            dgvCuentasC.Columns.Add(colEditar);
-
-            //Boton ELIMINAR
-            DataGridViewImageColumn colEliminar = new DataGridViewImageColumn();
-            colEliminar.Name = "btnEliminar";
-            colEliminar.HeaderText = "";
-            colEliminar.Image = Properties.Resources.ptbBorrar; //
-            colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            colEliminar.Width = 40;
-            dgvCuentasC.Columns.Add(colEliminar);
-        }
 
         private void EstilizarGrilla()
         {
-            // Colores y bordes
+            // 1. Bordes y estructura general
             dgvCuentasC.BackgroundColor = Color.White;
             dgvCuentasC.BorderStyle = BorderStyle.None;
             dgvCuentasC.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvCuentasC.GridColor = Color.FromArgb(240, 240, 240);
 
-            // Estilo de encabezados
+            // 2. Encabezados (Gris claro fijo y centrado)
             dgvCuentasC.EnableHeadersVisualStyles = false;
-            dgvCuentasC.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
-            dgvCuentasC.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(160, 160, 160);
+            dgvCuentasC.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
+            dgvCuentasC.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(110, 110, 110);
             dgvCuentasC.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvCuentasC.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvCuentasC.ColumnHeadersHeight = 40;
 
-            // Selección y filas
-            dgvCuentasC.DefaultCellStyle.SelectionBackColor = Color.FromArgb(235, 250, 245);
+            // 3. Filas y Selección (Al estar limpio el diseñador, esto aplica directo sin dar vueltas)
+            dgvCuentasC.DefaultCellStyle.ForeColor = Color.FromArgb(50, 50, 50);
+            dgvCuentasC.DefaultCellStyle.SelectionBackColor = Color.FromArgb(235, 250, 245); // Tu verde agua
             dgvCuentasC.DefaultCellStyle.SelectionForeColor = Color.Black;
+
             dgvCuentasC.RowTemplate.Height = 50;
             dgvCuentasC.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCuentasC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -129,30 +100,35 @@ namespace pryTesisVentas
         {
             frmInicio frm = new frmInicio();
             frm.ShowDialog();
+            this.Hide();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
             frmVentas frm = new frmVentas();
             frm.ShowDialog();
+            this.Hide();
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
         {
             frmPedidos frm = new frmPedidos();
             frm.ShowDialog();
+            this.Hide();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
             frmProductos frm = new frmProductos();
             frm.ShowDialog();
+            this.Hide();
         }
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
             frmAyuda frm = new frmAyuda();
             frm.ShowDialog();
+            this.Hide();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -165,14 +141,13 @@ namespace pryTesisVentas
         {
             FrmFiltroClientes ventanaFiltro = new FrmFiltroClientes();
 
-            // Si tu ventana de filtros aún requiere una lista base para procesar en memoria,
-            // podemos convertir el DataSource actual de la grilla (DataTable) a Lista, o pasarle una nueva consulta.
-            // Para mantener compatibilidad con tu código actual:
-            if (dgvCuentasC.DataSource is List<clsCuentasC> listaActual)
-            {
-                ventanaFiltro.listaParaFiltrar = listaActual;
-            }
+            // 1. Le asignamos el dueño para el 'this.Owner' de tu compañera
+            ventanaFiltro.Owner = this;
 
+            // 2. LLAMAMOS AL NUEVO MÉTODO ESTÁTICO (Trae la lista real de SQL Server)
+            ventanaFiltro.listaParaFiltrar = clsConsultas.ObtenerClientesLista();
+
+            // 3. Tu lógica matemática de posición en pantalla
             ventanaFiltro.StartPosition = FormStartPosition.Manual;
             Point puntoAparicion = pctDesplegar.PointToScreen(new Point(0, pctDesplegar.Height));
             ventanaFiltro.Location = puntoAparicion;
@@ -182,54 +157,96 @@ namespace pryTesisVentas
 
         private void dgvCuentasC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
+            // 1. Evitamos las filas de cabecera o clics fuera de rango
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
-            if (dgvCuentasC.Columns[e.ColumnIndex].Name == "ColAcciones")
+            // 2. Verificá que este nombre coincida EXACTAMENTE con el .Name de tu columna de acciones
+            if (dgvCuentasC.Columns[e.ColumnIndex].Name == "ClmAcciones")
             {
-                // Obtenemos la posición del clic relativa a la celda
-                var relativeX = dgvCuentasC.PointToClient(Cursor.Position).X - dgvCuentasC.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false).X;
+                // Obtenemos los datos del cliente de la fila seleccionada (por si los necesitás en las acciones)
+                // Reemplazá 'IdCliente' o 'Nombre' por los nombres reales de tus columnas
+                string idCliente = dgvCuentasC.Rows[e.RowIndex].Cells["IdCliente"].Value.ToString();
+                string nombreCliente = dgvCuentasC.Rows[e.RowIndex].Cells["ClmN"].Value.ToString();
 
-                // Definimos rangos aproximados según el ancho de tus iconos (ej: 30px cada uno)
-                if (relativeX > 0 && relativeX <= 35)
+                // Conseguimos las coordenadas del clic del mouse en la pantalla
+                Point puntoLocal = dgvCuentasC.PointToClient(Cursor.Position);
+                Rectangle celdaBounds = dgvCuentasC.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
+
+                // Calculamos la posición X relativa, es decir, a cuántos píxeles desde el borde izquierdo de la celda se hizo clic
+                int clicX = puntoLocal.X - celdaBounds.X;
+
+                // --- DIVIDIMOS LA CELDA EN 3 SECCIONES (Asumiendo que la columna mide unos 120px de ancho) ---
+                // BOTÓN 1: LUPA (Ver detalles/Historial) - Clic en el primer tercio (de 0 a 40 píxeles)
+                if (clicX >= 0 && clicX < 40)
                 {
-                    MessageBox.Show("Clic en VER");
+                    // Instanciamos el formulario que vas a reutilizar
+                    FrmNuevoCliente frmDetalle = new FrmNuevoCliente();
+
+                    // Le configuramos las propiedades públicas que creamos
+                    frmDetalle.Modo = "DETALLES";
+                    frmDetalle.IdClienteSeleccionado = idCliente; // Le pasa el ID para que busque sus datos
+
+                    // Lo abrimos como ventana emergente
+                    frmDetalle.ShowDialog();
                 }
-                else if (relativeX > 35 && relativeX <= 70)
+
+                // BOTÓN 2: LÁPIZ (Editar cliente) - Clic en el segundo tercio (de 40 a 80 píxeles)
+                else if (clicX >= 40 && clicX < 80)
                 {
-                    MessageBox.Show("Clic en EDITAR");
+                    FrmNuevoCliente frmEditar = new FrmNuevoCliente();
+
+                    frmEditar.Modo = "EDITAR";
+                    frmEditar.IdClienteSeleccionado = idCliente;
+
+                    // Usamos un 'if' con DialogResult.OK por si el usuario guardó los cambios con éxito.
+                    // Si guardó, el formulario se cierra avisando "OK" y recargamos tu grilla principal.
+                    if (frmEditar.ShowDialog() == DialogResult.OK) // <-- ESTO avisa a la grilla que tiene que actualizarse
+                    {
+                        CargarDatosDesdeBase(); // Tu método para refrescar los clientes en pantalla
+                    }
                 }
-                else if (relativeX > 70)
+
+                // BOTÓN 3: TACHITO (Eliminar/Dar de baja) - Clic en el último tercio (de 80 en adelante)
+                else if (clicX >= 80)
                 {
-                    MessageBox.Show("Clic en BORRAR");
+                    // Le preguntamos al usuario para evitar que borre algo sin querer
+                    DialogResult resultado = MessageBox.Show($"¿Está seguro de que desea eliminar permanentemente al cliente {nombreCliente}? Esta acción no se puede deshacer.",
+                                                             "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        // Llamamos al método que borra físicamente de la base de datos
+                        bool borradoExitoso = clsConsultas.EliminarCliente(idCliente);
+
+                        if (borradoExitoso)
+                        {
+                            // Refrescamos tu grilla para que el cliente desaparezca de la pantalla al instante
+                            CargarDatosDesdeBase();
+                            MessageBox.Show("Cliente eliminado correctamente del sistema.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
                 }
             }
         }
 
         private void dgvCuentasC_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            // Modificado para que responda tanto si se llama "ClmAcciones" o "ColAcciones" en las propiedades de la grilla
-            if (e.RowIndex >= 0 && (dgvCuentasC.Columns[e.ColumnIndex].Name == "ClmAcciones" || dgvCuentasC.Columns[e.ColumnIndex].Name == "ColAcciones"))
+            // 1. Evitamos cabeceras y filtramos por tu columna real
+            if (e.RowIndex >= 0 && dgvCuentasC.Columns[e.ColumnIndex].Name == "ClmAcciones")
             {
+                // 2. Que Windows Forms pinte el fondo (blanco o verde según corresponda) de forma automática
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-                int tamañoIcono = 20;
+                // 3. Tus iconos con las posiciones exactas que ya tenías
+                int y = e.CellBounds.Top + (e.CellBounds.Height - 20) / 2;
 
-                Image ver = Properties.Resources.Lupita;
-                Image editar = Properties.Resources.ptbEditar;
-                Image borrar = Properties.Resources.ptbBorrar;
+                e.Graphics.DrawImage(Properties.Resources.Lupita, new Rectangle(e.CellBounds.Left + 15, y, 20, 20));
+                e.Graphics.DrawImage(Properties.Resources.ptbEditar, new Rectangle(e.CellBounds.Left + 45, y, 20, 20));
+                e.Graphics.DrawImage(Properties.Resources.ptbBorrar, new Rectangle(e.CellBounds.Left + 75, y, 20, 20));
 
-                int espacioEntreIconos = 10;
-                int xVer = e.CellBounds.Left + 15;
-                int xEditar = xVer + tamañoIcono + espacioEntreIconos;
-                int xBorrar = xEditar + tamañoIcono + espacioEntreIconos;
-
-                int y = e.CellBounds.Top + (e.CellBounds.Height - tamañoIcono) / 2;
-
-                e.Graphics.DrawImage(ver, new Rectangle(xVer, y, tamañoIcono, tamañoIcono));
-                e.Graphics.DrawImage(editar, new Rectangle(xEditar, y, tamañoIcono, tamañoIcono));
-                e.Graphics.DrawImage(borrar, new Rectangle(xBorrar, y, tamañoIcono, tamañoIcono));
-
+                // 4. Avisamos que ya terminamos
                 e.Handled = true;
+            
             }
         }
 
@@ -237,6 +254,7 @@ namespace pryTesisVentas
         {
             FrmPerfil frm = new FrmPerfil();
             frm.ShowDialog();
+            this.Hide();
         }
     }
     

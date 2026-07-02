@@ -147,7 +147,6 @@ namespace pryTesisVentas
                 // Le damos el foco directo a la contraseña para que solo tengan que tipear el número
                 txtContra.Focus();
             }
-            // --------------------------------------------------
         }
     }
 }
