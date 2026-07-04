@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace pryTesisVentas
 {
@@ -15,7 +16,8 @@ namespace pryTesisVentas
         // Lista global para guardar los productos en la memoria de la PC
         List<Producto> listaProductos = new List<Producto>();
         // Cadena de conexión a tu base de datos en Córdoba
-        ///string cadenaConexion = "Server=.; Database=BDDigitalFarma; Integrated Security=True";
+        //string cadenaConexion = "Server=.; Database=BDDigitalFarma; Integrated Security=True";
+        
 
         public frmVentas()
         {
@@ -25,18 +27,23 @@ namespace pryTesisVentas
         private void frmVentas_Load(object sender, EventArgs e)
         {
             // CONFIGURACIÓN DE LA GRILLA
+
             // 1. ESTO VA PRIMERO: Apagamos el generador automático antes de hacer nada
+
             dgvVentas.AutoGenerateColumns = false;
+
         }
+        
 
         private void dgvVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Dejalo vacío o usalo si el usuario hace clic en un botón específico dentro de la fila (como "Editar" o "Eliminar")
+            // Queda vacío y limpio para acciones específicas (ej. si agregás un botón de acción por fila)
             // Configuración de columnas
             dgvVentas.Columns.Add("Producto", "Producto");
             dgvVentas.Columns.Add("Stock", "Stock");
             dgvVentas.Columns.Add("Precio", "Precio");
             dgvVentas.Columns.Add("Ventas", "Ventas");
-
             // Agregar datos de ejemplo
             dgvVentas.Rows.Add("Ibuprofeno 600\nMedicamento analgésico...", "32 en stock", "$ 2.500", "20");
             dgvVentas.Rows.Add("Loratadina\nAntihistamínico para alergias...", "31 en stock", "$ 4.890", "19");
@@ -50,18 +57,19 @@ namespace pryTesisVentas
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+            // Corregimos la consistencia interna con txtBuscador
             if (txtBuscador.Text != "")
             {
                 lblBuscador.Visible = false;
             }
             else
             {
-                // Si borró todo, volvemos a mostrar el label
                 lblBuscador.Visible = true;
             }
         }
         private void FiltrarBusquedaRapida(string texto)
         {
+            // Lógica para cuando utilices mapeo directo de objetos de la lista
             // var busqueda = listaProductos.Where(x =>
             //     x.Nombre.ToLower().Contains(texto.ToLower()) ||
             //     x.Categoria.ToLower().Contains(texto.ToLower())
@@ -72,31 +80,17 @@ namespace pryTesisVentas
 
         private void cmbFiltrar_MouseClick(object sender, MouseEventArgs e)
         {
-            // 1. Creamos la instancia
             frmFiltroVentas ventanaFiltro = new frmFiltroVentas();
 
-            // 2. Le pasamos la lista de productos
             if (this.listaProductos == null)
             {
                 this.listaProductos = new List<Producto>();
             }
             ventanaFiltro.listaParaFiltrar = this.listaProductos;
 
-            // --- 3. NUEVO: Lógica de posicionamiento ---
-
-            // Le decimos a Windows que nosotros definiremos la ubicación manualmente
             ventanaFiltro.StartPosition = FormStartPosition.Manual;
-
-            // Calculamos el punto exacto: 
-            // Tomamos la posición del ComboBox en la pantalla y le sumamos su altura (Height)
-            // para que el filtro empiece justo donde termina el combo.
             Point puntoAparicion = cmbFiltrar.PointToScreen(new Point(0, cmbFiltrar.Height));
-
-            // Si la ventana de filtros es más ancha que el combo, podés restarle un poco a la X 
-            // para que quede alineada a la derecha o centrada.
             ventanaFiltro.Location = puntoAparicion;
-
-            // 4. Abrimos la ventana
             ventanaFiltro.ShowDialog();
         }
 
