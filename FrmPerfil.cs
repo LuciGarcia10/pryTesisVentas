@@ -253,5 +253,11 @@ namespace pryTesisVentas
             frmAyuda frm = new frmAyuda();
             frm.ShowDialog();
         }
+
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            frmEstadisticas frm = new frmEstadisticas();
+            frm.ShowDialog();
+        }
     }
 }

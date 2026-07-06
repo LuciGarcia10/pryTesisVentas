@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAyuda));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -89,6 +89,10 @@
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -118,11 +122,14 @@
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).BeginInit();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlContenedorPrincipal.Controls.Add(this.panel12);
             this.pnlContenedorPrincipal.Controls.Add(this.panel2);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
             this.pnlContenedorPrincipal.Controls.Add(this.panel9);
@@ -740,16 +747,10 @@
             // 
             this.lblticketsSoporte.AutoSize = true;
             this.lblticketsSoporte.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.lblticketsSoporte.Location = new System.Drawing.Point(31, 10);
+            this.lblticketsSoporte.Location = new System.Drawing.Point(46, 15);
             this.lblticketsSoporte.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblticketsSoporte.Name = "lblticketsSoporte";
-            this.lblticketsSoporte.Size = new System.Drawing.Size(339, 21);
-
-            this.lblticketsSoporte.Location = new System.Drawing.Point(46, 15);
-            this.lblticketsSoporte.Name = "lblticketsSoporte";
             this.lblticketsSoporte.Size = new System.Drawing.Size(509, 32);
-
             this.lblticketsSoporte.TabIndex = 0;
             this.lblticketsSoporte.Text = "Historial de Tickects de Soporte Pendientes";
             // 
@@ -766,18 +767,14 @@
             this.Stock,
             this.Precio,
             this.VentasTotales});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTickets.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTickets.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTickets.EnableHeadersVisualStyles = false;
             this.dgvTickets.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvTickets.Location = new System.Drawing.Point(51, 60);
@@ -815,6 +812,54 @@
             this.VentasTotales.MinimumWidth = 8;
             this.VentasTotales.Name = "VentasTotales";
             this.VentasTotales.Width = 150;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.White;
+            this.panel12.Controls.Add(this.label12);
+            this.panel12.Controls.Add(this.pictureBox12);
+            this.panel12.Controls.Add(this.btnEstadisticas);
+            this.panel12.Location = new System.Drawing.Point(10, 553);
+            this.panel12.Name = "panel12";
+            this.panel12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel12.Size = new System.Drawing.Size(242, 48);
+            this.panel12.TabIndex = 54;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(208, 12);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(18, 20);
+            this.label12.TabIndex = 39;
+            this.label12.Text = ">";
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 38;
+            this.pictureBox12.TabStop = false;
+            // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.BackColor = System.Drawing.Color.White;
+            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
+            this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
+            this.btnEstadisticas.TabIndex = 34;
+            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.UseVisualStyleBackColor = false;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
             // frmAyuda
             // 
@@ -874,6 +919,9 @@
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).EndInit();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -939,5 +987,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotales;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Button btnEstadisticas;
     }
 }

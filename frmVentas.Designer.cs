@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ComboBox cmbVentas;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.pnlInicio = new System.Windows.Forms.Panel();
             this.ptbInicio = new System.Windows.Forms.PictureBox();
@@ -101,6 +101,10 @@
             this.lblPorcentaje1 = new System.Windows.Forms.Label();
             this.lblGana = new System.Windows.Forms.Label();
             this.pcbGanancias = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btnEstadisticas = new System.Windows.Forms.Button();
             cmbVentas = new System.Windows.Forms.ComboBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.pnlInicio.SuspendLayout();
@@ -134,6 +138,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbBalance)).BeginInit();
             this.pnlGanancias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbVentas
@@ -153,6 +159,7 @@
             // pnlContenedorPrincipal
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlContenedorPrincipal.Controls.Add(this.panel5);
             this.pnlContenedorPrincipal.Controls.Add(this.pnlInicio);
             this.pnlContenedorPrincipal.Controls.Add(this.panel2);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
@@ -684,22 +691,22 @@
             this.Stock,
             this.Precio,
             this.VentasTotales});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvVentas.EnableHeadersVisualStyles = false;
             this.dgvVentas.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvVentas.Location = new System.Drawing.Point(51, 105);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.RowHeadersVisible = false;
             this.dgvVentas.RowHeadersWidth = 62;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dgvVentas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgvVentas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvVentas.RowTemplate.Height = 70;
             this.dgvVentas.Size = new System.Drawing.Size(853, 234);
             this.dgvVentas.TabIndex = 11;
@@ -938,6 +945,54 @@
             this.pcbGanancias.TabIndex = 0;
             this.pcbGanancias.TabStop = false;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Controls.Add(this.btnEstadisticas);
+            this.panel5.Location = new System.Drawing.Point(12, 556);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(242, 48);
+            this.panel5.TabIndex = 54;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(208, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 20);
+            this.label4.TabIndex = 39;
+            this.label4.Text = ">";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 38;
+            this.pictureBox4.TabStop = false;
+            // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.BackColor = System.Drawing.Color.White;
+            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
+            this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
+            this.btnEstadisticas.TabIndex = 34;
+            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.UseVisualStyleBackColor = false;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
+            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -998,6 +1053,9 @@
             this.pnlGanancias.ResumeLayout(false);
             this.pnlGanancias.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1073,5 +1131,9 @@
         private System.Windows.Forms.Label lblPorcentaje1;
         private System.Windows.Forms.Label lblGana;
         private System.Windows.Forms.PictureBox pcbGanancias;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btnEstadisticas;
     }
 }

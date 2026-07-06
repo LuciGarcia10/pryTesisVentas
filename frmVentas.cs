@@ -118,6 +118,12 @@ namespace pryTesisVentas
             frm.ShowDialog();
         }
 
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            frmEstadisticas frm = new frmEstadisticas();
+            frm.ShowDialog();
+        }
+
         //Para cargar los datos en la Grilla desde la BD
 
         // private void ConfigurarColumnasGrilla()

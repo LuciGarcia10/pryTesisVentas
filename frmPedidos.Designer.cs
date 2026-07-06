@@ -98,6 +98,10 @@
             this.PedidoRecibido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVerDetalle = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.pnlBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).BeginInit();
             this.pnlContenedorPrincipal.SuspendLayout();
@@ -127,6 +131,8 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBuscar
@@ -179,6 +185,7 @@
             // pnlContenedorPrincipal
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlContenedorPrincipal.Controls.Add(this.panel5);
             this.pnlContenedorPrincipal.Controls.Add(this.panel2);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
             this.pnlContenedorPrincipal.Controls.Add(this.panel9);
@@ -926,6 +933,54 @@
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.Width = 150;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.pictureBox12);
+            this.panel5.Controls.Add(this.btnEstadisticas);
+            this.panel5.Location = new System.Drawing.Point(12, 555);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(242, 48);
+            this.panel5.TabIndex = 54;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(208, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 20);
+            this.label4.TabIndex = 39;
+            this.label4.Text = ">";
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 38;
+            this.pictureBox12.TabStop = false;
+            // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.BackColor = System.Drawing.Color.White;
+            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
+            this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
+            this.btnEstadisticas.TabIndex = 34;
+            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.UseVisualStyleBackColor = false;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
+            // 
             // frmPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -983,6 +1038,9 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1056,5 +1114,9 @@
         private System.Windows.Forms.DataGridViewImageColumn btnVerDetalle;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Button btnEstadisticas;
     }
 }
