@@ -41,10 +41,9 @@ namespace pryTesisVentas
         //AGREGAMOS UN CLIENTE A LA BASE DE DATOS
         private void BtnAgregarC_Click(object sender, EventArgs e)
         {
-            // 1. Validaciones básicas (para asegurarnos de que no dejen campos vacíos)
-            if (string.IsNullOrWhiteSpace(TxtNombreC.Text) || string.IsNullOrWhiteSpace(TxtApC.Text) || string.IsNullOrWhiteSpace(TxtDni.Text))
+            // 1. Llamamos a tu método: prende las alertas rojas y si algo falta, frena acá.
+            if (!ValidarCamposObligatorios())
             {
-                MessageBox.Show("Por favor, complete DNI, Nombre y Apellido del cliente.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -107,6 +106,11 @@ namespace pryTesisVentas
 
         private void FrmNuevoCliente_Load(object sender, EventArgs e)
         {
+
+            lblErrorDni.Visible = false;
+            lblErrorNombre.Visible = false;
+            lblErrorApellido.Visible = false;
+
             // Llenar Combo de Obra Social
             CmbObraS.Items.Clear();
             CmbObraS.Items.Add("Particular");
@@ -126,6 +130,7 @@ namespace pryTesisVentas
                 CmbECuenta.SelectedIndex = 0;
             }
 
+
             // ==========================================
             // REUTILIZACIÓN
             // ==========================================
@@ -133,16 +138,22 @@ namespace pryTesisVentas
             if (Modo == "EDITAR")
             {
                 this.Text = "Editar Cliente";
+                LblCliente.Text = "Modificar datos del Cliente";
                 BtnAgregarC.Text = "Guardar Cambios";
 
                 // El número de afiliado o DNI a veces conviene bloquearlos en la edición para que no los alteren
-                // TxtDni.ReadOnly = true; 
+                TxtDni.ReadOnly = true;
+                lblErrorDni.Visible = false;
+                lblErrorNombre.Visible = false;
+                lblErrorApellido.Visible = false;
 
                 CargarDatosDelCliente(); // Método que busca en la base de datos y rellena los campos
+                ValidarCamposObligatorios();
             }
             else if (Modo == "DETALLES")
             {
                 this.Text = "Información del Cliente";
+                LblCliente.Text = "Detalles del Cliente";
 
                 // Ocultamos el botón de guardar porque solo es para mirar datos
                 BtnAgregarC.Visible = false;
@@ -156,6 +167,9 @@ namespace pryTesisVentas
                 TxtNAfiliado.ReadOnly = true;
                 CmbObraS.Enabled = false;
                 numSaldo.Enabled = false;
+                lblErrorDni.Visible = false;
+                lblErrorNombre.Visible = false;
+                lblErrorApellido.Visible = false;
                 if (CmbECuenta != null) CmbECuenta.Enabled = false;
 
                 CargarDatosDelCliente(); // Método que busca en la base de datos y rellena los campos
@@ -164,8 +178,53 @@ namespace pryTesisVentas
             {
                 // Modo NUEVO (Título estándar)
                 this.Text = "Registrar Nuevo Cliente";
+                LblCliente.Text = "Agregar Nuevo Cliente";
                 BtnAgregarC.Text = "Guardar";
+                lblErrorDni.Visible = false;
+                lblErrorNombre.Visible = false;
+                lblErrorApellido.Visible = false;
             }
+        }
+
+
+        private bool ValidarCamposObligatorios()
+        {
+            // 1. Apagamos los errores anteriores y devolvemos el color a blanco
+            lblErrorDni.Visible = false;
+            lblErrorNombre.Visible = false;
+            lblErrorApellido.Visible = false;
+
+            TxtDni.BackColor = Color.White;
+            TxtNombreC.BackColor = Color.White;
+            TxtApC.BackColor = Color.White;
+
+            bool formularioValido = true;
+
+            // 2. Validar DNI
+            if (string.IsNullOrWhiteSpace(TxtDni.Text))
+            {
+                lblErrorDni.Visible = true;
+                TxtDni.BackColor = Color.MistyRose; // 🌟 Agregamos el color rosa
+                formularioValido = false;
+            }
+
+            // 3. Validar Nombre
+            if (string.IsNullOrWhiteSpace(TxtNombreC.Text))
+            {
+                lblErrorNombre.Visible = true;
+                TxtNombreC.BackColor = Color.MistyRose; // 🌟 Agregamos el color rosa
+                formularioValido = false;
+            }
+
+            // 4. Validar Apellido
+            if (string.IsNullOrWhiteSpace(TxtApC.Text))
+            {
+                lblErrorApellido.Visible = true;
+                TxtApC.BackColor = Color.MistyRose; // 🌟 Agregamos el color rosa
+                formularioValido = false;
+            }
+
+            return formularioValido;
         }
 
         private void CargarDatosDelCliente()
@@ -206,6 +265,33 @@ namespace pryTesisVentas
             else
             {
                 MessageBox.Show("No se encontraron los datos del cliente seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TxtDni_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TxtDni.Text))
+            {
+                lblErrorDni.Visible = false;
+                TxtDni.BackColor = Color.White;
+            }
+        }
+
+        private void TxtNombreC_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TxtNombreC.Text))
+            {
+                lblErrorNombre.Visible = false;
+                TxtNombreC.BackColor = Color.White;
+            }
+        }
+
+        private void TxtApC_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TxtApC.Text))
+            {
+                lblErrorApellido.Visible = false;
+                TxtApC.BackColor = Color.White; 
             }
         }
     }

@@ -42,9 +42,9 @@
             this.CmbECuenta = new System.Windows.Forms.ComboBox();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.grFiltrar = new System.Windows.Forms.GroupBox();
-            this.btnLimpiarAf = new System.Windows.Forms.Button();
-            this.btnLimpiarN = new System.Windows.Forms.Button();
             this.btnLimpiarAp = new System.Windows.Forms.Button();
+            this.btnLimpiarN = new System.Windows.Forms.Button();
+            this.btnLimpiarAf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.grFiltrar.SuspendLayout();
             this.SuspendLayout();
@@ -184,7 +184,7 @@
             // pctCerrar
             // 
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
-            this.pctCerrar.Location = new System.Drawing.Point(355, 5);
+            this.pctCerrar.Location = new System.Drawing.Point(373, 2);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(1);
             this.pctCerrar.Name = "pctCerrar";
             this.pctCerrar.Size = new System.Drawing.Size(21, 18);
@@ -218,19 +218,19 @@
             this.grFiltrar.TabStop = false;
             this.grFiltrar.Text = "Filtrar por:";
             // 
-            // btnLimpiarAf
+            // btnLimpiarAp
             // 
-            this.btnLimpiarAf.BackColor = System.Drawing.Color.White;
-            this.btnLimpiarAf.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLimpiarAf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarAf.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarAf.Location = new System.Drawing.Point(172, 55);
-            this.btnLimpiarAf.Name = "btnLimpiarAf";
-            this.btnLimpiarAf.Size = new System.Drawing.Size(25, 25);
-            this.btnLimpiarAf.TabIndex = 53;
-            this.btnLimpiarAf.Text = "X";
-            this.btnLimpiarAf.UseVisualStyleBackColor = false;
-            this.btnLimpiarAf.Click += new System.EventHandler(this.btnLimpiarAf_Click);
+            this.btnLimpiarAp.BackColor = System.Drawing.Color.White;
+            this.btnLimpiarAp.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLimpiarAp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarAp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarAp.Location = new System.Drawing.Point(172, 185);
+            this.btnLimpiarAp.Name = "btnLimpiarAp";
+            this.btnLimpiarAp.Size = new System.Drawing.Size(25, 25);
+            this.btnLimpiarAp.TabIndex = 55;
+            this.btnLimpiarAp.Text = "X";
+            this.btnLimpiarAp.UseVisualStyleBackColor = false;
+            this.btnLimpiarAp.Click += new System.EventHandler(this.btnLimpiarAp_Click);
             // 
             // btnLimpiarN
             // 
@@ -246,19 +246,19 @@
             this.btnLimpiarN.UseVisualStyleBackColor = false;
             this.btnLimpiarN.Click += new System.EventHandler(this.btnLimpiarN_Click);
             // 
-            // btnLimpiarAp
+            // btnLimpiarAf
             // 
-            this.btnLimpiarAp.BackColor = System.Drawing.Color.White;
-            this.btnLimpiarAp.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLimpiarAp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarAp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarAp.Location = new System.Drawing.Point(172, 185);
-            this.btnLimpiarAp.Name = "btnLimpiarAp";
-            this.btnLimpiarAp.Size = new System.Drawing.Size(25, 25);
-            this.btnLimpiarAp.TabIndex = 55;
-            this.btnLimpiarAp.Text = "X";
-            this.btnLimpiarAp.UseVisualStyleBackColor = false;
-            this.btnLimpiarAp.Click += new System.EventHandler(this.btnLimpiarAp_Click);
+            this.btnLimpiarAf.BackColor = System.Drawing.Color.White;
+            this.btnLimpiarAf.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLimpiarAf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarAf.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarAf.Location = new System.Drawing.Point(172, 55);
+            this.btnLimpiarAf.Name = "btnLimpiarAf";
+            this.btnLimpiarAf.Size = new System.Drawing.Size(25, 25);
+            this.btnLimpiarAf.TabIndex = 53;
+            this.btnLimpiarAf.Text = "X";
+            this.btnLimpiarAf.UseVisualStyleBackColor = false;
+            this.btnLimpiarAf.Click += new System.EventHandler(this.btnLimpiarAf_Click);
             // 
             // FrmFiltroClientes
             // 
@@ -273,6 +273,7 @@
             this.Name = "FrmFiltroClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmFiltroClientes";
+            this.Load += new System.EventHandler(this.FrmFiltroClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.grFiltrar.ResumeLayout(false);
             this.grFiltrar.PerformLayout();
