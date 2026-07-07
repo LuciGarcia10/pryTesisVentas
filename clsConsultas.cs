@@ -364,7 +364,7 @@ namespace pryTesisVentas
                             clsCuentasC cliente = new clsCuentasC();
 
                             // Controlamos nulos de la base de datos para que no rompa
-                            cliente.NroAfiliado = lector["NroAfiliado"] != DBNull.Value ? Convert.ToInt32(lector["NroAfiliado"]) : 0;
+                            cliente.NroAfiliado = lector["NroAfiliado"] != DBNull.Value ? lector["NroAfiliado"].ToString() : "";
                             cliente.Nombre = lector["Nombre"] != DBNull.Value ? lector["Nombre"].ToString() : "";
                             cliente.Apellido = lector["Apellido"] != DBNull.Value ? lector["Apellido"].ToString() : "";
                             cliente.ObraSocial = lector["ObraSocial"] != DBNull.Value ? lector["ObraSocial"].ToString() : "";

@@ -8,7 +8,8 @@ namespace pryTesisVentas
 {
     public class clsCuentasC
     {
-        public int NroAfiliado {  get; set; }
+        public int IdCliente { get; set; }
+        public string NroAfiliado { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string ObraSocial { get; set; } //Ejemplo: "Apross", "Swiss Medical", etc

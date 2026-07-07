@@ -23,7 +23,7 @@ namespace pryTesisVentas
         {
             // Filtramos de un solo tirón adaptando el NroAfiliado y usando CmbECuenta
             var resultado = listaParaFiltrar.Where(x =>
-                (string.IsNullOrWhiteSpace(txtNAf.Text) || x.NroAfiliado.ToString().Contains(txtNAf.Text.Trim())) &&
+                (string.IsNullOrWhiteSpace(txtNAf.Text) || (x.NroAfiliado != null && x.NroAfiliado.Contains(txtNAf.Text.Trim()))) &&
                 (string.IsNullOrWhiteSpace(txtNombre.Text) || (x.Nombre != null && x.Nombre.ToLower().Contains(txtNombre.Text.Trim().ToLower()))) &&
                 (string.IsNullOrWhiteSpace(txtApellido.Text) || (x.Apellido != null && x.Apellido.ToLower().Contains(txtApellido.Text.Trim().ToLower()))) &&
                 (CmbOS.SelectedIndex == -1 || CmbOS.Text == "Todas" || CmbOS.Text == "Seleccionar Obra Social" || (x.ObraSocial != null && x.ObraSocial == CmbOS.Text)) &&
@@ -63,6 +63,28 @@ namespace pryTesisVentas
         private void btnLimpiarAp_Click(object sender, EventArgs e)
         {
             txtApellido.Clear();
+        }
+
+        private void FrmFiltroClientes_Load(object sender, EventArgs e)
+        {
+            // 1. CARGAR ESTADOS DE CUENTA (Fijos según tus ejemplos)
+            CmbECuenta.Items.Clear();
+            CmbECuenta.Items.Add("Al día");
+            CmbECuenta.Items.Add("Pendiente");
+            CmbECuenta.Items.Add("Vencido");
+            // Podés dejarlo vacío al inicio para que el usuario elija voluntariamente
+            CmbECuenta.SelectedIndex = -1;
+
+            // 2. CARGAR OBRAS SOCIALES
+            CmbOS.Items.Clear();
+            CmbOS.Items.Add("Todas"); // Opción por defecto para limpiar el filtro
+            CmbOS.Items.Add("Apross");
+            CmbOS.Items.Add("Swiss Medical");
+            CmbOS.Items.Add("PAMI");
+            CmbOS.Items.Add("OSDE");
+
+            // Seleccionamos "Todas" por defecto para que no aparezca el hueco en blanco
+            CmbOS.SelectedIndex = 0;
         }
     }
 }

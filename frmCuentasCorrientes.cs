@@ -13,13 +13,11 @@ namespace pryTesisVentas
 {
     public partial class frmCuentasCorrientes : Form
     {
-       
 
         public frmCuentasCorrientes()
         {
             InitializeComponent();
         }
-
 
         private void frmCuentasCorrientes_Load(object sender, EventArgs e)/////
         {
@@ -163,11 +161,22 @@ namespace pryTesisVentas
             // 2. Verificá que este nombre coincida EXACTAMENTE con el .Name de tu columna de acciones
             if (dgvCuentasC.Columns[e.ColumnIndex].Name == "ClmAcciones")
             {
-                // Obtenemos los datos del cliente de la fila seleccionada (por si los necesitás en las acciones)
-                // Reemplazá 'IdCliente' o 'Nombre' por los nombres reales de tus columnas
-                string idCliente = dgvCuentasC.Rows[e.RowIndex].Cells["IdCliente"].Value.ToString();
-                string nombreCliente = dgvCuentasC.Rows[e.RowIndex].Cells["ClmN"].Value.ToString();
+                // Intentamos leer el ID primero como Objeto de la lista (por si está el filtro activo)
+                string idCliente = "";
 
+                if (dgvCuentasC.Rows[e.RowIndex].DataBoundItem is clsCuentasC clienteObjeto)
+                {
+                    // Si la grilla tiene la lista del filtro en memoria, saca el ID directo del objeto
+                    idCliente = clienteObjeto.IdCliente.ToString();
+                }
+                else
+                {
+                    // Si la grilla tiene el DataTable común (Carga inicial), lo lee de la celda oculta como antes
+                    idCliente = dgvCuentasC.Rows[e.RowIndex].Cells["IdCliente"].Value.ToString();
+                }
+
+                // El resto de tu código original se queda EXACTAMENTE IGUAL
+                string nombreCliente = dgvCuentasC.Rows[e.RowIndex].Cells["ClmN"].Value.ToString();
                 // Conseguimos las coordenadas del clic del mouse en la pantalla
                 Point puntoLocal = dgvCuentasC.PointToClient(Cursor.Position);
                 Rectangle celdaBounds = dgvCuentasC.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
@@ -261,6 +270,68 @@ namespace pryTesisVentas
         {
             frmEstadisticas frm = new frmEstadisticas();    
             frm.ShowDialog();
+        }
+
+        private void btnExp_Click(object sender, EventArgs e)
+        {// 1. Validamos que la grilla tenga datos para exportar
+            if (dgvCuentasC.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos en la grilla para exportar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Configuramos el cuadro de diálogo para guardar el archivo
+            SaveFileDialog guardarArchivo = new SaveFileDialog();
+            guardarArchivo.Filter = "Archivos CSV (*.csv)|*.csv";
+            guardarArchivo.FileName = "Cuentas_Corrientes_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".csv";
+            guardarArchivo.Title = "Exportar Grilla a Excel";
+
+            if (guardarArchivo.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    List<string> lineas = new List<string>();
+
+                    // 3. Creamos los encabezados de las columnas (reproducimos los nombres de tu grilla)
+                    // Usamos un formato compatible con Excel en español (separado por punto y coma ';')
+                    string encabezado = "Nro Afiliado;Nombre;Apellido;Obra Social;Estado;Saldo";
+                    lineas.Add(encabezado);
+
+                    // 4. Recorremos las filas de la grilla para extraer los datos reales
+                    foreach (DataGridViewRow fila in dgvCuentasC.Rows)
+                    {
+                        // Evitamos la fila vacía del final si está habilitada
+                        if (fila.IsNewRow) continue;
+
+                        // Extraemos los valores usando el (Name) real del diseño
+                        string nroAfiliado = fila.Cells["ClmAfiliado"].Value?.ToString() ?? "";
+                        string nombre = fila.Cells["ClmN"].Value?.ToString() ?? ""; // El que vimos hoy en tu clic
+                        string apellido = fila.Cells["ClmApellido"].Value?.ToString() ?? ""; // Revisá si es así
+                        string obraSocial = fila.Cells["ClmObraS"].Value?.ToString() ?? ""; // Revisá si es así
+                        string estado = fila.Cells["ClmEstadoCuenta"].Value?.ToString() ?? ""; // O ClmEstadoCuenta
+                        string saldo = fila.Cells["ClmSaldo"].Value?.ToString() ?? "0";
+
+                        // Limpiamos los caracteres que puedan romper el formato CSV (comas o punto y coma dentro del texto)
+                        nombre = nombre.Replace(";", " ");
+                        apellido = apellido.Replace(";", " ");
+
+                        // Unimos los datos en una sola línea separada por ';'
+                        string linea = $"{nroAfiliado};{nombre};{apellido};{obraSocial};{estado};{saldo}";
+                        lineas.Add(linea);
+                    }
+
+                    // 5. Escribimos el archivo físico en la compu usando codificación UTF-8 con BOM 
+                    // (Esto último es clave para que Excel reconozca bien los acentos y las 'ñ')
+                    System.IO.File.WriteAllLines(guardarArchivo.FileName, lineas, System.Text.Encoding.UTF8);
+
+                    MessageBox.Show("¡Datos exportados con éxito! Ya podés abrir el archivo en Excel.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un error al intentar exportar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
         }
     }
     
