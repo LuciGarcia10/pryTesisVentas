@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstadisticas));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -694,20 +694,20 @@
             // 
             // crtGananciasMensuales
             // 
-            chartArea3.AxisX.MajorGrid.Enabled = false;
-            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea3.AxisY.MajorGrid.Enabled = false;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea3.AxisY2.LineColor = System.Drawing.Color.LightGray;
-            chartArea3.Name = "ChartArea1";
-            this.crtGananciasMensuales.ChartAreas.Add(chartArea3);
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisY2.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.Name = "ChartArea1";
+            this.crtGananciasMensuales.ChartAreas.Add(chartArea1);
             this.crtGananciasMensuales.Location = new System.Drawing.Point(8, 92);
             this.crtGananciasMensuales.Name = "crtGananciasMensuales";
-            series3.ChartArea = "ChartArea1";
-            series3.CustomProperties = "PointWidth=0.6";
-            series3.Name = "Series1";
-            series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            this.crtGananciasMensuales.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.CustomProperties = "PointWidth=0.6";
+            series1.Name = "Series1";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.crtGananciasMensuales.Series.Add(series1);
             this.crtGananciasMensuales.Size = new System.Drawing.Size(568, 182);
             this.crtGananciasMensuales.TabIndex = 4;
             this.crtGananciasMensuales.Text = "chart1";
@@ -771,27 +771,27 @@
             // 
             // chartClientes
             // 
-            chartArea4.InnerPlotPosition.Auto = false;
-            chartArea4.InnerPlotPosition.Width = 63.73417F;
-            chartArea4.InnerPlotPosition.X = 18.13291F;
-            chartArea4.InnerPlotPosition.Y = 2.5F;
-            chartArea4.Name = "ChartArea1";
-            chartArea4.Position.Auto = false;
-            chartArea4.Position.Height = 90F;
-            chartArea4.Position.Width = 90F;
-            chartArea4.Position.X = 5F;
-            chartArea4.Position.Y = 5F;
-            this.chartClientes.ChartAreas.Add(chartArea4);
+            chartArea2.InnerPlotPosition.Auto = false;
+            chartArea2.InnerPlotPosition.Width = 63.73417F;
+            chartArea2.InnerPlotPosition.X = 18.13291F;
+            chartArea2.InnerPlotPosition.Y = 2.5F;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 90F;
+            chartArea2.Position.Width = 90F;
+            chartArea2.Position.X = 5F;
+            chartArea2.Position.Y = 5F;
+            this.chartClientes.ChartAreas.Add(chartArea2);
             this.chartClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chartClientes.Location = new System.Drawing.Point(0, 96);
             this.chartClientes.Margin = new System.Windows.Forms.Padding(2);
             this.chartClientes.Name = "chartClientes";
             this.chartClientes.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.CustomProperties = "DoughnutRadius=40";
-            series4.Name = "SeriesProgreso";
-            this.chartClientes.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.CustomProperties = "DoughnutRadius=40";
+            series2.Name = "SeriesProgreso";
+            this.chartClientes.Series.Add(series2);
             this.chartClientes.Size = new System.Drawing.Size(372, 249);
             this.chartClientes.TabIndex = 10;
             this.chartClientes.Text = "chart2";
@@ -1294,9 +1294,9 @@
             this.lblTituloActualizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloActualizar.Location = new System.Drawing.Point(301, 18);
             this.lblTituloActualizar.Name = "lblTituloActualizar";
-            this.lblTituloActualizar.Size = new System.Drawing.Size(489, 25);
+            this.lblTituloActualizar.Size = new System.Drawing.Size(496, 25);
             this.lblTituloActualizar.TabIndex = 27;
-            this.lblTituloActualizar.Text = "Para actualizar graficos hace click en el siguiente boton:";
+            this.lblTituloActualizar.Text = "Para actualizar graficos hacer click en el siguiente boton:";
             // 
             // frmEstadisticas
             // 
