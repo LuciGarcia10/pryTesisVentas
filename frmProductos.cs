@@ -123,38 +123,6 @@ namespace pryTesisVentas
             cmbOrden.Items.Add("Prioridad");
             cmbOrden.SelectedIndex = 0;
 
-            // --- 1. CARGA DE INDICADORES (DATOS REALES) ---
-            try
-            {
-                // Traemos Clientes Nuevos del mes (con formato de miles)
-                int nuevos = (int)clsConsultas.ObtenerClientesNuevosMes();
-                lblNumeroClientesNuevos.Text = nuevos.ToString("N0");
-
-                // Traemos Total de Clientes
-                int totales = (int)clsConsultas.ObtenerTotalClientes();
-                lblNumeroClientes.Text = totales.ToString("N0");
-
-                // Traemos Pedidos Pendientes
-                int pendientes = (int)clsConsultas.ObtenerPedidosPendientes();
-                lblNumeroPedidospendientes.Text = pendientes.ToString();
-
-                // Aplicamos el círculo a los PictureBox de los iconos
-                HacerCirculo(pcbGanancias);
-                HacerCirculo(pcbClientes);
-                HacerCirculo(pcbPendientes);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error en indicadores de productos: " + ex.Message);
-            }
-
-            // CONFIGURACIÓN DE COMBOS
-            cmbOrden.Items.Clear();
-            cmbOrden.Items.Add("Más nuevo");
-            cmbOrden.Items.Add("Más viejo");
-            cmbOrden.Items.Add("Prioridad");
-            cmbOrden.SelectedIndex = 0;
-
             // --- 4. CARGAR LOS PRODUCTOS EN LA TABLA ---
             CargarProductosDesdeBD(); //crear este método para llenar el DataGridView
         }
@@ -557,6 +525,11 @@ namespace pryTesisVentas
         {
             frmEstadisticas frm = new frmEstadisticas();
             frm.ShowDialog();
+        }
+
+        private void cmbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 

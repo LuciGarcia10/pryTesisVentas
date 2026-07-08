@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -81,29 +85,13 @@
             this.FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblNumeroClientes = new System.Windows.Forms.Label();
-            this.lblPorcentajeClientes = new System.Windows.Forms.Label();
-            this.lblClientes = new System.Windows.Forms.Label();
-            this.pcbClientes = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblNumeroPedidospendientes = new System.Windows.Forms.Label();
-            this.lblPedidospendientes = new System.Windows.Forms.Label();
-            this.pcbPendientes = new System.Windows.Forms.PictureBox();
-            this.panelGanancias = new System.Windows.Forms.Panel();
-            this.lblPorcentajeClientesNuevos = new System.Windows.Forms.Label();
-            this.lblNumeroClientesNuevos = new System.Windows.Forms.Label();
-            this.lblClientesnuevos = new System.Windows.Forms.Label();
-            this.pcbGanancias = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.lblBuscarArriba = new System.Windows.Forms.Label();
             this.txtBuscarArriba = new System.Windows.Forms.TextBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.pnlContenedorPrincipal.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel10.SuspendLayout();
@@ -126,16 +114,8 @@
             this.pnlBuscador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbClientes)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPendientes)).BeginInit();
-            this.panelGanancias.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -156,6 +136,54 @@
             this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 929);
             this.pnlContenedorPrincipal.TabIndex = 3;
             this.pnlContenedorPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenedorPrincipal_Paint);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.pictureBox10);
+            this.panel5.Controls.Add(this.btnEstadisticas);
+            this.panel5.Location = new System.Drawing.Point(11, 558);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(242, 48);
+            this.panel5.TabIndex = 54;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(208, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 20);
+            this.label4.TabIndex = 39;
+            this.label4.Text = ">";
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 38;
+            this.pictureBox10.TabStop = false;
+            // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.BackColor = System.Drawing.Color.White;
+            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
+            this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
+            this.btnEstadisticas.TabIndex = 34;
+            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.UseVisualStyleBackColor = false;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
             // panel2
             // 
@@ -532,9 +560,9 @@
             this.panel11.Controls.Add(this.lblProductos);
             this.panel11.Controls.Add(this.dgvProductos);
             this.panel11.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel11.Location = new System.Drawing.Point(334, 202);
+            this.panel11.Location = new System.Drawing.Point(334, 91);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1206, 665);
+            this.panel11.Size = new System.Drawing.Size(1206, 829);
             this.panel11.TabIndex = 10;
             // 
             // pnlcmbOrden
@@ -601,6 +629,7 @@
             this.cmbFiltrar.Size = new System.Drawing.Size(121, 29);
             this.cmbFiltrar.TabIndex = 16;
             this.cmbFiltrar.Text = "Filtrar";
+            this.cmbFiltrar.SelectedIndexChanged += new System.EventHandler(this.cmbFiltrar_SelectedIndexChanged);
             this.cmbFiltrar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbFiltrar_MouseClick);
             // 
             // pnlBuscador
@@ -678,14 +707,14 @@
             this.FechaVencimiento,
             this.Precio,
             this.Acciones});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProductos.EnableHeadersVisualStyles = false;
             this.dgvProductos.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvProductos.Location = new System.Drawing.Point(26, 112);
@@ -739,159 +768,6 @@
             this.Acciones.Name = "Acciones";
             this.Acciones.Width = 150;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.lblNumeroClientes);
-            this.panel3.Controls.Add(this.lblPorcentajeClientes);
-            this.panel3.Controls.Add(this.lblClientes);
-            this.panel3.Controls.Add(this.pcbClientes);
-            this.panel3.Location = new System.Drawing.Point(666, 82);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(308, 100);
-            this.panel3.TabIndex = 13;
-            // 
-            // lblNumeroClientes
-            // 
-            this.lblNumeroClientes.AutoSize = true;
-            this.lblNumeroClientes.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroClientes.Location = new System.Drawing.Point(106, 35);
-            this.lblNumeroClientes.Name = "lblNumeroClientes";
-            this.lblNumeroClientes.Size = new System.Drawing.Size(49, 38);
-            this.lblNumeroClientes.TabIndex = 5;
-            this.lblNumeroClientes.Text = "40";
-            // 
-            // lblPorcentajeClientes
-            // 
-            this.lblPorcentajeClientes.AutoSize = true;
-            this.lblPorcentajeClientes.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcentajeClientes.ForeColor = System.Drawing.Color.Crimson;
-            this.lblPorcentajeClientes.Location = new System.Drawing.Point(106, 72);
-            this.lblPorcentajeClientes.Name = "lblPorcentajeClientes";
-            this.lblPorcentajeClientes.Size = new System.Drawing.Size(115, 21);
-            this.lblPorcentajeClientes.TabIndex = 4;
-            this.lblPorcentajeClientes.Text = "↓ 1% este mes";
-            // 
-            // lblClientes
-            // 
-            this.lblClientes.AutoSize = true;
-            this.lblClientes.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientes.Location = new System.Drawing.Point(106, 18);
-            this.lblClientes.Name = "lblClientes";
-            this.lblClientes.Size = new System.Drawing.Size(57, 19);
-            this.lblClientes.TabIndex = 1;
-            this.lblClientes.Text = "Clientes";
-            // 
-            // pcbClientes
-            // 
-            this.pcbClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pcbClientes.Image = ((System.Drawing.Image)(resources.GetObject("pcbClientes.Image")));
-            this.pcbClientes.Location = new System.Drawing.Point(16, 22);
-            this.pcbClientes.Name = "pcbClientes";
-            this.pcbClientes.Size = new System.Drawing.Size(84, 69);
-            this.pcbClientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbClientes.TabIndex = 0;
-            this.pcbClientes.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel4.Controls.Add(this.lblNumeroPedidospendientes);
-            this.panel4.Controls.Add(this.lblPedidospendientes);
-            this.panel4.Controls.Add(this.pcbPendientes);
-            this.panel4.Location = new System.Drawing.Point(1000, 82);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(308, 100);
-            this.panel4.TabIndex = 12;
-            // 
-            // lblNumeroPedidospendientes
-            // 
-            this.lblNumeroPedidospendientes.AutoSize = true;
-            this.lblNumeroPedidospendientes.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroPedidospendientes.Location = new System.Drawing.Point(105, 38);
-            this.lblNumeroPedidospendientes.Name = "lblNumeroPedidospendientes";
-            this.lblNumeroPedidospendientes.Size = new System.Drawing.Size(33, 38);
-            this.lblNumeroPedidospendientes.TabIndex = 6;
-            this.lblNumeroPedidospendientes.Text = "1";
-            // 
-            // lblPedidospendientes
-            // 
-            this.lblPedidospendientes.AutoSize = true;
-            this.lblPedidospendientes.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPedidospendientes.Location = new System.Drawing.Point(104, 18);
-            this.lblPedidospendientes.Name = "lblPedidospendientes";
-            this.lblPedidospendientes.Size = new System.Drawing.Size(127, 19);
-            this.lblPedidospendientes.TabIndex = 1;
-            this.lblPedidospendientes.Text = "Pedidos pendientes";
-            // 
-            // pcbPendientes
-            // 
-            this.pcbPendientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pcbPendientes.Image = ((System.Drawing.Image)(resources.GetObject("pcbPendientes.Image")));
-            this.pcbPendientes.Location = new System.Drawing.Point(16, 22);
-            this.pcbPendientes.Name = "pcbPendientes";
-            this.pcbPendientes.Size = new System.Drawing.Size(84, 69);
-            this.pcbPendientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbPendientes.TabIndex = 0;
-            this.pcbPendientes.TabStop = false;
-            // 
-            // panelGanancias
-            // 
-            this.panelGanancias.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.panelGanancias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelGanancias.Controls.Add(this.lblPorcentajeClientesNuevos);
-            this.panelGanancias.Controls.Add(this.lblNumeroClientesNuevos);
-            this.panelGanancias.Controls.Add(this.lblClientesnuevos);
-            this.panelGanancias.Controls.Add(this.pcbGanancias);
-            this.panelGanancias.Location = new System.Drawing.Point(334, 82);
-            this.panelGanancias.Name = "panelGanancias";
-            this.panelGanancias.Size = new System.Drawing.Size(308, 100);
-            this.panelGanancias.TabIndex = 11;
-            // 
-            // lblPorcentajeClientesNuevos
-            // 
-            this.lblPorcentajeClientesNuevos.AutoSize = true;
-            this.lblPorcentajeClientesNuevos.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcentajeClientesNuevos.ForeColor = System.Drawing.Color.Teal;
-            this.lblPorcentajeClientesNuevos.Location = new System.Drawing.Point(106, 72);
-            this.lblPorcentajeClientesNuevos.Name = "lblPorcentajeClientesNuevos";
-            this.lblPorcentajeClientesNuevos.Size = new System.Drawing.Size(124, 21);
-            this.lblPorcentajeClientesNuevos.TabIndex = 5;
-            this.lblPorcentajeClientesNuevos.Text = "↑ 16% este mes";
-            // 
-            // lblNumeroClientesNuevos
-            // 
-            this.lblNumeroClientesNuevos.AutoSize = true;
-            this.lblNumeroClientesNuevos.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroClientesNuevos.Location = new System.Drawing.Point(106, 35);
-            this.lblNumeroClientesNuevos.Name = "lblNumeroClientesNuevos";
-            this.lblNumeroClientesNuevos.Size = new System.Drawing.Size(33, 38);
-            this.lblNumeroClientesNuevos.TabIndex = 4;
-            this.lblNumeroClientesNuevos.Text = "5";
-            // 
-            // lblClientesnuevos
-            // 
-            this.lblClientesnuevos.AutoSize = true;
-            this.lblClientesnuevos.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientesnuevos.Location = new System.Drawing.Point(110, 18);
-            this.lblClientesnuevos.Name = "lblClientesnuevos";
-            this.lblClientesnuevos.Size = new System.Drawing.Size(105, 19);
-            this.lblClientesnuevos.TabIndex = 1;
-            this.lblClientesnuevos.Text = "Clientes nuevos";
-            // 
-            // pcbGanancias
-            // 
-            this.pcbGanancias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pcbGanancias.Image = ((System.Drawing.Image)(resources.GetObject("pcbGanancias.Image")));
-            this.pcbGanancias.Location = new System.Drawing.Point(16, 22);
-            this.pcbGanancias.Name = "pcbGanancias";
-            this.pcbGanancias.Size = new System.Drawing.Size(84, 69);
-            this.pcbGanancias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbGanancias.TabIndex = 0;
-            this.pcbGanancias.TabStop = false;
-            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.SystemColors.HighlightText;
@@ -900,9 +776,9 @@
             this.panel12.Controls.Add(this.txtBuscarArriba);
             this.panel12.Controls.Add(this.pictureBox12);
             this.panel12.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel12.Location = new System.Drawing.Point(1000, 28);
+            this.panel12.Location = new System.Drawing.Point(1221, 28);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(308, 32);
+            this.panel12.Size = new System.Drawing.Size(319, 32);
             this.panel12.TabIndex = 14;
             // 
             // lblBuscarArriba
@@ -942,63 +818,12 @@
             this.pictureBox12.TabIndex = 11;
             this.pictureBox12.TabStop = false;
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.pictureBox10);
-            this.panel5.Controls.Add(this.btnEstadisticas);
-            this.panel5.Location = new System.Drawing.Point(11, 558);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(242, 48);
-            this.panel5.TabIndex = 54;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(208, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 20);
-            this.label4.TabIndex = 39;
-            this.label4.Text = ">";
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 38;
-            this.pictureBox10.TabStop = false;
-            // 
-            // btnEstadisticas
-            // 
-            this.btnEstadisticas.BackColor = System.Drawing.Color.White;
-            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
-            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
-            this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
-            this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
-            this.btnEstadisticas.TabIndex = 34;
-            this.btnEstadisticas.Text = "Estadisticas";
-            this.btnEstadisticas.UseVisualStyleBackColor = false;
-            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
-            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 932);
             this.Controls.Add(this.panel12);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panelGanancias);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.pnlContenedorPrincipal);
             this.Name = "frmProductos";
@@ -1007,6 +832,9 @@
             this.Load += new System.EventHandler(this.frmProductos_Load);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.pnlContenedorPrincipal.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -1038,21 +866,9 @@
             this.pnlBuscador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbClientes)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPendientes)).EndInit();
-            this.panelGanancias.ResumeLayout(false);
-            this.panelGanancias.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1109,23 +925,9 @@
         private System.Windows.Forms.ComboBox cmbOrden;
         private System.Windows.Forms.ComboBox cmbFiltrar;
         private System.Windows.Forms.Panel pnlcmbOrden;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblClientes;
-        private System.Windows.Forms.PictureBox pcbClientes;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lblPedidospendientes;
-        private System.Windows.Forms.PictureBox pcbPendientes;
-        private System.Windows.Forms.Panel panelGanancias;
-        private System.Windows.Forms.Label lblClientesnuevos;
-        private System.Windows.Forms.PictureBox pcbGanancias;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox txtBuscarArriba;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.Label lblNumeroClientesNuevos;
-        private System.Windows.Forms.Label lblPorcentajeClientesNuevos;
-        private System.Windows.Forms.Label lblPorcentajeClientes;
-        private System.Windows.Forms.Label lblNumeroClientes;
-        private System.Windows.Forms.Label lblNumeroPedidospendientes;
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.Label lblBuscarArriba;
         private System.Windows.Forms.Panel panel5;

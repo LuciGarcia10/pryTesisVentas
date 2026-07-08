@@ -52,7 +52,7 @@
             this.lblAñadirproducto.Location = new System.Drawing.Point(35, 9);
             this.lblAñadirproducto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAñadirproducto.Name = "lblAñadirproducto";
-            this.lblAñadirproducto.Size = new System.Drawing.Size(177, 20);
+            this.lblAñadirproducto.Size = new System.Drawing.Size(272, 31);
             this.lblAñadirproducto.TabIndex = 0;
             this.lblAñadirproducto.Text = "Añadir producto a stock";
             // 
@@ -63,7 +63,7 @@
             this.lblNombre.Location = new System.Drawing.Point(27, 39);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(58, 17);
+            this.lblNombre.Size = new System.Drawing.Size(87, 28);
             this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "Nombre";
             // 
@@ -74,7 +74,7 @@
             this.lblCategoria.Location = new System.Drawing.Point(27, 91);
             this.lblCategoria.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(66, 17);
+            this.lblCategoria.Size = new System.Drawing.Size(98, 28);
             this.lblCategoria.TabIndex = 2;
             this.lblCategoria.Text = "Categoria";
             // 
@@ -85,7 +85,7 @@
             this.lblCantidad.Location = new System.Drawing.Point(27, 144);
             this.lblCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(62, 17);
+            this.lblCantidad.Size = new System.Drawing.Size(92, 28);
             this.lblCantidad.TabIndex = 3;
             this.lblCantidad.Text = "Cantidad";
             // 
@@ -96,7 +96,7 @@
             this.lblFechavencimiento.Location = new System.Drawing.Point(24, 202);
             this.lblFechavencimiento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechavencimiento.Name = "lblFechavencimiento";
-            this.lblFechavencimiento.Size = new System.Drawing.Size(140, 17);
+            this.lblFechavencimiento.Size = new System.Drawing.Size(211, 28);
             this.lblFechavencimiento.TabIndex = 4;
             this.lblFechavencimiento.Text = "Fecha de vencimiento";
             // 
@@ -104,10 +104,10 @@
             // 
             this.dtpVencimiento.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVencimiento.Location = new System.Drawing.Point(27, 221);
+            this.dtpVencimiento.Location = new System.Drawing.Point(27, 236);
             this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(2);
             this.dtpVencimiento.Name = "dtpVencimiento";
-            this.dtpVencimiento.Size = new System.Drawing.Size(218, 23);
+            this.dtpVencimiento.Size = new System.Drawing.Size(218, 31);
             this.dtpVencimiento.TabIndex = 5;
             // 
             // btnCancelar
@@ -115,10 +115,10 @@
             this.btnCancelar.BackColor = System.Drawing.Color.LightCyan;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Teal;
-            this.btnCancelar.Location = new System.Drawing.Point(27, 265);
+            this.btnCancelar.Location = new System.Drawing.Point(27, 280);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(99, 40);
+            this.btnCancelar.Size = new System.Drawing.Size(99, 56);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -129,10 +129,10 @@
             this.btnAñadirproducto.BackColor = System.Drawing.Color.Teal;
             this.btnAñadirproducto.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAñadirproducto.ForeColor = System.Drawing.Color.White;
-            this.btnAñadirproducto.Location = new System.Drawing.Point(134, 265);
+            this.btnAñadirproducto.Location = new System.Drawing.Point(134, 280);
             this.btnAñadirproducto.Margin = new System.Windows.Forms.Padding(2);
             this.btnAñadirproducto.Name = "btnAñadirproducto";
-            this.btnAñadirproducto.Size = new System.Drawing.Size(111, 40);
+            this.btnAñadirproducto.Size = new System.Drawing.Size(111, 56);
             this.btnAñadirproducto.TabIndex = 20;
             this.btnAñadirproducto.Text = "Añadir producto";
             this.btnAñadirproducto.UseVisualStyleBackColor = false;
@@ -141,7 +141,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(27, 58);
+            this.txtNombre.Location = new System.Drawing.Point(27, 68);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
@@ -158,19 +158,19 @@
             "Ciudad Personal",
             "Medicamento Venta Libre",
             "Medicamento con Receta"});
-            this.cmbCategoria.Location = new System.Drawing.Point(27, 110);
+            this.cmbCategoria.Location = new System.Drawing.Point(27, 119);
             this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(218, 21);
+            this.cmbCategoria.Size = new System.Drawing.Size(218, 29);
             this.cmbCategoria.TabIndex = 22;
             // 
             // numCantidad
             // 
             this.numCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numCantidad.Location = new System.Drawing.Point(27, 163);
+            this.numCantidad.Location = new System.Drawing.Point(27, 172);
             this.numCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(218, 23);
+            this.numCantidad.Size = new System.Drawing.Size(218, 31);
             this.numCantidad.TabIndex = 23;
             // 
             // pictureBox6
@@ -186,9 +186,9 @@
             // 
             // frmAñadirProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 337);
+            this.ClientSize = new System.Drawing.Size(309, 347);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.numCantidad);
             this.Controls.Add(this.cmbCategoria);
