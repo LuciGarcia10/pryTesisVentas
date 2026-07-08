@@ -11,6 +11,7 @@ using System.Drawing.Drawing2D; // Asegúrate de tener esto arriba de todo
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Data.SqlClient;
 
+
 namespace pryTesisVentas
 {
     public partial class frmInicio : Form
@@ -24,74 +25,78 @@ namespace pryTesisVentas
             InitializeComponent();
             ConfigurarColumnasGrilla();
             CargarDatosDesdeBD();
-
         }
 
+        
+        private void ObtenerPedidosTotales()
+        {
+            string query = "SELECT COUNT(*) FROM Pedidos;";
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                try
+                {
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    conexion.Open();
+
+                    // ExecuteScalar es ideal porque la consulta devuelve un solo número
+                    int totales = (int)comando.ExecuteScalar();
+
+                    // Lo mostramos en la tarjeta
+                    lblPedidosTotal.Text = totales.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error en Pedidos Totales: " + ex.Message);
+                }
+            }
+        }
+
+        private void ObtenerPedidosPendientes()
+        {
+            // IdEstado = 1 corresponde a 'Pendiente' en tu tabla Estados
+            string query = "SELECT COUNT(*) FROM Pedidos WHERE IdEstado = 1;";
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                try
+                {
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    conexion.Open();
+
+                    int pendientes = (int)comando.ExecuteScalar();
+                    lblNumPedidosPendientes.Text = pendientes.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error en Pedidos Pendientes: " + ex.Message);
+                }
+            }
+        }
+
+        private void ObtenerPedidosCancelados()
+        {
+            // IdEstado = 3 corresponde a 'Cancelado' en tu tabla Estados
+            string query = "SELECT COUNT(*) FROM Pedidos WHERE IdEstado = 3;";
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                try
+                {
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    conexion.Open();
+
+                    int cancelados = (int)comando.ExecuteScalar();
+                    lblNumPedidoscancelados.Text = cancelados.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error en Pedidos Cancelados: " + ex.Message);
+                }
+            }
+        }
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            // 1. CARGA DE INDICADORES SUPERIORES DESDE LA CLASE CONSULTAS
-            try
-            {
-                // GANANCIAS (Mes Actual)
-                decimal gananciasMes = clsConsultas.ObtenerGananciasMesActual();
-                if (gananciasMes >= 1000)
-                    lblGanancias.Text = "$" + (gananciasMes / 1000).ToString("N1") + "k";
-                else
-                    lblGanancias.Text = gananciasMes.ToString("C0");
-
-                // BALANCE (Ventas - Compras)
-                decimal balanceTotal = clsConsultas.ObtenerBalanceTotal();
-                if (Math.Abs(balanceTotal) >= 1000)
-                    lblBalance.Text = "$" + (balanceTotal / 1000).ToString("N1") + "k";
-                else
-                    lblBalance.Text = balanceTotal.ToString("C0");
-
-                // Color del Balance: Rojo si es pérdida, Gris/Negro si es ganancia
-                lblBalance.ForeColor = (balanceTotal < 0) ? Color.Red : Color.FromArgb(64, 64, 64);
-
-                // PEDIDOS TOTALES
-                decimal cantPedidos = clsConsultas.ObtenerTotalVentas();
-                if (cantPedidos >= 1000)
-                    lblPedidosTotales.Text = (cantPedidos / 1000).ToString("N1") + "k";
-                else
-                    lblPedidosTotales.Text = cantPedidos.ToString("N0");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al cargar indicadores: " + ex.Message);
-            }
-
-            // 2. AJUSTE DE GRÁFICOS Y CONTENEDORES (UI) 
-            Control contenedor = chartClientes.Parent;
-            if (contenedor != null)
-            {
-                contenedor.Width = 220;
-                contenedor.Height = 220;
-                if (contenedor is Panel) ((Panel)contenedor).AutoScroll = false;
-            }
-
-            chartClientes.Location = new Point(10, 10);
-            chartClientes.Width = 200;
-            chartClientes.Height = 200;
-
-            // 3. GRÁFICO DE BARRAS (GANANCIAS MENSUALES) 
-            crtGananciasMensuales.Series.Clear();
-            var serieGanancias = crtGananciasMensuales.Series.Add("Ganancias");
-            serieGanancias.ChartType = SeriesChartType.Column;
-
-            string[] meses = { "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" };
-            double[] valores = { 45, 52, 68, 50, 40, 52, 58, 95, 70, 62, 48, 65 };
-
-            for (int i = 0; i < meses.Length; i++)
-            {
-                int p = serieGanancias.Points.AddXY(meses[i], valores[i]);
-                // Color verde DigitalFarma destacado en Agosto, celeste suave para los demás
-                serieGanancias.Points[p].Color = (meses[i] == "Ago") ? Color.FromArgb(0, 182, 147) : Color.FromArgb(220, 243, 239);
-            }
-            crtGananciasMensuales.ChartAreas[0].AxisX.Interval = 1;
-
-            // 4. CONFIGURACIONES ADICIONALES DE TABLAS, CÍRCULOS Y ROLES
-            ConfigurarGraficoClientes();
 
             // Estilos estéticos de la grilla de ventas
             dgvVentas.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64);
@@ -101,9 +106,12 @@ namespace pryTesisVentas
             ConfigurarColumnasGrilla();
             CargarDatosDesdeBD();
 
+            //Funciones para graficos, Pedidos total, pendientes y cancelados
+            ObtenerPedidosTotales();
+            ObtenerPedidosPendientes();
+            ObtenerPedidosCancelados();
+
             // Transformar contenedores de iconos a formas circulares
-            HacerCirculo(pcbGanancias);
-            HacerCirculo(pcbBalance);
             HacerCirculo(pcbPedido);
 
             // Cargar datos de la sesión del usuario abajo a la izquierda
@@ -112,17 +120,12 @@ namespace pryTesisVentas
 
             // Control de permisos según Rol de usuario
             if (RolUsuario == "Farmaceutica" || RolUsuario == "Empleado")
-            {
-                pnlGanancias.Visible = false;
-                pnlBalance.Visible = false;
-
+            {   
                 MessageBox.Show($"Sesión iniciada: {NombreUsuario} ({RolUsuario}). Acceso limitado a funciones de caja y mostrador.",
                                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (RolUsuario == "Administrador")
             {
-                pnlGanancias.Visible = true;
-                pnlBalance.Visible = true;
             }
         }
         public void HacerCirculo(Control control)
@@ -132,66 +135,8 @@ namespace pryTesisVentas
             control.Region = new Region(gp);
         }
 
-        private void ConfigurarGraficoClientes()
-        {
-            chartClientes.Series.Clear();
-            chartClientes.Legends.Clear();
-            chartClientes.Titles.Clear();
-
-            var serie = new Series("ClientesNuevos");
-            serie.ChartType = SeriesChartType.Doughnut;
-            serie.Points.AddY(15);
-            serie.Points.AddY(20);
-            serie.Points.AddY(65);
-
-            serie.Points[0].Color = Color.FromArgb(236, 0, 140);
-            serie.Points[1].Color = Color.FromArgb(124, 77, 255);
-            serie.Points[2].Color = Color.FromArgb(230, 230, 245);
-
-            serie["PieStartAngle"] = "270";
-            serie["DoughnutRadius"] = "65";
-            serie["PieLabelStyle"] = "Disabled";
-            serie.BorderWidth = 0;
-            chartClientes.Series.Add(serie);
-
-            if (chartClientes.ChartAreas.Count > 0)
-            {
-                var chartArea = chartClientes.ChartAreas[0];
-                chartArea.BackColor = Color.Transparent;
-
-                // SOLUCIÓN AL ERROR DE .SET()
-                chartArea.Position.Auto = false;
-                chartArea.Position.X = 0;
-                chartArea.Position.Y = 0;
-                chartArea.Position.Width = 100;
-                chartArea.Position.Height = 100;
-
-                chartArea.InnerPlotPosition.Auto = false;
-                chartArea.InnerPlotPosition.X = 10;
-                chartArea.InnerPlotPosition.Y = 10;
-                chartArea.InnerPlotPosition.Width = 80;
-                chartArea.InnerPlotPosition.Height = 80;
-            }
-
-            if (lbl15 != null)
-            {
-                lbl15.Parent = chartClientes;
-                lbl15.BackColor = Color.White;
-                lbl15.Text = "15%\nTotal Nuevos\nclientes";
-                lbl15.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-                lbl15.TextAlign = ContentAlignment.MiddleCenter;
-                lbl15.Size = new Size(90, 90);
-
-                lbl15.Location = new Point(
-                    (chartClientes.Width - lbl15.Width) / 2,
-                    (chartClientes.Height - lbl15.Height) / 2
-                );
-
-                lbl15.BringToFront();
-                HacerCirculo(lbl15);
-            }
-            chartClientes.Invalidate();
-        }
+        
+            
         private void ConfigurarColumnasGrilla()
         {
             dgvVentas.Columns.Clear();
@@ -292,9 +237,7 @@ namespace pryTesisVentas
             // Si el contenido del dashboard está en un control de usuario o quieres recargarlo:
             if (this.pnlContenedorPrincipal.Controls.Count > 0)
                 this.pnlContenedorPrincipal.Controls.RemoveAt(0);
-
-            // Aquí podrías recargar los gráficos iniciales
-            ConfigurarGraficoClientes();
+  
         }
 
         private void txtBuscador_TextChanged_1(object sender, EventArgs e)
@@ -385,6 +328,8 @@ namespace pryTesisVentas
             frmEstadisticas frm = new frmEstadisticas();
             frm.ShowDialog();
         }
+
+      
 
 
 

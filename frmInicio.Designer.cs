@@ -98,15 +98,26 @@
             this.lblBuscador = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.pcbPedidosTotales = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.lblPedidosTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblPedidoT = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.lblBuscarArriba = new System.Windows.Forms.Label();
             this.txtBuscardor = new System.Windows.Forms.TextBox();
             this.ptbLupa = new System.Windows.Forms.PictureBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.lblNumPedidosPendientes = new System.Windows.Forms.Label();
+            this.lblPorcentajeClientes = new System.Windows.Forms.Label();
+            this.lblPedidosPendientes = new System.Windows.Forms.Label();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblNumPedidoscancelados = new System.Windows.Forms.Label();
+            this.lblPedidoscancelados = new System.Windows.Forms.Label();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             cmbVentas = new System.Windows.Forms.ComboBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -141,9 +152,14 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPedidosTotales)).BeginInit();
             this.pnlBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).BeginInit();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbVentas
@@ -941,23 +957,36 @@
             // 
             this.panel11.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel11.Controls.Add(this.pcbPedidosTotales);
             this.panel11.Controls.Add(this.label12);
             this.panel11.Controls.Add(this.lblPedidosTotal);
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.lblPedidoT);
-            this.panel11.Controls.Add(this.pictureBox11);
-            this.panel11.Location = new System.Drawing.Point(321, 45);
+            this.panel11.Location = new System.Drawing.Point(319, 58);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(308, 100);
             this.panel11.TabIndex = 12;
             // 
+            // pcbPedidosTotales
+            // 
+            this.pcbPedidosTotales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pcbPedidosTotales.Image = ((System.Drawing.Image)(resources.GetObject("pcbPedidosTotales.Image")));
+            this.pcbPedidosTotales.Location = new System.Drawing.Point(16, 18);
+            this.pcbPedidosTotales.Name = "pcbPedidosTotales";
+            this.pcbPedidosTotales.Size = new System.Drawing.Size(84, 69);
+            this.pcbPedidosTotales.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbPedidosTotales.TabIndex = 22;
+            this.pcbPedidosTotales.TabStop = false;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Teal;
             this.label12.Location = new System.Drawing.Point(110, 68);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(149, 20);
+            this.label12.Size = new System.Drawing.Size(152, 21);
             this.label12.TabIndex = 5;
             this.label12.Text = "↓ 11% esta semana";
             // 
@@ -968,7 +997,7 @@
             this.lblPedidosTotal.Name = "lblPedidosTotal";
             this.lblPedidosTotal.Size = new System.Drawing.Size(100, 38);
             this.lblPedidosTotal.TabIndex = 3;
-            this.lblPedidosTotal.Text = "$198k";
+            this.lblPedidosTotal.Text = "198";
             // 
             // label5
             // 
@@ -989,17 +1018,6 @@
             this.lblPedidoT.Size = new System.Drawing.Size(102, 19);
             this.lblPedidoT.TabIndex = 1;
             this.lblPedidoT.Text = "Pedidos Totales";
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(14, 11);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(84, 69);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 0;
-            this.pictureBox11.TabStop = false;
             // 
             // pnlBuscar
             // 
@@ -1048,11 +1066,134 @@
             this.ptbLupa.TabIndex = 11;
             this.ptbLupa.TabStop = false;
             // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel13.Controls.Add(this.lblNumPedidosPendientes);
+            this.panel13.Controls.Add(this.lblPorcentajeClientes);
+            this.panel13.Controls.Add(this.lblPedidosPendientes);
+            this.panel13.Controls.Add(this.pictureBox13);
+            this.panel13.Location = new System.Drawing.Point(640, 58);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(308, 100);
+            this.panel13.TabIndex = 20;
+            // 
+            // lblNumPedidosPendientes
+            // 
+            this.lblNumPedidosPendientes.AutoSize = true;
+            this.lblNumPedidosPendientes.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumPedidosPendientes.Location = new System.Drawing.Point(106, 35);
+            this.lblNumPedidosPendientes.Name = "lblNumPedidosPendientes";
+            this.lblNumPedidosPendientes.Size = new System.Drawing.Size(33, 38);
+            this.lblNumPedidosPendientes.TabIndex = 5;
+            this.lblNumPedidosPendientes.Text = "4";
+            // 
+            // lblPorcentajeClientes
+            // 
+            this.lblPorcentajeClientes.AutoSize = true;
+            this.lblPorcentajeClientes.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcentajeClientes.ForeColor = System.Drawing.Color.Crimson;
+            this.lblPorcentajeClientes.Location = new System.Drawing.Point(106, 72);
+            this.lblPorcentajeClientes.Name = "lblPorcentajeClientes";
+            this.lblPorcentajeClientes.Size = new System.Drawing.Size(115, 21);
+            this.lblPorcentajeClientes.TabIndex = 4;
+            this.lblPorcentajeClientes.Text = "↓ 2% este mes";
+            // 
+            // lblPedidosPendientes
+            // 
+            this.lblPedidosPendientes.AutoSize = true;
+            this.lblPedidosPendientes.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPedidosPendientes.Location = new System.Drawing.Point(106, 18);
+            this.lblPedidosPendientes.Name = "lblPedidosPendientes";
+            this.lblPedidosPendientes.Size = new System.Drawing.Size(127, 19);
+            this.lblPedidosPendientes.TabIndex = 1;
+            this.lblPedidosPendientes.Text = "Pedidos pendientes";
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(16, 18);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(84, 69);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox13.TabIndex = 0;
+            this.pictureBox13.TabStop = false;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel14.Controls.Add(this.label11);
+            this.panel14.Controls.Add(this.lblNumPedidoscancelados);
+            this.panel14.Controls.Add(this.lblPedidoscancelados);
+            this.panel14.Controls.Add(this.pictureBox14);
+            this.panel14.Location = new System.Drawing.Point(961, 59);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(308, 100);
+            this.panel14.TabIndex = 21;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Teal;
+            this.label11.Location = new System.Drawing.Point(108, 72);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(152, 21);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "↑ 11% esta semana";
+            // 
+            // lblNumPedidoscancelados
+            // 
+            this.lblNumPedidoscancelados.AutoSize = true;
+            this.lblNumPedidoscancelados.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumPedidoscancelados.Location = new System.Drawing.Point(105, 38);
+            this.lblNumPedidoscancelados.Name = "lblNumPedidoscancelados";
+            this.lblNumPedidoscancelados.Size = new System.Drawing.Size(33, 38);
+            this.lblNumPedidoscancelados.TabIndex = 6;
+            this.lblNumPedidoscancelados.Text = "1";
+            // 
+            // lblPedidoscancelados
+            // 
+            this.lblPedidoscancelados.AutoSize = true;
+            this.lblPedidoscancelados.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPedidoscancelados.Location = new System.Drawing.Point(104, 18);
+            this.lblPedidoscancelados.Name = "lblPedidoscancelados";
+            this.lblPedidoscancelados.Size = new System.Drawing.Size(126, 19);
+            this.lblPedidoscancelados.TabIndex = 1;
+            this.lblPedidoscancelados.Text = "Pedidos cancelados";
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Location = new System.Drawing.Point(16, 18);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(84, 69);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox14.TabIndex = 0;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(319, 165);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(947, 355);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 22;
+            this.pictureBox11.TabStop = false;
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 944);
+            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.panel14);
+            this.Controls.Add(this.panel13);
             this.Controls.Add(this.pnlBuscar);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel5);
@@ -1110,10 +1251,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPedidosTotales)).EndInit();
             this.pnlBuscar.ResumeLayout(false);
             this.pnlBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).EndInit();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1187,7 +1335,6 @@
         private System.Windows.Forms.Label lblPedidosTotal;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblPedidoT;
-        private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Panel pnlBuscar;
         private System.Windows.Forms.Label lblBuscarArriba;
         private System.Windows.Forms.TextBox txtBuscardor;
@@ -1197,6 +1344,18 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Button btnEstadisticas;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label lblNumPedidosPendientes;
+        private System.Windows.Forms.Label lblPorcentajeClientes;
+        private System.Windows.Forms.Label lblPedidosPendientes;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblNumPedidoscancelados;
+        private System.Windows.Forms.Label lblPedidoscancelados;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox pcbPedidosTotales;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }
 
