@@ -30,10 +30,6 @@
         {
             System.Windows.Forms.ComboBox cmbVentas;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -84,28 +80,6 @@
             this.lblInicio = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pnlGanancias = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblGanancias = new System.Windows.Forms.Label();
-            this.lblPorcentaje1 = new System.Windows.Forms.Label();
-            this.lblGana = new System.Windows.Forms.Label();
-            this.pcbGanancias = new System.Windows.Forms.PictureBox();
-            this.pnlBalance = new System.Windows.Forms.Panel();
-            this.lblBalance = new System.Windows.Forms.Label();
-            this.lblPorcentaje2 = new System.Windows.Forms.Label();
-            this.lblBalan = new System.Windows.Forms.Label();
-            this.pcbBalance = new System.Windows.Forms.PictureBox();
-            this.pnlPrevisualizacion = new System.Windows.Forms.Panel();
-            this.lblPorcentajesdelmes = new System.Windows.Forms.Label();
-            this.lblGananciasmensuales = new System.Windows.Forms.Label();
-            this.cmbPrevi = new System.Windows.Forms.ComboBox();
-            this.crtGananciasMensuales = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblPrevi = new System.Windows.Forms.Label();
-            this.pnlClintes = new System.Windows.Forms.Panel();
-            this.lbl15 = new System.Windows.Forms.Label();
-            this.lblSubClientes = new System.Windows.Forms.Label();
-            this.ldlClientes = new System.Windows.Forms.Label();
-            this.chartClientes = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlVentasdeProductos = new System.Windows.Forms.Panel();
             this.ptbVentas = new System.Windows.Forms.PictureBox();
             this.lblVentas = new System.Windows.Forms.Label();
@@ -159,14 +133,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbBotonVentas)).BeginInit();
             this.pnlInicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.pnlGanancias.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).BeginInit();
-            this.pnlBalance.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBalance)).BeginInit();
-            this.pnlPrevisualizacion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.crtGananciasMensuales)).BeginInit();
-            this.pnlClintes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartClientes)).BeginInit();
             this.pnlVentasdeProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
@@ -786,276 +752,6 @@
             this.pictureBox3.TabIndex = 35;
             this.pictureBox3.TabStop = false;
             // 
-            // pnlGanancias
-            // 
-            this.pnlGanancias.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.pnlGanancias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pnlGanancias.Controls.Add(this.label11);
-            this.pnlGanancias.Controls.Add(this.lblGanancias);
-            this.pnlGanancias.Controls.Add(this.lblPorcentaje1);
-            this.pnlGanancias.Controls.Add(this.lblGana);
-            this.pnlGanancias.Controls.Add(this.pcbGanancias);
-            this.pnlGanancias.Location = new System.Drawing.Point(316, 45);
-            this.pnlGanancias.Name = "pnlGanancias";
-            this.pnlGanancias.Size = new System.Drawing.Size(308, 100);
-            this.pnlGanancias.TabIndex = 0;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(106, 68);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(122, 20);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "↓ 37% este mes";
-            // 
-            // lblGanancias
-            // 
-            this.lblGanancias.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGanancias.Location = new System.Drawing.Point(104, 32);
-            this.lblGanancias.Name = "lblGanancias";
-            this.lblGanancias.Size = new System.Drawing.Size(100, 38);
-            this.lblGanancias.TabIndex = 3;
-            this.lblGanancias.Text = "$198k";
-            // 
-            // lblPorcentaje1
-            // 
-            this.lblPorcentaje1.AutoSize = true;
-            this.lblPorcentaje1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcentaje1.ForeColor = System.Drawing.Color.Teal;
-            this.lblPorcentaje1.Location = new System.Drawing.Point(112, 69);
-            this.lblPorcentaje1.Name = "lblPorcentaje1";
-            this.lblPorcentaje1.Size = new System.Drawing.Size(0, 21);
-            this.lblPorcentaje1.TabIndex = 4;
-            // 
-            // lblGana
-            // 
-            this.lblGana.AutoSize = true;
-            this.lblGana.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGana.Location = new System.Drawing.Point(106, 14);
-            this.lblGana.Name = "lblGana";
-            this.lblGana.Size = new System.Drawing.Size(71, 19);
-            this.lblGana.TabIndex = 1;
-            this.lblGana.Text = "Ganancias";
-            // 
-            // pcbGanancias
-            // 
-            this.pcbGanancias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pcbGanancias.Image = ((System.Drawing.Image)(resources.GetObject("pcbGanancias.Image")));
-            this.pcbGanancias.Location = new System.Drawing.Point(14, 11);
-            this.pcbGanancias.Name = "pcbGanancias";
-            this.pcbGanancias.Size = new System.Drawing.Size(84, 69);
-            this.pcbGanancias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbGanancias.TabIndex = 0;
-            this.pcbGanancias.TabStop = false;
-            // 
-            // pnlBalance
-            // 
-            this.pnlBalance.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlBalance.Controls.Add(this.lblBalance);
-            this.pnlBalance.Controls.Add(this.lblPorcentaje2);
-            this.pnlBalance.Controls.Add(this.lblBalan);
-            this.pnlBalance.Controls.Add(this.pcbBalance);
-            this.pnlBalance.Location = new System.Drawing.Point(640, 45);
-            this.pnlBalance.Name = "pnlBalance";
-            this.pnlBalance.Size = new System.Drawing.Size(309, 100);
-            this.pnlBalance.TabIndex = 2;
-            // 
-            // lblBalance
-            // 
-            this.lblBalance.AutoSize = true;
-            this.lblBalance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalance.Location = new System.Drawing.Point(106, 32);
-            this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(76, 32);
-            this.lblBalance.TabIndex = 4;
-            this.lblBalance.Text = "$2.4k";
-            // 
-            // lblPorcentaje2
-            // 
-            this.lblPorcentaje2.AutoSize = true;
-            this.lblPorcentaje2.Location = new System.Drawing.Point(108, 69);
-            this.lblPorcentaje2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPorcentaje2.Name = "lblPorcentaje2";
-            this.lblPorcentaje2.Size = new System.Drawing.Size(113, 20);
-            this.lblPorcentaje2.TabIndex = 3;
-            this.lblPorcentaje2.Text = "↓ 2% este mes";
-            // 
-            // lblBalan
-            // 
-            this.lblBalan.AutoSize = true;
-            this.lblBalan.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalan.Location = new System.Drawing.Point(102, 12);
-            this.lblBalan.Name = "lblBalan";
-            this.lblBalan.Size = new System.Drawing.Size(55, 19);
-            this.lblBalan.TabIndex = 2;
-            this.lblBalan.Text = "Balance";
-            // 
-            // pcbBalance
-            // 
-            this.pcbBalance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(203)))), ((int)(((byte)(255)))));
-            this.pcbBalance.Image = ((System.Drawing.Image)(resources.GetObject("pcbBalance.Image")));
-            this.pcbBalance.Location = new System.Drawing.Point(8, 14);
-            this.pcbBalance.Name = "pcbBalance";
-            this.pcbBalance.Size = new System.Drawing.Size(88, 75);
-            this.pcbBalance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbBalance.TabIndex = 0;
-            this.pcbBalance.TabStop = false;
-            // 
-            // pnlPrevisualizacion
-            // 
-            this.pnlPrevisualizacion.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.pnlPrevisualizacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pnlPrevisualizacion.Controls.Add(this.lblPorcentajesdelmes);
-            this.pnlPrevisualizacion.Controls.Add(this.lblGananciasmensuales);
-            this.pnlPrevisualizacion.Controls.Add(this.cmbPrevi);
-            this.pnlPrevisualizacion.Controls.Add(this.crtGananciasMensuales);
-            this.pnlPrevisualizacion.Controls.Add(this.lblPrevi);
-            this.pnlPrevisualizacion.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlPrevisualizacion.Location = new System.Drawing.Point(316, 172);
-            this.pnlPrevisualizacion.Name = "pnlPrevisualizacion";
-            this.pnlPrevisualizacion.Size = new System.Drawing.Size(598, 332);
-            this.pnlPrevisualizacion.TabIndex = 6;
-            // 
-            // lblPorcentajesdelmes
-            // 
-            this.lblPorcentajesdelmes.AutoSize = true;
-            this.lblPorcentajesdelmes.BackColor = System.Drawing.SystemColors.Desktop;
-            this.lblPorcentajesdelmes.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcentajesdelmes.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.lblPorcentajesdelmes.Location = new System.Drawing.Point(348, 68);
-            this.lblPorcentajesdelmes.Name = "lblPorcentajesdelmes";
-            this.lblPorcentajesdelmes.Size = new System.Drawing.Size(59, 21);
-            this.lblPorcentajesdelmes.TabIndex = 7;
-            this.lblPorcentajesdelmes.Text = "↗ 35%";
-            // 
-            // lblGananciasmensuales
-            // 
-            this.lblGananciasmensuales.AutoSize = true;
-            this.lblGananciasmensuales.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGananciasmensuales.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblGananciasmensuales.Location = new System.Drawing.Point(10, 37);
-            this.lblGananciasmensuales.Name = "lblGananciasmensuales";
-            this.lblGananciasmensuales.Size = new System.Drawing.Size(159, 21);
-            this.lblGananciasmensuales.TabIndex = 7;
-            this.lblGananciasmensuales.Text = "Ganancias mensuales";
-            // 
-            // cmbPrevi
-            // 
-            this.cmbPrevi.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cmbPrevi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPrevi.FormattingEnabled = true;
-            this.cmbPrevi.Location = new System.Drawing.Point(717, 43);
-            this.cmbPrevi.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbPrevi.Name = "cmbPrevi";
-            this.cmbPrevi.Size = new System.Drawing.Size(121, 29);
-            this.cmbPrevi.TabIndex = 6;
-            // 
-            // crtGananciasMensuales
-            // 
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY2.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.Name = "ChartArea1";
-            this.crtGananciasMensuales.ChartAreas.Add(chartArea1);
-            this.crtGananciasMensuales.Location = new System.Drawing.Point(8, 92);
-            this.crtGananciasMensuales.Name = "crtGananciasMensuales";
-            series1.ChartArea = "ChartArea1";
-            series1.CustomProperties = "PointWidth=0.6";
-            series1.Name = "Series1";
-            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            this.crtGananciasMensuales.Series.Add(series1);
-            this.crtGananciasMensuales.Size = new System.Drawing.Size(568, 182);
-            this.crtGananciasMensuales.TabIndex = 4;
-            this.crtGananciasMensuales.Text = "chart1";
-            // 
-            // lblPrevi
-            // 
-            this.lblPrevi.AutoSize = true;
-            this.lblPrevi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrevi.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblPrevi.Location = new System.Drawing.Point(3, 5);
-            this.lblPrevi.Name = "lblPrevi";
-            this.lblPrevi.Size = new System.Drawing.Size(199, 32);
-            this.lblPrevi.TabIndex = 5;
-            this.lblPrevi.Text = "Previsualización";
-            // 
-            // pnlClintes
-            // 
-            this.pnlClintes.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlClintes.Controls.Add(this.lbl15);
-            this.pnlClintes.Controls.Add(this.lblSubClientes);
-            this.pnlClintes.Controls.Add(this.ldlClientes);
-            this.pnlClintes.Controls.Add(this.chartClientes);
-            this.pnlClintes.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlClintes.Location = new System.Drawing.Point(932, 172);
-            this.pnlClintes.Name = "pnlClintes";
-            this.pnlClintes.Size = new System.Drawing.Size(340, 338);
-            this.pnlClintes.TabIndex = 7;
-            // 
-            // lbl15
-            // 
-            this.lbl15.BackColor = System.Drawing.Color.Transparent;
-            this.lbl15.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl15.Location = new System.Drawing.Point(106, 162);
-            this.lbl15.Name = "lbl15";
-            this.lbl15.Size = new System.Drawing.Size(116, 72);
-            this.lbl15.TabIndex = 14;
-            this.lbl15.Text = "15% Total Nuevos Clientes";
-            this.lbl15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblSubClientes
-            // 
-            this.lblSubClientes.AutoSize = true;
-            this.lblSubClientes.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubClientes.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblSubClientes.Location = new System.Drawing.Point(4, 35);
-            this.lblSubClientes.Name = "lblSubClientes";
-            this.lblSubClientes.Size = new System.Drawing.Size(235, 21);
-            this.lblSubClientes.TabIndex = 8;
-            this.lblSubClientes.Text = "Clientes que compran productos";
-            // 
-            // ldlClientes
-            // 
-            this.ldlClientes.AutoSize = true;
-            this.ldlClientes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ldlClientes.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.ldlClientes.Location = new System.Drawing.Point(3, 3);
-            this.ldlClientes.Name = "ldlClientes";
-            this.ldlClientes.Size = new System.Drawing.Size(104, 32);
-            this.ldlClientes.TabIndex = 8;
-            this.ldlClientes.Text = "Clientes";
-            // 
-            // chartClientes
-            // 
-            chartArea2.InnerPlotPosition.Auto = false;
-            chartArea2.InnerPlotPosition.Width = 63.73417F;
-            chartArea2.InnerPlotPosition.X = 18.13291F;
-            chartArea2.InnerPlotPosition.Y = 2.5F;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 90F;
-            chartArea2.Position.Width = 90F;
-            chartArea2.Position.X = 5F;
-            chartArea2.Position.Y = 5F;
-            this.chartClientes.ChartAreas.Add(chartArea2);
-            this.chartClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.chartClientes.Location = new System.Drawing.Point(0, 89);
-            this.chartClientes.Margin = new System.Windows.Forms.Padding(2);
-            this.chartClientes.Name = "chartClientes";
-            this.chartClientes.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.CustomProperties = "DoughnutRadius=40";
-            series2.Name = "SeriesProgreso";
-            this.chartClientes.Series.Add(series2);
-            this.chartClientes.Size = new System.Drawing.Size(340, 249);
-            this.chartClientes.TabIndex = 10;
-            this.chartClientes.Text = "chart2";
-            // 
             // pnlVentasdeProductos
             // 
             this.pnlVentasdeProductos.BackColor = System.Drawing.SystemColors.HighlightText;
@@ -1250,7 +946,7 @@
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.lblPedidoT);
             this.panel11.Controls.Add(this.pictureBox11);
-            this.panel11.Location = new System.Drawing.Point(963, 45);
+            this.panel11.Location = new System.Drawing.Point(321, 45);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(308, 100);
             this.panel11.TabIndex = 12;
@@ -1360,12 +1056,8 @@
             this.Controls.Add(this.pnlBuscar);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.pnlClintes);
             this.Controls.Add(this.pnlVentasTotales);
-            this.Controls.Add(this.pnlBalance);
-            this.Controls.Add(this.pnlPrevisualizacion);
             this.Controls.Add(this.pnlContenedorPrincipal);
-            this.Controls.Add(this.pnlGanancias);
             this.Controls.Add(this.pnlVentasdeProductos);
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1406,18 +1098,6 @@
             this.pnlInicio.ResumeLayout(false);
             this.pnlInicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.pnlGanancias.ResumeLayout(false);
-            this.pnlGanancias.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).EndInit();
-            this.pnlBalance.ResumeLayout(false);
-            this.pnlBalance.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBalance)).EndInit();
-            this.pnlPrevisualizacion.ResumeLayout(false);
-            this.pnlPrevisualizacion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.crtGananciasMensuales)).EndInit();
-            this.pnlClintes.ResumeLayout(false);
-            this.pnlClintes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartClientes)).EndInit();
             this.pnlVentasdeProductos.ResumeLayout(false);
             this.pnlVentasdeProductos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbVentas)).EndInit();
@@ -1440,17 +1120,6 @@
 
         #endregion
         private System.Windows.Forms.Panel pnlContenedorPrincipal;
-        private System.Windows.Forms.Panel pnlGanancias;
-        private System.Windows.Forms.Panel pnlBalance;
-        private System.Windows.Forms.Panel pnlPrevisualizacion;
-        private System.Windows.Forms.Label lblPorcentajesdelmes;
-        private System.Windows.Forms.Label lblGananciasmensuales;
-        private System.Windows.Forms.ComboBox cmbPrevi;
-        private System.Windows.Forms.DataVisualization.Charting.Chart crtGananciasMensuales;
-        private System.Windows.Forms.Label lblPrevi;
-        private System.Windows.Forms.Panel pnlClintes;
-        private System.Windows.Forms.Label ldlClientes;
-        private System.Windows.Forms.Label lblSubClientes;
         private System.Windows.Forms.Panel pnlVentasdeProductos;
         private System.Windows.Forms.Label lblVentas;
         private System.Windows.Forms.Panel pnlVentasTotales;
@@ -1463,8 +1132,6 @@
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pcbGanancias;
-        private System.Windows.Forms.PictureBox pcbBalance;
         private System.Windows.Forms.PictureBox pcbPedido;
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Label lblDigitalFarma;
@@ -1472,17 +1139,9 @@
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblInicio;
-        private System.Windows.Forms.Label lblPorcentaje1;
-        private System.Windows.Forms.Label lblGana;
-        private System.Windows.Forms.Label lblBalan;
         private System.Windows.Forms.Label lblPT;
-        private System.Windows.Forms.Label lblPorcentaje2;
         private System.Windows.Forms.Label lblPorcentaje3;
-        private System.Windows.Forms.Label lblGanancias;
-        private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.Label lblPedidosTotales;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartClientes;
-        private System.Windows.Forms.Label lbl15;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label lblFlechaVentas;
         private System.Windows.Forms.Button btnVentas;
@@ -1533,7 +1192,6 @@
         private System.Windows.Forms.Label lblBuscarArriba;
         private System.Windows.Forms.TextBox txtBuscardor;
         private System.Windows.Forms.PictureBox ptbLupa;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label4;

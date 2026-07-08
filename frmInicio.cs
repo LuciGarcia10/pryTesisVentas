@@ -387,6 +387,7 @@ namespace pryTesisVentas
         }
 
 
+
         //Para cargar los datos en la Grilla desde la BD
 
         // private void ConfigurarColumnasGrilla()
