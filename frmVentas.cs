@@ -27,7 +27,6 @@ namespace pryTesisVentas
         private void frmVentas_Load(object sender, EventArgs e)
         {
             // CONFIGURACIÓN DE LA GRILLA
-
             // 1. ESTO VA PRIMERO: Apagamos el generador automático antes de hacer nada
 
             dgvVentas.AutoGenerateColumns = false;
