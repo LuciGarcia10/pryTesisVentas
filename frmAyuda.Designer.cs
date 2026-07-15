@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAyuda));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -63,15 +67,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.panelGanancias = new System.Windows.Forms.Panel();
-            this.lblPorcentaje1 = new System.Windows.Forms.Label();
+            this.lblCantMensajes = new System.Windows.Forms.Label();
             this.lblGanancias = new System.Windows.Forms.Label();
             this.pcbGanancias = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCantTickets = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblSucursal = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -89,11 +93,9 @@
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.pnlContenedorPrincipal.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel10.SuspendLayout();
@@ -122,8 +124,6 @@
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).BeginInit();
-            this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -143,6 +143,54 @@
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
             this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 929);
             this.pnlContenedorPrincipal.TabIndex = 2;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.White;
+            this.panel12.Controls.Add(this.label12);
+            this.panel12.Controls.Add(this.pictureBox12);
+            this.panel12.Controls.Add(this.btnEstadisticas);
+            this.panel12.Location = new System.Drawing.Point(10, 553);
+            this.panel12.Name = "panel12";
+            this.panel12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel12.Size = new System.Drawing.Size(242, 48);
+            this.panel12.TabIndex = 54;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(208, 12);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(18, 20);
+            this.label12.TabIndex = 39;
+            this.label12.Text = ">";
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 38;
+            this.pictureBox12.TabStop = false;
+            // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.BackColor = System.Drawing.Color.White;
+            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
+            this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
+            this.btnEstadisticas.TabIndex = 34;
+            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.UseVisualStyleBackColor = false;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
             // panel2
             // 
@@ -514,7 +562,7 @@
             // 
             this.panelGanancias.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panelGanancias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelGanancias.Controls.Add(this.lblPorcentaje1);
+            this.panelGanancias.Controls.Add(this.lblCantMensajes);
             this.panelGanancias.Controls.Add(this.lblGanancias);
             this.panelGanancias.Controls.Add(this.pcbGanancias);
             this.panelGanancias.Location = new System.Drawing.Point(374, 12);
@@ -522,16 +570,16 @@
             this.panelGanancias.Size = new System.Drawing.Size(308, 100);
             this.panelGanancias.TabIndex = 3;
             // 
-            // lblPorcentaje1
+            // lblCantMensajes
             // 
-            this.lblPorcentaje1.AutoSize = true;
-            this.lblPorcentaje1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcentaje1.ForeColor = System.Drawing.Color.Teal;
-            this.lblPorcentaje1.Location = new System.Drawing.Point(110, 62);
-            this.lblPorcentaje1.Name = "lblPorcentaje1";
-            this.lblPorcentaje1.Size = new System.Drawing.Size(142, 21);
-            this.lblPorcentaje1.TabIndex = 2;
-            this.lblPorcentaje1.Text = "1 Nuevo Mensaje";
+            this.lblCantMensajes.AutoSize = true;
+            this.lblCantMensajes.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantMensajes.ForeColor = System.Drawing.Color.Teal;
+            this.lblCantMensajes.Location = new System.Drawing.Point(110, 62);
+            this.lblCantMensajes.Name = "lblCantMensajes";
+            this.lblCantMensajes.Size = new System.Drawing.Size(142, 21);
+            this.lblCantMensajes.TabIndex = 2;
+            this.lblCantMensajes.Text = "1 Nuevo Mensaje";
             // 
             // lblGanancias
             // 
@@ -559,7 +607,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblCantTickets);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(1040, 12);
@@ -567,16 +615,16 @@
             this.panel1.Size = new System.Drawing.Size(308, 100);
             this.panel1.TabIndex = 4;
             // 
-            // label1
+            // lblCantTickets
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(112, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 21);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "3 Pendientes";
+            this.lblCantTickets.AutoSize = true;
+            this.lblCantTickets.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantTickets.ForeColor = System.Drawing.Color.Teal;
+            this.lblCantTickets.Location = new System.Drawing.Point(112, 65);
+            this.lblCantTickets.Name = "lblCantTickets";
+            this.lblCantTickets.Size = new System.Drawing.Size(108, 21);
+            this.lblCantTickets.TabIndex = 2;
+            this.lblCantTickets.Text = "3 Pendientes";
             // 
             // label4
             // 
@@ -603,7 +651,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.lblSucursal);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Location = new System.Drawing.Point(705, 12);
@@ -611,16 +659,16 @@
             this.panel3.Size = new System.Drawing.Size(308, 100);
             this.panel3.TabIndex = 5;
             // 
-            // label5
+            // lblSucursal
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Teal;
-            this.label5.Location = new System.Drawing.Point(122, 62);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 21);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Maps";
+            this.lblSucursal.AutoSize = true;
+            this.lblSucursal.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSucursal.ForeColor = System.Drawing.Color.Teal;
+            this.lblSucursal.Location = new System.Drawing.Point(122, 62);
+            this.lblSucursal.Name = "lblSucursal";
+            this.lblSucursal.Size = new System.Drawing.Size(51, 21);
+            this.lblSucursal.TabIndex = 2;
+            this.lblSucursal.Text = "Maps";
             // 
             // label11
             // 
@@ -767,14 +815,14 @@
             this.Stock,
             this.Precio,
             this.VentasTotales});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTickets.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTickets.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTickets.EnableHeadersVisualStyles = false;
             this.dgvTickets.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvTickets.Location = new System.Drawing.Point(51, 60);
@@ -813,54 +861,6 @@
             this.VentasTotales.Name = "VentasTotales";
             this.VentasTotales.Width = 150;
             // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.White;
-            this.panel12.Controls.Add(this.label12);
-            this.panel12.Controls.Add(this.pictureBox12);
-            this.panel12.Controls.Add(this.btnEstadisticas);
-            this.panel12.Location = new System.Drawing.Point(10, 553);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel12.Size = new System.Drawing.Size(242, 48);
-            this.panel12.TabIndex = 54;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(208, 12);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(18, 20);
-            this.label12.TabIndex = 39;
-            this.label12.Text = ">";
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 38;
-            this.pictureBox12.TabStop = false;
-            // 
-            // btnEstadisticas
-            // 
-            this.btnEstadisticas.BackColor = System.Drawing.Color.White;
-            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
-            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
-            this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
-            this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
-            this.btnEstadisticas.TabIndex = 34;
-            this.btnEstadisticas.Text = "Estadisticas";
-            this.btnEstadisticas.UseVisualStyleBackColor = false;
-            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
-            // 
             // frmAyuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -878,6 +878,9 @@
             this.Load += new System.EventHandler(this.frmAyuda_Load);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.pnlContenedorPrincipal.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -919,9 +922,6 @@
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).EndInit();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -961,15 +961,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Panel panelGanancias;
-        private System.Windows.Forms.Label lblPorcentaje1;
+        private System.Windows.Forms.Label lblCantMensajes;
         private System.Windows.Forms.Label lblGanancias;
         private System.Windows.Forms.PictureBox pcbGanancias;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCantTickets;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblSucursal;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel4;
