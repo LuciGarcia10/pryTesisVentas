@@ -21,6 +21,7 @@ namespace pryTesisVentas
         public frmProductos()
         {
             InitializeComponent();
+
         }
 
         private void pnlContenedorPrincipal_Paint(object sender, PaintEventArgs e)
@@ -412,27 +413,32 @@ namespace pryTesisVentas
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            // Si el cuadro de texto NO está vacío, ocultamos el label "Buscar"
-            if (txtBuscar.Text != "")
-            {
-                lblBuscar.Visible = false;
-            }
-            else
-            {
-                // Si borró todo, volvemos a mostrar el label
-                lblBuscar.Visible = true;
-            }
+            lblBuscar.Visible = string.IsNullOrEmpty(txtBuscar.Text);
 
-            // --- OPCIONAL: Lógica de filtrado en tiempo real ---
+            // Filtramos inmediatamente
             FiltrarBusquedaRapida(txtBuscar.Text);
         }
         private void FiltrarBusquedaRapida(string texto)
         {
+            // Si la lista global está vacía o es nula, no hacemos nada para evitar crashes
+            if (listaProductos == null || listaProductos.Count == 0) return;
+
+            // Si el texto está vacío, volvemos a mostrar la lista completa original
+            if (string.IsNullOrWhiteSpace(texto))
+            {
+                ActualizarGrilla(listaProductos);
+                return;
+            }
+
+            string textoMinuscula = texto.ToLower().Trim();
+
+            // Filtramos en tiempo real sobre la lista que tenemos cargada en memoria (PC)
             var busqueda = listaProductos.Where(x =>
-                x.Nombre.ToLower().Contains(texto.ToLower()) ||
-                x.Categoria.ToLower().Contains(texto.ToLower())
+                (x.Nombre != null && x.Nombre.ToLower().Contains(textoMinuscula)) ||
+                (x.Categoria != null && x.Categoria.ToLower().Contains(textoMinuscula))
             ).ToList();
 
+            // Actualizamos la tabla del diseño con el resultado
             ActualizarGrilla(busqueda);
         }
 
@@ -464,17 +470,9 @@ namespace pryTesisVentas
 
         private void txtBuscarArriba_TextChanged(object sender, EventArgs e)
         {
-            if (txtBuscarArriba.Text != "")
-            {
-                lblBuscarArriba.Visible = false;
-            }
-            else
-            {
-                // Si borró todo, volvemos a mostrar el label
-                lblBuscarArriba.Visible = true;
-            }
+            lblBuscarArriba.Visible = string.IsNullOrEmpty(txtBuscarArriba.Text);
 
-            // --- OPCIONAL: Lógica de filtrado en tiempo real ---
+            // Filtramos inmediatamente
             FiltrarBusquedaRapida(txtBuscarArriba.Text);
         }
 
