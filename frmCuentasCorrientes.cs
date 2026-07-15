@@ -13,7 +13,8 @@ namespace pryTesisVentas
 {
     public partial class frmCuentasCorrientes : Form
     {
-
+        // Variable global para almacenar el Id del cliente seleccionado en la pantalla
+        private string idClienteSeleccionado = "";
         public frmCuentasCorrientes()
         {
             InitializeComponent();
@@ -31,15 +32,11 @@ namespace pryTesisVentas
 
         private void CargarDatosDesdeBase()
         {
-            // Definimos la consulta a tu tabla real de Cuentas Corrientes
             string consulta = "SELECT IdCliente, NroAfiliado, Nombre, Apellido, ObraSocial, Estado, Saldo FROM Clientes";
-
-            // Llamamos a la función estática que lee la conexión directa con el punto (.)
             clsConsultas.LlenarGrid(consulta, dgvCuentasC);
 
-            // Habilitar o deshabilitar botón limpiar según corresponda
             if (btnLimpiar != null)
-                btnLimpiar.Enabled = false; // Inicialmente cargado sin filtros
+                btnLimpiar.Enabled = false;
         }
         public void ActualizarGrilla(List<clsCuentasC> lista)
         {
