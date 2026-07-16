@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresar));
             this.pnlIngresar = new System.Windows.Forms.Panel();
-            this.lblOlvidasteContra = new System.Windows.Forms.LinkLabel();
             this.chkRecordar = new System.Windows.Forms.CheckBox();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.btnCrearCuenta = new System.Windows.Forms.Button();
@@ -40,38 +39,26 @@
             this.btnIngresar = new System.Windows.Forms.Button();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtContra = new System.Windows.Forms.TextBox();
+            this.lnkOlvidasteContraseña = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlIngresar
             // 
             this.pnlIngresar.BackColor = System.Drawing.Color.Teal;
-            this.pnlIngresar.Location = new System.Drawing.Point(593, -1);
+            this.pnlIngresar.Location = new System.Drawing.Point(890, -2);
+            this.pnlIngresar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlIngresar.Name = "pnlIngresar";
-            this.pnlIngresar.Size = new System.Drawing.Size(191, 416);
+            this.pnlIngresar.Size = new System.Drawing.Size(286, 640);
             this.pnlIngresar.TabIndex = 45;
-            // 
-            // lblOlvidasteContra
-            // 
-            this.lblOlvidasteContra.AutoSize = true;
-            this.lblOlvidasteContra.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOlvidasteContra.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblOlvidasteContra.Location = new System.Drawing.Point(332, 238);
-            this.lblOlvidasteContra.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblOlvidasteContra.Name = "lblOlvidasteContra";
-            this.lblOlvidasteContra.Size = new System.Drawing.Size(153, 16);
-            this.lblOlvidasteContra.TabIndex = 44;
-            this.lblOlvidasteContra.TabStop = true;
-            this.lblOlvidasteContra.Text = "¿Olvidaste tu contraseña?";
             // 
             // chkRecordar
             // 
             this.chkRecordar.AutoSize = true;
             this.chkRecordar.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkRecordar.Location = new System.Drawing.Point(147, 238);
-            this.chkRecordar.Margin = new System.Windows.Forms.Padding(2);
+            this.chkRecordar.Location = new System.Drawing.Point(220, 366);
             this.chkRecordar.Name = "chkRecordar";
-            this.chkRecordar.Size = new System.Drawing.Size(148, 20);
+            this.chkRecordar.Size = new System.Drawing.Size(211, 25);
             this.chkRecordar.TabIndex = 43;
             this.chkRecordar.Text = "Recordar credenciales";
             this.chkRecordar.UseVisualStyleBackColor = true;
@@ -80,10 +67,9 @@
             // 
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(2, 8);
-            this.pctLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.pctLogo.Location = new System.Drawing.Point(3, 12);
             this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(41, 44);
+            this.pctLogo.Size = new System.Drawing.Size(62, 68);
             this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctLogo.TabIndex = 42;
             this.pctLogo.TabStop = false;
@@ -91,9 +77,10 @@
             // btnCrearCuenta
             // 
             this.btnCrearCuenta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearCuenta.Location = new System.Drawing.Point(490, 15);
+            this.btnCrearCuenta.Location = new System.Drawing.Point(735, 23);
+            this.btnCrearCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCrearCuenta.Name = "btnCrearCuenta";
-            this.btnCrearCuenta.Size = new System.Drawing.Size(97, 26);
+            this.btnCrearCuenta.Size = new System.Drawing.Size(146, 40);
             this.btnCrearCuenta.TabIndex = 41;
             this.btnCrearCuenta.Text = "Crear cuenta";
             this.btnCrearCuenta.UseVisualStyleBackColor = true;
@@ -103,9 +90,10 @@
             // 
             this.lblNoTienesCuenta.AutoSize = true;
             this.lblNoTienesCuenta.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoTienesCuenta.Location = new System.Drawing.Point(302, 20);
+            this.lblNoTienesCuenta.Location = new System.Drawing.Point(453, 31);
+            this.lblNoTienesCuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNoTienesCuenta.Name = "lblNoTienesCuenta";
-            this.lblNoTienesCuenta.Size = new System.Drawing.Size(186, 16);
+            this.lblNoTienesCuenta.Size = new System.Drawing.Size(263, 21);
             this.lblNoTienesCuenta.TabIndex = 40;
             this.lblNoTienesCuenta.Text = "¿Todavía no tienes una cuenta?";
             // 
@@ -113,9 +101,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 20);
+            this.label2.Location = new System.Drawing.Point(70, 31);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 28);
+            this.label2.Size = new System.Drawing.Size(241, 43);
             this.label2.TabIndex = 39;
             this.label2.Text = "DigitalFarma";
             // 
@@ -123,9 +112,10 @@
             // 
             this.lblCrearCuenta.AutoSize = true;
             this.lblCrearCuenta.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrearCuenta.Location = new System.Drawing.Point(175, 114);
+            this.lblCrearCuenta.Location = new System.Drawing.Point(262, 175);
+            this.lblCrearCuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCrearCuenta.Name = "lblCrearCuenta";
-            this.lblCrearCuenta.Size = new System.Drawing.Size(270, 32);
+            this.lblCrearCuenta.Size = new System.Drawing.Size(405, 47);
             this.lblCrearCuenta.TabIndex = 38;
             this.lblCrearCuenta.Text = "Ingresa a tu cuenta";
             // 
@@ -136,9 +126,10 @@
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnIngresar.Location = new System.Drawing.Point(147, 263);
+            this.btnIngresar.Location = new System.Drawing.Point(220, 405);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(331, 29);
+            this.btnIngresar.Size = new System.Drawing.Size(496, 45);
             this.btnIngresar.TabIndex = 37;
             this.btnIngresar.Text = "INGRESAR";
             this.btnIngresar.UseVisualStyleBackColor = false;
@@ -148,10 +139,11 @@
             // 
             this.txtMail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtMail.Location = new System.Drawing.Point(147, 169);
+            this.txtMail.Location = new System.Drawing.Point(220, 260);
+            this.txtMail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMail.Multiline = true;
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(332, 29);
+            this.txtMail.Size = new System.Drawing.Size(496, 42);
             this.txtMail.TabIndex = 36;
             this.txtMail.Enter += new System.EventHandler(this.txtMail_Enter);
             this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
@@ -160,21 +152,33 @@
             // 
             this.txtContra.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContra.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtContra.Location = new System.Drawing.Point(147, 201);
+            this.txtContra.Location = new System.Drawing.Point(220, 309);
+            this.txtContra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtContra.Multiline = true;
             this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(332, 29);
+            this.txtContra.Size = new System.Drawing.Size(496, 42);
             this.txtContra.TabIndex = 35;
             this.txtContra.Enter += new System.EventHandler(this.txtContra_Enter);
             this.txtContra.Leave += new System.EventHandler(this.txtContra_Leave);
             // 
+            // lnkOlvidasteContraseña
+            // 
+            this.lnkOlvidasteContraseña.AutoSize = true;
+            this.lnkOlvidasteContraseña.Location = new System.Drawing.Point(522, 368);
+            this.lnkOlvidasteContraseña.Name = "lnkOlvidasteContraseña";
+            this.lnkOlvidasteContraseña.Size = new System.Drawing.Size(194, 20);
+            this.lnkOlvidasteContraseña.TabIndex = 46;
+            this.lnkOlvidasteContraseña.TabStop = true;
+            this.lnkOlvidasteContraseña.Text = "¿Olvidaste tu contraseña?";
+            this.lnkOlvidasteContraseña.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOlvidasteContraseña_LinkClicked);
+            // 
             // frmIngresar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(781, 410);
+            this.ClientSize = new System.Drawing.Size(1172, 631);
+            this.Controls.Add(this.lnkOlvidasteContraseña);
             this.Controls.Add(this.pnlIngresar);
-            this.Controls.Add(this.lblOlvidasteContra);
             this.Controls.Add(this.chkRecordar);
             this.Controls.Add(this.pctLogo);
             this.Controls.Add(this.btnCrearCuenta);
@@ -184,7 +188,6 @@
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtContra);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmIngresar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmIngresar";
@@ -198,7 +201,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlIngresar;
-        private System.Windows.Forms.LinkLabel lblOlvidasteContra;
         private System.Windows.Forms.CheckBox chkRecordar;
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Button btnCrearCuenta;
@@ -208,5 +210,6 @@
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtContra;
+        private System.Windows.Forms.LinkLabel lnkOlvidasteContraseña;
     }
 }

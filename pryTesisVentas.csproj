@@ -204,6 +204,12 @@
     <Compile Include="frmProductos.Designer.cs">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRecuperarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecuperarContraseña.Designer.cs">
+      <DependentUpon>frmRecuperarContraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecuperarContraseña.resx">
+      <DependentUpon>frmRecuperarContraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVentas.resx">
       <DependentUpon>frmVentas.cs</DependentUpon>
