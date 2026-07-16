@@ -75,8 +75,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblSucursal = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblMaps = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnlPreguntas = new System.Windows.Forms.FlowLayoutPanel();
@@ -93,6 +92,7 @@
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lnkMaps = new System.Windows.Forms.LinkLabel();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -651,34 +651,23 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.lblSucursal);
-            this.panel3.Controls.Add(this.label11);
+            this.panel3.Controls.Add(this.lnkMaps);
+            this.panel3.Controls.Add(this.lblMaps);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Location = new System.Drawing.Point(705, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(308, 100);
             this.panel3.TabIndex = 5;
             // 
-            // lblSucursal
+            // lblMaps
             // 
-            this.lblSucursal.AutoSize = true;
-            this.lblSucursal.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSucursal.ForeColor = System.Drawing.Color.Teal;
-            this.lblSucursal.Location = new System.Drawing.Point(122, 62);
-            this.lblSucursal.Name = "lblSucursal";
-            this.lblSucursal.Size = new System.Drawing.Size(51, 21);
-            this.lblSucursal.TabIndex = 2;
-            this.lblSucursal.Text = "Maps";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(106, 31);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 19);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Sucursal Cordoba ";
+            this.lblMaps.AutoSize = true;
+            this.lblMaps.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaps.Location = new System.Drawing.Point(106, 31);
+            this.lblMaps.Name = "lblMaps";
+            this.lblMaps.Size = new System.Drawing.Size(120, 19);
+            this.lblMaps.TabIndex = 1;
+            this.lblMaps.Text = "Sucursal Cordoba ";
             // 
             // pictureBox2
             // 
@@ -861,6 +850,19 @@
             this.VentasTotales.Name = "VentasTotales";
             this.VentasTotales.Width = 150;
             // 
+            // lnkMaps
+            // 
+            this.lnkMaps.AutoSize = true;
+            this.lnkMaps.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkMaps.LinkColor = System.Drawing.Color.Teal;
+            this.lnkMaps.Location = new System.Drawing.Point(113, 63);
+            this.lnkMaps.Name = "lnkMaps";
+            this.lnkMaps.Size = new System.Drawing.Size(61, 25);
+            this.lnkMaps.TabIndex = 2;
+            this.lnkMaps.TabStop = true;
+            this.lnkMaps.Text = "Maps";
+            this.lnkMaps.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkMaps_LinkClicked);
+            // 
             // frmAyuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -969,8 +971,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblSucursal;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblMaps;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblVentas;
@@ -991,5 +992,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Button btnEstadisticas;
+        private System.Windows.Forms.LinkLabel lnkMaps;
     }
 }
