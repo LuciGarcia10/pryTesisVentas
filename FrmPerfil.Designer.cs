@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPerfil));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPerfil));
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -65,16 +69,18 @@
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.lblBuscarArriba = new System.Windows.Forms.Label();
+            this.txtBuscarGlobal = new System.Windows.Forms.TextBox();
             this.txtBuscarArriba = new System.Windows.Forms.TextBox();
             this.ptbLupa = new System.Windows.Forms.PictureBox();
             this.PnlPermisos = new System.Windows.Forms.Panel();
+            this.pnlBuscadorUsuario = new System.Windows.Forms.Panel();
             this.TxtBuscarU = new System.Windows.Forms.TextBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.DgvPermisos = new System.Windows.Forms.DataGridView();
             this.ClmUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmAcciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PctIconoPermisos = new System.Windows.Forms.PictureBox();
             this.LblPermisos = new System.Windows.Forms.Label();
             this.PnlCuenta = new System.Windows.Forms.Panel();
@@ -94,11 +100,9 @@
             this.LblDatos = new System.Windows.Forms.Label();
             this.PctFotoPerfil = new System.Windows.Forms.PictureBox();
             this.LblGestion = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.pnlContenedorPrincipal.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel10.SuspendLayout();
@@ -117,14 +121,13 @@
             this.pnlBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).BeginInit();
             this.PnlPermisos.SuspendLayout();
+            this.pnlBuscadorUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPermisos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoPermisos)).BeginInit();
             this.PnlCuenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctFotoPerfil)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -144,6 +147,54 @@
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
             this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 929);
             this.pnlContenedorPrincipal.TabIndex = 18;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Controls.Add(this.btnEstadisticas);
+            this.panel5.Location = new System.Drawing.Point(9, 552);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(242, 48);
+            this.panel5.TabIndex = 54;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(208, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 20);
+            this.label4.TabIndex = 39;
+            this.label4.Text = ">";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 38;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.BackColor = System.Drawing.Color.White;
+            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
+            this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
+            this.btnEstadisticas.TabIndex = 34;
+            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.UseVisualStyleBackColor = false;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
             // panel2
             // 
@@ -512,11 +563,12 @@
             this.pnlBuscar.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlBuscar.Controls.Add(this.lblBuscarArriba);
+            this.pnlBuscar.Controls.Add(this.txtBuscarGlobal);
             this.pnlBuscar.Controls.Add(this.txtBuscarArriba);
             this.pnlBuscar.Controls.Add(this.ptbLupa);
-            this.pnlBuscar.Location = new System.Drawing.Point(1268, 31);
+            this.pnlBuscar.Location = new System.Drawing.Point(753, 31);
             this.pnlBuscar.Name = "pnlBuscar";
-            this.pnlBuscar.Size = new System.Drawing.Size(308, 32);
+            this.pnlBuscar.Size = new System.Drawing.Size(823, 32);
             this.pnlBuscar.TabIndex = 24;
             // 
             // lblBuscarArriba
@@ -525,11 +577,19 @@
             this.lblBuscarArriba.BackColor = System.Drawing.Color.Transparent;
             this.lblBuscarArriba.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lblBuscarArriba.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblBuscarArriba.Location = new System.Drawing.Point(38, 8);
+            this.lblBuscarArriba.Location = new System.Drawing.Point(40, 6);
             this.lblBuscarArriba.Name = "lblBuscarArriba";
             this.lblBuscarArriba.Size = new System.Drawing.Size(59, 20);
             this.lblBuscarArriba.TabIndex = 18;
             this.lblBuscarArriba.Text = "Buscar";
+            // 
+            // txtBuscarGlobal
+            // 
+            this.txtBuscarGlobal.Location = new System.Drawing.Point(40, 3);
+            this.txtBuscarGlobal.Name = "txtBuscarGlobal";
+            this.txtBuscarGlobal.Size = new System.Drawing.Size(393, 26);
+            this.txtBuscarGlobal.TabIndex = 19;
+            this.txtBuscarGlobal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarUsuarioGlobal_KeyDown);
             // 
             // txtBuscarArriba
             // 
@@ -555,9 +615,8 @@
             // PnlPermisos
             // 
             this.PnlPermisos.BackColor = System.Drawing.Color.White;
-            this.PnlPermisos.Controls.Add(this.TxtBuscarU);
+            this.PnlPermisos.Controls.Add(this.pnlBuscadorUsuario);
             this.PnlPermisos.Controls.Add(this.DgvPermisos);
-            this.PnlPermisos.Controls.Add(this.pictureBox1);
             this.PnlPermisos.Controls.Add(this.PctIconoPermisos);
             this.PnlPermisos.Controls.Add(this.LblPermisos);
             this.PnlPermisos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -567,15 +626,36 @@
             this.PnlPermisos.Size = new System.Drawing.Size(822, 826);
             this.PnlPermisos.TabIndex = 25;
             // 
+            // pnlBuscadorUsuario
+            // 
+            this.pnlBuscadorUsuario.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pnlBuscadorUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnlBuscadorUsuario.Controls.Add(this.TxtBuscarU);
+            this.pnlBuscadorUsuario.Controls.Add(this.pictureBox10);
+            this.pnlBuscadorUsuario.Location = new System.Drawing.Point(27, 77);
+            this.pnlBuscadorUsuario.Name = "pnlBuscadorUsuario";
+            this.pnlBuscadorUsuario.Size = new System.Drawing.Size(336, 42);
+            this.pnlBuscadorUsuario.TabIndex = 45;
+            // 
             // TxtBuscarU
             // 
-            this.TxtBuscarU.Location = new System.Drawing.Point(24, 83);
+            this.TxtBuscarU.Location = new System.Drawing.Point(5, 6);
             this.TxtBuscarU.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtBuscarU.Name = "TxtBuscarU";
             this.TxtBuscarU.Size = new System.Drawing.Size(289, 29);
             this.TxtBuscarU.TabIndex = 44;
             this.TxtBuscarU.Text = "Buscar usuario...";
             this.TxtBuscarU.TextChanged += new System.EventHandler(this.TxtBuscarU_TextChanged);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(301, 5);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(32, 31);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 11;
+            this.pictureBox10.TabStop = false;
             // 
             // DgvPermisos
             // 
@@ -650,16 +730,6 @@
             this.ClmAcciones.Name = "ClmAcciones";
             this.ClmAcciones.Width = 150;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(322, 83);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 31);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
             // PctIconoPermisos
             // 
             this.PctIconoPermisos.Image = ((System.Drawing.Image)(resources.GetObject("PctIconoPermisos.Image")));
@@ -711,7 +781,7 @@
             this.BtnVerContra.BackgroundImage = global::pryTesisVentas.Properties.Resources.show;
             this.BtnVerContra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnVerContra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVerContra.Location = new System.Drawing.Point(322, 611);
+            this.BtnVerContra.Location = new System.Drawing.Point(322, 609);
             this.BtnVerContra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnVerContra.Name = "BtnVerContra";
             this.BtnVerContra.Size = new System.Drawing.Size(32, 32);
@@ -884,54 +954,6 @@
             this.LblGestion.TabIndex = 1;
             this.LblGestion.Text = "Gestión de Cuenta y Permisos";
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Controls.Add(this.btnEstadisticas);
-            this.panel5.Location = new System.Drawing.Point(9, 552);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(242, 48);
-            this.panel5.TabIndex = 54;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(208, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 20);
-            this.label4.TabIndex = 39;
-            this.label4.Text = ">";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 38;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnEstadisticas
-            // 
-            this.btnEstadisticas.BackColor = System.Drawing.Color.White;
-            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
-            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
-            this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
-            this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
-            this.btnEstadisticas.TabIndex = 34;
-            this.btnEstadisticas.Text = "Estadisticas";
-            this.btnEstadisticas.UseVisualStyleBackColor = false;
-            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
-            // 
             // FrmPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -946,9 +968,13 @@
             this.Name = "FrmPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPerfil";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPerfil_FormClosed);
             this.Load += new System.EventHandler(this.FrmPerfil_Load);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.pnlContenedorPrincipal.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -976,16 +1002,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).EndInit();
             this.PnlPermisos.ResumeLayout(false);
             this.PnlPermisos.PerformLayout();
+            this.pnlBuscadorUsuario.ResumeLayout(false);
+            this.pnlBuscadorUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPermisos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoPermisos)).EndInit();
             this.PnlCuenta.ResumeLayout(false);
             this.PnlCuenta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoDatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctFotoPerfil)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1048,7 +1073,6 @@
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Label LblPermisos;
         private System.Windows.Forms.PictureBox PctIconoPermisos;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView DgvPermisos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmRol;
@@ -1060,5 +1084,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnEstadisticas;
+        private System.Windows.Forms.TextBox txtBuscarGlobal;
+        private System.Windows.Forms.Panel pnlBuscadorUsuario;
+        private System.Windows.Forms.PictureBox pictureBox10;
     }
 }
