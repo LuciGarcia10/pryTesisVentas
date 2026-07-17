@@ -102,6 +102,12 @@
     <Compile Include="frmAñadirVenta.Designer.cs">
       <DependentUpon>frmAñadirVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCambiarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambiarRol.Designer.cs">
+      <DependentUpon>frmCambiarRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCarrito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     <EmbeddedResource Include="frmAñadirVenta.resx">
       <DependentUpon>frmAñadirVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarRol.resx">
+      <DependentUpon>frmCambiarRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCarrito.resx">
       <DependentUpon>frmCarrito.cs</DependentUpon>
     </EmbeddedResource>
@@ -344,6 +353,8 @@
     <None Include="Resources\ver2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Acciones.png" />
+    <None Include="Resources\Captura de pantalla 2026-07-17 183404.png" />
     <Content Include="Resources\hide.png" />
     <Content Include="Resources\show.png" />
   </ItemGroup>

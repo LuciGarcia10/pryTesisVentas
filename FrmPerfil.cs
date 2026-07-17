@@ -67,12 +67,12 @@ namespace pryTesisVentas
 
         private void CargarGrillaUsuarios(string filtro = "")
         {
-            // Unimos la tabla Usuarios con Roles para obtener el nombre del rol real en tu BD
-            string query = @"SELECT U.nombre AS [Usuario], R.nombre_rol AS [Rol], 'Activo' AS [Estado] 
-                             FROM Usuarios U
-                             INNER JOIN Roles R ON U.id_rol = R.id_rol";
+            // Consulta SQL trayendo el ID interno, el nombre, el rol y el estado real
+            string query = @"SELECT U.id_usuario, U.nombre AS [Usuario], R.nombre_rol AS [Rol], 
+                            CASE WHEN U.activo = 1 THEN 'Activo' ELSE 'Inactivo' END AS [Estado]
+                     FROM Usuarios U
+                     INNER JOIN Roles R ON U.id_rol = R.id_rol";
 
-            // Si se pasa un filtro, buscamos coincidencias en el nombre de usuario o en su rol
             if (!string.IsNullOrEmpty(filtro))
             {
                 query += " WHERE U.nombre LIKE @Filtro OR R.nombre_rol LIKE @Filtro";
@@ -93,18 +93,41 @@ namespace pryTesisVentas
                         DataTable dt = new DataTable();
                         adaptador.Fill(dt);
 
-                        // Asignamos la tabla directamente al DataGridView
                         DgvPermisos.DataSource = null;
                         DgvPermisos.DataSource = dt;
                     }
                 }
 
-                // Verificar si la columna de acciones ya existe para no duplicarla
+                // Ocultamos la columna del ID para que no se vea en la interfaz de usuario
+                if (DgvPermisos.Columns["id_usuario"] != null)
+                {
+                    DgvPermisos.Columns["id_usuario"].Visible = false;
+                }
+                // Acciones
                 if (!DgvPermisos.Columns.Contains("btnAcciones"))
                 {
                     DataGridViewImageColumn colAccion = new DataGridViewImageColumn();
                     colAccion.Name = "btnAcciones";
                     colAccion.HeaderText = "Acciones";
+
+                    colAccion.Image = Properties.Resources.Acciones;
+
+                    colAccion.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    colAccion.Width = 80;
+                    colAccion.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                    DgvPermisos.Columns.Add(colAccion);
+                }
+                // Configurar e insertar la columna de engranaje (Acciones) si no existe
+                if (!DgvPermisos.Columns.Contains("btnAcciones"))
+                {
+                    DataGridViewImageColumn colAccion = new DataGridViewImageColumn();
+                    colAccion.Name = "btnAcciones";
+                    colAccion.HeaderText = "Acciones";
+
+                    // Si tenés el engranaje en tus recursos, descomentá la línea de abajo:
+                    // colAccion.Image = Properties.Resources.engranaje; 
+
                     colAccion.ImageLayout = DataGridViewImageCellLayout.Zoom;
                     colAccion.Width = 60;
                     DgvPermisos.Columns.Add(colAccion);
@@ -112,7 +135,7 @@ namespace pryTesisVentas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los usuarios de la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar la tabla de permisos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -311,19 +334,40 @@ namespace pryTesisVentas
 
         private void DgvPermisos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Evitamos errores si el usuario hace clic en los encabezados de las columnas
             if (e.RowIndex < 0) return;
 
+            // Verificamos si hizo clic específicamente en la columna de la imagen del engranaje
             if (DgvPermisos.Columns[e.ColumnIndex].Name == "btnAcciones")
             {
-                // Como ahora usamos un DataTable, obtenemos los datos de la fila de la siguiente forma:
                 DataRowView filaSeleccionada = DgvPermisos.Rows[e.RowIndex].DataBoundItem as DataRowView;
 
                 if (filaSeleccionada != null)
                 {
+                    // Rescatamos los valores reales de la fila
+                    int idUsuario = Convert.ToInt32(filaSeleccionada["id_usuario"]);
                     string usuario = filaSeleccionada["Usuario"].ToString();
-                    string rol = filaSeleccionada["Rol"].ToString();
+                    string rolActual = filaSeleccionada["Rol"].ToString();
+                    string estadoActual = filaSeleccionada["Estado"].ToString();
 
-                    MessageBox.Show($"Abriendo panel de edición de permisos para: {usuario}\nRol actual: {rol}", "Gestión de Permisos");
+                    // Aquí podés abrir un pequeño formulario modal (ej: frmEditarRol) pasándole el idUsuario
+                    // Por ahora, te dejo el aviso funcional que demuestra que captura el ID correcto:
+                    MessageBox.Show($"ID de Cuenta: {idUsuario}\n" +
+                                    $"Usuario: {usuario}\n" +
+                                    $"Rol Actual: {rolActual}\n" +
+                                    $"Estado: {estadoActual}\n\n" +
+                                    $"¡Listo para conectar con un combo de actualización!",
+                                    "Gestión de Permisos",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+
+                    /* 
+                       Idea para el futuro inmediato:
+                       frmCambiarRol frm = new frmCambiarRol(idUsuario);
+                       if(frm.ShowDialog() == DialogResult.OK) {
+                           CargarGrillaUsuarios(); // Recarga la grilla si hubo cambios
+                       }
+                    */
                 }
             }
         }
@@ -488,5 +532,7 @@ namespace pryTesisVentas
             // para que no queden procesos "fantasma" corriendo de fondo.
             Application.Exit();
         }
+
+     
     }
 }

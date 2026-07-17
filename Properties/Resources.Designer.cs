@@ -63,9 +63,9 @@ namespace pryTesisVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Captura_de_pantalla_2026_05_18_175715 {
+        internal static System.Drawing.Bitmap Acciones {
             get {
-                object obj = ResourceManager.GetObject("Captura de pantalla 2026-05-18 175715", resourceCulture);
+                object obj = ResourceManager.GetObject("Acciones", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
