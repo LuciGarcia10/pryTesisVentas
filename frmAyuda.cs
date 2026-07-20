@@ -86,6 +86,7 @@ namespace pryTesisVentas
                 // Agregamos el botón al panel
                 pnlPreguntas.Controls.Add(btnPregunta);
             }
+            CargarIndicadores();
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
@@ -128,6 +129,57 @@ namespace pryTesisVentas
         {
             frmEstadisticas frm = new frmEstadisticas();
             frm.ShowDialog();
+        }
+        private void CargarIndicadores()
+        {
+            // Asegúrate de usar tu cadena de conexión real
+            string cadenaConexion = "Server=TU_SERVIDOR; Database=DigitalFarma; Integrated Security=True";
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    conexion.Open();
+
+                    // 1. Contar Tickets Pendientes
+                    string queryTickets = "SELECT COUNT(*) FROM Tickets WHERE Estado = 'Pendiente'";
+                    SqlCommand cmdTickets = new SqlCommand(queryTickets, conexion);
+                    int cantTickets = (int)cmdTickets.ExecuteScalar();
+                    lblCantTickets.Text = cantTickets.ToString() + " Pendientes";
+
+                    // 2. Contar Mensajes (ajusta según tu tabla de mensajes)
+                    string queryMensajes = "SELECT COUNT(*) FROM Mensajes WHERE Leido = 0";
+                    SqlCommand cmdMensajes = new SqlCommand(queryMensajes, conexion);
+                    int cantMensajes = (int)cmdMensajes.ExecuteScalar();
+                    lblCantMensajes.Text = cantMensajes.ToString() + " Nuevos";
+
+                    // 3. Sucursal Córdoba (si quieres que sea un enlace)
+                    lblMaps.Text = "Sucursal Cordoba";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Es buena práctica avisar si algo falló con la base de datos
+                Console.WriteLine("Error al cargar indicadores: " + ex.Message);
+            }
+        }
+
+        private void lnkMaps_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                // Esta línea abre el navegador predeterminado del usuario con la URL de Google Maps
+                System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = "https://www.google.com/maps/search/FarmaciaFunesGarcia",
+                    UseShellExecute = true // Esto le dice al sistema operativo que abra el navegador
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo abrir el mapa: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

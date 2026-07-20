@@ -41,6 +41,8 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +84,7 @@
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(27, 144);
+            this.lblCantidad.Location = new System.Drawing.Point(25, 147);
             this.lblCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(92, 28);
@@ -93,7 +95,7 @@
             // 
             this.lblFechavencimiento.AutoSize = true;
             this.lblFechavencimiento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechavencimiento.Location = new System.Drawing.Point(24, 202);
+            this.lblFechavencimiento.Location = new System.Drawing.Point(24, 278);
             this.lblFechavencimiento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechavencimiento.Name = "lblFechavencimiento";
             this.lblFechavencimiento.Size = new System.Drawing.Size(211, 28);
@@ -104,7 +106,7 @@
             // 
             this.dtpVencimiento.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpVencimiento.Location = new System.Drawing.Point(27, 236);
+            this.dtpVencimiento.Location = new System.Drawing.Point(27, 312);
             this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(2);
             this.dtpVencimiento.Name = "dtpVencimiento";
             this.dtpVencimiento.Size = new System.Drawing.Size(218, 31);
@@ -115,7 +117,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.LightCyan;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Teal;
-            this.btnCancelar.Location = new System.Drawing.Point(27, 280);
+            this.btnCancelar.Location = new System.Drawing.Point(27, 357);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(99, 56);
@@ -129,7 +131,7 @@
             this.btnAñadirproducto.BackColor = System.Drawing.Color.Teal;
             this.btnAñadirproducto.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAñadirproducto.ForeColor = System.Drawing.Color.White;
-            this.btnAñadirproducto.Location = new System.Drawing.Point(134, 280);
+            this.btnAñadirproducto.Location = new System.Drawing.Point(134, 357);
             this.btnAñadirproducto.Margin = new System.Windows.Forms.Padding(2);
             this.btnAñadirproducto.Name = "btnAñadirproducto";
             this.btnAñadirproducto.Size = new System.Drawing.Size(111, 56);
@@ -158,7 +160,7 @@
             "Ciudad Personal",
             "Medicamento Venta Libre",
             "Medicamento con Receta"});
-            this.cmbCategoria.Location = new System.Drawing.Point(27, 119);
+            this.cmbCategoria.Location = new System.Drawing.Point(27, 121);
             this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(218, 29);
@@ -167,7 +169,7 @@
             // numCantidad
             // 
             this.numCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numCantidad.Location = new System.Drawing.Point(27, 172);
+            this.numCantidad.Location = new System.Drawing.Point(27, 179);
             this.numCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.numCantidad.Name = "numCantidad";
             this.numCantidad.Size = new System.Drawing.Size(218, 31);
@@ -184,11 +186,34 @@
             this.pictureBox6.TabIndex = 39;
             this.pictureBox6.TabStop = false;
             // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(27, 212);
+            this.lblPrecio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(68, 28);
+            this.lblPrecio.TabIndex = 40;
+            this.lblPrecio.Text = "Precio";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.Location = new System.Drawing.Point(29, 244);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPrecio.Multiline = true;
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(215, 23);
+            this.txtPrecio.TabIndex = 41;
+            // 
             // frmAñadirProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 347);
+            this.ClientSize = new System.Drawing.Size(309, 423);
+            this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.numCantidad);
             this.Controls.Add(this.cmbCategoria);
@@ -229,5 +254,7 @@
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.NumericUpDown numCantidad;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label lblPrecio;
+        private System.Windows.Forms.TextBox txtPrecio;
     }
 }

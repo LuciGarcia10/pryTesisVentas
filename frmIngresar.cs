@@ -148,5 +148,11 @@ namespace pryTesisVentas
                 txtContra.Focus();
             }
         }
+
+        private void lnkOlvidasteContraseña_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmRecuperarContraseña frmRecuperar = new frmRecuperarContraseña();
+            frmRecuperar.ShowDialog();
+        }
     }
 }

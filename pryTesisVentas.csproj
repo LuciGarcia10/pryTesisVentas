@@ -102,6 +102,12 @@
     <Compile Include="frmAñadirVenta.Designer.cs">
       <DependentUpon>frmAñadirVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCambiarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambiarRol.Designer.cs">
+      <DependentUpon>frmCambiarRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCarrito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,12 @@
     <Compile Include="frmProductos.Designer.cs">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRecuperarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecuperarContraseña.Designer.cs">
+      <DependentUpon>frmRecuperarContraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,11 +237,15 @@
     <EmbeddedResource Include="frmAñadirVenta.resx">
       <DependentUpon>frmAñadirVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarRol.resx">
+      <DependentUpon>frmCambiarRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCarrito.resx">
       <DependentUpon>frmCarrito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCuentasCorrientes.resx">
       <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDetallePedido.resx">
       <DependentUpon>frmDetallePedido.cs</DependentUpon>
@@ -275,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecuperarContraseña.resx">
+      <DependentUpon>frmRecuperarContraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVentas.resx">
       <DependentUpon>frmVentas.cs</DependentUpon>
@@ -334,6 +353,8 @@
     <None Include="Resources\ver2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Acciones.png" />
+    <None Include="Resources\Captura de pantalla 2026-07-17 183404.png" />
     <Content Include="Resources\hide.png" />
     <Content Include="Resources\show.png" />
   </ItemGroup>
