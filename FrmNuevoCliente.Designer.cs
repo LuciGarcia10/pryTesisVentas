@@ -52,13 +52,13 @@
             this.lblTel = new System.Windows.Forms.Label();
             this.TxtTel = new System.Windows.Forms.TextBox();
             this.grDatos = new System.Windows.Forms.GroupBox();
-            this.LblObligatorio1 = new System.Windows.Forms.Label();
-            this.LblObligatorio2 = new System.Windows.Forms.Label();
-            this.LblObligatorio3 = new System.Windows.Forms.Label();
-            this.LblObligatorios0 = new System.Windows.Forms.Label();
-            this.lblErrorDni = new System.Windows.Forms.Label();
-            this.lblErrorNombre = new System.Windows.Forms.Label();
             this.lblErrorApellido = new System.Windows.Forms.Label();
+            this.lblErrorNombre = new System.Windows.Forms.Label();
+            this.lblErrorDni = new System.Windows.Forms.Label();
+            this.LblObligatorios0 = new System.Windows.Forms.Label();
+            this.LblObligatorio3 = new System.Windows.Forms.Label();
+            this.LblObligatorio2 = new System.Windows.Forms.Label();
+            this.LblObligatorio1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numSaldo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.grDatos.SuspendLayout();
@@ -338,41 +338,41 @@
             this.grDatos.TabStop = false;
             this.grDatos.Text = "Datos personales";
             // 
-            // LblObligatorio1
+            // lblErrorApellido
             // 
-            this.LblObligatorio1.AutoSize = true;
-            this.LblObligatorio1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblObligatorio1.ForeColor = System.Drawing.Color.Crimson;
-            this.LblObligatorio1.Location = new System.Drawing.Point(47, 89);
-            this.LblObligatorio1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblObligatorio1.Name = "LblObligatorio1";
-            this.LblObligatorio1.Size = new System.Drawing.Size(14, 17);
-            this.LblObligatorio1.TabIndex = 47;
-            this.LblObligatorio1.Text = "*";
+            this.lblErrorApellido.AutoSize = true;
+            this.lblErrorApellido.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorApellido.ForeColor = System.Drawing.Color.Crimson;
+            this.lblErrorApellido.Location = new System.Drawing.Point(26, 254);
+            this.lblErrorApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrorApellido.Name = "lblErrorApellido";
+            this.lblErrorApellido.Size = new System.Drawing.Size(145, 13);
+            this.lblErrorApellido.TabIndex = 53;
+            this.lblErrorApellido.Text = "* El Apellido es obligatorio";
             // 
-            // LblObligatorio2
+            // lblErrorNombre
             // 
-            this.LblObligatorio2.AutoSize = true;
-            this.LblObligatorio2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblObligatorio2.ForeColor = System.Drawing.Color.Crimson;
-            this.LblObligatorio2.Location = new System.Drawing.Point(73, 148);
-            this.LblObligatorio2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblObligatorio2.Name = "LblObligatorio2";
-            this.LblObligatorio2.Size = new System.Drawing.Size(14, 17);
-            this.LblObligatorio2.TabIndex = 48;
-            this.LblObligatorio2.Text = "*";
+            this.lblErrorNombre.AutoSize = true;
+            this.lblErrorNombre.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorNombre.ForeColor = System.Drawing.Color.Crimson;
+            this.lblErrorNombre.Location = new System.Drawing.Point(28, 194);
+            this.lblErrorNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrorNombre.Name = "lblErrorNombre";
+            this.lblErrorNombre.Size = new System.Drawing.Size(143, 13);
+            this.lblErrorNombre.TabIndex = 52;
+            this.lblErrorNombre.Text = "* El Nombre es obligatorio";
             // 
-            // LblObligatorio3
+            // lblErrorDni
             // 
-            this.LblObligatorio3.AutoSize = true;
-            this.LblObligatorio3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblObligatorio3.ForeColor = System.Drawing.Color.Crimson;
-            this.LblObligatorio3.Location = new System.Drawing.Point(73, 210);
-            this.LblObligatorio3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblObligatorio3.Name = "LblObligatorio3";
-            this.LblObligatorio3.Size = new System.Drawing.Size(14, 17);
-            this.LblObligatorio3.TabIndex = 49;
-            this.LblObligatorio3.Text = "*";
+            this.lblErrorDni.AutoSize = true;
+            this.lblErrorDni.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorDni.ForeColor = System.Drawing.Color.Crimson;
+            this.lblErrorDni.Location = new System.Drawing.Point(28, 134);
+            this.lblErrorDni.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrorDni.Name = "lblErrorDni";
+            this.lblErrorDni.Size = new System.Drawing.Size(121, 13);
+            this.lblErrorDni.TabIndex = 51;
+            this.lblErrorDni.Text = "* El DNI es obligatorio";
             // 
             // LblObligatorios0
             // 
@@ -386,41 +386,41 @@
             this.LblObligatorios0.TabIndex = 50;
             this.LblObligatorios0.Text = "* Campos obligatorios";
             // 
-            // lblErrorDni
+            // LblObligatorio3
             // 
-            this.lblErrorDni.AutoSize = true;
-            this.lblErrorDni.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorDni.ForeColor = System.Drawing.Color.Crimson;
-            this.lblErrorDni.Location = new System.Drawing.Point(21, 134);
-            this.lblErrorDni.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblErrorDni.Name = "lblErrorDni";
-            this.lblErrorDni.Size = new System.Drawing.Size(121, 13);
-            this.lblErrorDni.TabIndex = 51;
-            this.lblErrorDni.Text = "* El DNI es obligatorio";
+            this.LblObligatorio3.AutoSize = true;
+            this.LblObligatorio3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblObligatorio3.ForeColor = System.Drawing.Color.Crimson;
+            this.LblObligatorio3.Location = new System.Drawing.Point(73, 210);
+            this.LblObligatorio3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblObligatorio3.Name = "LblObligatorio3";
+            this.LblObligatorio3.Size = new System.Drawing.Size(14, 17);
+            this.LblObligatorio3.TabIndex = 49;
+            this.LblObligatorio3.Text = "*";
             // 
-            // lblErrorNombre
+            // LblObligatorio2
             // 
-            this.lblErrorNombre.AutoSize = true;
-            this.lblErrorNombre.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorNombre.ForeColor = System.Drawing.Color.Crimson;
-            this.lblErrorNombre.Location = new System.Drawing.Point(21, 194);
-            this.lblErrorNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblErrorNombre.Name = "lblErrorNombre";
-            this.lblErrorNombre.Size = new System.Drawing.Size(143, 13);
-            this.lblErrorNombre.TabIndex = 52;
-            this.lblErrorNombre.Text = "* El Nombre es obligatorio";
+            this.LblObligatorio2.AutoSize = true;
+            this.LblObligatorio2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblObligatorio2.ForeColor = System.Drawing.Color.Crimson;
+            this.LblObligatorio2.Location = new System.Drawing.Point(73, 148);
+            this.LblObligatorio2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblObligatorio2.Name = "LblObligatorio2";
+            this.LblObligatorio2.Size = new System.Drawing.Size(14, 17);
+            this.LblObligatorio2.TabIndex = 48;
+            this.LblObligatorio2.Text = "*";
             // 
-            // lblErrorApellido
+            // LblObligatorio1
             // 
-            this.lblErrorApellido.AutoSize = true;
-            this.lblErrorApellido.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorApellido.ForeColor = System.Drawing.Color.Crimson;
-            this.lblErrorApellido.Location = new System.Drawing.Point(23, 254);
-            this.lblErrorApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblErrorApellido.Name = "lblErrorApellido";
-            this.lblErrorApellido.Size = new System.Drawing.Size(145, 13);
-            this.lblErrorApellido.TabIndex = 53;
-            this.lblErrorApellido.Text = "* El Apellido es obligatorio";
+            this.LblObligatorio1.AutoSize = true;
+            this.LblObligatorio1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblObligatorio1.ForeColor = System.Drawing.Color.Crimson;
+            this.LblObligatorio1.Location = new System.Drawing.Point(47, 89);
+            this.LblObligatorio1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblObligatorio1.Name = "LblObligatorio1";
+            this.LblObligatorio1.Size = new System.Drawing.Size(14, 17);
+            this.LblObligatorio1.TabIndex = 47;
+            this.LblObligatorio1.Text = "*";
             // 
             // FrmNuevoCliente
             // 
