@@ -408,8 +408,42 @@ namespace pryTesisVentas
         }
 
 
+        public static List<clsCuentasC> ObtenerListaClientes(string consulta)
+        {
+            List<clsCuentasC> lista = new List<clsCuentasC>();
 
+            // Creamos un DataGridView en memoria para invocar tu LlenarGrid existente
+            using (DataGridView dgvAux = new DataGridView())
+            {
+                // 1. Reutilizamos el LlenarGrid que sabés que conecta perfectamente
+                LlenarGrid(consulta, dgvAux);
 
+                // 2. Extraemos los registros para llenar la lista que necesita LINQ
+                foreach (DataGridViewRow row in dgvAux.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    clsCuentasC cliente = new clsCuentasC
+                    {
+                        IdCliente = row.Cells["IdCliente"].Value != DBNull.Value && row.Cells["IdCliente"].Value != null
+                            ? Convert.ToInt32(row.Cells["IdCliente"].Value) : 0,
+
+                        NroAfiliado = row.Cells["NroAfiliado"].Value?.ToString() ?? "",
+                        Nombre = row.Cells["Nombre"].Value?.ToString() ?? "",
+                        Apellido = row.Cells["Apellido"].Value?.ToString() ?? "",
+                        ObraSocial = row.Cells["ObraSocial"].Value?.ToString() ?? "",
+                        Estado = row.Cells["Estado"].Value?.ToString() ?? "",
+                        Saldo = row.Cells["Saldo"].Value != DBNull.Value && row.Cells["Saldo"].Value != null
+                            ? Convert.ToDecimal(row.Cells["Saldo"].Value) : 0
+                    };
+
+                    lista.Add(cliente);
+                }
+            }
+
+            return lista;
+        }
+    }
 
         /*public static List<clsCuentasC> ObtenerCuentasCorrientes()
         {
@@ -420,4 +454,4 @@ namespace pryTesisVentas
         }*/
 
     }
-}
+

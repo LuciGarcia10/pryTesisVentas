@@ -629,7 +629,6 @@
             this.cmbFiltrar.Size = new System.Drawing.Size(121, 29);
             this.cmbFiltrar.TabIndex = 16;
             this.cmbFiltrar.Text = "Filtrar";
-            this.cmbFiltrar.SelectedIndexChanged += new System.EventHandler(this.cmbFiltrar_SelectedIndexChanged);
             this.cmbFiltrar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbFiltrar_MouseClick);
             // 
             // pnlBuscador

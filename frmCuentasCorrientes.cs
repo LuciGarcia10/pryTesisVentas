@@ -15,6 +15,8 @@ namespace pryTesisVentas
     {
         // Variable global para almacenar el Id del cliente seleccionado en la pantalla
         private string idClienteSeleccionado = "";
+        // Variable global para almacenar los clientes cargados desde la base de datos
+        public List<clsCuentasC> listaClientes { get; set; } = new List<clsCuentasC>();
         public frmCuentasCorrientes()
         {
             InitializeComponent();
@@ -33,7 +35,12 @@ namespace pryTesisVentas
         private void CargarDatosDesdeBase()
         {
             string consulta = "SELECT IdCliente, NroAfiliado, Nombre, Apellido, ObraSocial, Estado, Saldo FROM Clientes";
+
+            // 1. Cargar la grilla en pantalla
             clsConsultas.LlenarGrid(consulta, dgvCuentasC);
+
+            // 2. Cargar la lista en memoria que usará el filtro
+            this.listaClientes = clsConsultas.ObtenerListaClientes(consulta);
 
             if (btnLimpiar != null)
                 btnLimpiar.Enabled = false;
@@ -128,27 +135,15 @@ namespace pryTesisVentas
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            // Al limpiar los filtros, volvemos a consultar el estado actual de la base de datos
+            // Volvemos a cargar desde la base de datos
             CargarDatosDesdeBase();
+
+            // Deshabilitamos el botón hasta que se vuelva a aplicar un nuevo filtro
+            if (btnLimpiar != null)
+                btnLimpiar.Enabled = false;
         }
 
-        private void pctDesplegar_Click(object sender, EventArgs e)
-        {
-            FrmFiltroClientes ventanaFiltro = new FrmFiltroClientes();
-
-            // 1. Le asignamos el dueño para el 'this.Owner' de tu compañera
-            ventanaFiltro.Owner = this;
-
-            // 2. LLAMAMOS AL NUEVO MÉTODO ESTÁTICO (Trae la lista real de SQL Server)
-            ventanaFiltro.listaParaFiltrar = clsConsultas.ObtenerClientesLista();
-
-            // 3. Tu lógica matemática de posición en pantalla
-            ventanaFiltro.StartPosition = FormStartPosition.Manual;
-            Point puntoAparicion = pctDesplegar.PointToScreen(new Point(0, pctDesplegar.Height));
-            ventanaFiltro.Location = puntoAparicion;
-
-            ventanaFiltro.ShowDialog(this);
-        }
+  
 
         private void dgvCuentasC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -329,6 +324,45 @@ namespace pryTesisVentas
                 }
             }
 
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmFiltroClientes frm = new FrmFiltroClientes();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.Owner = this;
+                frm.ShowDialog(); // Abre la ventana sin cargar la lista por ahora
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la ventana: " + ex.Message);
+            }
+        }
+
+
+        private void btnFiltrar_MouseClick(object sender, MouseEventArgs e)
+        {
+            FrmFiltroClientes ventanaFiltro = new FrmFiltroClientes();
+
+            if (this.listaClientes == null)
+            {
+                this.listaClientes = new List<clsCuentasC>();
+            }
+            ventanaFiltro.listaParaFiltrar = this.listaClientes;
+
+            // Posicionamiento desplegable justo debajo del botón
+            ventanaFiltro.StartPosition = FormStartPosition.Manual;
+            Point puntoAparicion = btnFiltrar.PointToScreen(new Point(0, btnFiltrar.Height));
+            ventanaFiltro.Location = puntoAparicion;
+
+            ventanaFiltro.Owner = this;
+
+            if (ventanaFiltro.ShowDialog() == DialogResult.OK)
+            {
+                if (btnLimpiar != null) btnLimpiar.Enabled = true;
+            }
         }
     }
     
