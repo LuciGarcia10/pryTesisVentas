@@ -33,6 +33,7 @@
             this.lblRoles = new System.Windows.Forms.Label();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbRoles
@@ -53,7 +54,7 @@
             this.btnGuardarPermisos.ForeColor = System.Drawing.Color.White;
             this.btnGuardarPermisos.Location = new System.Drawing.Point(19, 153);
             this.btnGuardarPermisos.Name = "btnGuardarPermisos";
-            this.btnGuardarPermisos.Size = new System.Drawing.Size(177, 34);
+            this.btnGuardarPermisos.Size = new System.Drawing.Size(177, 43);
             this.btnGuardarPermisos.TabIndex = 2;
             this.btnGuardarPermisos.Text = "Guardar Permisos";
             this.btnGuardarPermisos.UseVisualStyleBackColor = false;
@@ -90,11 +91,27 @@
             this.lblEstado.TabIndex = 5;
             this.lblEstado.Text = "Estado";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.LightCyan;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(19, 201);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(177, 35);
+            this.btnCancelar.TabIndex = 23;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // frmCambiarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(222, 213);
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(222, 261);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.lblRoles);
@@ -115,5 +132,6 @@
         private System.Windows.Forms.Label lblRoles;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

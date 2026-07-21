@@ -128,5 +128,12 @@ namespace pryTesisVentas
                 MessageBox.Show("Error al actualizar permisos: " + ex.Message);
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            // Cierra el formulario emergente indicando que se canceló la operación
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }
