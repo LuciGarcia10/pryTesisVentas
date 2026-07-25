@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pryTesisVentas
 {
-    public class ItemCarrito
+    public class ItemCompra
     {
         public int IdProducto { get; set; }
         public string Producto { get; set; }

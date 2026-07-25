@@ -9,7 +9,7 @@ namespace pryTesisVentas
 {
     public class clsAutomatizacionDrogueria
     {
-        public static async Task CargarPedidoEnWeb(string proveedor, List<clsDetallePedido> carrito)
+        public static async Task CargarPedidoEnWeb(string proveedor, List<clsDetallePedido> compra)
         {
             // Cambiamos el using moderno por el clásico compatible con C# 7.3
             using (var playwright = await Playwright.CreateAsync())
@@ -37,7 +37,7 @@ namespace pryTesisVentas
                         await page.WaitForURLAsync("**/inicio");
 
                         // 3. Recorre tu lista local cargando producto por producto en la página
-                        foreach (clsDetallePedido item in carrito)
+                        foreach (clsDetallePedido item in compra)
                         {
                             // Escribe el nombre del medicamento en el buscador de la web
                             await page.FillAsync("#buscador-productos-web", item.Producto);
@@ -49,7 +49,7 @@ namespace pryTesisVentas
                             await page.ClickAsync(".btn-add-to-cart-web");
                         }
 
-                        // 4. Deja al usuario en la pantalla del carrito web para el control final
+                        // 4. Deja al usuario en la pantalla del compra web para el control final
                         await page.GotoAsync("https://pedidos.delsud.com.ar/");
 
                         // Espera 10 segundos antes de cerrar el navegador

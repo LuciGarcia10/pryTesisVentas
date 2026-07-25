@@ -108,11 +108,11 @@
     <Compile Include="frmCambiarRol.Designer.cs">
       <DependentUpon>frmCambiarRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCarrito.cs">
+    <Compile Include="frmCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCarrito.Designer.cs">
-      <DependentUpon>frmCarrito.cs</DependentUpon>
+    <Compile Include="frmCompras.Designer.cs">
+      <DependentUpon>frmCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCuentasCorrientes.cs">
       <SubType>Form</SubType>
@@ -222,7 +222,7 @@
     <Compile Include="frmVentas.Designer.cs">
       <DependentUpon>frmVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemCarrito.cs" />
+    <Compile Include="ItemCompra.cs" />
     <Compile Include="Models\PedidoDrogueria.cs" />
     <Compile Include="PanelRedondeado.cs">
       <SubType>Component</SubType>
@@ -240,8 +240,8 @@
     <EmbeddedResource Include="frmCambiarRol.resx">
       <DependentUpon>frmCambiarRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCarrito.resx">
-      <DependentUpon>frmCarrito.cs</DependentUpon>
+    <EmbeddedResource Include="frmCompras.resx">
+      <DependentUpon>frmCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCuentasCorrientes.resx">
       <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>

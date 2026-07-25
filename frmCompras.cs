@@ -11,31 +11,29 @@ using System.Windows.Forms;
 
 namespace pryTesisVentas
 {
-    public partial class frmCarrito : Form
+    public partial class frmCompras : Form
     {
         private List<clsDetallePedido> listaLocal;
-
-        public frmCarrito(List<clsDetallePedido> carritoRecibido)
+        public frmCompras(List<clsDetallePedido> comprasRecibidas)
         {
             InitializeComponent();
 
-            this.listaLocal = carritoRecibido;
+            this.listaLocal = comprasRecibidas;
 
-            // Mostramos los datos en la tabla de tu interfaz
-            dgvCarrito.DataSource = null;
-            dgvCarrito.DataSource = listaLocal;
+            // Mostramos los datos en la tabla de la interfaz
+            dgvCompras.DataSource = null;
+            dgvCompras.DataSource = listaLocal;
 
             // Calculamos los totales inicialmente
-            CalcularTotalesCarrito();
+            CalcularTotalesCompras();
         }
 
-        private void frmCarrito_Load(object sender, EventArgs e)
+        private void frmCompras_Load(object sender, EventArgs e)
         {
             txtFechaEntrega.Text = DateTime.Now.AddDays(1).ToString("dd/MM/yy");
-            CalcularTotalesCarrito();
+            CalcularTotalesCompras();
         }
-
-        private void CalcularTotalesCarrito()
+        private void CalcularTotalesCompras()
         {
             int totalCantidad = 0;
             decimal totalDinero = 0;
@@ -49,13 +47,12 @@ namespace pryTesisVentas
             txtCantProd.Text = totalCantidad.ToString();
             txtPrecioTotal.Text = totalDinero.ToString("C0");
         }
-
         private void CalcularTotales()
         {
             decimal totalDinero = 0;
             int totalItems = 0;
 
-            foreach (DataGridViewRow fila in dgvCarrito.Rows)
+            foreach (DataGridViewRow fila in dgvCompras.Rows)
             {
                 if (fila.Cells["Cantidad"].Value != null && fila.Cells["Precio"].Value != null)
                 {
@@ -70,7 +67,7 @@ namespace pryTesisVentas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show("¿Estás seguro de que deseas cancelar el pedido? Se perderán los datos ingresados.", "Confirmar Cancelación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show("¿Estás seguro de que deseas cancelar la compra? Se perderán los datos ingresados.", "Confirmar Cancelación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
             {
@@ -78,7 +75,6 @@ namespace pryTesisVentas
             }
         }
 
-        // MODIFICACIÓN 1: Cambiamos a "async void" para poder usar "await" con Playwright
         private async void btnPedir_Click(object sender, EventArgs e)
         {
             // 1. Validar que hayan puesto una dirección
@@ -99,7 +95,6 @@ namespace pryTesisVentas
 
             if (resultado == DialogResult.Yes)
             {
-                // Cambiamos el cursor a modo espera y deshabilitamos el botón para evitar clics duplicados
                 this.Cursor = Cursors.WaitCursor;
                 btnPedir.Enabled = false;
 
@@ -107,7 +102,7 @@ namespace pryTesisVentas
                 {
                     string cadenaConexion = "Data Source=.;Initial Catalog=DigitalFarmaBD;Integrated Security=True";
                     int idPedidoGenerado = 0;
-                    string proveedorDestino = listaLocal[0].Proveedor; // Obtenemos el proveedor del carrito
+                    string proveedorDestino = listaLocal[0].Proveedor;
 
                     using (SqlConnection conexion = new SqlConnection(cadenaConexion))
                     {
@@ -131,8 +126,7 @@ namespace pryTesisVentas
                                     idPedidoGenerado = Convert.ToInt32(cmdPedido.ExecuteScalar());
                                 }
 
-                                // PASO B: Recorrer el carrito e insertar cada producto en DetallePedidos
-                                // MODIFICACIÓN 2: Se agregó el campo Proveedor al INSERT ya que lo estabas pasando como parámetro abajo
+                                // PASO B: Recorrer la lista e insertar cada producto en DetallePedidos
                                 string queryDetalle = "INSERT INTO DetallePedidos (IdPedido, NombreProducto, Cantidad, Precio, Proveedor) VALUES (@idPedido, @nombre, @cantidad, @precio, @proveedor);";
 
                                 foreach (clsDetallePedido detalle in listaLocal)
@@ -149,7 +143,6 @@ namespace pryTesisVentas
                                     }
                                 }
 
-                                // Si todo salió bien en la base de datos, guardamos los cambios locales
                                 transaccion.Commit();
                             }
                             catch (Exception ex)
@@ -160,15 +153,13 @@ namespace pryTesisVentas
                         }
                     }
 
-                    // MODIFICACIÓN 3: EJECUTAMOS LA AUTOMATIZACIÓN WEB POST-GUARDADO EN BD
-                    // Al usar await, la aplicación esperará que el bot trabaje en segundo plano sin congelarse
+                    // EJECUTAMOS LA AUTOMATIZACIÓN WEB POST-GUARDADO EN BD
                     try
                     {
                         await clsAutomatizacionDrogueria.CargarPedidoEnWeb(proveedorDestino, listaLocal);
                     }
                     catch (Exception exBot)
                     {
-                        // Si falla la web, avisamos pero el pedido en base de datos ya quedó asentado
                         MessageBox.Show($"El pedido se guardó en el sistema pero falló la carga automática en la web: {exBot.Message}",
                                         "Aviso de Automatización", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -191,7 +182,6 @@ namespace pryTesisVentas
 
                     MessageBox.Show("¡Pedido realizado con éxito en el sistema y enviado a la droguería! Orden N° " + idPedidoGenerado, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Vaciamos la lista original y cerramos
                     listaLocal.Clear();
                     this.Close();
                 }
@@ -201,7 +191,6 @@ namespace pryTesisVentas
                 }
                 finally
                 {
-                    // Restauramos los controles de la pantalla
                     this.Cursor = Cursors.Default;
                     btnPedir.Enabled = true;
                 }
@@ -214,4 +203,3 @@ namespace pryTesisVentas
         }
     }
 }
-
