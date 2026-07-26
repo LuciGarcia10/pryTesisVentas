@@ -239,6 +239,7 @@
             this.Name = "frmCompras";
             this.Text = "frmCompras";
             this.Load += new System.EventHandler(this.frmCompras_Load);
+            this.Shown += new System.EventHandler(this.frmCompras_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.ptbCompras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
             this.ResumeLayout(false);

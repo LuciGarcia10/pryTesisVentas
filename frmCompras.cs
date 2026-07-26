@@ -20,21 +20,16 @@ namespace pryTesisVentas
 
             this.listaLocal = comprasRecibidas;
 
-            // Mostramos los datos en la tabla de la interfaz
-            dgvCompras.DataSource = null;
-            dgvCompras.DataSource = listaLocal;
-
-            // Calculamos los totales inicialmente
-            CalcularTotalesCompras();
         }
 
         private void frmCompras_Load(object sender, EventArgs e)
         {
             txtFechaEntrega.Text = DateTime.Now.AddDays(1).ToString("dd/MM/yy");
-            CalcularTotalesCompras();
         }
         private void CalcularTotalesCompras()
         {
+            if (listaLocal == null) return;
+
             int totalCantidad = 0;
             decimal totalDinero = 0;
 
@@ -47,23 +42,7 @@ namespace pryTesisVentas
             txtCantProd.Text = totalCantidad.ToString();
             txtPrecioTotal.Text = totalDinero.ToString("C0");
         }
-        private void CalcularTotales()
-        {
-            decimal totalDinero = 0;
-            int totalItems = 0;
-
-            foreach (DataGridViewRow fila in dgvCompras.Rows)
-            {
-                if (fila.Cells["Cantidad"].Value != null && fila.Cells["Precio"].Value != null)
-                {
-                    totalItems += Convert.ToInt32(fila.Cells["Cantidad"].Value);
-                    totalDinero += Convert.ToDecimal(fila.Cells["Precio"].Value);
-                }
-            }
-
-            txtCantProd.Text = totalItems.ToString();
-            txtPrecioTotal.Text = totalDinero.ToString("C2");
-        }
+        
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -77,7 +56,7 @@ namespace pryTesisVentas
 
         private async void btnPedir_Click(object sender, EventArgs e)
         {
-            // 1. Validar que hayan puesto una dirección
+            // Validar que hayan puesto una dirección
             if (string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
                 MessageBox.Show("Por favor, ingresá una dirección de entrega.", "Datos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -90,7 +69,7 @@ namespace pryTesisVentas
                 return;
             }
 
-            // 2. Confirmación del usuario
+            // Confirmación del usuario
             DialogResult resultado = MessageBox.Show("¿Confirmás la realización de este pedido?", "Confirmar Pedido", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (resultado == DialogResult.Yes)
@@ -103,16 +82,17 @@ namespace pryTesisVentas
                     string cadenaConexion = "Data Source=DESKTOP-TGRLC0K\\MSSQLSERVER01;Initial Catalog=BDDigitalFarma;User ID=sa;Password=TU_CLAVE;TrustServerCertificate=True";
                     int idPedidoGenerado = 0;
                     string proveedorDestino = listaLocal[0].Proveedor;
+                    decimal totalPedido = listaLocal.Sum(x => x.Cantidad * x.Precio);
 
                     using (SqlConnection conexion = new SqlConnection(cadenaConexion))
                     {
-                        conexion.Open();
+                        await conexion.OpenAsync();
 
                         using (SqlTransaction transaccion = conexion.BeginTransaction())
                         {
                             try
                             {
-                                // PASO A: Insertar en la tabla de Pedidos (Maestro)
+                                // Insertar en la tabla de Pedidos (Maestro)
                                 string queryPedido = "INSERT INTO Pedidos (Fecha, DireccionEntrega, Total) VALUES (@fecha, @direccion, @total); SELECT SCOPE_IDENTITY();";
 
                                 using (SqlCommand cmdPedido = new SqlCommand(queryPedido, conexion, transaccion))
@@ -120,13 +100,13 @@ namespace pryTesisVentas
                                     cmdPedido.Parameters.AddWithValue("@fecha", DateTime.Now);
                                     cmdPedido.Parameters.AddWithValue("@direccion", txtDireccion.Text);
 
-                                    decimal total = Convert.ToDecimal(txtPrecioTotal.Text.Replace("$", ""));
-                                    cmdPedido.Parameters.AddWithValue("@total", total);
+                                    cmdPedido.Parameters.AddWithValue("@total", totalPedido);
 
-                                    idPedidoGenerado = Convert.ToInt32(cmdPedido.ExecuteScalar());
+                                    object res = await cmdPedido.ExecuteScalarAsync();
+                                    idPedidoGenerado = Convert.ToInt32(res);
                                 }
 
-                                // PASO B: Recorrer la lista e insertar cada producto en DetallePedidos
+                                // Recorrer la lista e insertar cada producto en DetallePedidos
                                 string queryDetalle = "INSERT INTO DetallePedidos (IdPedido, NombreProducto, Cantidad, Precio, Proveedor) VALUES (@idPedido, @nombre, @cantidad, @precio, @proveedor);";
 
                                 foreach (clsDetallePedido detalle in listaLocal)
@@ -139,16 +119,16 @@ namespace pryTesisVentas
                                         cmdDetalle.Parameters.AddWithValue("@precio", detalle.Precio);
                                         cmdDetalle.Parameters.AddWithValue("@proveedor", detalle.Proveedor);
 
-                                        cmdDetalle.ExecuteNonQuery();
+                                        await cmdDetalle.ExecuteNonQueryAsync();
                                     }
                                 }
 
                                 transaccion.Commit();
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
                                 transaccion.Rollback();
-                                throw ex;
+                                throw;
                             }
                         }
                     }
@@ -174,7 +154,7 @@ namespace pryTesisVentas
                         nuevoPedido.Proveedor = proveedorDestino;
                         nuevoPedido.Estado = "Pendiente";
                         nuevoPedido.Detalles = new List<clsDetallePedido>(this.listaLocal);
-                        nuevoPedido.Total = Convert.ToDecimal(txtPrecioTotal.Text.Replace("$", ""));
+                        nuevoPedido.Total = totalPedido;
 
                         formularioPadre.listaPedidos.Add(nuevoPedido);
                         formularioPadre.ActualizarGrilla(formularioPadre.listaPedidos);
@@ -200,6 +180,20 @@ namespace pryTesisVentas
         private void lblCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmCompras_Shown(object sender, EventArgs e)
+        {
+            // Suspendemos el layout temporalmente para que el DataGridView no redibuje fila por fila
+            dgvCompras.SuspendLayout();
+
+            dgvCompras.DataSource = null;
+            dgvCompras.DataSource = listaLocal;
+
+            dgvCompras.ResumeLayout();
+
+            // Calculamos totales una sola vez
+            CalcularTotalesCompras();
         }
     }
 }
