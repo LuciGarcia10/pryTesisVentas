@@ -100,7 +100,7 @@ namespace pryTesisVentas
 
                 try
                 {
-                    string cadenaConexion = "Data Source=.;Initial Catalog=DigitalFarmaBD;Integrated Security=True";
+                    string cadenaConexion = "Data Source=DESKTOP-TGRLC0K\\MSSQLSERVER01;Initial Catalog=BDDigitalFarma;User ID=sa;Password=TU_CLAVE;TrustServerCertificate=True";
                     int idPedidoGenerado = 0;
                     string proveedorDestino = listaLocal[0].Proveedor;
 
