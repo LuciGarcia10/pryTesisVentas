@@ -13,7 +13,7 @@ namespace pryTesisVentas
 {
     public partial class frmNuevoPedido : Form
     {
-        List<clsDetallePedido> carrito = new List<clsDetallePedido>();
+        List<clsDetallePedido> compra = new List<clsDetallePedido>();
         public frmNuevoPedido()
         {
             InitializeComponent();
@@ -62,16 +62,9 @@ namespace pryTesisVentas
                 }
             }
         }
-        private void lblHacerPedido1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-      
 
 
-
-        private void btnAgregararCarrito_Click(object sender, EventArgs e)
+        private void btnAgregararCompra_Click(object sender, EventArgs e)
         {
             // Validamos que no esté vacío (usamos el texto del label como referencia)
             if (string.IsNullOrWhiteSpace(cmbProductos.Text))
@@ -87,7 +80,7 @@ namespace pryTesisVentas
             nuevoItem.Proveedor = cmbProveedores.Text;
 
             // Lo sumamos a la lista
-            carrito.Add(nuevoItem);
+            compra.Add(nuevoItem);
 
             // Limpiamos para el siguiente
             cmbProductos.SelectedIndex = -1;
@@ -95,24 +88,24 @@ namespace pryTesisVentas
             MessageBox.Show("Producto agregado al carrito temporal.");
         }
 
-        private void btnVerCarrito_Click(object sender, EventArgs e)
+        private void btnVerCompras_Click(object sender, EventArgs e)
         {
-            if (carrito.Count == 0)
+            if (compra.Count == 0)
             {
                 MessageBox.Show("El carrito está vacío.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             // Ahora que frmCarrito existe, esto va a compilar de diez:
-            frmCarrito ventanaCarrito = new frmCarrito(carrito);
-            ventanaCarrito.ShowDialog();
+            frmCompras ventanaCompras = new frmCompras(compra);
+            ventanaCompras.ShowDialog();
         }
         
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             // Si el carrito tiene productos, avisamos antes de cerrar
-            if (carrito.Count > 0)
+            if (compra.Count > 0)
             {
                 DialogResult respuesta = MessageBox.Show(
                     "Tenés productos en el carrito. ¿Estás seguro de que querés cancelar el pedido? Se borrará todo.",
