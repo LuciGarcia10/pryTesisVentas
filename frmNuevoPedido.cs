@@ -66,39 +66,41 @@ namespace pryTesisVentas
 
         private void btnAgregararCompra_Click(object sender, EventArgs e)
         {
-            // Validamos que no esté vacío (usamos el texto del label como referencia)
             if (string.IsNullOrWhiteSpace(cmbProductos.Text))
             {
-                MessageBox.Show("Por favor, ingrese el nombre del producto.");
+                MessageBox.Show("Por favor, ingrese el nombre del producto.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Creamos un nuevo item de pedido
-            clsDetallePedido nuevoItem = new clsDetallePedido();
-            nuevoItem.Producto = cmbProductos.Text;
-            nuevoItem.Cantidad = (int)numCantidad.Value; // Asumiendo que usás un NumericUpDown
-            nuevoItem.Proveedor = cmbProveedores.Text;
+            clsDetallePedido nuevoItem = new clsDetallePedido
+            {
+                Producto = cmbProductos.Text,
+                Cantidad = (int)numCantidad.Value,
+                Proveedor = cmbProveedores.Text,
+                Precio = 1500 // Precio base asignado o traído de la base de datos
+            };
 
-            // Lo sumamos a la lista
             compra.Add(nuevoItem);
 
-            // Limpiamos para el siguiente
+            // Limpieza de inputs como indica el CU
             cmbProductos.SelectedIndex = -1;
             numCantidad.Value = 1;
-            MessageBox.Show("Producto agregado al carrito temporal.");
+
+            MessageBox.Show("Producto agregado a la lista de compras.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+    
 
         private void btnVerCompras_Click(object sender, EventArgs e)
         {
             if (compra.Count == 0)
             {
-                MessageBox.Show("El carrito está vacío.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El carrito de compras está vacío.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Ahora que frmCarrito existe, esto va a compilar de diez:
             frmCompras ventanaCompras = new frmCompras(compra);
-            ventanaCompras.ShowDialog();
+            ventanaCompras.StartPosition = FormStartPosition.CenterParent;
+            ventanaCompras.ShowDialog(this);
         }
         
 

@@ -262,5 +262,25 @@ namespace pryTesisVentas
             frmEstadisticas frm = new frmEstadisticas();
             frm.ShowDialog();
         }
+
+        private void txtBuscarArriba_TextChanged(object sender, EventArgs e)
+        {
+            string criterio = txtBuscarArriba.Text.ToLower().Trim();
+
+            if (string.IsNullOrEmpty(criterio))
+            {
+                ActualizarGrilla(listaPedidos);
+            }
+            else
+            {
+                var filtrados = listaPedidos.Where(p =>
+                    p.IdPedido.ToString().Contains(criterio) ||
+                    p.Proveedor.ToLower().Contains(criterio) ||
+                    p.Estado.ToLower().Contains(criterio)
+                ).ToList();
+
+                ActualizarGrilla(filtrados);
+            }
+        }
     }
 }
