@@ -56,7 +56,7 @@ namespace pryTesisVentas
 
         private async void btnPedir_Click(object sender, EventArgs e)
         {
-            // Validar que hayan puesto una dirección
+            // 1. Validar que hayan puesto una dirección
             if (string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
                 MessageBox.Show("Por favor, ingresá una dirección de entrega.", "Datos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -69,7 +69,7 @@ namespace pryTesisVentas
                 return;
             }
 
-            // Confirmación del usuario
+            // 2. Confirmación del usuario
             DialogResult resultado = MessageBox.Show("¿Confirmás la realización de este pedido?", "Confirmar Pedido", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (resultado == DialogResult.Yes)
@@ -79,7 +79,8 @@ namespace pryTesisVentas
 
                 try
                 {
-                    string cadenaConexion = "Data Source=DESKTOP-TGRLC0K\\MSSQLSERVER01;Initial Catalog=BDDigitalFarma;User ID=sa;Password=TU_CLAVE;TrustServerCertificate=True";
+                    // Podés usar 'Integrated Security=True' o tu usuario sa si tenés clave configurada
+                    string cadenaConexion = "Data Source=DESKTOP-TGRLC0K\\MSSQLSERVER01;Initial Catalog=BDDigitalFarma;Integrated Security=True;TrustServerCertificate=True";
                     int idPedidoGenerado = 0;
                     string proveedorDestino = listaLocal[0].Proveedor;
                     decimal totalPedido = listaLocal.Sum(x => x.Cantidad * x.Precio);
@@ -92,32 +93,34 @@ namespace pryTesisVentas
                         {
                             try
                             {
-                                // Insertar en la tabla de Pedidos (Maestro)
-                                string queryPedido = "INSERT INTO Pedidos (Fecha, DireccionEntrega, Total) VALUES (@fecha, @direccion, @total); SELECT SCOPE_IDENTITY();";
+                                
+                                string queryPedido = @"INSERT INTO Pedidos (FechaPedido, DireccionEntrega, Total, IdEstado) 
+                                               VALUES (@fecha, @direccion, @total, 1); 
+                                               SELECT SCOPE_IDENTITY();";
 
                                 using (SqlCommand cmdPedido = new SqlCommand(queryPedido, conexion, transaccion))
                                 {
                                     cmdPedido.Parameters.AddWithValue("@fecha", DateTime.Now);
-                                    cmdPedido.Parameters.AddWithValue("@direccion", txtDireccion.Text);
-
+                                    cmdPedido.Parameters.AddWithValue("@direccion", txtDireccion.Text.Trim());
                                     cmdPedido.Parameters.AddWithValue("@total", totalPedido);
 
                                     object res = await cmdPedido.ExecuteScalarAsync();
                                     idPedidoGenerado = Convert.ToInt32(res);
                                 }
 
-                                // Recorrer la lista e insertar cada producto en DetallePedidos
-                                string queryDetalle = "INSERT INTO DetallePedidos (IdPedido, NombreProducto, Cantidad, Precio, Proveedor) VALUES (@idPedido, @nombre, @cantidad, @precio, @proveedor);";
+                                string queryDetalle = @"INSERT INTO DetallePedido (IdPedido, IdProducto, Cantidad, PrecioCosto) 
+                                               VALUES (@idPedido, @idProducto, @cantidad, @precio);";
 
                                 foreach (clsDetallePedido detalle in listaLocal)
                                 {
                                     using (SqlCommand cmdDetalle = new SqlCommand(queryDetalle, conexion, transaccion))
                                     {
                                         cmdDetalle.Parameters.AddWithValue("@idPedido", idPedidoGenerado);
-                                        cmdDetalle.Parameters.AddWithValue("@nombre", detalle.Producto);
+
+                                        // Si en la clase tenés el ID del producto usás detalle.IdProducto, de lo contrario usamos 1 de prueba
+                                        cmdDetalle.Parameters.AddWithValue("@idProducto", detalle.IdProducto > 0 ? detalle.IdProducto : 1);
                                         cmdDetalle.Parameters.AddWithValue("@cantidad", detalle.Cantidad);
                                         cmdDetalle.Parameters.AddWithValue("@precio", detalle.Precio);
-                                        cmdDetalle.Parameters.AddWithValue("@proveedor", detalle.Proveedor);
 
                                         await cmdDetalle.ExecuteNonQueryAsync();
                                     }
@@ -133,34 +136,34 @@ namespace pryTesisVentas
                         }
                     }
 
-                    // EJECUTAMOS LA AUTOMATIZACIÓN WEB POST-GUARDADO EN BD
                     try
                     {
                         await clsAutomatizacionDrogueria.CargarPedidoEnWeb(proveedorDestino, listaLocal);
                     }
                     catch (Exception exBot)
                     {
-                        MessageBox.Show($"El pedido se guardó en el sistema pero falló la carga automática en la web: {exBot.Message}",
+                        MessageBox.Show($"El pedido N° {idPedidoGenerado} se guardó en el sistema, pero ocurrió una advertencia en la web: {exBot.Message}",
                                         "Aviso de Automatización", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
-                    // Sincronización con la grilla del formulario principal de pedidos (frmPedidos) si está abierto
                     frmPedidos formularioPadre = (frmPedidos)Application.OpenForms["frmPedidos"];
                     if (formularioPadre != null)
                     {
-                        clsPedido nuevoPedido = new clsPedido();
-                        nuevoPedido.IdPedido = idPedidoGenerado;
-                        nuevoPedido.Fecha = DateTime.Now;
-                        nuevoPedido.Proveedor = proveedorDestino;
-                        nuevoPedido.Estado = "Pendiente";
-                        nuevoPedido.Detalles = new List<clsDetallePedido>(this.listaLocal);
-                        nuevoPedido.Total = totalPedido;
+                        clsPedido nuevoPedido = new clsPedido
+                        {
+                            IdPedido = idPedidoGenerado,
+                            Fecha = DateTime.Now,
+                            Proveedor = proveedorDestino,
+                            Estado = "Pendiente",
+                            Detalles = new List<clsDetallePedido>(this.listaLocal),
+                            Total = totalPedido
+                        };
 
                         formularioPadre.listaPedidos.Add(nuevoPedido);
                         formularioPadre.ActualizarGrilla(formularioPadre.listaPedidos);
                     }
 
-                    MessageBox.Show("¡Pedido realizado con éxito en el sistema y enviado a la droguería! Orden N° " + idPedidoGenerado, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"¡Pedido realizado con éxito y enviado a la droguería! Orden N° {idPedidoGenerado}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     listaLocal.Clear();
                     this.Close();

@@ -63,45 +63,6 @@ namespace pryTesisVentas
             }
         }
 
-
-        private void btnAgregararCompra_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(cmbProductos.Text))
-            {
-                MessageBox.Show("Por favor, ingrese el nombre del producto.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            clsDetallePedido nuevoItem = new clsDetallePedido
-            {
-                Producto = cmbProductos.Text,
-                Cantidad = (int)numCantidad.Value,
-                Proveedor = cmbProveedores.Text,
-                Precio = 1500 // Precio base asignado o traído de la base de datos
-            };
-
-            compra.Add(nuevoItem);
-
-            // Limpieza de inputs como indica el CU
-            cmbProductos.SelectedIndex = -1;
-            numCantidad.Value = 1;
-
-            MessageBox.Show("Producto agregado a la lista de compras.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-    
-
-        private void btnVerCompras_Click(object sender, EventArgs e)
-        {
-            if (compra.Count == 0)
-            {
-                MessageBox.Show("El carrito de compras está vacío.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            frmCompras ventanaCompras = new frmCompras(compra);
-            ventanaCompras.StartPosition = FormStartPosition.CenterParent;
-            ventanaCompras.ShowDialog(this);
-        }
         
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -125,6 +86,51 @@ namespace pryTesisVentas
                 // Si no hay nada, cerramos directamente
                 this.Close();
             }
+        }
+
+        private void btnAgregararCompras_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbProductos.Text))
+            {
+                MessageBox.Show("Por favor, ingrese o seleccione un producto.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(cmbProveedores.Text))
+            {
+                MessageBox.Show("Por favor, seleccione un proveedor.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Creamos el detalle
+            clsDetallePedido nuevoItem = new clsDetallePedido
+            {
+                Producto = cmbProductos.Text,
+                Cantidad = (int)numCantidad.Value,
+                Proveedor = cmbProveedores.Text,
+                Precio = 1500.00m // O el precio que traiga tu base de datos
+            };
+
+            compra.Add(nuevoItem);
+
+            // Limpiamos los campos
+            cmbProductos.SelectedIndex = -1;
+            numCantidad.Value = 1;
+
+            MessageBox.Show("Producto agregado a la lista de compras.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnVerCompras_Click(object sender, EventArgs e)
+        {
+            if (compra.Count == 0)
+            {
+                MessageBox.Show("El carrito de compras está vacío.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            frmCompras ventanaCompras = new frmCompras(compra);
+            ventanaCompras.StartPosition = FormStartPosition.CenterParent;
+            ventanaCompras.ShowDialog(this);
         }
     }
 }

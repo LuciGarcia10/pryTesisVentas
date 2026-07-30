@@ -123,6 +123,7 @@
             this.btnVerCompras.TabIndex = 27;
             this.btnVerCompras.Text = "Ver Compras";
             this.btnVerCompras.UseVisualStyleBackColor = false;
+            this.btnVerCompras.Click += new System.EventHandler(this.btnVerCompras_Click);
             // 
             // btnAgregararCompras
             // 
@@ -135,6 +136,7 @@
             this.btnAgregararCompras.TabIndex = 28;
             this.btnAgregararCompras.Text = "Agregar a Compras";
             this.btnAgregararCompras.UseVisualStyleBackColor = false;
+            this.btnAgregararCompras.Click += new System.EventHandler(this.btnAgregararCompras_Click);
             // 
             // lblHacerPedido1
             // 
