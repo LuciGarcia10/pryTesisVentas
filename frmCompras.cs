@@ -93,10 +93,18 @@ namespace pryTesisVentas
                         {
                             try
                             {
-                                
-                                string queryPedido = @"INSERT INTO Pedidos (FechaPedido, DireccionEntrega, Total, IdEstado) 
-                                               VALUES (@fecha, @direccion, @total, 1); 
-                                               SELECT SCOPE_IDENTITY();";
+                                // Consulta ajustada para insertar el IdProveedor buscando por la Razón Social seleccionada
+                                string queryPedido = @"
+                                    INSERT INTO Pedidos (FechaPedido, DireccionEntrega, Total, IdEstado, IdProveedor) 
+                                    VALUES (
+                                        @fecha, 
+                                        @direccion, 
+                                        @total, 
+                                        1, 
+                                        (SELECT TOP 1 IdProveedor FROM Proveedores WHERE RazonSocial LIKE '%' + @proveedor + '%')
+                                    ); 
+                                    SELECT SCOPE_IDENTITY();";
+
 
                                 using (SqlCommand cmdPedido = new SqlCommand(queryPedido, conexion, transaccion))
                                 {
