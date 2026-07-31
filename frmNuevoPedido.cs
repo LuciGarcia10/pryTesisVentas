@@ -17,6 +17,7 @@ namespace pryTesisVentas
         public frmNuevoPedido()
         {
             InitializeComponent();
+            CargarProductosDesdeBase();
         }
 
         private void frmNuevoPedido_Load(object sender, EventArgs e)
@@ -105,6 +106,7 @@ namespace pryTesisVentas
             // Creamos el detalle
             clsDetallePedido nuevoItem = new clsDetallePedido
             {
+                IdProducto = Convert.ToInt32(cmbProductos.SelectedValue), // O el ID que corresponda
                 Producto = cmbProductos.Text,
                 Cantidad = (int)numCantidad.Value,
                 Proveedor = cmbProveedores.Text,
