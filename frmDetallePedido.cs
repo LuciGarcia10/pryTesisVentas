@@ -88,5 +88,42 @@ namespace pryTesisVentas
         {
 
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNumeroPedido.Text))
+            {
+                MessageBox.Show("Ingrese un número de pedido válido.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (int.TryParse(txtNumeroPedido.Text.Trim(), out int idBuscado))
+            {
+                // Buscamos dentro de la lista completa que recibió el formulario
+                if (ListaCompleta != null)
+                {
+                    clsPedido pedidoEncontrado = ListaCompleta.FirstOrDefault(p => p.IdPedido == idBuscado);
+
+                    if (pedidoEncontrado != null)
+                    {
+                        // Actualizamos la vista con el nuevo pedido hallado
+                        this.PedidoSeleccionado = pedidoEncontrado;
+                        dgvDetalles.DataSource = null;
+                        dgvDetalles.DataSource = PedidoSeleccionado.Detalles;
+
+                        decimal total = PedidoSeleccionado.Detalles.Sum(x => x.Precio * x.Cantidad);
+                        txtPrecioTotal.Text = total.ToString("C0");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró ningún pedido con el Nº " + idBuscado, "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("El número de pedido debe ser numérico.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

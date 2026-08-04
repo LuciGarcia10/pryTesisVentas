@@ -52,7 +52,7 @@
             this.lblDetallePedido.Location = new System.Drawing.Point(34, 15);
             this.lblDetallePedido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDetallePedido.Name = "lblDetallePedido";
-            this.lblDetallePedido.Size = new System.Drawing.Size(99, 17);
+            this.lblDetallePedido.Size = new System.Drawing.Size(150, 28);
             this.lblDetallePedido.TabIndex = 0;
             this.lblDetallePedido.Text = "Detalle Pedido";
             // 
@@ -63,7 +63,7 @@
             this.lblNPedido.Location = new System.Drawing.Point(223, 55);
             this.lblNPedido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNPedido.Name = "lblNPedido";
-            this.lblNPedido.Size = new System.Drawing.Size(58, 15);
+            this.lblNPedido.Size = new System.Drawing.Size(87, 25);
             this.lblNPedido.TabIndex = 1;
             this.lblNPedido.Text = "N°Pedido";
             // 
@@ -89,6 +89,7 @@
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dgvDetalles
             // 
@@ -133,7 +134,7 @@
             this.lblPrecioTotal.Location = new System.Drawing.Point(322, 356);
             this.lblPrecioTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrecioTotal.Name = "lblPrecioTotal";
-            this.lblPrecioTotal.Size = new System.Drawing.Size(66, 13);
+            this.lblPrecioTotal.Size = new System.Drawing.Size(95, 21);
             this.lblPrecioTotal.TabIndex = 5;
             this.lblPrecioTotal.Text = "Precio Total";
             this.lblPrecioTotal.Click += new System.EventHandler(this.lblPrecioTotal_Click);
@@ -146,7 +147,7 @@
             this.txtPrecioTotal.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecioTotal.Name = "txtPrecioTotal";
             this.txtPrecioTotal.ReadOnly = true;
-            this.txtPrecioTotal.Size = new System.Drawing.Size(126, 22);
+            this.txtPrecioTotal.Size = new System.Drawing.Size(126, 29);
             this.txtPrecioTotal.TabIndex = 6;
             this.txtPrecioTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -159,7 +160,7 @@
             this.lblCerrar.Location = new System.Drawing.Point(529, 9);
             this.lblCerrar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCerrar.Name = "lblCerrar";
-            this.lblCerrar.Size = new System.Drawing.Size(14, 13);
+            this.lblCerrar.Size = new System.Drawing.Size(20, 21);
             this.lblCerrar.TabIndex = 7;
             this.lblCerrar.Text = "X";
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
@@ -179,7 +180,7 @@
             // 
             // frmDetallePedido
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(554, 393);

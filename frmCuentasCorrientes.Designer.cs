@@ -70,14 +70,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pnlPedidos = new System.Windows.Forms.Panel();
+            this.pnlFiltrar = new System.Windows.Forms.Panel();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.btnExp = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnNuevoCliente = new System.Windows.Forms.Button();
-            this.PnlFiltrar = new System.Windows.Forms.Panel();
-            this.pctDesplegar = new System.Windows.Forms.PictureBox();
-            this.lblFiltrar = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblCC = new System.Windows.Forms.Label();
             this.dgvCuentasC = new System.Windows.Forms.DataGridView();
             this.ClmAfiliado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,10 +107,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlPedidos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            this.PnlFiltrar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctDesplegar)).BeginInit();
+            this.pnlFiltrar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasC)).BeginInit();
             this.SuspendLayout();
             // 
@@ -549,11 +549,11 @@
             // pnlPedidos
             // 
             this.pnlPedidos.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pnlPedidos.Controls.Add(this.pnlFiltrar);
             this.pnlPedidos.Controls.Add(this.pictureBox12);
             this.pnlPedidos.Controls.Add(this.btnExp);
             this.pnlPedidos.Controls.Add(this.btnLimpiar);
             this.pnlPedidos.Controls.Add(this.btnNuevoCliente);
-            this.pnlPedidos.Controls.Add(this.PnlFiltrar);
             this.pnlPedidos.Controls.Add(this.lblCC);
             this.pnlPedidos.Controls.Add(this.dgvCuentasC);
             this.pnlPedidos.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -561,6 +561,48 @@
             this.pnlPedidos.Name = "pnlPedidos";
             this.pnlPedidos.Size = new System.Drawing.Size(1246, 786);
             this.pnlPedidos.TabIndex = 24;
+            // 
+            // pnlFiltrar
+            // 
+            this.pnlFiltrar.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pnlFiltrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pnlFiltrar.Controls.Add(this.pictureBox10);
+            this.pnlFiltrar.Controls.Add(this.btnFiltrar);
+            this.pnlFiltrar.Controls.Add(this.pictureBox2);
+            this.pnlFiltrar.Location = new System.Drawing.Point(917, 16);
+            this.pnlFiltrar.Name = "pnlFiltrar";
+            this.pnlFiltrar.Size = new System.Drawing.Size(160, 38);
+            this.pnlFiltrar.TabIndex = 18;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(125, 11);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(26, 18);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 19;
+            this.pictureBox10.TabStop = false;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(40, 3);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(117, 32);
+            this.btnFiltrar.TabIndex = 19;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnFiltrar_MouseClick);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
             // 
             // pictureBox12
             // 
@@ -613,51 +655,6 @@
             this.btnNuevoCliente.UseVisualStyleBackColor = false;
             this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
             // 
-            // PnlFiltrar
-            // 
-            this.PnlFiltrar.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.PnlFiltrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PnlFiltrar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PnlFiltrar.Controls.Add(this.pctDesplegar);
-            this.PnlFiltrar.Controls.Add(this.lblFiltrar);
-            this.PnlFiltrar.Controls.Add(this.pictureBox2);
-            this.PnlFiltrar.Location = new System.Drawing.Point(916, 14);
-            this.PnlFiltrar.Name = "PnlFiltrar";
-            this.PnlFiltrar.Size = new System.Drawing.Size(160, 37);
-            this.PnlFiltrar.TabIndex = 13;
-            // 
-            // pctDesplegar
-            // 
-            this.pctDesplegar.Image = ((System.Drawing.Image)(resources.GetObject("pctDesplegar.Image")));
-            this.pctDesplegar.Location = new System.Drawing.Point(126, 6);
-            this.pctDesplegar.Name = "pctDesplegar";
-            this.pctDesplegar.Size = new System.Drawing.Size(32, 28);
-            this.pctDesplegar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctDesplegar.TabIndex = 19;
-            this.pctDesplegar.TabStop = false;
-            this.pctDesplegar.Click += new System.EventHandler(this.pctDesplegar_Click);
-            // 
-            // lblFiltrar
-            // 
-            this.lblFiltrar.AutoSize = true;
-            this.lblFiltrar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltrar.Location = new System.Drawing.Point(42, 9);
-            this.lblFiltrar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFiltrar.Name = "lblFiltrar";
-            this.lblFiltrar.Size = new System.Drawing.Size(51, 21);
-            this.lblFiltrar.TabIndex = 18;
-            this.lblFiltrar.Text = "Filtrar";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 28);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
             // lblCC
             // 
             this.lblCC.AutoSize = true;
@@ -701,7 +698,7 @@
             this.dgvCuentasC.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCuentasC.EnableHeadersVisualStyles = false;
             this.dgvCuentasC.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvCuentasC.Location = new System.Drawing.Point(26, 112);
+            this.dgvCuentasC.Location = new System.Drawing.Point(28, 102);
             this.dgvCuentasC.Name = "dgvCuentasC";
             this.dgvCuentasC.RowHeadersVisible = false;
             this.dgvCuentasC.RowHeadersWidth = 62;
@@ -828,11 +825,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlPedidos.ResumeLayout(false);
             this.pnlPedidos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            this.PnlFiltrar.ResumeLayout(false);
-            this.PnlFiltrar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctDesplegar)).EndInit();
+            this.pnlFiltrar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasC)).EndInit();
             this.ResumeLayout(false);
 
@@ -876,12 +872,8 @@
         private System.Windows.Forms.Button btnExp;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnNuevoCliente;
-        private System.Windows.Forms.Panel PnlFiltrar;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblCC;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.Label lblFiltrar;
-        private System.Windows.Forms.PictureBox pctDesplegar;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -895,5 +887,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmEstadoCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmSaldo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmAcciones;
+        private System.Windows.Forms.Panel pnlFiltrar;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.PictureBox pictureBox10;
     }
 }

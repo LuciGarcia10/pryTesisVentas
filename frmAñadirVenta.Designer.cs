@@ -33,19 +33,19 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
-            this.lblCarrito = new System.Windows.Forms.Label();
+            this.lblCompras = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.lblBuscarArriba = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
-            this.btnAñadiraCarrito = new System.Windows.Forms.Button();
+            this.btnAñadiraCompras = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlVentasdeProductos = new System.Windows.Forms.Panel();
             this.txtPrecioTotal = new System.Windows.Forms.TextBox();
             this.lblPrecioTotal = new System.Windows.Forms.Label();
-            this.dgvCarrito = new System.Windows.Forms.DataGridView();
+            this.dgvCompras = new System.Windows.Forms.DataGridView();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             this.pnlVentasdeProductos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -90,15 +90,15 @@
             this.lblProducto.TabIndex = 2;
             this.lblProducto.Text = "Producto";
             // 
-            // lblCarrito
+            // lblCompras
             // 
-            this.lblCarrito.AutoSize = true;
-            this.lblCarrito.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarrito.Location = new System.Drawing.Point(305, 60);
-            this.lblCarrito.Name = "lblCarrito";
-            this.lblCarrito.Size = new System.Drawing.Size(70, 25);
-            this.lblCarrito.TabIndex = 3;
-            this.lblCarrito.Text = "Carrito";
+            this.lblCompras.AutoSize = true;
+            this.lblCompras.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompras.Location = new System.Drawing.Point(305, 60);
+            this.lblCompras.Name = "lblCompras";
+            this.lblCompras.Size = new System.Drawing.Size(86, 25);
+            this.lblCompras.TabIndex = 3;
+            this.lblCompras.Text = "Compras";
             // 
             // panel12
             // 
@@ -163,18 +163,17 @@
             this.numCantidad.Size = new System.Drawing.Size(120, 26);
             this.numCantidad.TabIndex = 18;
             // 
-            // btnAñadiraCarrito
+            // btnAñadiraCompras
             // 
-            this.btnAñadiraCarrito.BackColor = System.Drawing.Color.Teal;
-            this.btnAñadiraCarrito.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAñadiraCarrito.ForeColor = System.Drawing.Color.White;
-            this.btnAñadiraCarrito.Location = new System.Drawing.Point(115, 185);
-            this.btnAñadiraCarrito.Name = "btnAñadiraCarrito";
-            this.btnAñadiraCarrito.Size = new System.Drawing.Size(156, 38);
-            this.btnAñadiraCarrito.TabIndex = 65;
-            this.btnAñadiraCarrito.Text = "Añadir a carrito()";
-            this.btnAñadiraCarrito.UseVisualStyleBackColor = false;
-            this.btnAñadiraCarrito.Click += new System.EventHandler(this.btnAñadiraCarrito_Click);
+            this.btnAñadiraCompras.BackColor = System.Drawing.Color.Teal;
+            this.btnAñadiraCompras.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAñadiraCompras.ForeColor = System.Drawing.Color.White;
+            this.btnAñadiraCompras.Location = new System.Drawing.Point(115, 185);
+            this.btnAñadiraCompras.Name = "btnAñadiraCompras";
+            this.btnAñadiraCompras.Size = new System.Drawing.Size(156, 38);
+            this.btnAñadiraCompras.TabIndex = 65;
+            this.btnAñadiraCompras.Text = "Añadir a compras()";
+            this.btnAñadiraCompras.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
@@ -194,7 +193,7 @@
             this.pnlVentasdeProductos.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlVentasdeProductos.Controls.Add(this.txtPrecioTotal);
             this.pnlVentasdeProductos.Controls.Add(this.lblPrecioTotal);
-            this.pnlVentasdeProductos.Controls.Add(this.dgvCarrito);
+            this.pnlVentasdeProductos.Controls.Add(this.dgvCompras);
             this.pnlVentasdeProductos.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlVentasdeProductos.Location = new System.Drawing.Point(298, 88);
             this.pnlVentasdeProductos.Name = "pnlVentasdeProductos";
@@ -217,15 +216,15 @@
             this.lblPrecioTotal.TabIndex = 12;
             this.lblPrecioTotal.Text = "Precio Total";
             // 
-            // dgvCarrito
+            // dgvCompras
             // 
-            this.dgvCarrito.AllowUserToOrderColumns = true;
-            this.dgvCarrito.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCarrito.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvCarrito.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvCarrito.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarrito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCompras.AllowUserToOrderColumns = true;
+            this.dgvCompras.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCompras.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCompras.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvCompras.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cantidad,
             this.Producto,
             this.Precio});
@@ -236,16 +235,17 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCarrito.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvCarrito.EnableHeadersVisualStyles = false;
-            this.dgvCarrito.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dgvCarrito.Location = new System.Drawing.Point(12, 6);
-            this.dgvCarrito.Name = "dgvCarrito";
-            this.dgvCarrito.RowHeadersVisible = false;
-            this.dgvCarrito.RowHeadersWidth = 62;
-            this.dgvCarrito.RowTemplate.Height = 70;
-            this.dgvCarrito.Size = new System.Drawing.Size(457, 234);
-            this.dgvCarrito.TabIndex = 11;
+            this.dgvCompras.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCompras.EnableHeadersVisualStyles = false;
+            this.dgvCompras.GridColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dgvCompras.Location = new System.Drawing.Point(12, 6);
+            this.dgvCompras.Name = "dgvCompras";
+            this.dgvCompras.RowHeadersVisible = false;
+            this.dgvCompras.RowHeadersWidth = 62;
+            this.dgvCompras.RowTemplate.Height = 70;
+            this.dgvCompras.Size = new System.Drawing.Size(457, 234);
+            this.dgvCompras.TabIndex = 11;
+            this.dgvCompras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCompras_CellContentClick);
             // 
             // Cantidad
             // 
@@ -313,11 +313,11 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.pnlVentasdeProductos);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnAñadiraCarrito);
+            this.Controls.Add(this.btnAñadiraCompras);
             this.Controls.Add(this.numCantidad);
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.panel12);
-            this.Controls.Add(this.lblCarrito);
+            this.Controls.Add(this.lblCompras);
             this.Controls.Add(this.lblProducto);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.pictureBox1);
@@ -332,7 +332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
             this.pnlVentasdeProductos.ResumeLayout(false);
             this.pnlVentasdeProductos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,17 +343,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblProducto;
-        private System.Windows.Forms.Label lblCarrito;
+        private System.Windows.Forms.Label lblCompras;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label lblBuscarArriba;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.NumericUpDown numCantidad;
-        private System.Windows.Forms.Button btnAñadiraCarrito;
+        private System.Windows.Forms.Button btnAñadiraCompras;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Panel pnlVentasdeProductos;
-        private System.Windows.Forms.DataGridView dgvCarrito;
+        private System.Windows.Forms.DataGridView dgvCompras;
         private System.Windows.Forms.TextBox txtPrecioTotal;
         private System.Windows.Forms.Label lblPrecioTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;

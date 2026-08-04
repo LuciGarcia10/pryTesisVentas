@@ -13,10 +13,11 @@ namespace pryTesisVentas
 {
     public partial class frmNuevoPedido : Form
     {
-        List<clsDetallePedido> carrito = new List<clsDetallePedido>();
+        List<clsDetallePedido> compra = new List<clsDetallePedido>();
         public frmNuevoPedido()
         {
             InitializeComponent();
+            CargarProductosDesdeBase();
         }
 
         private void frmNuevoPedido_Load(object sender, EventArgs e)
@@ -62,57 +63,13 @@ namespace pryTesisVentas
                 }
             }
         }
-        private void lblHacerPedido1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-      
-
-
-
-        private void btnAgregararCarrito_Click(object sender, EventArgs e)
-        {
-            // Validamos que no esté vacío (usamos el texto del label como referencia)
-            if (string.IsNullOrWhiteSpace(cmbProductos.Text))
-            {
-                MessageBox.Show("Por favor, ingrese el nombre del producto.");
-                return;
-            }
-
-            // Creamos un nuevo item de pedido
-            clsDetallePedido nuevoItem = new clsDetallePedido();
-            nuevoItem.Producto = cmbProductos.Text;
-            nuevoItem.Cantidad = (int)numCantidad.Value; // Asumiendo que usás un NumericUpDown
-            nuevoItem.Proveedor = cmbProveedores.Text;
-
-            // Lo sumamos a la lista
-            carrito.Add(nuevoItem);
-
-            // Limpiamos para el siguiente
-            cmbProductos.SelectedIndex = -1;
-            numCantidad.Value = 1;
-            MessageBox.Show("Producto agregado al carrito temporal.");
-        }
-
-        private void btnVerCarrito_Click(object sender, EventArgs e)
-        {
-            if (carrito.Count == 0)
-            {
-                MessageBox.Show("El carrito está vacío.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            // Ahora que frmCarrito existe, esto va a compilar de diez:
-            frmCarrito ventanaCarrito = new frmCarrito(carrito);
-            ventanaCarrito.ShowDialog();
-        }
         
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             // Si el carrito tiene productos, avisamos antes de cerrar
-            if (carrito.Count > 0)
+            if (compra.Count > 0)
             {
                 DialogResult respuesta = MessageBox.Show(
                     "Tenés productos en el carrito. ¿Estás seguro de que querés cancelar el pedido? Se borrará todo.",
@@ -130,6 +87,52 @@ namespace pryTesisVentas
                 // Si no hay nada, cerramos directamente
                 this.Close();
             }
+        }
+
+        private void btnAgregararCompras_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cmbProductos.Text))
+            {
+                MessageBox.Show("Por favor, ingrese o seleccione un producto.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(cmbProveedores.Text))
+            {
+                MessageBox.Show("Por favor, seleccione un proveedor.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Creamos el detalle
+            clsDetallePedido nuevoItem = new clsDetallePedido
+            {
+                IdProducto = Convert.ToInt32(cmbProductos.SelectedValue), // O el ID que corresponda
+                Producto = cmbProductos.Text,
+                Cantidad = (int)numCantidad.Value,
+                Proveedor = cmbProveedores.Text,
+                Precio = 1500.00m // O el precio que traiga tu base de datos
+            };
+
+            compra.Add(nuevoItem);
+
+            // Limpiamos los campos
+            cmbProductos.SelectedIndex = -1;
+            numCantidad.Value = 1;
+
+            MessageBox.Show("Producto agregado a la lista de compras.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnVerCompras_Click(object sender, EventArgs e)
+        {
+            if (compra.Count == 0)
+            {
+                MessageBox.Show("El carrito de compras está vacío.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            frmCompras ventanaCompras = new frmCompras(compra);
+            ventanaCompras.StartPosition = FormStartPosition.CenterParent;
+            ventanaCompras.ShowDialog(this);
         }
     }
 }

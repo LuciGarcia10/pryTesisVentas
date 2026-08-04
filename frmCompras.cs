@@ -11,32 +11,25 @@ using System.Windows.Forms;
 
 namespace pryTesisVentas
 {
-    public partial class frmCarrito : Form
+    public partial class frmCompras : Form
     {
         private List<clsDetallePedido> listaLocal;
-
-        public frmCarrito(List<clsDetallePedido> carritoRecibido)
+        public frmCompras(List<clsDetallePedido> comprasRecibidas)
         {
             InitializeComponent();
 
-            this.listaLocal = carritoRecibido;
+            this.listaLocal = comprasRecibidas;
 
-            // Mostramos los datos en la tabla de tu interfaz
-            dgvCarrito.DataSource = null;
-            dgvCarrito.DataSource = listaLocal;
-
-            // Calculamos los totales inicialmente
-            CalcularTotalesCarrito();
         }
 
-        private void frmCarrito_Load(object sender, EventArgs e)
+        private void frmCompras_Load(object sender, EventArgs e)
         {
             txtFechaEntrega.Text = DateTime.Now.AddDays(1).ToString("dd/MM/yy");
-            CalcularTotalesCarrito();
         }
-
-        private void CalcularTotalesCarrito()
+        private void CalcularTotalesCompras()
         {
+            if (listaLocal == null) return;
+
             int totalCantidad = 0;
             decimal totalDinero = 0;
 
@@ -49,28 +42,11 @@ namespace pryTesisVentas
             txtCantProd.Text = totalCantidad.ToString();
             txtPrecioTotal.Text = totalDinero.ToString("C0");
         }
-
-        private void CalcularTotales()
-        {
-            decimal totalDinero = 0;
-            int totalItems = 0;
-
-            foreach (DataGridViewRow fila in dgvCarrito.Rows)
-            {
-                if (fila.Cells["Cantidad"].Value != null && fila.Cells["Precio"].Value != null)
-                {
-                    totalItems += Convert.ToInt32(fila.Cells["Cantidad"].Value);
-                    totalDinero += Convert.ToDecimal(fila.Cells["Precio"].Value);
-                }
-            }
-
-            txtCantProd.Text = totalItems.ToString();
-            txtPrecioTotal.Text = totalDinero.ToString("C2");
-        }
+        
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show("¿Estás seguro de que deseas cancelar el pedido? Se perderán los datos ingresados.", "Confirmar Cancelación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show("¿Estás seguro de que deseas cancelar la compra? Se perderán los datos ingresados.", "Confirmar Cancelación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
             {
@@ -78,7 +54,6 @@ namespace pryTesisVentas
             }
         }
 
-        // MODIFICACIÓN 1: Cambiamos a "async void" para poder usar "await" con Playwright
         private async void btnPedir_Click(object sender, EventArgs e)
         {
             // 1. Validar que hayan puesto una dirección
@@ -99,99 +74,105 @@ namespace pryTesisVentas
 
             if (resultado == DialogResult.Yes)
             {
-                // Cambiamos el cursor a modo espera y deshabilitamos el botón para evitar clics duplicados
                 this.Cursor = Cursors.WaitCursor;
                 btnPedir.Enabled = false;
 
                 try
                 {
-                    string cadenaConexion = "Data Source=.;Initial Catalog=DigitalFarmaBD;Integrated Security=True";
+                    // Podés usar 'Integrated Security=True' o tu usuario sa si tenés clave configurada
+                    string cadenaConexion = "Data Source=DESKTOP-TGRLC0K\\MSSQLSERVER01;Initial Catalog=BDDigitalFarma;Integrated Security=True;TrustServerCertificate=True";
                     int idPedidoGenerado = 0;
-                    string proveedorDestino = listaLocal[0].Proveedor; // Obtenemos el proveedor del carrito
+                    string proveedorDestino = listaLocal[0].Proveedor;
+                    decimal totalPedido = listaLocal.Sum(x => x.Cantidad * x.Precio);
 
                     using (SqlConnection conexion = new SqlConnection(cadenaConexion))
                     {
-                        conexion.Open();
+                        await conexion.OpenAsync();
 
                         using (SqlTransaction transaccion = conexion.BeginTransaction())
                         {
                             try
                             {
-                                // PASO A: Insertar en la tabla de Pedidos (Maestro)
-                                string queryPedido = "INSERT INTO Pedidos (Fecha, DireccionEntrega, Total) VALUES (@fecha, @direccion, @total); SELECT SCOPE_IDENTITY();";
+                                // Consulta ajustada para insertar el IdProveedor buscando por la Razón Social seleccionada
+                                string queryPedido = @"
+                                    INSERT INTO Pedidos (FechaPedido, DireccionEntrega, Total, IdEstado, IdProveedor) 
+                                    VALUES (
+                                        @fecha, 
+                                        @direccion, 
+                                        @total, 
+                                        1, 
+                                        (SELECT TOP 1 IdProveedor FROM Proveedores WHERE RazonSocial LIKE '%' + @proveedor + '%')
+                                    ); 
+                                    SELECT SCOPE_IDENTITY();";
+
 
                                 using (SqlCommand cmdPedido = new SqlCommand(queryPedido, conexion, transaccion))
                                 {
                                     cmdPedido.Parameters.AddWithValue("@fecha", DateTime.Now);
-                                    cmdPedido.Parameters.AddWithValue("@direccion", txtDireccion.Text);
+                                    cmdPedido.Parameters.AddWithValue("@direccion", txtDireccion.Text.Trim());
+                                    cmdPedido.Parameters.AddWithValue("@total", totalPedido);
 
-                                    decimal total = Convert.ToDecimal(txtPrecioTotal.Text.Replace("$", ""));
-                                    cmdPedido.Parameters.AddWithValue("@total", total);
-
-                                    idPedidoGenerado = Convert.ToInt32(cmdPedido.ExecuteScalar());
+                                    object res = await cmdPedido.ExecuteScalarAsync();
+                                    idPedidoGenerado = Convert.ToInt32(res);
                                 }
 
-                                // PASO B: Recorrer el carrito e insertar cada producto en DetallePedidos
-                                // MODIFICACIÓN 2: Se agregó el campo Proveedor al INSERT ya que lo estabas pasando como parámetro abajo
-                                string queryDetalle = "INSERT INTO DetallePedidos (IdPedido, NombreProducto, Cantidad, Precio, Proveedor) VALUES (@idPedido, @nombre, @cantidad, @precio, @proveedor);";
+                                string queryDetalle = @"INSERT INTO DetallePedido (IdPedido, IdProducto, Cantidad, PrecioCosto) 
+                                               VALUES (@idPedido, @idProducto, @cantidad, @precio);";
 
                                 foreach (clsDetallePedido detalle in listaLocal)
                                 {
                                     using (SqlCommand cmdDetalle = new SqlCommand(queryDetalle, conexion, transaccion))
                                     {
                                         cmdDetalle.Parameters.AddWithValue("@idPedido", idPedidoGenerado);
-                                        cmdDetalle.Parameters.AddWithValue("@nombre", detalle.Producto);
+
+                                        // Si en la clase tenés el ID del producto usás detalle.IdProducto, de lo contrario usamos 1 de prueba
+                                        cmdDetalle.Parameters.AddWithValue("@idProducto", detalle.IdProducto > 0 ? detalle.IdProducto : 1);
                                         cmdDetalle.Parameters.AddWithValue("@cantidad", detalle.Cantidad);
                                         cmdDetalle.Parameters.AddWithValue("@precio", detalle.Precio);
-                                        cmdDetalle.Parameters.AddWithValue("@proveedor", detalle.Proveedor);
 
-                                        cmdDetalle.ExecuteNonQuery();
+                                        await cmdDetalle.ExecuteNonQueryAsync();
                                     }
                                 }
 
-                                // Si todo salió bien en la base de datos, guardamos los cambios locales
                                 transaccion.Commit();
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
                                 transaccion.Rollback();
-                                throw ex;
+                                throw;
                             }
                         }
                     }
 
-                    // MODIFICACIÓN 3: EJECUTAMOS LA AUTOMATIZACIÓN WEB POST-GUARDADO EN BD
-                    // Al usar await, la aplicación esperará que el bot trabaje en segundo plano sin congelarse
                     try
                     {
                         await clsAutomatizacionDrogueria.CargarPedidoEnWeb(proveedorDestino, listaLocal);
                     }
                     catch (Exception exBot)
                     {
-                        // Si falla la web, avisamos pero el pedido en base de datos ya quedó asentado
-                        MessageBox.Show($"El pedido se guardó en el sistema pero falló la carga automática en la web: {exBot.Message}",
+                        MessageBox.Show($"El pedido N° {idPedidoGenerado} se guardó en el sistema, pero ocurrió una advertencia en la web: {exBot.Message}",
                                         "Aviso de Automatización", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
-                    // Sincronización con la grilla del formulario principal de pedidos (frmPedidos) si está abierto
                     frmPedidos formularioPadre = (frmPedidos)Application.OpenForms["frmPedidos"];
                     if (formularioPadre != null)
                     {
-                        clsPedido nuevoPedido = new clsPedido();
-                        nuevoPedido.IdPedido = idPedidoGenerado;
-                        nuevoPedido.Fecha = DateTime.Now;
-                        nuevoPedido.Proveedor = proveedorDestino;
-                        nuevoPedido.Estado = "Pendiente";
-                        nuevoPedido.Detalles = new List<clsDetallePedido>(this.listaLocal);
-                        nuevoPedido.Total = Convert.ToDecimal(txtPrecioTotal.Text.Replace("$", ""));
+                        clsPedido nuevoPedido = new clsPedido
+                        {
+                            IdPedido = idPedidoGenerado,
+                            Fecha = DateTime.Now,
+                            Proveedor = proveedorDestino,
+                            Estado = "Pendiente",
+                            Detalles = new List<clsDetallePedido>(this.listaLocal),
+                            Total = totalPedido
+                        };
 
                         formularioPadre.listaPedidos.Add(nuevoPedido);
                         formularioPadre.ActualizarGrilla(formularioPadre.listaPedidos);
                     }
 
-                    MessageBox.Show("¡Pedido realizado con éxito en el sistema y enviado a la droguería! Orden N° " + idPedidoGenerado, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"¡Pedido realizado con éxito y enviado a la droguería! Orden N° {idPedidoGenerado}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Vaciamos la lista original y cerramos
                     listaLocal.Clear();
                     this.Close();
                 }
@@ -201,7 +182,6 @@ namespace pryTesisVentas
                 }
                 finally
                 {
-                    // Restauramos los controles de la pantalla
                     this.Cursor = Cursors.Default;
                     btnPedir.Enabled = true;
                 }
@@ -212,6 +192,19 @@ namespace pryTesisVentas
         {
             this.Close();
         }
+
+        private void frmCompras_Shown(object sender, EventArgs e)
+        {
+            // Suspendemos el layout temporalmente para que el DataGridView no redibuje fila por fila
+            dgvCompras.SuspendLayout();
+
+            dgvCompras.DataSource = null;
+            dgvCompras.DataSource = listaLocal;
+
+            dgvCompras.ResumeLayout();
+
+            // Calculamos totales una sola vez
+            CalcularTotalesCompras();
+        }
     }
 }
-

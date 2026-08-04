@@ -497,8 +497,8 @@ namespace pryTesisVentas
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            //frmVentas frm = new frmVentas();
-            //frm.ShowDialog();
+            frmVentas frm = new frmVentas();
+            frm.ShowDialog();
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
@@ -525,10 +525,7 @@ namespace pryTesisVentas
             frm.ShowDialog();
         }
 
-        private void cmbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+  
 
 
 

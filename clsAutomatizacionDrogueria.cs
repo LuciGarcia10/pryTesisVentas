@@ -1,6 +1,7 @@
 ﻿using Microsoft.Playwright;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,33 @@ namespace pryTesisVentas
 {
     public class clsAutomatizacionDrogueria
     {
-        public static async Task CargarPedidoEnWeb(string proveedor, List<clsDetallePedido> carrito)
+        public static (string usuario, string password) ObtenerCredencialesProveedor(string nombreProveedor)
+        {
+            string usuario = "";
+            string password = "";
+            string cadenaConexion = "Data Source=DESKTOP-TGRLC0K\\MSSQLSERVER01;Initial Catalog=BDDigitalFarma;Integrated Security=True;TrustServerCertificate=True";
+
+            string query = "SELECT TOP 1 UsuarioWeb, PasswordWeb FROM Proveedores WHERE RazonSocial LIKE '%' + @nombre + '%'";
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@nombre", nombreProveedor);
+                conexion.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        usuario = reader["UsuarioWeb"] != DBNull.Value ? reader["UsuarioWeb"].ToString() : "";
+                        password = reader["PasswordWeb"] != DBNull.Value ? reader["PasswordWeb"].ToString() : "";
+                    }
+                }
+            }
+
+            return (usuario, password);
+        }
+        public static async Task CargarPedidoEnWeb(string proveedor, List<clsDetallePedido> compra)
         {
             // Cambiamos el using moderno por el clásico compatible con C# 7.3
             using (var playwright = await Playwright.CreateAsync())
@@ -25,19 +52,22 @@ namespace pryTesisVentas
 
                     if (proveedor.Contains("del Sud"))
                     {
-                        // 1. Va a la web de la droguería
+                        // Va a la web REAL de la droguería
                         await page.GotoAsync("https://pedidos.delsud.com.ar/");
 
-                        // 2. Completa el Login (Selectores de ejemplo para la tesis)
-                        await page.FillAsync("#txtUsuario", "usuario_ejemplo_farmacia");
-                        await page.FillAsync("#txtPassword", "clave123");
+                        // Lee las credenciales vivas guardadas en la base de datos
+                        var credenciales = ObtenerCredencialesProveedor("del Sud");
+
+                        // Completa los campos con lo que devolvió SQL Server
+                        await page.FillAsync("#txtUsuario", credenciales.usuario);
+                        await page.FillAsync("#txtPassword", credenciales.password);
                         await page.ClickAsync("#btnIngresar");
 
-                        // Esperamos que el login procese y cambie la URL
+                        // Esperamos que el login procese
                         await page.WaitForURLAsync("**/inicio");
 
                         // 3. Recorre tu lista local cargando producto por producto en la página
-                        foreach (clsDetallePedido item in carrito)
+                        foreach (clsDetallePedido item in compra)
                         {
                             // Escribe el nombre del medicamento en el buscador de la web
                             await page.FillAsync("#buscador-productos-web", item.Producto);
@@ -49,7 +79,7 @@ namespace pryTesisVentas
                             await page.ClickAsync(".btn-add-to-cart-web");
                         }
 
-                        // 4. Deja al usuario en la pantalla del carrito web para el control final
+                        // 4. Deja al usuario en la pantalla del compra web para el control final
                         await page.GotoAsync("https://pedidos.delsud.com.ar/");
 
                         // Espera 10 segundos antes de cerrar el navegador

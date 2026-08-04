@@ -21,17 +21,43 @@ namespace pryTesisVentas
 
         private void btnAplicarFiltros_Click(object sender, EventArgs e)
         {
-            // Filtramos de un solo tirón adaptando el NroAfiliado y usando CmbECuenta
+            // 1. Protección de seguridad por si la lista no fue asignada
+            if (listaParaFiltrar == null)
+            {
+                this.Close();
+                return;
+            }
+
+            // 2. Consulta LINQ optimizada y segura contra valores nulos en controles
+            string txtAfiliadoVal = txtNAf.Text.Trim();
+            string txtNombreVal = txtNombre.Text.Trim().ToLower();
+            string txtApellidoVal = txtApellido.Text.Trim().ToLower();
+
             var resultado = listaParaFiltrar.Where(x =>
-                (string.IsNullOrWhiteSpace(txtNAf.Text) || (x.NroAfiliado != null && x.NroAfiliado.Contains(txtNAf.Text.Trim()))) &&
-                (string.IsNullOrWhiteSpace(txtNombre.Text) || (x.Nombre != null && x.Nombre.ToLower().Contains(txtNombre.Text.Trim().ToLower()))) &&
-                (string.IsNullOrWhiteSpace(txtApellido.Text) || (x.Apellido != null && x.Apellido.ToLower().Contains(txtApellido.Text.Trim().ToLower()))) &&
+                // Filtro por Nro Afiliado
+                (string.IsNullOrWhiteSpace(txtAfiliadoVal) || (x.NroAfiliado != null && x.NroAfiliado.Contains(txtAfiliadoVal))) &&
+
+                // Filtro por Nombre
+                (string.IsNullOrWhiteSpace(txtNombreVal) || (x.Nombre != null && x.Nombre.ToLower().Contains(txtNombreVal))) &&
+
+                // Filtro por Apellido
+                (string.IsNullOrWhiteSpace(txtApellidoVal) || (x.Apellido != null && x.Apellido.ToLower().Contains(txtApellidoVal))) &&
+
+                // Filtro por Obra Social
                 (CmbOS.SelectedIndex == -1 || CmbOS.Text == "Todas" || CmbOS.Text == "Seleccionar Obra Social" || (x.ObraSocial != null && x.ObraSocial == CmbOS.Text)) &&
+
+                // Filtro por Estado de Cuenta
                 (CmbECuenta.SelectedIndex == -1 || string.IsNullOrEmpty(CmbECuenta.Text) || (x.Estado != null && x.Estado == CmbECuenta.Text))
             ).ToList();
 
-            // Enviamos el resultado al padre (frmCuentasCorrientes) y cerramos
-            if (this.Owner is frmCuentasCorrientes padre) padre.ActualizarGrilla(resultado);
+            // 3. Notificamos al formulario padre utilizando el Owner asignado
+            if (this.Owner is frmCuentasCorrientes padre)
+            {
+                padre.ActualizarGrilla(resultado);
+            }
+
+            // 4. Establecemos el resultado exitoso para el ShowDialog y cerramos
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
