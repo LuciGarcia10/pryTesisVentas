@@ -55,16 +55,20 @@ namespace pryTesisVentas
             string telefono = TxtTel.Text.Trim();
             string email = TxtEmail.Text.Trim();
             string obraSocial = CmbObraS.Text;
-            string estado = "Al dia";
+            string estado = "Abonado";
             decimal saldoInicial = numSaldo.Value;
 
             // ====================================================================
             // REUTILIZACIÓN
             // ====================================================================
+
+            // Capturamos el texto seleccionado ("Abonado" o "Pendiente")
+            string estadoSeleccionado = CmbECuenta != null ? CmbECuenta.Text : "Abonado";
+
             if (Modo == "EDITAR")
             {
                 // 3A. Si el modo es EDITAR, llamamos al método UPDATE pasándole el ID que guardamos al abrir el formulario
-                bool modificadoConExito = clsConsultas.ModificarCliente(IdClienteSeleccionado, nroAfiliado, dni, nombre, apellido, telefono, email, obraSocial, saldoInicial);
+                bool modificadoConExito = clsConsultas.ModificarCliente(IdClienteSeleccionado, nroAfiliado, dni, nombre, apellido, telefono, email, obraSocial, estadoSeleccionado, saldoInicial);
 
                 if (modificadoConExito)
                 {
@@ -125,8 +129,8 @@ namespace pryTesisVentas
             if (CmbECuenta != null)
             {
                 CmbECuenta.Items.Clear();
-                CmbECuenta.Items.Add("Al día");
-                CmbECuenta.Items.Add("Inactivo");
+                CmbECuenta.Items.Add("Abonado");
+                CmbECuenta.Items.Add("Pendiente");
                 CmbECuenta.SelectedIndex = 0;
             }
 

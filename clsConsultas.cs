@@ -276,7 +276,7 @@ namespace pryTesisVentas
         }
 
         //MODIFICAR CLIENTE
-        public static bool ModificarCliente(string idCliente, string nroAfiliado, string dni, string nombre, string apellido, string telefono, string email, string obraSocial, decimal saldo)
+        public static bool ModificarCliente(string idCliente, string nroAfiliado, string dni, string nombre, string apellido, string telefono, string email, string obraSocial, string estado, decimal saldo)
         {
             // Consulta SQL para actualizar los datos usando el ID único del cliente
             string consulta = @"UPDATE Clientes 
@@ -287,6 +287,7 @@ namespace pryTesisVentas
                             Telefono = @Telefono, 
                             Email = @Email, 
                             ObraSocial = @ObraSocial,
+                            Estado = @Estado,
                             Saldo = @Saldo
                         WHERE IdCliente = @IdCliente";
 
@@ -303,6 +304,7 @@ namespace pryTesisVentas
                 comando.Parameters.AddWithValue("@Telefono", telefono);
                 comando.Parameters.AddWithValue("@Email", email);
                 comando.Parameters.AddWithValue("@ObraSocial", obraSocial);
+                comando.Parameters.AddWithValue("@Estado", estado);
                 comando.Parameters.AddWithValue("@Saldo", saldo);
 
                 try

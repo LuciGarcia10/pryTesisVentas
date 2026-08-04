@@ -355,6 +355,7 @@
   <ItemGroup>
     <None Include="Resources\Acciones.png" />
     <None Include="Resources\Captura de pantalla 2026-07-17 183404.png" />
+    <Content Include="ActualizarBD.sql" />
     <Content Include="Resources\hide.png" />
     <Content Include="Resources\show.png" />
   </ItemGroup>
