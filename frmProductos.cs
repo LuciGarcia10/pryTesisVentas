@@ -525,7 +525,12 @@ namespace pryTesisVentas
             frm.ShowDialog();
         }
 
-  
+        private void frmProductos_Paint(object sender, PaintEventArgs e)
+        {
+          
+        }
+
+
 
 
 
