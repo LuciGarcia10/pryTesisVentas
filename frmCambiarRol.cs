@@ -14,7 +14,7 @@ namespace pryTesisVentas
     public partial class frmCambiarRol : Form
     {
         private int idUsuarioSeleccionado;
-        private string cadenaConexion = "Server=localhost; Database=BDDigitalFarma; Integrated Security=True";
+        private string cadenaConexion = clsConsultas.cadena;
         public frmCambiarRol(int idUsuario)
         {
             InitializeComponent();

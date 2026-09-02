@@ -16,7 +16,7 @@ namespace pryTesisVentas
         // Lista local para simular las otras cuentas a gestionar por el Administrador
         //private List<clsUsuarioSimulado> listaUsuarios;
         // Tu cadena de conexión real apuntando a BDDigitalFarma
-        private string cadenaConexion = "Server=localhost; Database=BDDigitalFarma; Integrated Security=True";
+        private string cadenaConexion = clsConsultas.cadena;
         public FrmPerfil()
         {
             InitializeComponent();

@@ -14,7 +14,7 @@ namespace pryTesisVentas
     public partial class frmRecuperarContraseña : Form
     {
         // Cambiar a nuestra base "BDDigitalFarma"
-        private string cadenaConexion = "Server=localhost; Database=BDDigitalFarma; Integrated Security=True";
+        private string cadenaConexion = clsConsultas.cadena;
         public frmRecuperarContraseña()
         {
             InitializeComponent();
@@ -65,6 +65,11 @@ namespace pryTesisVentas
             {
                 MessageBox.Show("Error al conectar con la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void frmRecuperarContraseña_Load(object sender, EventArgs e)
+        {
+
         }
     }
     

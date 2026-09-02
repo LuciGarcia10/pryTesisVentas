@@ -80,7 +80,7 @@ namespace pryTesisVentas
                 try
                 {
                     // Podés usar 'Integrated Security=True' o tu usuario sa si tenés clave configurada
-                    string cadenaConexion = "Data Source=DESKTOP-TGRLC0K\\MSSQLSERVER01;Initial Catalog=BDDigitalFarma;Integrated Security=True;TrustServerCertificate=True";
+                    string cadenaConexion = clsConsultas.cadena;
                     int idPedidoGenerado = 0;
                     string proveedorDestino = listaLocal[0].Proveedor;
                     decimal totalPedido = listaLocal.Sum(x => x.Cantidad * x.Precio);

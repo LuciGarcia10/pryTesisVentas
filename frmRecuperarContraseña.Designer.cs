@@ -90,6 +90,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "frmRecuperarContraseña";
             this.Text = "frmRecuperarContraseña";
+            this.Load += new System.EventHandler(this.frmRecuperarContraseña_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

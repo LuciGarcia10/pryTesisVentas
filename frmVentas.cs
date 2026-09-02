@@ -17,7 +17,7 @@ namespace pryTesisVentas
         private List<Producto> listaProductos = new List<Producto>();
 
         // 🌟 CADENA DE CONEXIÓN ACTIVADA
-        private readonly string cadenaConexion = "Server=.; Database=BDDigitalFarma; Integrated Security=True";
+        private readonly string cadenaConexion = clsConsultas.cadena;
 
         public frmVentas()
         {

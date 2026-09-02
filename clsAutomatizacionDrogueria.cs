@@ -14,8 +14,7 @@ namespace pryTesisVentas
         {
             string usuario = "";
             string password = "";
-            string cadenaConexion = "Data Source=DESKTOP-TGRLC0K\\MSSQLSERVER01;Initial Catalog=BDDigitalFarma;Integrated Security=True;TrustServerCertificate=True";
-
+            string cadenaConexion = clsConsultas.cadena;
             string query = "SELECT TOP 1 UsuarioWeb, PasswordWeb FROM Proveedores WHERE RazonSocial LIKE '%' + @nombre + '%'";
 
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))

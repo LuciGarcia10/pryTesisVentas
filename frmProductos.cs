@@ -17,7 +17,7 @@ namespace pryTesisVentas
         // Lista global que guardará los productos en la memoria de la PC
         List<Producto> listaProductos = new List<Producto>();
         // Cadena de conexión a tu base de datos en Córdoba
-        string cadena = "Server=.; Database=BDDigitalFarma; Integrated Security=True";
+        public static string cadena = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Datos\BDDigitalFarma.mdf;Integrated Security=True;Connect Timeout=30;";
         public frmProductos()
         {
             InitializeComponent();
@@ -131,10 +131,17 @@ namespace pryTesisVentas
         // Recupera los registros reales de SQL Server y los almacena en la lista global
         public void CargarProductosDesdeBD()
         {
-            // Consulta a tu tabla de productos (Asegúrate de incluir la columna de ID o Clave Primaria)
-            string consulta = "SELECT IdProducto, Cantidad, Nombre, Categoria, FechaVencimiento, Precio FROM Productos";
+            // Consulta con las columnas reales de la BD y un INNER JOIN a Categorias
+            string consulta = @"
+        SELECT 
+            p.IdProducto, 
+            p.StockActual AS Cantidad, 
+            p.Nombre, 
+            c.Nombre AS Categoria, 
+            p.PrecioVenta AS Precio 
+        FROM Productos p
+        INNER JOIN Categorias c ON p.IdCategoria = c.IdCategoria";
 
-            // Accedemos de forma directa usando la conexión estática unificada
             using (SqlConnection conexion = new SqlConnection(clsConsultas.cadena))
             {
                 try
@@ -147,24 +154,27 @@ namespace pryTesisVentas
 
                     while (lector.Read())
                     {
-                        Producto nuevoProd = new Producto();
-                        // Mapeamos las propiedades (Asegúrate de que la clase Producto tenga la propiedad IdProducto o Id)
-                        nuevoProd.Id = Convert.ToInt32(lector["IdProducto"]);
-                        nuevoProd.Cantidad = Convert.ToInt32(lector["Cantidad"]);
-                        nuevoProd.Nombre = lector["Nombre"].ToString();
-                        nuevoProd.Categoria = lector["Categoria"].ToString();
-                        nuevoProd.FechaVencimiento = Convert.ToDateTime(lector["FechaVencimiento"]);
-                        nuevoProd.Precio = Convert.ToDecimal(lector["Precio"]);
+                        Producto nuevoProd = new Producto
+                        {
+                            Id = Convert.ToInt32(lector["IdProducto"]),
+                            Cantidad = Convert.ToInt32(lector["Cantidad"]),
+                            Nombre = lector["Nombre"].ToString(),
+                            Categoria = lector["Categoria"].ToString(),
+                            Precio = Convert.ToDecimal(lector["Precio"]),
+                            // Asignamos una fecha provisional para evitar error por falta de columna:
+                            FechaVencimiento = DateTime.Today
+                        };
 
                         listaProductos.Add(nuevoProd);
                     }
 
-                    // Mostramos la lista completa en la grilla
+                    // Muestra los registros recuperados en la grilla
                     ActualizarGrilla(listaProductos);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al conectar con la tabla de productos: " + ex.Message, "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al conectar con la tabla de productos: " + ex.Message,
+                                    "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

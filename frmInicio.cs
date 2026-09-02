@@ -19,7 +19,7 @@ namespace pryTesisVentas
         public string NombreUsuario { get; set; } = "Usuario";
         public string RolUsuario { get; set; } = "Invitado";
         // Define tu cadena de conexión aquí (ajusta el nombre del servidor y BD)
-        string cadenaConexion = "Server=.;Database=BDDigitalFarma;Trusted_Connection=True;";
+        string cadenaConexion = clsConsultas.cadena;
         public frmInicio()
         {
             InitializeComponent();

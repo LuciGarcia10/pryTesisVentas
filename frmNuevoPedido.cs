@@ -14,6 +14,7 @@ namespace pryTesisVentas
     public partial class frmNuevoPedido : Form
     {
         List<clsDetallePedido> compra = new List<clsDetallePedido>();
+        
         public frmNuevoPedido()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace pryTesisVentas
         private void CargarProductosDesdeBase()
         {
             // 1. Cadena de conexión a tu base de datos
-            string cadenaConexion = "Server=.; Database=BDDigitalFarma; Integrated Security=True;";
+            string cadenaConexion = clsConsultas.cadena;
 
             // 2. Consulta SQL: Traemos el ID (clave primaria) y el Nombre de los productos
             string query = "SELECT id_producto, nombre_producto FROM Productos ORDER BY nombre_producto ASC";

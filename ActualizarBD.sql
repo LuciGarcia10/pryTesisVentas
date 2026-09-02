@@ -1,4 +1,16 @@
-﻿USE BDDigitalFarma;
+﻿USE master;
+GO
+
+-- Si no está adjunta en esta sesión, la adjuntamos temporalmente apuntando a tu archivo del proyecto:
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'BDDigitalFarma')
+BEGIN
+    CREATE DATABASE [BDDigitalFarma] 
+    ON (FILENAME = 'C:\Users\lucia\source\repos\Tesis01\LuciGarcia10\pryTesisVentas\Datos\BDDigitalFarma.mdf') 
+    FOR ATTACH;
+END
+GO
+
+USE BDDigitalFarma;
 GO
 
 -- Agrega la columna Saldo si no existe
