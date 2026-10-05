@@ -180,6 +180,7 @@
             this.cmbProductos.Name = "cmbProductos";
             this.cmbProductos.Size = new System.Drawing.Size(291, 29);
             this.cmbProductos.TabIndex = 40;
+            this.cmbProductos.SelectedIndexChanged += new System.EventHandler(this.cmbProductos_SelectedIndexChanged);
             // 
             // frmNuevoPedido
             // 

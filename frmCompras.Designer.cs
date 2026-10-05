@@ -32,9 +32,6 @@
             this.lblCompras = new System.Windows.Forms.Label();
             this.ptbCompras = new System.Windows.Forms.PictureBox();
             this.dgvCompras = new System.Windows.Forms.DataGridView();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnPedir = new System.Windows.Forms.Button();
             this.txtFechaEntrega = new System.Windows.Forms.DateTimePicker();
@@ -75,10 +72,6 @@
             this.dgvCompras.AllowUserToAddRows = false;
             this.dgvCompras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cantidad,
-            this.Producto,
-            this.Precio});
             this.dgvCompras.Location = new System.Drawing.Point(12, 56);
             this.dgvCompras.Name = "dgvCompras";
             this.dgvCompras.RowHeadersVisible = false;
@@ -86,24 +79,6 @@
             this.dgvCompras.RowTemplate.Height = 28;
             this.dgvCompras.Size = new System.Drawing.Size(589, 194);
             this.dgvCompras.TabIndex = 14;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.MinimumWidth = 8;
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.MinimumWidth = 8;
-            this.Producto.Name = "Producto";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.MinimumWidth = 8;
-            this.Precio.Name = "Precio";
             // 
             // btnCancelar
             // 
@@ -252,9 +227,6 @@
         private System.Windows.Forms.PictureBox ptbCompras;
         private System.Windows.Forms.Label lblCompras;
         private System.Windows.Forms.DataGridView dgvCompras;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnPedir;
         private System.Windows.Forms.DateTimePicker txtFechaEntrega;
