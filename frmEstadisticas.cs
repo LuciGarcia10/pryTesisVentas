@@ -250,6 +250,12 @@ namespace pryTesisVentas
         {
             ActualizarDatos();
         }
+
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            FrmPerfil frm = new FrmPerfil();
+            frm.Show();
+        }
     }
 
 }
