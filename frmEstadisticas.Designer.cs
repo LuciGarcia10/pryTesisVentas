@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstadisticas));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.btnUsuario1 = new System.Windows.Forms.Button();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -244,7 +244,7 @@
             // 
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.pictureBox10);
-            this.panel4.Controls.Add(this.btnUsuario1);
+            this.panel4.Controls.Add(this.btnPerfil);
             this.panel4.Location = new System.Drawing.Point(3, 969);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(288, 98);
@@ -271,15 +271,16 @@
             this.pictureBox10.TabIndex = 39;
             this.pictureBox10.TabStop = false;
             // 
-            // btnUsuario1
+            // btnPerfil
             // 
-            this.btnUsuario1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuario1.Location = new System.Drawing.Point(12, 5);
-            this.btnUsuario1.Name = "btnUsuario1";
-            this.btnUsuario1.Size = new System.Drawing.Size(273, 88);
-            this.btnUsuario1.TabIndex = 40;
-            this.btnUsuario1.Text = "Funes Garcia";
-            this.btnUsuario1.UseVisualStyleBackColor = true;
+            this.btnPerfil.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerfil.Location = new System.Drawing.Point(12, 5);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(273, 88);
+            this.btnPerfil.TabIndex = 40;
+            this.btnPerfil.Text = "Funes Garcia";
+            this.btnPerfil.UseVisualStyleBackColor = true;
+            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
             // 
             // panel10
             // 
@@ -593,7 +594,7 @@
             // pictureBox9
             // 
             this.pictureBox9.Location = new System.Drawing.Point(24, 29);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(38, 34);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -616,7 +617,7 @@
             // btnUsuario
             // 
             this.btnUsuario.Location = new System.Drawing.Point(12, 5);
-            this.btnUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.Size = new System.Drawing.Size(273, 88);
             this.btnUsuario.TabIndex = 40;
@@ -687,27 +688,27 @@
             this.cmbPrevi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPrevi.FormattingEnabled = true;
             this.cmbPrevi.Location = new System.Drawing.Point(717, 43);
-            this.cmbPrevi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbPrevi.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPrevi.Name = "cmbPrevi";
             this.cmbPrevi.Size = new System.Drawing.Size(121, 29);
             this.cmbPrevi.TabIndex = 6;
             // 
             // crtGananciasMensuales
             // 
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY2.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.Name = "ChartArea1";
-            this.crtGananciasMensuales.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea3.AxisY.MajorGrid.Enabled = false;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea3.AxisY2.LineColor = System.Drawing.Color.LightGray;
+            chartArea3.Name = "ChartArea1";
+            this.crtGananciasMensuales.ChartAreas.Add(chartArea3);
             this.crtGananciasMensuales.Location = new System.Drawing.Point(8, 92);
             this.crtGananciasMensuales.Name = "crtGananciasMensuales";
-            series1.ChartArea = "ChartArea1";
-            series1.CustomProperties = "PointWidth=0.6";
-            series1.Name = "Series1";
-            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            this.crtGananciasMensuales.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.CustomProperties = "PointWidth=0.6";
+            series3.Name = "Series1";
+            series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.crtGananciasMensuales.Series.Add(series3);
             this.crtGananciasMensuales.Size = new System.Drawing.Size(568, 182);
             this.crtGananciasMensuales.TabIndex = 4;
             this.crtGananciasMensuales.Text = "chart1";
@@ -771,27 +772,27 @@
             // 
             // chartClientes
             // 
-            chartArea2.InnerPlotPosition.Auto = false;
-            chartArea2.InnerPlotPosition.Width = 63.73417F;
-            chartArea2.InnerPlotPosition.X = 18.13291F;
-            chartArea2.InnerPlotPosition.Y = 2.5F;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 90F;
-            chartArea2.Position.Width = 90F;
-            chartArea2.Position.X = 5F;
-            chartArea2.Position.Y = 5F;
-            this.chartClientes.ChartAreas.Add(chartArea2);
+            chartArea4.InnerPlotPosition.Auto = false;
+            chartArea4.InnerPlotPosition.Width = 63.73417F;
+            chartArea4.InnerPlotPosition.X = 18.13291F;
+            chartArea4.InnerPlotPosition.Y = 2.5F;
+            chartArea4.Name = "ChartArea1";
+            chartArea4.Position.Auto = false;
+            chartArea4.Position.Height = 90F;
+            chartArea4.Position.Width = 90F;
+            chartArea4.Position.X = 5F;
+            chartArea4.Position.Y = 5F;
+            this.chartClientes.ChartAreas.Add(chartArea4);
             this.chartClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chartClientes.Location = new System.Drawing.Point(0, 96);
-            this.chartClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartClientes.Margin = new System.Windows.Forms.Padding(2);
             this.chartClientes.Name = "chartClientes";
             this.chartClientes.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.CustomProperties = "DoughnutRadius=40";
-            series2.Name = "SeriesProgreso";
-            this.chartClientes.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.CustomProperties = "DoughnutRadius=40";
+            series4.Name = "SeriesProgreso";
+            this.chartClientes.Series.Add(series4);
             this.chartClientes.Size = new System.Drawing.Size(372, 249);
             this.chartClientes.TabIndex = 10;
             this.chartClientes.Text = "chart2";
@@ -1392,7 +1393,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.Button btnUsuario1;
+        private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox8;

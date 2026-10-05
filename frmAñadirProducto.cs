@@ -57,7 +57,7 @@ namespace pryTesisVentas
                     conexion.Open();
 
                     // Consulta estructurada con parámetros de seguridad (evita Inyección SQL)
-                    string query = "INSERT INTO Productos (Nombre, Categoria, Cantidad, FechaVencimiento, Precio) " +
+                    string query = "INSERT INTO Productos (Nombre, IdCategoria, Cantidad, FechaVencimiento, PrecioVenta) " +
                                    "VALUES (@nom, @cat, @cant, @fec, @prec)";
 
                     using (SqlCommand comando = new SqlCommand(query, conexion))

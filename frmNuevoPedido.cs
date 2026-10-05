@@ -31,7 +31,7 @@ namespace pryTesisVentas
             string cadenaConexion = clsConsultas.cadena;
 
             // 2. Consulta SQL: Traemos el ID (clave primaria) y el Nombre de los productos
-            string query = "SELECT id_producto, nombre_producto FROM Productos ORDER BY nombre_producto ASC";
+            string query = "SELECT IdProducto, Nombre FROM Productos ORDER BY Nombre ASC";
 
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
@@ -46,10 +46,10 @@ namespace pryTesisVentas
 
                     // 4. Vincular los datos extraídos de SQL con tu ComboBox
                     // DisplayMember es lo que ve el usuario en la lista (el nombre)
-                    cmbProductos.DisplayMember = "nombre_producto";
+                    cmbProductos.DisplayMember = "Nombre";
 
                     // ValueMember es el ID real del producto que queda oculto en memoria (sirve para registrar el pedido)
-                    cmbProductos.ValueMember = "id_producto";
+                    cmbProductos.ValueMember = "IdProducto";
 
                     // Le pasamos la tabla con los datos reales
                     cmbProductos.DataSource = dt;
@@ -127,13 +127,18 @@ namespace pryTesisVentas
         {
             if (compra.Count == 0)
             {
-                MessageBox.Show("El carrito de compras está vacío.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Todavia no se ha agregado ningun producto.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             frmCompras ventanaCompras = new frmCompras(compra);
             ventanaCompras.StartPosition = FormStartPosition.CenterParent;
             ventanaCompras.ShowDialog(this);
+        }
+
+        private void cmbProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

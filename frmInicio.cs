@@ -111,8 +111,6 @@ namespace pryTesisVentas
             ObtenerPedidosPendientes();
             ObtenerPedidosCancelados();
 
-            // Transformar contenedores de iconos a formas circulares
-            HacerCirculo(pcbPedido);
 
             // Cargar datos de la sesión del usuario abajo a la izquierda
             btnUsuario.Text = NombreUsuario;
@@ -205,19 +203,6 @@ namespace pryTesisVentas
         }
 
 
-        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Configuración de columnas
-            dgvVentas.Columns.Add("Producto", "Producto");
-            dgvVentas.Columns.Add("Stock", "Stock");
-            dgvVentas.Columns.Add("Precio", "Precio");
-            dgvVentas.Columns.Add("Ventas", "Ventas");
-
-            // Agregar datos de ejemplo
-            dgvVentas.Rows.Add("Ibuprofeno 600\nMedicamento analgésico...", "32 en stock", "$ 2.500", "20");
-            dgvVentas.Rows.Add("Loratadina\nAntihistamínico para alergias...", "31 en stock", "$ 4.890", "19");
-
-        }
         private void AbrirFormularioHijo(object formularioHijo)
         {
             if (this.pnlContenedorPrincipal.Controls.Count > 0)

@@ -85,10 +85,6 @@
             this.FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.lblBuscarArriba = new System.Windows.Forms.Label();
-            this.txtBuscarArriba = new System.Windows.Forms.TextBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -114,8 +110,6 @@
             this.pnlBuscador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -767,62 +761,11 @@
             this.Acciones.Name = "Acciones";
             this.Acciones.Width = 150;
             // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel12.Controls.Add(this.lblBuscarArriba);
-            this.panel12.Controls.Add(this.txtBuscarArriba);
-            this.panel12.Controls.Add(this.pictureBox12);
-            this.panel12.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel12.Location = new System.Drawing.Point(1221, 28);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(319, 32);
-            this.panel12.TabIndex = 14;
-            // 
-            // lblBuscarArriba
-            // 
-            this.lblBuscarArriba.AutoSize = true;
-            this.lblBuscarArriba.BackColor = System.Drawing.Color.Transparent;
-            this.lblBuscarArriba.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblBuscarArriba.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblBuscarArriba.Location = new System.Drawing.Point(38, 8);
-            this.lblBuscarArriba.Name = "lblBuscarArriba";
-            this.lblBuscarArriba.Size = new System.Drawing.Size(56, 21);
-            this.lblBuscarArriba.TabIndex = 18;
-            this.lblBuscarArriba.Text = "Buscar";
-            this.lblBuscarArriba.Click += new System.EventHandler(this.lblBuscarArriba_Click);
-            // 
-            // txtBuscarArriba
-            // 
-            this.txtBuscarArriba.BackColor = System.Drawing.Color.White;
-            this.txtBuscarArriba.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBuscarArriba.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarArriba.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtBuscarArriba.Location = new System.Drawing.Point(40, 5);
-            this.txtBuscarArriba.Name = "txtBuscarArriba";
-            this.txtBuscarArriba.Size = new System.Drawing.Size(126, 22);
-            this.txtBuscarArriba.TabIndex = 9;
-            this.txtBuscarArriba.TextChanged += new System.EventHandler(this.txtBuscarArriba_TextChanged);
-            this.txtBuscarArriba.Enter += new System.EventHandler(this.txtBuscarArriba_Enter);
-            this.txtBuscarArriba.Leave += new System.EventHandler(this.txtBuscarArriba_Leave);
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(32, 31);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 11;
-            this.pictureBox12.TabStop = false;
-            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 932);
-            this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.pnlContenedorPrincipal);
             this.Name = "frmProductos";
@@ -866,9 +809,6 @@
             this.pnlBuscador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -925,11 +865,7 @@
         private System.Windows.Forms.ComboBox cmbOrden;
         private System.Windows.Forms.ComboBox cmbFiltrar;
         private System.Windows.Forms.Panel pnlcmbOrden;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox txtBuscarArriba;
-        private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label lblBuscar;
-        private System.Windows.Forms.Label lblBuscarArriba;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox10;

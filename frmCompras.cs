@@ -201,6 +201,10 @@ namespace pryTesisVentas
             dgvCompras.DataSource = null;
             dgvCompras.DataSource = listaLocal;
 
+            // Ocultar si no querés que se muestren
+            if (dgvCompras.Columns["IdProducto"] != null)
+                dgvCompras.Columns["IdProducto"].Visible = false;
+
             dgvCompras.ResumeLayout();
 
             // Calculamos totales una sola vez

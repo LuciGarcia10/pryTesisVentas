@@ -473,32 +473,7 @@ namespace pryTesisVentas
             }
         }
 
-        private void lblBuscarArriba_Click(object sender, EventArgs e)
-        {
-            txtBuscarArriba.Focus();
-        }
-
-        private void txtBuscarArriba_TextChanged(object sender, EventArgs e)
-        {
-            lblBuscarArriba.Visible = string.IsNullOrEmpty(txtBuscarArriba.Text);
-
-            // Filtramos inmediatamente
-            FiltrarBusquedaRapida(txtBuscarArriba.Text);
-        }
-
-        private void txtBuscarArriba_Enter(object sender, EventArgs e)
-        {
-            lblBuscarArriba.Visible = false;
-        }
-
-        private void txtBuscarArriba_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtBuscarArriba.Text))
-            {
-                lblBuscarArriba.Visible = true;
-            }
-        }
-
+        
         private void btnInicio_Click(object sender, EventArgs e)
         {
             frmInicio frm = new frmInicio();
