@@ -32,12 +32,12 @@ namespace pryTesisVentas
             string rolUsuario = "";
 
             // 1. Validación de credenciales para ADMINISTRADOR
-            if (txtMail.Text == "admin@digitalfarma.com" && txtContra.Text == "1234")
+            if (txtMail.Text == "admin.digitalfarma@gmail.com" && txtContra.Text == "1234")
             {
                 rolUsuario = "Administrador";
             }
             // 2. NUEVO ROL: Validación de credenciales para EMPLEADO/VENDEDOR
-            else if (txtMail.Text == "empleado@digitalfarma.com" && txtContra.Text == "5678")
+            else if (txtMail.Text == "empleado.digitalfarma@gmail.com" && txtContra.Text == "5678")
             {
                 rolUsuario = "Empleado";
             }

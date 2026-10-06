@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;      // Necesario para las credenciales de red
+using System.Net.Mail; // Necesario para armar y enviar el correo
 
 namespace pryTesisVentas
 {
@@ -38,24 +40,49 @@ namespace pryTesisVentas
                 {
                     conexion.Open();
 
-                    // Buscamos en la columna 'mail' de tu tabla real 'Usuarios'
-                    string query = "SELECT COUNT(*) FROM Usuarios WHERE mail = @Mail";
+                    // Traemos la contraseña en vez de solo contar si existe
+                    string query = "SELECT contrasenia FROM Usuarios WHERE mail = @Mail";
 
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         comando.Parameters.AddWithValue("@Mail", mailIngresado);
 
-                        int existe = (int)comando.ExecuteScalar();
+                        // ExecuteScalar trae la primera columna de la primera fila (la contraseña)
+                        object resultado = comando.ExecuteScalar();
 
-                        if (existe > 0)
+                        if (resultado != null)
                         {
-                            // ¡El mail existe en BDDigitalFarma!
-                            MessageBox.Show("Se ha enviado un enlace de recuperación a: " + mailIngresado, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close(); // Cerramos y volvemos al Login
+                            // ¡El mail existe! Guardamos la contraseña recuperada de la BD
+                            string claveRecuperada = resultado.ToString();
+
+                            // 3. ENVIAR EL CORREO
+                            try
+                            {
+                                MailMessage correo = new MailMessage();
+                                correo.From = new MailAddress("admin.digitalfarma@gmail.com");
+                                correo.To.Add(mailIngresado);
+
+                                correo.Subject = "Recuperación de contraseña - DigitalFarma";
+                                correo.Body = $"Hola. Hemos recibido una solicitud para recuperar tu acceso al sistema de la farmacia.\n\nTu contraseña actual es: {claveRecuperada}\n\nPor favor, guardala en un lugar seguro.";
+
+                                SmtpClient clienteSmtp = new SmtpClient("smtp.gmail.com");
+                                clienteSmtp.Port = 587;
+                                clienteSmtp.Credentials = new NetworkCredential("admin.digitalfarma@gmail.com", "hyqg cxue jyrd ctoo");
+                                clienteSmtp.EnableSsl = true;
+
+                                clienteSmtp.Send(correo);
+
+                                MessageBox.Show("Se ha enviado tu contraseña al correo: " + mailIngresado, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close(); // Cerramos y volvemos al Login
+                            }
+                            catch (Exception exCorreo)
+                            {
+                                MessageBox.Show("Hubo un problema al enviar el correo: " + exCorreo.Message, "Error de Red", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            // El mail no está registrado
+                            // El mail no está registrado (el resultado del SELECT fue nulo)
                             MessageBox.Show("El correo ingresado no se encuentra registrado en el sistema.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
@@ -70,6 +97,11 @@ namespace pryTesisVentas
         private void frmRecuperarContraseña_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
     
