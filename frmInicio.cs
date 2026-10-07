@@ -16,6 +16,8 @@ namespace pryTesisVentas
 {
     public partial class frmInicio : Form
     {
+        // Lista en memoria con los datos cargados desde la base de datos
+        private List<Producto> listaProductos = new List<Producto>();
         public string NombreUsuario { get; set; } = "Usuario";
         public string RolUsuario { get; set; } = "Invitado";
         // Define tu cadena de conexión aquí (ajusta el nombre del servidor y BD)
@@ -172,32 +174,31 @@ namespace pryTesisVentas
                     SqlCommand comando = new SqlCommand(query, conexion);
                     SqlDataReader lector = comando.ExecuteReader();
 
-                    dgvVentas.Rows.Clear();
+                    listaProductos.Clear();
 
                     while (lector.Read())
                     {
-                        // Combinamos Nombre y Descripción (si existe) para armar la primera celda
                         string descripcion = lector["Descripcion"] != DBNull.Value ? lector["Descripcion"].ToString() : "";
-                        string infoProducto = $"{lector["Nombre"]}\n{descripcion}";
+                        string nombreCompleto = string.IsNullOrEmpty(descripcion)
+                            ? lector["Nombre"].ToString()
+                            : $"{lector["Nombre"]}\n{descripcion}";
 
-                        dgvVentas.Rows.Add(
-                            infoProducto,
-                            lector["StockActual"].ToString() + " en stock",
-                            Convert.ToDecimal(lector["PrecioVenta"]).ToString("C0"), // Formato de moneda local (ej: $ 2.500)
-                            "0" // Dejamos fijo "0" o un cálculo provisional, ya que Productos no tiene columna "ventas"
-                        );
+                        Producto prod = new Producto
+                        {
+                            Nombre = nombreCompleto,
+                            Cantidad = lector["StockActual"] != DBNull.Value ? Convert.ToInt32(lector["StockActual"]) : 0,
+                            Precio = lector["PrecioVenta"] != DBNull.Value ? Convert.ToDecimal(lector["PrecioVenta"]) : 0m
+                        };
+
+                        listaProductos.Add(prod);
                     }
+
+                    // Mostramos los productos en la grilla
+                    MostrarEnGrilla(listaProductos);
                 }
                 catch (Exception ex)
                 {
-                    // Fallback de diseño por si la base no responde temporalmente
-                    dgvVentas.Rows.Clear();
-                    dgvVentas.Rows.Add("Ibuprofeno 600\nMedicamento analgésico...", "32 en stock", "$ 2.500", "20");
-                    dgvVentas.Rows.Add("Loratadina\nAntihistamínico para alergias...", "31 en stock", "$ 4.890", "19");
-                    dgvVentas.Rows.Add("Termómetro\nMedición rápida...", "7 en stock", "$ 4.900", "18");
-                    dgvVentas.Rows.Add("Protector Solar 30\nCuidado diario...", "26 en stock", "$ 8.760", "17");
-
-                    Console.WriteLine("Error al conectar o procesar datos de la BD: " + ex.Message);
+                    MessageBox.Show("Error al cargar productos: " + ex.Message);
                 }
             }
         }
@@ -225,7 +226,7 @@ namespace pryTesisVentas
   
         }
 
-        private void txtBuscador_TextChanged_1(object sender, EventArgs e)
+        /*private void txtBuscador_TextChanged_1(object sender, EventArgs e)
         {
             // Si el cuadro de texto NO está vacío, ocultamos el label "Buscar"
             if (txtBuscador.Text != "")
@@ -240,15 +241,36 @@ namespace pryTesisVentas
 
             // --- OPCIONAL: Lógica de filtrado en tiempo real ---
             FiltrarBusquedaRapida(txtBuscador.Text);
+        }*/
+        public void MostrarEnGrilla(List<Producto> lista)
+        {
+            dgvVentas.Rows.Clear();
+
+            foreach (var prod in lista)
+            {
+                dgvVentas.Rows.Add(
+                    prod.Nombre,
+                    $"{prod.Cantidad} en stock",
+                    prod.Precio.ToString("C0"), // Formato moneda
+                    "0"
+                );
+            }
         }
         private void FiltrarBusquedaRapida(string texto)
         {
-           // var busqueda = listaProductos.Where(x =>
-           //     x.Nombre.ToLower().Contains(texto.ToLower()) ||
-           //     x.Categoria.ToLower().Contains(texto.ToLower())
-           // ).ToList();
+            if (string.IsNullOrWhiteSpace(texto))
+            {
+                MostrarEnGrilla(listaProductos);
+                return;
+            }
 
-           // ActualizarGrilla(busqueda);
+            string busqueda = texto.Trim().ToLower();
+
+            var filtrados = listaProductos
+                .Where(x => x.Nombre != null && x.Nombre.ToLower().Contains(busqueda))
+                .ToList();
+
+            MostrarEnGrilla(filtrados);
         }
 
         private void lblBuscador_Click(object sender, EventArgs e)
@@ -314,7 +336,32 @@ namespace pryTesisVentas
             frm.ShowDialog();
         }
 
-      
+        private void txtBuscador_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Si el usuario presiona Enter
+            if (e.KeyCode == Keys.Enter)
+            {
+                string criterio = txtBuscador.Text.Trim();
+
+                if (!string.IsNullOrEmpty(criterio))
+                {
+                    // Evita el sonido de "beep" de Windows al dar Enter
+                    e.SuppressKeyPress = true;
+
+                    // Abrir el formulario correspondiente (por ejemplo, Productos o Grilla)
+                    // pasando el término de búsqueda
+                    //AbrirBusquedaProductos(criterio);
+                }
+            }
+        }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            lblBuscador.Visible = string.IsNullOrEmpty(txtBuscador.Text);
+            FiltrarBusquedaRapida(txtBuscador.Text);
+        }
+
+
 
 
 

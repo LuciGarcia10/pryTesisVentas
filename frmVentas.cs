@@ -201,6 +201,9 @@ namespace pryTesisVentas
             FiltrarBusquedaRapida(txtBuscador.Text);
         }
 
-        
+        private void lblBuscador_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
