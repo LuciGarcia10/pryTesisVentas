@@ -53,13 +53,12 @@ namespace pryTesisVentas
             dgvDetalles.Rows.Clear();
             decimal totalCalculado = 0;
 
-            // Une DetallePedido con Productos para traer el Nombre real del artículo
             string query = @"SELECT dp.Cantidad, 
-                                    p.Nombre AS Producto, 
-                                    p.PrecioVenta AS Precio
-                             FROM DetallePedido dp
-                             INNER JOIN Productos p ON dp.IdProducto = p.IdProducto
-                             WHERE dp.IdPedido = @IdPedido";
+                            ISNULL(p.Nombre, 'Producto #' + CAST(dp.IdProducto AS VARCHAR)) AS Producto, 
+                            dp.PrecioCosto AS Precio
+                     FROM DetallePedido dp
+                     LEFT JOIN Productos p ON dp.IdProducto = p.IdProducto
+                     WHERE dp.IdPedido = @IdPedido";
 
             using (SqlConnection conexion = new SqlConnection(cadena))
             {
@@ -83,27 +82,26 @@ namespace pryTesisVentas
 
                                 totalCalculado += (cantidad * precio);
 
-                                // Asignación manual celda por celda evitando fallos de DataPropertyName
                                 int n = dgvDetalles.Rows.Add();
-                                dgvDetalles.Rows[n].Cells[0].Value = cantidad;            // 1ª Columna: Cantidad
-                                dgvDetalles.Rows[n].Cells[1].Value = producto;            // 2ª Columna: Producto
-                                dgvDetalles.Rows[n].Cells[2].Value = $"$ {precio:N0}";   // 3ª Columna: Precio
+                                dgvDetalles.Rows[n].Cells[0].Value = cantidad;
+                                dgvDetalles.Rows[n].Cells[1].Value = producto;
+                                dgvDetalles.Rows[n].Cells[2].Value = $"$ {precio:N2}";
                             }
 
                             if (!encontroFilas)
                             {
-                                MessageBox.Show($"El pedido Nº {idPedido} no tiene productos registrados en su detalle.",
+                                MessageBox.Show($"El pedido Nº {idPedido} no tiene productos registrados en la base de datos.",
                                                 "Sin detalle", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     }
 
-                    txtPrecioTotal.Text = $"$ {totalCalculado:N0}";
+                    txtPrecioTotal.Text = $"$ {totalCalculado:N2}";
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al cargar el detalle del pedido: " + ex.Message,
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al consultar el detalle: " + ex.Message,
+                                    "Error de Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

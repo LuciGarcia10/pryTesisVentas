@@ -95,13 +95,13 @@
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.lblPedidos = new System.Windows.Forms.Label();
             this.dgvPedidos = new System.Windows.Forms.DataGridView();
-            this.NPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechadePedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.IdPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantidadDeProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PedidoRecibido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVerDetalle = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).BeginInit();
             this.pnlContenedorPrincipal.SuspendLayout();
@@ -886,11 +886,11 @@
             this.dgvPedidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NPedido,
-            this.FechadePedido,
+            this.IdPedido,
+            this.Fecha,
             this.CantidadDeProductos,
             this.Proveedor,
-            this.PedidoRecibido,
+            this.Estado,
             this.btnVerDetalle});
             this.dgvPedidos.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -912,30 +912,42 @@
             this.dgvPedidos.TabIndex = 11;
             this.dgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellContentClick);
             // 
-            // NPedido
+            // dataGridViewImageColumn1
             // 
-            this.NPedido.DataPropertyName = "IdPedido";
+            this.dataGridViewImageColumn1.HeaderText = "Detalle Pedido";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 8;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 150;
+            // 
+            // IdPedido
+            // 
+            this.IdPedido.DataPropertyName = "IdPedido";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.NPedido.DefaultCellStyle = dataGridViewCellStyle1;
-            this.NPedido.Frozen = true;
-            this.NPedido.HeaderText = "N°Pedido";
-            this.NPedido.MinimumWidth = 8;
-            this.NPedido.Name = "NPedido";
-            this.NPedido.Width = 150;
+            this.IdPedido.DefaultCellStyle = dataGridViewCellStyle1;
+            this.IdPedido.Frozen = true;
+            this.IdPedido.HeaderText = "N°Pedido";
+            this.IdPedido.MinimumWidth = 8;
+            this.IdPedido.Name = "IdPedido";
+            this.IdPedido.Width = 150;
             // 
-            // FechadePedido
+            // Fecha
             // 
-            this.FechadePedido.DataPropertyName = "Fecha";
-            this.FechadePedido.Frozen = true;
-            this.FechadePedido.HeaderText = "Fecha de Pedido";
-            this.FechadePedido.MinimumWidth = 8;
-            this.FechadePedido.Name = "FechadePedido";
-            this.FechadePedido.Width = 150;
+            this.Fecha.DataPropertyName = "Fecha";
+            this.Fecha.Frozen = true;
+            this.Fecha.HeaderText = "Fecha de Pedido";
+            this.Fecha.MinimumWidth = 8;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 150;
             // 
             // CantidadDeProductos
             // 
+            this.CantidadDeProductos.DataPropertyName = "CantidadDeProductos";
             this.CantidadDeProductos.Frozen = true;
             this.CantidadDeProductos.HeaderText = "Cantidad de productos";
             this.CantidadDeProductos.MinimumWidth = 8;
@@ -951,14 +963,14 @@
             this.Proveedor.Name = "Proveedor";
             this.Proveedor.Width = 150;
             // 
-            // PedidoRecibido
+            // Estado
             // 
-            this.PedidoRecibido.DataPropertyName = "Estado";
-            this.PedidoRecibido.Frozen = true;
-            this.PedidoRecibido.HeaderText = "Pedido Recibido";
-            this.PedidoRecibido.MinimumWidth = 8;
-            this.PedidoRecibido.Name = "PedidoRecibido";
-            this.PedidoRecibido.Width = 150;
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.Frozen = true;
+            this.Estado.HeaderText = "Pedido Recibido";
+            this.Estado.MinimumWidth = 8;
+            this.Estado.Name = "Estado";
+            this.Estado.Width = 150;
             // 
             // btnVerDetalle
             // 
@@ -970,17 +982,6 @@
             this.btnVerDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnVerDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.btnVerDetalle.Width = 150;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Detalle Pedido";
-            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 8;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 150;
             // 
             // frmPedidos
             // 
@@ -1107,17 +1108,17 @@
         private System.Windows.Forms.Label lblPedidos;
         private System.Windows.Forms.DataGridView dgvPedidos;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechadePedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadDeProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoRecibido;
-        private System.Windows.Forms.DataGridViewImageColumn btnVerDetalle;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Button btnEstadisticas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadDeProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewImageColumn btnVerDetalle;
     }
 }

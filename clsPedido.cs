@@ -11,13 +11,9 @@ namespace pryTesisVentas
         public int IdPedido { get; set; }
         public DateTime Fecha { get; set; }
         public string Proveedor { get; set; }
-        public string Estado { get; set; } // Ejemplo: "Pendiente", "Recibido"
+        public string Estado { get; set; } // "Pendiente", "Recibido"
         public decimal Total { get; set; }
-        public int CantidadDeProductos
-        {
-            get { return Detalles.Count; }
-        }
-        // Esta lista opcional es por si querés guardar qué productos tiene adentro el pedido
+        public int CantidadDeProductos { get; set; }
         public List<clsDetallePedido> Detalles { get; set; } = new List<clsDetallePedido>();
     }
 }
