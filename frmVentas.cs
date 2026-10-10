@@ -205,5 +205,18 @@ namespace pryTesisVentas
         {
 
         }
+
+        private void btnAgregarProductos_Click(object sender, EventArgs e)
+        {
+            // Si tu botón "Agregar Venta" en el diseñador se llama btnAgregarProductos o btnAgregarVenta:
+            frmAñadirVenta frm = new frmAñadirVenta();
+
+            // Si el usuario confirma y guarda la venta con DialogResult.OK
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                // Recarga los datos actualizados de stock desde la base de datos
+                CargarDatosDesdeBD();
+            }
+        }
     }
 }

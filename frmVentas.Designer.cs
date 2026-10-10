@@ -71,7 +71,7 @@
             this.lblDigitalFarma = new System.Windows.Forms.Label();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pnlVentasdeProductos = new System.Windows.Forms.Panel();
-            this.btnAgregarProductos = new System.Windows.Forms.Button();
+            this.btnAgregarVenta = new System.Windows.Forms.Button();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.lblBuscador = new System.Windows.Forms.Label();
             this.txtBuscador = new System.Windows.Forms.TextBox();
@@ -582,7 +582,7 @@
             // pnlVentasdeProductos
             // 
             this.pnlVentasdeProductos.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.pnlVentasdeProductos.Controls.Add(this.btnAgregarProductos);
+            this.pnlVentasdeProductos.Controls.Add(this.btnAgregarVenta);
             this.pnlVentasdeProductos.Controls.Add(this.pnlBuscar);
             this.pnlVentasdeProductos.Controls.Add(this.panel1);
             this.pnlVentasdeProductos.Controls.Add(this.ptbVentas);
@@ -594,16 +594,17 @@
             this.pnlVentasdeProductos.Size = new System.Drawing.Size(945, 760);
             this.pnlVentasdeProductos.TabIndex = 20;
             // 
-            // btnAgregarProductos
+            // btnAgregarVenta
             // 
-            this.btnAgregarProductos.BackColor = System.Drawing.Color.Teal;
-            this.btnAgregarProductos.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarProductos.Location = new System.Drawing.Point(50, 54);
-            this.btnAgregarProductos.Name = "btnAgregarProductos";
-            this.btnAgregarProductos.Size = new System.Drawing.Size(249, 38);
-            this.btnAgregarProductos.TabIndex = 16;
-            this.btnAgregarProductos.Text = "+ Agregar Venta";
-            this.btnAgregarProductos.UseVisualStyleBackColor = false;
+            this.btnAgregarVenta.BackColor = System.Drawing.Color.Teal;
+            this.btnAgregarVenta.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarVenta.Location = new System.Drawing.Point(50, 54);
+            this.btnAgregarVenta.Name = "btnAgregarVenta";
+            this.btnAgregarVenta.Size = new System.Drawing.Size(249, 38);
+            this.btnAgregarVenta.TabIndex = 16;
+            this.btnAgregarVenta.Text = "+ Agregar Venta";
+            this.btnAgregarVenta.UseVisualStyleBackColor = false;
+            this.btnAgregarVenta.Click += new System.EventHandler(this.btnAgregarProductos_Click);
             // 
             // pnlBuscar
             // 
@@ -853,7 +854,7 @@
         private System.Windows.Forms.Label lblDigitalFarma;
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Panel pnlVentasdeProductos;
-        private System.Windows.Forms.Button btnAgregarProductos;
+        private System.Windows.Forms.Button btnAgregarVenta;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ComboBox cmbFiltrar;

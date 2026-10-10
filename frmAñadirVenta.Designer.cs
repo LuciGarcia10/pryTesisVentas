@@ -302,6 +302,7 @@
             this.lblCerrar.Size = new System.Drawing.Size(20, 20);
             this.lblCerrar.TabIndex = 70;
             this.lblCerrar.Text = "X";
+            this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
             // 
             // frmAñadirVenta
             // 

@@ -135,5 +135,26 @@ namespace pryTesisVentas
         {
 
         }
+
+        private void lblCerrar_Click(object sender, EventArgs e)
+        {
+            // Si la grilla o lista del carrito tiene elementos cargados
+            if (dgvCompras.Rows.Count > 0)
+            {
+                DialogResult confirmacion = MessageBox.Show(
+                    "Hay productos en el carrito. ¿Estás seguro de que deseas salir sin guardar?",
+                    "Confirmar salida",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirmacion == DialogResult.No)
+                {
+                    return; // Cancela el cierre y vuelve a la ventana
+                }
+            }
+
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }
