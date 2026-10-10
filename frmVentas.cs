@@ -73,8 +73,16 @@ namespace pryTesisVentas
 
         private void CargarDatosDesdeBD()
         {
-            // Usamos las columnas reales de tu tabla de SQL Server
-            string query = "SELECT Nombre, StockActual, PrecioVenta FROM Productos";
+            // Unimos Productos con Categorias mediante IdCategoria para traer el Nombre de la categoría
+            string query = @"SELECT p.IdProducto, 
+                            p.Nombre, 
+                            p.StockActual, 
+                            p.PrecioVenta, 
+                            p.FechaVencimiento,
+                            ISNULL(c.Nombre, 'Sin Categoría') AS NombreCategoria
+                     FROM Productos p
+                     LEFT JOIN Categorias c ON p.IdCategoria = c.IdCategoria";
+
             listaProductos.Clear();
 
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -89,14 +97,20 @@ namespace pryTesisVentas
                         {
                             Producto p = new Producto
                             {
+                                Id = Convert.ToInt32(lector["IdProducto"]),
                                 Nombre = lector["Nombre"].ToString(),
-                                Cantidad = Convert.ToInt32(lector["StockActual"]), // Asigna a Cantidad
-                                Precio = Convert.ToDecimal(lector["PrecioVenta"])   // Asigna a Precio
+                                Cantidad = Convert.ToInt32(lector["StockActual"]),
+                                Precio = Convert.ToDecimal(lector["PrecioVenta"]),
+                                Categoria = lector["NombreCategoria"].ToString(),
+                                FechaVencimiento = lector["FechaVencimiento"] != DBNull.Value
+                                                   ? Convert.ToDateTime(lector["FechaVencimiento"])
+                                                   : DateTime.MinValue
                             };
 
                             listaProductos.Add(p);
                         }
                     }
+
                     // Renderizar la lista completa en la grilla
                     MostrarEnGrilla(listaProductos);
                 }
@@ -116,7 +130,17 @@ namespace pryTesisVentas
             foreach (var prod in lista)
             {
                 int n = dgvVentas.Rows.Add();
-                dgvVentas.Rows[n].Cells["colProducto"].Value = prod.Nombre;
+
+                // 1. Armamos el subtítulo con la Categoría y el Vencimiento (si existe)
+                string fechaVto = prod.FechaVencimiento != DateTime.MinValue
+                    ? $" • Vto: {prod.FechaVencimiento:dd/MM/yyyy}"
+                    : "";
+                string subtitulo = $"{prod.Categoria}{fechaVto}";
+
+                // 2. Colocamos en 'colProducto' el Nombre arriba y el subtítulo abajo con \n
+                dgvVentas.Rows[n].Cells["colProducto"].Value = $"{prod.Nombre}\n{subtitulo}";
+
+                // 3. Demás columnas de la grilla
                 dgvVentas.Rows[n].Cells["colStock"].Value = $"{prod.Cantidad} en stock";
                 dgvVentas.Rows[n].Cells["colPrecio"].Value = $"$ {prod.Precio:N2}";
                 dgvVentas.Rows[n].Cells["colVentas"].Value = "0";
@@ -217,6 +241,28 @@ namespace pryTesisVentas
                 // Recarga los datos actualizados de stock desde la base de datos
                 CargarDatosDesdeBD();
             }
+        }
+
+        private void cmbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbFiltrar.SelectedItem == null) return;
+
+            string categoriaSeleccionada = cmbFiltrar.SelectedItem.ToString().Trim();
+
+            // Si seleccionó la opción por defecto o "Todas", mostramos toda la lista
+            if (cmbFiltrar.SelectedIndex == 0 || categoriaSeleccionada.Equals("Todas", StringComparison.OrdinalIgnoreCase))
+            {
+                MostrarEnGrilla(listaProductos);
+                return;
+            }
+
+            // Filtrar con Trim() para evitar errores con espacios en blanco de SQL
+            var filtrados = listaProductos
+                .Where(p => !string.IsNullOrEmpty(p.Categoria) &&
+                            p.Categoria.Trim().Equals(categoriaSeleccionada, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            MostrarEnGrilla(filtrados);
         }
     }
 }

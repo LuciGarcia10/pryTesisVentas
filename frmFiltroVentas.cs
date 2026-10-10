@@ -13,6 +13,7 @@ namespace pryTesisVentas
     public partial class frmFiltroVentas : Form
     {
         internal List<Producto> listaParaFiltrar;
+        public List<Producto> listaResultado { get; set; } = new List<Producto>();
 
         public frmFiltroVentas()
         {
@@ -27,37 +28,51 @@ namespace pryTesisVentas
 
         private void btnAplicarFiltros_Click(object sender, EventArgs e)
         {
-            // 1. Validamos que la lista no sea nula para evitar errores
+            // Validamos que la lista no sea nula
             if (listaParaFiltrar == null) { this.Close(); return; }
 
-            // 2. Tomamos los valores de los controles
-            // Usamos .Date para ignorar la hora y filtrar solo por día
             DateTime desde = dtpDesde.Value.Date;
             DateTime hasta = dtpHasta.Value.Date;
 
-            // Verificamos si eligio algo en el combo o no
-            string catSeleccionada = cmbCategoria.Text;
-            bool filtrarPorCategoria = !string.IsNullOrEmpty(catSeleccionada) && catSeleccionada != "Elegir categoría...";
+            // Verificamos categoría con Trim()
+            string catSeleccionada = cmbCategoria.Text != null ? cmbCategoria.Text.Trim() : "";
+            bool filtrarPorCategoria = !string.IsNullOrEmpty(catSeleccionada)
+                                       && !catSeleccionada.Equals("Elegir categoría...", StringComparison.OrdinalIgnoreCase)
+                                       && !catSeleccionada.Equals("Todas", StringComparison.OrdinalIgnoreCase);
 
-            string nombreBusqueda = txtNombre.Text.ToLower().Trim();
+            // Verificamos búsqueda de nombre
+            string nombreBusqueda = txtNombre.Text.Trim().ToLower();
+            bool filtrarPorNombre = !string.IsNullOrEmpty(nombreBusqueda)
+                                    && nombreBusqueda != "elegir el nombre..."
+                                    && nombreBusqueda != "escribir el nombre...";
 
-            // 3. Filtrado
+            // Filtrado en memoria
             var listaFiltrada = listaParaFiltrar.Where(x =>
-                // Filtro de fecha
-                (x.FechaVencimiento.Date >= desde && x.FechaVencimiento.Date <= hasta) &&
-                // Filtro de categoría (si selecciono una)
-                (!filtrarPorCategoria || x.Categoria == catSeleccionada) &&
-                // Filtro de nombre (si escribio algo)
-                (string.IsNullOrEmpty(nombreBusqueda) || nombreBusqueda == "elegir el nombre..." || x.Nombre.ToLower().Contains(nombreBusqueda))
+                // Filtro de categoría
+                (!filtrarPorCategoria || (x.Categoria != null && x.Categoria.Trim().Equals(catSeleccionada, StringComparison.OrdinalIgnoreCase))) &&
+
+                // Filtro de nombre
+                (!filtrarPorNombre || (x.Nombre != null && x.Nombre.ToLower().Contains(nombreBusqueda)))
             ).ToList();
 
-            // 4. Enviamos la lista al formulario principal
-            frmProductos formPadre = (frmProductos)Application.OpenForms["frmProductos"];
-            if (formPadre != null)
+            // Guardamos en la propiedad de resultado
+            this.listaResultado = listaFiltrada;
+
+            // Si se abrió desde frmVentas, lo actualizamos directamente
+            frmVentas formVentas = (frmVentas)Application.OpenForms["frmVentas"];
+            if (formVentas != null)
             {
-                formPadre.ActualizarGrilla(listaFiltrada);
+                formVentas.MostrarEnGrilla(listaFiltrada);
             }
 
+            // Si también se usa desde frmProductos:
+            frmProductos formProd = (frmProductos)Application.OpenForms["frmProductos"];
+            if (formProd != null)
+            {
+                formProd.ActualizarGrilla(listaFiltrada);
+            }
+
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
@@ -111,6 +126,53 @@ namespace pryTesisVentas
         private void frmFiltroVentas_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnResetearTodo_Click(object sender, EventArgs e)
+        {
+            // Limpiamos visualmente los controles del formulario
+            LimpiarTodosLosFiltros();
+
+            // La lista de resultado vuelve a ser la lista completa original sin filtros
+            this.listaResultado = new List<Producto>(this.listaParaFiltrar);
+
+            // (Opcional recomendado) Si quieres que al resetear todo se cierre y aplique el reseteo en la grilla:
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+        private void LimpiarTodosLosFiltros()
+        {
+            // 1. Restablecer fechas a un rango por defecto (por ejemplo, el último año o fechas estándar)
+            dtpDesde.Value = DateTime.Today.AddYears(-1);
+            dtpHasta.Value = DateTime.Today;
+
+            // 2. Restablecer el ComboBox a la primera opción ("Elegir categoría..." o "Todas")
+            if (cmbCategoria.Items.Count > 0)
+            {
+                cmbCategoria.SelectedIndex = 0;
+            }
+
+            // 3. Limpiar la caja de texto del nombre
+            txtNombre.Clear(); // o txtNombre.Text = "";
+        }
+
+        private void lblResetearFecha_Click(object sender, EventArgs e)
+        {
+            dtpDesde.Value = DateTime.Today.AddYears(-1);
+            dtpHasta.Value = DateTime.Today;
+        }
+
+        private void lblResetearCategoria_Click(object sender, EventArgs e)
+        {
+            if (cmbCategoria.Items.Count > 0)
+            {
+                cmbCategoria.SelectedIndex = 0;
+            }
+        }
+
+        private void lblResetearNombre_Click(object sender, EventArgs e)
+        {
+            txtNombre.Clear();
         }
     }
 }

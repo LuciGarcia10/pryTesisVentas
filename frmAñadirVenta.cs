@@ -142,7 +142,7 @@ namespace pryTesisVentas
             if (dgvCompras.Rows.Count > 0)
             {
                 DialogResult confirmacion = MessageBox.Show(
-                    "Hay productos en el carrito. ¿Estás seguro de que deseas salir sin guardar?",
+                    "Hay productos en compras. ¿Estás seguro de que deseas salir sin guardar?",
                     "Confirmar salida",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
