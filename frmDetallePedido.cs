@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace pryTesisVentas
 {
     public partial class frmDetallePedido : Form
     {
+        private readonly string cadena = clsConsultas.cadena;
         public List<clsPedido> ListaCompleta { get; set; }
         public clsPedido PedidoSeleccionado { get; set; }
         public frmDetallePedido()
@@ -21,53 +23,90 @@ namespace pryTesisVentas
 
         private void frmDetallePedido_Load(object sender, EventArgs e)
         {
-            // 1. Aplicamos el estilo apenas carga (Copiá el método Estilizar abajo)
             EstilizarGrillaDetalle();
 
             if (PedidoSeleccionado != null)
             {
                 txtNumeroPedido.Text = PedidoSeleccionado.IdPedido.ToString();
-
-                // 2. CLAVE: No generar columnas automáticas
-                dgvDetalles.AutoGenerateColumns = false;
-
-                // 3. Cargamos los datos
-                dgvDetalles.DataSource = PedidoSeleccionado.Detalles;
-
-                // Calculamos el total
-                decimal total = PedidoSeleccionado.Detalles.Sum(x => x.Precio * x.Cantidad);
-
-                // asignacion
-                txtPrecioTotal.Text = total.ToString("C0"); // El "C" le pone el signo $ automáticamente
+                CargarDetalleDesdeBD(PedidoSeleccionado.IdPedido);
             }
+            CalcularTotalGrilla();
         }
 
         private void EstilizarGrillaDetalle()
         {
-            // 1. Fondo blanco y sin bordes
+            dgvDetalles.AutoGenerateColumns = false;
             dgvDetalles.BackgroundColor = Color.White;
             dgvDetalles.BorderStyle = BorderStyle.None;
-
-            // 2. Quitamos la columna gris de la izquierda
             dgvDetalles.RowHeadersVisible = false;
-
-            // 3. Quitamos la fila vacía del final
             dgvDetalles.AllowUserToAddRows = false;
-
-            // 4. Hacemos que las columnas ocupen todo el ancho
             dgvDetalles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // 5. Estilo de celdas
-            dgvDetalles.DefaultCellStyle.SelectionBackColor = Color.FromArgb(235, 250, 245); // Verde claro
+            dgvDetalles.DefaultCellStyle.SelectionBackColor = Color.FromArgb(235, 250, 245);
             dgvDetalles.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgvDetalles.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-
-            // 6. Alineación de los títulos
             dgvDetalles.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvDetalles.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
             dgvDetalles.EnableHeadersVisualStyles = false;
         }
+        private void CargarDetalleDesdeBD(int idPedido)
+        {
+            dgvDetalles.Rows.Clear();
+            decimal totalCalculado = 0;
 
+            // Une DetallePedido con Productos para traer el Nombre real del artículo
+            string query = @"SELECT dp.Cantidad, 
+                                    p.Nombre AS Producto, 
+                                    p.PrecioVenta AS Precio
+                             FROM DetallePedido dp
+                             INNER JOIN Productos p ON dp.IdProducto = p.IdProducto
+                             WHERE dp.IdPedido = @IdPedido";
+
+            using (SqlConnection conexion = new SqlConnection(cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdPedido", idPedido);
+
+                        using (SqlDataReader lector = cmd.ExecuteReader())
+                        {
+                            bool encontroFilas = false;
+
+                            while (lector.Read())
+                            {
+                                encontroFilas = true;
+                                int cantidad = Convert.ToInt32(lector["Cantidad"]);
+                                string producto = lector["Producto"].ToString();
+                                decimal precio = Convert.ToDecimal(lector["Precio"]);
+
+                                totalCalculado += (cantidad * precio);
+
+                                // Asignación manual celda por celda evitando fallos de DataPropertyName
+                                int n = dgvDetalles.Rows.Add();
+                                dgvDetalles.Rows[n].Cells[0].Value = cantidad;            // 1ª Columna: Cantidad
+                                dgvDetalles.Rows[n].Cells[1].Value = producto;            // 2ª Columna: Producto
+                                dgvDetalles.Rows[n].Cells[2].Value = $"$ {precio:N0}";   // 3ª Columna: Precio
+                            }
+
+                            if (!encontroFilas)
+                            {
+                                MessageBox.Show($"El pedido Nº {idPedido} no tiene productos registrados en su detalle.",
+                                                "Sin detalle", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+
+                    txtPrecioTotal.Text = $"$ {totalCalculado:N0}";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar el detalle del pedido: " + ex.Message,
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
         private void lblCerrar_Click(object sender, EventArgs e)
         {
             // Cerramos el formulario de detalle y volvemos a la pantalla de pedidos
@@ -99,31 +138,56 @@ namespace pryTesisVentas
 
             if (int.TryParse(txtNumeroPedido.Text.Trim(), out int idBuscado))
             {
-                // Buscamos dentro de la lista completa que recibió el formulario
-                if (ListaCompleta != null)
-                {
-                    clsPedido pedidoEncontrado = ListaCompleta.FirstOrDefault(p => p.IdPedido == idBuscado);
+                // 1. Carga los registros del pedido en la grilla
+                CargarDetalleDesdeBD(idBuscado);
 
-                    if (pedidoEncontrado != null)
-                    {
-                        // Actualizamos la vista con el nuevo pedido hallado
-                        this.PedidoSeleccionado = pedidoEncontrado;
-                        dgvDetalles.DataSource = null;
-                        dgvDetalles.DataSource = PedidoSeleccionado.Detalles;
-
-                        decimal total = PedidoSeleccionado.Detalles.Sum(x => x.Precio * x.Cantidad);
-                        txtPrecioTotal.Text = total.ToString("C0");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se encontró ningún pedido con el Nº " + idBuscado, "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
+                // 2. Calcula la suma total y actualiza txtPrecioTotal
+                CalcularTotalGrilla();
             }
             else
             {
                 MessageBox.Show("El número de pedido debe ser numérico.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtPrecioTotal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void CalcularTotalGrilla()
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow fila in dgvDetalles.Rows)
+            {
+                if (fila.IsNewRow) continue;
+
+                // Cantidad (columna 0)
+                int cantidad = 0;
+                if (fila.Cells[0].Value != null)
+                {
+                    int.TryParse(fila.Cells[0].Value.ToString(), out cantidad);
+                }
+
+                // Precio unitario (columna 2)
+                decimal precio = 0;
+                if (fila.Cells[2].Value != null)
+                {
+                    // Limpia signos de moneda o separadores para evitar errores de parseo
+                    string textoPrecio = fila.Cells[2].Value.ToString()
+                                            .Replace("$", "")
+                                            .Replace(".", "")
+                                            .Trim();
+
+                    decimal.TryParse(textoPrecio, out precio);
+                }
+
+                // Subtotal acumulado
+                total += (cantidad * precio);
+            }
+
+            // Mostrar el total en el TextBox
+            txtPrecioTotal.Text = $"$ {total:N0}";
         }
     }
 }
