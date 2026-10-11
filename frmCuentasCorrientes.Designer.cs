@@ -592,7 +592,7 @@
             this.btnFiltrar.TabIndex = 19;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnFiltrar_MouseClick);
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // pictureBox2
             // 
