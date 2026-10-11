@@ -723,5 +723,22 @@ namespace pryTesisVentas
             }
         }
 
+        private void cmbFiltrar_Click(object sender, EventArgs e)
+        {
+            using (frmFiltroProductos ventanaFiltro = new frmFiltroProductos())
+            {
+                ventanaFiltro.listaParaFiltrar = this.listaProductos;
+                ventanaFiltro.StartPosition = FormStartPosition.CenterParent;
+
+                if (ventanaFiltro.ShowDialog(this) == DialogResult.OK)
+                {
+                    // Si el usuario aplicó filtros o reseteó, actualiza la grilla con lo que devolvió el modal
+                    if (ventanaFiltro.ListaResultado != null)
+                    {
+                        ActualizarGrilla(ventanaFiltro.ListaResultado);
+                    }
+                }
+            }
+        }
     }
 }

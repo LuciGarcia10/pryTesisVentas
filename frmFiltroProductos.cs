@@ -14,6 +14,7 @@ namespace pryTesisVentas
     public partial class frmFiltroProductos : Form
     {
         public List<Producto> listaParaFiltrar { get; set; }
+        public List<Producto> ListaResultado { get; private set; }
         public frmFiltroProductos()
         {
             InitializeComponent();
@@ -116,6 +117,40 @@ namespace pryTesisVentas
             {
                 lblNombre.Visible = true;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (txtNombre != null) txtNombre.Clear();
+            if (cmbCategoria != null && cmbCategoria.Items.Count > 0) cmbCategoria.SelectedIndex = 0;
+            if (dtpDesde != null) dtpDesde.Value = DateTime.Today.AddYears(-1);
+            if (dtpHasta != null) dtpHasta.Value = DateTime.Today.AddYears(1);
+
+            this.ListaResultado = this.listaParaFiltrar;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void lblResetearFecha_Click(object sender, EventArgs e)
+        {
+            dtpDesde.Value = DateTime.Today.AddYears(-1);
+            dtpHasta.Value = DateTime.Today.AddYears(1);
+        }
+
+        private void lblResetearCategoria_Click(object sender, EventArgs e)
+        {
+            if (cmbCategoria.Items.Count > 0)
+                cmbCategoria.SelectedIndex = 0;
+        }
+
+        private void lblResetearNombre_Click(object sender, EventArgs e)
+        {
+            txtNombre.Clear();
+        }
+
+        private void pctCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
