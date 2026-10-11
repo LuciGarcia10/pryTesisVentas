@@ -715,9 +715,11 @@
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidth = 62;
             this.dgvProductos.RowTemplate.Height = 70;
-            this.dgvProductos.Size = new System.Drawing.Size(1138, 348);
+            this.dgvProductos.Size = new System.Drawing.Size(1158, 576);
             this.dgvProductos.TabIndex = 11;
+            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             this.dgvProductos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvProductos_CellPainting);
+            this.dgvProductos.Paint += new System.Windows.Forms.PaintEventHandler(this.dgvProductos_Paint);
             // 
             // Cantidad
             // 
