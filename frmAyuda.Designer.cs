@@ -75,6 +75,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lnkMaps = new System.Windows.Forms.LinkLabel();
             this.lblMaps = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -92,7 +93,6 @@
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lnkMaps = new System.Windows.Forms.LinkLabel();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -659,6 +659,19 @@
             this.panel3.Size = new System.Drawing.Size(308, 100);
             this.panel3.TabIndex = 5;
             // 
+            // lnkMaps
+            // 
+            this.lnkMaps.AutoSize = true;
+            this.lnkMaps.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkMaps.LinkColor = System.Drawing.Color.Teal;
+            this.lnkMaps.Location = new System.Drawing.Point(113, 63);
+            this.lnkMaps.Name = "lnkMaps";
+            this.lnkMaps.Size = new System.Drawing.Size(61, 25);
+            this.lnkMaps.TabIndex = 2;
+            this.lnkMaps.TabStop = true;
+            this.lnkMaps.Text = "Maps";
+            this.lnkMaps.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkMaps_LinkClicked);
+            // 
             // lblMaps
             // 
             this.lblMaps.AutoSize = true;
@@ -850,19 +863,6 @@
             this.VentasTotales.Name = "VentasTotales";
             this.VentasTotales.Width = 150;
             // 
-            // lnkMaps
-            // 
-            this.lnkMaps.AutoSize = true;
-            this.lnkMaps.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkMaps.LinkColor = System.Drawing.Color.Teal;
-            this.lnkMaps.Location = new System.Drawing.Point(113, 63);
-            this.lnkMaps.Name = "lnkMaps";
-            this.lnkMaps.Size = new System.Drawing.Size(61, 25);
-            this.lnkMaps.TabIndex = 2;
-            this.lnkMaps.TabStop = true;
-            this.lnkMaps.Text = "Maps";
-            this.lnkMaps.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkMaps_LinkClicked);
-            // 
             // frmAyuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -874,6 +874,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelGanancias);
             this.Controls.Add(this.pnlContenedorPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAyuda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAyuda";

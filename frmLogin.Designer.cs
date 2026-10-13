@@ -227,6 +227,7 @@
             this.Controls.Add(this.txtContra);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.pnlCrearCuenta);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";

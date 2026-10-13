@@ -771,6 +771,7 @@
             this.ClientSize = new System.Drawing.Size(1557, 932);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.pnlContenedorPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmProductos";

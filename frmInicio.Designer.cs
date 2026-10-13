@@ -1086,6 +1086,7 @@
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.pnlContenedorPrincipal);
             this.Controls.Add(this.pnlVentasdeProductos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmInicio";

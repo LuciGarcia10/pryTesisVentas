@@ -117,6 +117,7 @@
             this.Controls.Add(this.lblRoles);
             this.Controls.Add(this.btnGuardarPermisos);
             this.Controls.Add(this.cmbRoles);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCambiarRol";
             this.Text = "frmCambiarRol";
             this.Load += new System.EventHandler(this.frmCambiarRol_Load);

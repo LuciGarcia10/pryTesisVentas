@@ -774,6 +774,7 @@
             this.ClientSize = new System.Drawing.Size(1263, 932);
             this.Controls.Add(this.pnlVentasdeProductos);
             this.Controls.Add(this.pnlContenedorPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVentas";
             this.Text = "frmVentas";
             this.Load += new System.EventHandler(this.frmVentas_Load);
