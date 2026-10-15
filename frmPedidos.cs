@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace pryTesisVentas
 {
@@ -16,14 +17,18 @@ namespace pryTesisVentas
         public List<clsPedido> listaPedidos = new List<clsPedido>();
         public void ActualizarGrilla(List<clsPedido> lista)
         {
-            dgvPedidos.DataSource = null; // Limpiamos el origen
-            dgvPedidos.DataSource = lista; // Cargamos la nueva lista filtrada
-            // Si la lista que llega es menor a la total, activamos el botón limpiar
-            btnLimpiar.Enabled = (lista.Count < listaPedidos.Count);
+            // Forzamos que NO cree columnas automáticas (evita que aparezcan columnas extras a la derecha)
+            dgvPedidos.AutoGenerateColumns = false;
+
+            dgvPedidos.DataSource = null;
+            dgvPedidos.DataSource = lista;
+
+            btnLimpiar.Enabled = (lista != null && listaPedidos != null && lista.Count < listaPedidos.Count);
         }
         public frmPedidos()
         {
             InitializeComponent();
+            CargarPedidosDesdeBD();
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
@@ -42,35 +47,65 @@ namespace pryTesisVentas
 
         private void frmPedidos_Load(object sender, EventArgs e)
         {
-            //Configuramos la grilla ANTES de cargar los datos 
-            dgvPedidos.AutoGenerateColumns = false;
-
-            // 1. Creamos el Pedido 109
-            clsPedido p1 = new clsPedido();
-            p1.IdPedido = 109;
-            p1.Fecha = DateTime.Now;
-            p1.Proveedor = "Droguería del Sud";
-            p1.Estado = "Recibido";
-
-            p1.Detalles.Add(new clsDetallePedido { Producto = "Paracetamol", Cantidad = 2, Precio = 1000 });
-            p1.Detalles.Add(new clsDetallePedido { Producto = "Actron 400", Cantidad = 4, Precio = 2500 });
-
-            // 2. Creamos el Pedido 110
-            clsPedido p2 = new clsPedido();
-            p2.IdPedido = 110;
-            p2.Fecha = DateTime.Now.AddDays(-1);
-            p2.Proveedor = "Belleza S.A.";
-            p2.Estado = "Pendiente";
-
-            p2.Detalles.Add(new clsDetallePedido { Producto = "Crema Dermaglós", Cantidad = 5, Precio = 12000 });
-
-            // 3. Guardamos y cargamos
-            listaPedidos.Add(p1);
-            listaPedidos.Add(p2);
-
-            EstilizarGrilla(); // <--- Llamada clave
-                               // carga de datos de prueba
+            EstilizarGrilla(); 
             ActualizarGrilla(listaPedidos);
+        }
+
+        private void CargarPedidosDesdeBD()
+        {
+            listaPedidos.Clear();
+
+            // Consultamos la tabla Pedidos uniendo con Proveedores y Estados (si existen)
+            string query = @"
+             SELECT p.IdPedido, 
+               p.FechaPedido, 
+               ISNULL(prov.RazonSocial, 'Sin Proveedor') AS Proveedor, 
+               CASE 
+                   WHEN p.IdEstado = 1 THEN 'Pendiente'
+                   WHEN p.IdEstado = 2 THEN 'Recibido'
+                   ELSE 'Pendiente'
+               END AS Estado,
+               p.Total,
+               ISNULL((SELECT SUM(dp.Cantidad) FROM DetallePedido dp WHERE dp.IdPedido = p.IdPedido), 0) AS CantidadTotal
+            FROM Pedidos p
+            LEFT JOIN Proveedores prov ON p.IdProveedor = prov.IdProveedor
+            ORDER BY p.IdPedido ASC";
+
+            using (SqlConnection conexion = new SqlConnection(clsConsultas.cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader lector = cmd.ExecuteReader())
+                        {
+                            while (lector.Read())
+                            {
+                                clsPedido pedido = new clsPedido
+                                {
+                                    IdPedido = Convert.ToInt32(lector["IdPedido"]),
+                                    Fecha = lector["FechaPedido"] != DBNull.Value ? Convert.ToDateTime(lector["FechaPedido"]) : DateTime.Now,
+                                    Proveedor = lector["Proveedor"].ToString(),
+                                    Estado = lector["Estado"].ToString(),
+                                    Total = lector["Total"] != DBNull.Value ? Convert.ToDecimal(lector["Total"]) : 0,
+                                    CantidadDeProductos = Convert.ToInt32(lector["CantidadTotal"])
+                                };
+
+                                listaPedidos.Add(pedido);
+                            }
+                        }
+                    }
+
+                    // Actualizamos la grilla con los pedidos reales (1, 2, 3...)
+                    ActualizarGrilla(listaPedidos);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar pedidos: " + ex.Message, "Error", MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
+                }
+            }
         }
         private void EstilizarGrilla()
         {
@@ -206,18 +241,39 @@ namespace pryTesisVentas
 
         private void dgvPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // 1. Verificamos que el clic sea en la columna del ojito 
-            // También validamos que no sea el encabezado (e.RowIndex >= 0)
+            // Verificamos que no sea el encabezado y que sea la columna del ojito
             if (e.RowIndex >= 0 && dgvPedidos.Columns[e.ColumnIndex].Name == "btnVerDetalle")
             {
-                clsPedido pedidoSeleccionado = (clsPedido)dgvPedidos.Rows[e.RowIndex].DataBoundItem;
-                // 3. Creamos la instancia de la ventana de detalle
-                frmDetallePedido ventanaDetalle = new frmDetallePedido();
+                clsPedido pedidoSeleccionado = null;
 
-                ventanaDetalle.PedidoSeleccionado = pedidoSeleccionado; // Para que muestre el que clickeaste
-                ventanaDetalle.ListaCompleta = this.listaPedidos;
-                ventanaDetalle.StartPosition = FormStartPosition.CenterParent;
-                ventanaDetalle.ShowDialog(this);
+                // Intentamos obtenerlo de DataBoundItem si usas DataSource
+                if (dgvPedidos.Rows[e.RowIndex].DataBoundItem is clsPedido item)
+                {
+                    pedidoSeleccionado = item;
+                }
+                else
+                {
+                    // Respaldo seguro: Si se cargó manualmente con Rows.Add(), leemos la celda directamente
+                    // (Ajustá "colNumeroPedido" o el índice de celda según el nombre de tu columna de ID)
+                    var valorCelda = dgvPedidos.Rows[e.RowIndex].Cells["colNumeroPedido"]?.Value
+                                  ?? dgvPedidos.Rows[e.RowIndex].Cells[0].Value;
+
+                    if (valorCelda != null && int.TryParse(valorCelda.ToString(), out int idObtenido))
+                    {
+                        pedidoSeleccionado = new clsPedido { IdPedido = idObtenido };
+                    }
+                }
+
+                if (pedidoSeleccionado == null) return;
+
+                // Abrimos la ventana de detalle
+                using (frmDetallePedido ventanaDetalle = new frmDetallePedido())
+                {
+                    ventanaDetalle.PedidoSeleccionado = pedidoSeleccionado;
+                    ventanaDetalle.ListaCompleta = this.listaPedidos;
+                    ventanaDetalle.StartPosition = FormStartPosition.CenterParent;
+                    ventanaDetalle.ShowDialog(this);
+                }
             }
         }
 

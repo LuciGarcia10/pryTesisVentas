@@ -112,6 +112,8 @@ namespace pryTesisVentas
                                     cmdPedido.Parameters.AddWithValue("@direccion", txtDireccion.Text.Trim());
                                     cmdPedido.Parameters.AddWithValue("@total", totalPedido);
 
+                                    cmdPedido.Parameters.AddWithValue("@proveedor", string.IsNullOrEmpty(proveedorDestino) ? (object)DBNull.Value : proveedorDestino.Trim());
+
                                     object res = await cmdPedido.ExecuteScalarAsync();
                                     idPedidoGenerado = Convert.ToInt32(res);
                                 }

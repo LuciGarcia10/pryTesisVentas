@@ -23,7 +23,39 @@ namespace pryTesisVentas
             InitializeComponent();
 
         }
+        private void EstilizarGrillaProductos()
+        {
+            // 1. Fondos y bordes limpios
+            dgvProductos.BackgroundColor = Color.White;
+            dgvProductos.BorderStyle = BorderStyle.None;
+            dgvProductos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvProductos.GridColor = Color.FromArgb(240, 242, 245); // Línea divisoria sutil
 
+            // 2. Encabezados (Header)
+            dgvProductos.EnableHeadersVisualStyles = false;
+            dgvProductos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvProductos.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
+            dgvProductos.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(120, 130, 140); // Gris legible
+            dgvProductos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 9.5f);
+            dgvProductos.ColumnHeadersHeight = 42;
+
+            // 3. Celdas y filas
+            dgvProductos.RowHeadersVisible = false;
+            dgvProductos.AllowUserToAddRows = false;
+            dgvProductos.ReadOnly = true;
+            dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProductos.MultiSelect = false;
+            dgvProductos.RowTemplate.Height = 52; // Altura cómoda para leer
+
+            // Color de texto oscuro nítido y selección suave en verde menta
+            dgvProductos.DefaultCellStyle.ForeColor = Color.FromArgb(45, 55, 72);
+            dgvProductos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(235, 250, 245);
+            dgvProductos.DefaultCellStyle.SelectionForeColor = Color.FromArgb(20, 30, 40);
+            dgvProductos.DefaultCellStyle.Font = new Font("Segoe UI", 9.5f);
+
+            // 4. Evitar que la primera celda quede resaltada en azul al abrir
+            dgvProductos.ClearSelection();
+        }
         private void pnlContenedorPrincipal_Paint(object sender, PaintEventArgs e)
         {
 
@@ -107,25 +139,23 @@ namespace pryTesisVentas
         {
             dgvProductos.DataSource = null; // Limpia el origen anterior para forzar el refresco
             dgvProductos.DataSource = lista; // Asigna la nueva lista ordenada
+            dgvProductos.ClearSelection(); // Evita que la primera fila quede seleccionada en azul al cargar
         }
         private void frmProductos_Load(object sender, EventArgs e)
         {
-            // CONFIGURACIÓN DE LA GRILLA 
-            // 1. ESTO VA PRIMERO: Apagamos el generador automático antes de hacer nada
             dgvProductos.AutoGenerateColumns = false;
-
-            // 2. Configuramos las columnas manuales (que ahora incluyen el Clear)
+            // Configurar columnas y estilo
             ConfigurarColumnasAcciones();
-
-            // 3. Cargamos los combos y el resto 
+            EstilizarGrillaProductos();
+            // Combos de orden
             cmbOrden.Items.Clear();
             cmbOrden.Items.Add("Más nuevo");
             cmbOrden.Items.Add("Más viejo");
-            cmbOrden.Items.Add("Prioridad");
+            cmbOrden.Items.Add("Nombre (A-Z)");
             cmbOrden.SelectedIndex = 0;
-
-            // --- 4. CARGAR LOS PRODUCTOS EN LA TABLA ---
-            CargarProductosDesdeBD(); //crear este método para llenar el DataGridView
+            // Cargar datos
+            CargarProductosDesdeBD();
+            dgvProductos.Paint += dgvProductos_Paint;
         }
 
         // Recupera los registros reales de SQL Server y los almacena en la lista global
@@ -192,35 +222,82 @@ namespace pryTesisVentas
 
         private void ConfigurarColumnasAcciones()
         {
-            // 1. LIMPIEZA TOTAL
             dgvProductos.Columns.Clear();
-
-            // 2. COLUMNAS DE DATOS
-            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Cantidad", HeaderText = "Cantidad", Name = "Cantidad", Width = 50 });
-            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "Nombre", Name = "Nombre", Width = 200 });
-            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Categoria", HeaderText = "Categoría", Name = "Categoria", Width = 150 });
-            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "FechaVencimiento", HeaderText = "Vencimiento", Name = "FechaVencimiento", Width = 100 });
-            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Precio", HeaderText = "Precio", Name = "Precio", Width = 80 });
-
-            // 3. COLUMNA EDITAR
-            DataGridViewImageColumn colEditar = new DataGridViewImageColumn();
-            colEditar.Name = "btnEditar";
-            colEditar.HeaderText = "Acciones"; // Título principal
+            // Cantidad / Stock
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Cantidad",
+                HeaderText = "Stock",
+                Name = "Cantidad",
+                Width = 70,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+            //Nombre (Fill para que tome todo el espacio restante disponible)
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Nombre",
+                HeaderText = "Nombre",
+                Name = "Nombre",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                DefaultCellStyle = new DataGridViewCellStyle { Font = new Font("Segoe UI", 9.5f, FontStyle.Bold) }
+            });
+            // Categoría
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Categoria",
+                HeaderText = "Categoría",
+                Name = "Categoria",
+                Width = 170
+            });
+            // Vencimiento (formateado y centrado)
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "FechaVencimiento",
+                HeaderText = "Vencimiento",
+                Name = "FechaVencimiento",
+                Width = 110,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Format = "dd/MM/yyyy",
+                    Alignment = DataGridViewContentAlignment.MiddleCenter
+                }
+            });
+            // Precio (formateado con moneda $ y alineado a la derecha)
+            DataGridViewTextBoxColumn colPrecio = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Precio",
+                HeaderText = "Precio",
+                Name = "Precio",
+                Width = 110 // Le damos un poco más de margen
+            };
+            // Alineación del contenido (los números a la derecha con signo $)
+            colPrecio.DefaultCellStyle.Format = "C2";
+            colPrecio.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            // Alineación del encabezado (centrado o a la derecha según prefieras)
+            colPrecio.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvProductos.Columns.Add(colPrecio);
+            // Botón Editar
+            DataGridViewImageColumn colEditar = new DataGridViewImageColumn
+            {
+                Name = "btnEditar",
+                HeaderText = "Acciones",
+                Width = 45,
+                Image = Properties.Resources.ptbEditar,
+                ImageLayout = DataGridViewImageCellLayout.Zoom
+            };
             colEditar.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colEditar.Image = Properties.Resources.ptbEditar;
-            colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             colEditar.DefaultCellStyle.NullValue = null;
-            colEditar.Width = 50;
             dgvProductos.Columns.Add(colEditar);
-
-            // 4. COLUMNA ELIMINAR
-            DataGridViewImageColumn colEliminar = new DataGridViewImageColumn();
-            colEliminar.Name = "btnEliminar";
-            colEliminar.HeaderText = ""; // Vacío para que parezca la misma columna de "Acciones"
-            colEliminar.Image = Properties.Resources.ptbBorrar;
-            colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            // Botón Eliminar
+            DataGridViewImageColumn colEliminar = new DataGridViewImageColumn
+            {
+                Name = "btnEliminar",
+                HeaderText = "",
+                Width = 45,
+                Image = Properties.Resources.ptbBorrar,
+                ImageLayout = DataGridViewImageCellLayout.Zoom
+            };
             colEliminar.DefaultCellStyle.NullValue = null;
-            colEliminar.Width = 50;
             dgvProductos.Columns.Add(colEliminar);
         }
 
@@ -263,7 +340,7 @@ namespace pryTesisVentas
             // --- Pintar botón EDITAR ---
             if (e.ColumnIndex >= 0 && dgvProductos.Columns[e.ColumnIndex].Name == "btnEditar")
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
+                e.PaintBackground(e.CellBounds, true);
 
                 // Definir colores y radio del borde 
                 Color backColor = Color.FromArgb(180, 230, 218); 
@@ -515,57 +592,153 @@ namespace pryTesisVentas
           
         }
 
+        private void dgvProductos_Paint(object sender, PaintEventArgs e)
+        {
+            // Verificamos que existan las dos columnas de acciones
+            if (dgvProductos.Columns.Contains("btnEditar") && dgvProductos.Columns.Contains("btnEliminar"))
+            {
+                int indexEditar = dgvProductos.Columns["btnEditar"].Index;
+                int indexEliminar = dgvProductos.Columns["btnEliminar"].Index;
+                // Obtenemos los rectángulos de encabezado de ambas columnas
+                Rectangle rect1 = dgvProductos.GetCellDisplayRectangle(indexEditar, -1, true);
+                Rectangle rect2 = dgvProductos.GetCellDisplayRectangle(indexEliminar, -1, true);
+                // Unimos ambos rectángulos para formar un solo bloque
+                Rectangle rectAcciones = new Rectangle(
+                    rect1.X,
+                    rect1.Y,
+                    rect1.Width + rect2.Width,
+                    rect1.Height
+                );
 
+                if (rectAcciones.Width > 0 && rectAcciones.Height > 0)
+                {
+                    // Limpiamos el fondo del encabezado con blanco
+                    using (SolidBrush brushFondo = new SolidBrush(Color.White))
+                    {
+                        e.Graphics.FillRectangle(brushFondo, rectAcciones);
+                    }
+                    // Dibujamos el texto "Acciones" centrado perfectamente sobre los dos botones
+                    using (Font fontHeader = new Font("Segoe UI Semibold", 9.5f))
+                    using (SolidBrush brushTexto = new SolidBrush(Color.FromArgb(120, 130, 140)))
+                    using (StringFormat formato = new StringFormat
+                    {
+                        Alignment = StringAlignment.Center,
+                        LineAlignment = StringAlignment.Center
+                    })
+                    {
+                        e.Graphics.DrawString("Acciones", fontHeader, brushTexto, rectAcciones, formato);
+                    }
+                }
+            }
+        }
 
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Validar que no sea el encabezado
+            if (e.RowIndex < 0) return;
 
+            string nombreColumna = dgvProductos.Columns[e.ColumnIndex].Name;
 
+            // Obtener el objeto de la fila actual
+            Producto prodSeleccionado = dgvProductos.Rows[e.RowIndex].DataBoundItem as Producto;
+            if (prodSeleccionado == null) return;
 
+            // --- ACCIÓN: EDITAR ---
+            if (nombreColumna == "btnEditar")
+            {
+                AbrirFormularioEdicion(prodSeleccionado);
+            }
+            // --- ACCIÓN: ELIMINAR ---
+            else if (nombreColumna == "btnEliminar")
+            {
+                EliminarProductoSeleccionado(prodSeleccionado);
+            }
+        }
 
-        // Método para traer la lista de productos desde SQL Server y guardarlos en memoria
-        // public void CargarProductosDesdeBD()
-        // {
-        //     try 
-        //     {
-        //         // Establece y abre la conexión con la base de datos DigitalFarma
-        //         using (SqlConnection conexion = new SqlConnection(cadenaConexion))
-        //         {
-        //             conexion.Open();
-        //
-        //             // Consulta SQL para seleccionar las columnas necesarias de la tabla Productos
-        //             string query = "SELECT Cantidad, Nombre, Categoria, Precio FROM Productos";
-        //
-        //             // Prepara el comando y ejecuta el lector de datos (Reader)
-        //             SqlCommand comando = new SqlCommand(query, conexion);
-        //             SqlDataReader lector = comando.ExecuteReader();
-        //
-        //             // Limpiamos la lista local para evitar que se dupliquen los datos al recargar
-        //             listaProductos.Clear(); 
-        //
-        //             // Recorre fila por fila los resultados obtenidos de la base de datos
-        //             while (lector.Read())
-        //             {
-        //                 // Crea un nuevo objeto de la clase Producto y mapea los datos de las columnas
-        //                 Producto nuevoProd = new Producto();
-        //                 nuevoProd.Cantidad = Convert.ToInt32(lector["Cantidad"]);
-        //                 nuevoProd.Nombre = lector["Nombre"].ToString();
-        //                 nuevoProd.Categoria = lector["Categoria"].ToString();
-        //                 nuevoProd.Precio = Convert.ToDecimal(lector["Precio"]);
-        //                 
-        //                 // Agrega el producto procesado a nuestra lista global listaProductos
-        //                 listaProductos.Add(nuevoProd);
-        //             }
-        //             
-        //             // Refresca la interfaz visual vinculando la lista actualizada al DataGridView
-        //             dgvProductos.DataSource = null; // Resetea el origen de datos
-        //             dgvProductos.DataSource = listaProductos; // Asigna la lista cargada
-        //         }
-        //     }
-        //     // Captura cualquier falla en la conexión o en la consulta SQL
-        //     catch (Exception ex)
-        //     {
-        //         // Muestra un cuadro de mensaje informando el error exacto
-        //         MessageBox.Show("Error al cargar productos: " + ex.Message);
-        //     }
-        // }
+        private void EliminarProductoSeleccionado(Producto prod)
+        {
+            DialogResult respuesta = MessageBox.Show(
+                $"¿Está seguro de que desea eliminar el producto '{prod.Nombre}' permanentemente del sistema?",
+                "Confirmar Eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                try
+                {
+                    string query = "DELETE FROM Productos WHERE IdProducto = @id";
+
+                    using (SqlConnection conexion = new SqlConnection(clsConsultas.cadena))
+                    {
+                        conexion.Open();
+                        using (SqlCommand cmd = new SqlCommand(query, conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@id", prod.Id);
+                            int filasAfectadas = cmd.ExecuteNonQuery();
+
+                            if (filasAfectadas > 0)
+                            {
+                                // 1. Quitar de la lista en memoria
+                                listaProductos.Remove(prod);
+
+                                // 2. Refrescar la grilla
+                                ActualizarGrilla(listaProductos);
+
+                                MessageBox.Show("Producto eliminado con éxito.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    // Error 547 = Conflicto con Foreign Key (el producto ya tiene ventas o compras asociadas)
+                    if (sqlEx.Number == 547)
+                    {
+                        MessageBox.Show("No se puede eliminar este producto porque ya figura en pedidos o ventas registradas.\n\nSugerencia: Cambie su stock a 0 o márquelo como inactivo.",
+                                        "Operación no permitida", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar en la base de datos: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void AbrirFormularioEdicion(Producto prod)
+        {
+            using (FrmEditarProducto frm = new FrmEditarProducto())
+            {
+                frm.ProductoSeleccionado = prod;
+
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    // Refresca la grilla con los cambios actualizados
+                    ActualizarGrilla(listaProductos);
+                }
+            }
+        }
+
+        private void cmbFiltrar_Click(object sender, EventArgs e)
+        {
+            using (frmFiltroProductos ventanaFiltro = new frmFiltroProductos())
+            {
+                ventanaFiltro.listaParaFiltrar = this.listaProductos;
+                ventanaFiltro.StartPosition = FormStartPosition.CenterParent;
+
+                if (ventanaFiltro.ShowDialog(this) == DialogResult.OK)
+                {
+                    // Si el usuario aplicó filtros o reseteó, actualiza la grilla con lo que devolvió el modal
+                    if (ventanaFiltro.ListaResultado != null)
+                    {
+                        ActualizarGrilla(ventanaFiltro.ListaResultado);
+                    }
+                }
+            }
+        }
     }
 }

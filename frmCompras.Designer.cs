@@ -211,6 +211,7 @@
             this.Controls.Add(this.dgvCompras);
             this.Controls.Add(this.lblCompras);
             this.Controls.Add(this.ptbCompras);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCompras";
             this.Text = "frmCompras";
             this.Load += new System.EventHandler(this.frmCompras_Load);

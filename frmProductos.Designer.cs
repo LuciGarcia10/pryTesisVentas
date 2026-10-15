@@ -623,6 +623,7 @@
             this.cmbFiltrar.Size = new System.Drawing.Size(121, 29);
             this.cmbFiltrar.TabIndex = 16;
             this.cmbFiltrar.Text = "Filtrar";
+            this.cmbFiltrar.Click += new System.EventHandler(this.cmbFiltrar_Click);
             this.cmbFiltrar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbFiltrar_MouseClick);
             // 
             // pnlBuscador
@@ -715,9 +716,11 @@
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidth = 62;
             this.dgvProductos.RowTemplate.Height = 70;
-            this.dgvProductos.Size = new System.Drawing.Size(1138, 348);
+            this.dgvProductos.Size = new System.Drawing.Size(1158, 576);
             this.dgvProductos.TabIndex = 11;
+            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             this.dgvProductos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvProductos_CellPainting);
+            this.dgvProductos.Paint += new System.Windows.Forms.PaintEventHandler(this.dgvProductos_Paint);
             // 
             // Cantidad
             // 
@@ -768,6 +771,7 @@
             this.ClientSize = new System.Drawing.Size(1557, 932);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.pnlContenedorPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmProductos";

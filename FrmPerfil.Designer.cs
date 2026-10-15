@@ -964,6 +964,7 @@
             this.Controls.Add(this.PnlPermisos);
             this.Controls.Add(this.pnlBuscar);
             this.Controls.Add(this.pnlContenedorPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

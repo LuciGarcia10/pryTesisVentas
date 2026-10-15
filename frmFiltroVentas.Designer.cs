@@ -30,9 +30,9 @@
         {
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblResetearNombre = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblResetearCategoria = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.btnResetearTodo = new System.Windows.Forms.Button();
@@ -71,15 +71,16 @@
             this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
             this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
-            // label6
+            // lblResetearNombre
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(285, 304);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 28);
-            this.label6.TabIndex = 70;
-            this.label6.Text = "Resetear";
+            this.lblResetearNombre.AutoSize = true;
+            this.lblResetearNombre.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResetearNombre.Location = new System.Drawing.Point(285, 304);
+            this.lblResetearNombre.Name = "lblResetearNombre";
+            this.lblResetearNombre.Size = new System.Drawing.Size(94, 28);
+            this.lblResetearNombre.TabIndex = 70;
+            this.lblResetearNombre.Text = "Resetear";
+            this.lblResetearNombre.Click += new System.EventHandler(this.lblResetearNombre_Click);
             // 
             // label5
             // 
@@ -91,15 +92,16 @@
             this.label5.TabIndex = 69;
             this.label5.Text = "Nombre";
             // 
-            // label4
+            // lblResetearCategoria
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(285, 214);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 28);
-            this.label4.TabIndex = 68;
-            this.label4.Text = "Resetear";
+            this.lblResetearCategoria.AutoSize = true;
+            this.lblResetearCategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResetearCategoria.Location = new System.Drawing.Point(285, 214);
+            this.lblResetearCategoria.Name = "lblResetearCategoria";
+            this.lblResetearCategoria.Size = new System.Drawing.Size(94, 28);
+            this.lblResetearCategoria.TabIndex = 68;
+            this.lblResetearCategoria.Text = "Resetear";
+            this.lblResetearCategoria.Click += new System.EventHandler(this.lblResetearCategoria_Click);
             // 
             // label3
             // 
@@ -137,6 +139,7 @@
             this.btnResetearTodo.TabIndex = 65;
             this.btnResetearTodo.Text = "Resetear todo";
             this.btnResetearTodo.UseVisualStyleBackColor = false;
+            this.btnResetearTodo.Click += new System.EventHandler(this.btnResetearTodo_Click);
             // 
             // btnAplicarFiltros
             // 
@@ -227,6 +230,7 @@
             this.lblResetearFecha.Size = new System.Drawing.Size(94, 28);
             this.lblResetearFecha.TabIndex = 56;
             this.lblResetearFecha.Text = "Resetear";
+            this.lblResetearFecha.Click += new System.EventHandler(this.lblResetearFecha_Click);
             // 
             // lblRangoFecha
             // 
@@ -254,9 +258,9 @@
             this.ClientSize = new System.Drawing.Size(384, 458);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblResetearNombre);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblResetearCategoria);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.btnResetearTodo);
@@ -284,9 +288,9 @@
 
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblResetearNombre;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblResetearCategoria;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.Button btnResetearTodo;

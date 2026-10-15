@@ -188,6 +188,7 @@
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtContra);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmIngresar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmIngresar";

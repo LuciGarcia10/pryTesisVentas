@@ -941,6 +941,8 @@
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(126, 22);
             this.txtBuscador.TabIndex = 9;
+            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
+            this.txtBuscador.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscador_KeyDown);
             // 
             // ptbLupa
             // 
@@ -1084,6 +1086,7 @@
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.pnlContenedorPrincipal);
             this.Controls.Add(this.pnlVentasdeProductos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmInicio";

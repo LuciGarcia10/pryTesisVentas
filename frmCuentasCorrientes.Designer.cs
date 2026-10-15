@@ -592,7 +592,7 @@
             this.btnFiltrar.TabIndex = 19;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnFiltrar_MouseClick);
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // pictureBox2
             // 
@@ -791,6 +791,7 @@
             this.ClientSize = new System.Drawing.Size(1590, 931);
             this.Controls.Add(this.pnlPedidos);
             this.Controls.Add(this.pnlContenedorPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmCuentasCorrientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

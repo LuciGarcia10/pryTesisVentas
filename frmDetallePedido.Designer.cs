@@ -150,6 +150,7 @@
             this.txtPrecioTotal.Size = new System.Drawing.Size(126, 29);
             this.txtPrecioTotal.TabIndex = 6;
             this.txtPrecioTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrecioTotal.TextChanged += new System.EventHandler(this.txtPrecioTotal_TextChanged);
             // 
             // lblCerrar
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -34,25 +35,55 @@ namespace pryTesisVentas
 
         private void CargarDatosDesdeBase()
         {
+            listaClientes.Clear();
+
             string consulta = "SELECT IdCliente, NroAfiliado, Nombre, Apellido, ObraSocial, Estado, Saldo FROM Clientes";
 
-            // 1. Cargar la grilla en pantalla
-            clsConsultas.LlenarGrid(consulta, dgvCuentasC);
+            using (SqlConnection conexion = new SqlConnection(clsConsultas.cadena))
+            {
+                try
+                {
+                    conexion.Open();
+                    using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                    {
+                        using (SqlDataReader lector = cmd.ExecuteReader())
+                        {
+                            while (lector.Read())
+                            {
+                                clsCuentasC c = new clsCuentasC
+                                {
+                                    IdCliente = Convert.ToInt32(lector["IdCliente"]),
+                                    NroAfiliado = lector["NroAfiliado"] != DBNull.Value ? lector["NroAfiliado"].ToString() : "",
+                                    Nombre = lector["Nombre"] != DBNull.Value ? lector["Nombre"].ToString() : "",
+                                    Apellido = lector["Apellido"] != DBNull.Value ? lector["Apellido"].ToString() : "",
+                                    ObraSocial = lector["ObraSocial"] != DBNull.Value ? lector["ObraSocial"].ToString() : "",
+                                    Estado = lector["Estado"] != DBNull.Value ? lector["Estado"].ToString() : "",
+                                    Saldo = lector["Saldo"] != DBNull.Value ? Convert.ToDecimal(lector["Saldo"]) : 0
+                                };
 
-            // 2. Cargar la lista en memoria que usará el filtro
-            this.listaClientes = clsConsultas.ObtenerListaClientes(consulta);
+                                listaClientes.Add(c);
+                            }
+                        }
+                    }
 
-            if (btnLimpiar != null)
-                btnLimpiar.Enabled = false;
+                    // Ahora sí cargamos la grilla con la lista llena
+                    ActualizarGrilla(listaClientes);
+
+                    if (btnLimpiar != null)
+                        btnLimpiar.Enabled = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar clientes desde la base de datos: " + ex.Message,
+                                    "Error BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
         public void ActualizarGrilla(List<clsCuentasC> lista)
         {
-            // Mantenemos esta función por si tu ventana de filtros (FrmFiltroClientes) te devuelve una lista filtrada en memoria
+            dgvCuentasC.AutoGenerateColumns = false;
             dgvCuentasC.DataSource = null;
             dgvCuentasC.DataSource = lista;
-
-            if (btnLimpiar != null)
-                btnLimpiar.Enabled = true; // Si se fuerza una lista manual, habilitamos limpiar para regresar a la base
         }
 
 
@@ -135,10 +166,16 @@ namespace pryTesisVentas
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            // Volvemos a cargar desde la base de datos
-            CargarDatosDesdeBase();
+            // Restaurar la grilla con la lista completa sin volver a consultar SQL
+            if (this.listaClientes != null && this.listaClientes.Count > 0)
+            {
+                ActualizarGrilla(this.listaClientes);
+            }
+            else
+            {
+                CargarDatosDesdeBase();
+            }
 
-            // Deshabilitamos el botón hasta que se vuelva a aplicar un nuevo filtro
             if (btnLimpiar != null)
                 btnLimpiar.Enabled = false;
         }
@@ -266,14 +303,14 @@ namespace pryTesisVentas
         }
 
         private void btnExp_Click(object sender, EventArgs e)
-        {// 1. Validamos que la grilla tenga datos para exportar
+        {   // Validamos que la grilla tenga datos para exportar
             if (dgvCuentasC.Rows.Count == 0)
             {
                 MessageBox.Show("No hay datos en la grilla para exportar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. Configuramos el cuadro de diálogo para guardar el archivo
+            // Configuramos el cuadro de diálogo para guardar el archivo
             SaveFileDialog guardarArchivo = new SaveFileDialog();
             guardarArchivo.Filter = "Archivos CSV (*.csv)|*.csv";
             guardarArchivo.FileName = "Cuentas_Corrientes_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".csv";
@@ -285,12 +322,12 @@ namespace pryTesisVentas
                 {
                     List<string> lineas = new List<string>();
 
-                    // 3. Creamos los encabezados de las columnas (reproducimos los nombres de tu grilla)
+                    // Creamos los encabezados de las columnas (reproducimos los nombres de tu grilla)
                     // Usamos un formato compatible con Excel en español (separado por punto y coma ';')
                     string encabezado = "Nro Afiliado;Nombre;Apellido;Obra Social;Estado;Saldo";
                     lineas.Add(encabezado);
 
-                    // 4. Recorremos las filas de la grilla para extraer los datos reales
+                    // Recorremos las filas de la grilla para extraer los datos reales
                     foreach (DataGridViewRow fila in dgvCuentasC.Rows)
                     {
                         // Evitamos la fila vacía del final si está habilitada
@@ -313,7 +350,7 @@ namespace pryTesisVentas
                         lineas.Add(linea);
                     }
 
-                    // 5. Escribimos el archivo físico en la compu usando codificación UTF-8 con BOM 
+                    // Escribimos el archivo físico en la compu usando codificación UTF-8 con BOM 
                     // (Esto último es clave para que Excel reconozca bien los acentos y las 'ñ')
                     System.IO.File.WriteAllLines(guardarArchivo.FileName, lineas, System.Text.Encoding.UTF8);
 
@@ -331,40 +368,25 @@ namespace pryTesisVentas
         {
             try
             {
-                FrmFiltroClientes frm = new FrmFiltroClientes();
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.Owner = this;
-                frm.ShowDialog(); // Abre la ventana sin cargar la lista por ahora
+                FrmFiltroClientes ventanaFiltro = new FrmFiltroClientes();
+                ventanaFiltro.listaParaFiltrar = this.listaClientes;
+                ventanaFiltro.Owner = this;
+                // Centrar FiltrarClientes
+                ventanaFiltro.StartPosition = FormStartPosition.CenterParent;
+                if (ventanaFiltro.ShowDialog() == DialogResult.OK)
+                {
+                    if (btnLimpiar != null)
+                        btnLimpiar.Enabled = true;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al abrir la ventana: " + ex.Message);
+                MessageBox.Show("Error al abrir los filtros: " + ex.Message, "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
-        private void btnFiltrar_MouseClick(object sender, MouseEventArgs e)
-        {
-            FrmFiltroClientes ventanaFiltro = new FrmFiltroClientes();
-
-            if (this.listaClientes == null)
-            {
-                this.listaClientes = new List<clsCuentasC>();
-            }
-            ventanaFiltro.listaParaFiltrar = this.listaClientes;
-
-            // Posicionamiento desplegable justo debajo del botón
-            ventanaFiltro.StartPosition = FormStartPosition.Manual;
-            Point puntoAparicion = btnFiltrar.PointToScreen(new Point(0, btnFiltrar.Height));
-            ventanaFiltro.Location = puntoAparicion;
-
-            ventanaFiltro.Owner = this;
-
-            if (ventanaFiltro.ShowDialog() == DialogResult.OK)
-            {
-                if (btnLimpiar != null) btnLimpiar.Enabled = true;
-            }
-        }
+       
     }
     
 }
