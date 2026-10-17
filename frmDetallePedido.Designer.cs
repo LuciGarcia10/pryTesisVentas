@@ -41,8 +41,10 @@
             this.txtPrecioTotal = new System.Windows.Forms.TextBox();
             this.lblCerrar = new System.Windows.Forms.Label();
             this.PctIconoDetalle = new System.Windows.Forms.PictureBox();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDetallePedido
@@ -179,12 +181,25 @@
             this.PctIconoDetalle.TabIndex = 12;
             this.PctIconoDetalle.TabStop = false;
             // 
+            // pctCerrar
+            // 
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(484, 5);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 56;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
             // frmDetallePedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(554, 393);
+            this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.PctIconoDetalle);
             this.Controls.Add(this.lblCerrar);
             this.Controls.Add(this.txtPrecioTotal);
@@ -200,9 +215,11 @@
             this.Name = "frmDetallePedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDetallePedido";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDetallePedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,5 +239,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.Label lblCerrar;
         private System.Windows.Forms.PictureBox PctIconoDetalle;
+        private System.Windows.Forms.PictureBox pctCerrar;
     }
 }

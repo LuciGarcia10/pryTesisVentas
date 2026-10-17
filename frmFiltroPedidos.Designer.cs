@@ -48,6 +48,8 @@
             this.lblEscribirNombre = new System.Windows.Forms.Label();
             this.btnAplicarFiltros = new System.Windows.Forms.Button();
             this.btnResetearTodo = new System.Windows.Forms.Button();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFiltrarPor
@@ -57,7 +59,7 @@
             this.lblFiltrarPor.Location = new System.Drawing.Point(2, 9);
             this.lblFiltrarPor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFiltrarPor.Name = "lblFiltrarPor";
-            this.lblFiltrarPor.Size = new System.Drawing.Size(61, 13);
+            this.lblFiltrarPor.Size = new System.Drawing.Size(82, 21);
             this.lblFiltrarPor.TabIndex = 5;
             this.lblFiltrarPor.Text = "Filtrar por:";
             // 
@@ -68,7 +70,7 @@
             this.lblRangoFecha.Location = new System.Drawing.Point(21, 32);
             this.lblRangoFecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRangoFecha.Name = "lblRangoFecha";
-            this.lblRangoFecha.Size = new System.Drawing.Size(115, 19);
+            this.lblRangoFecha.Size = new System.Drawing.Size(161, 28);
             this.lblRangoFecha.TabIndex = 6;
             this.lblRangoFecha.Text = "Rango de Fecha";
             // 
@@ -80,7 +82,7 @@
             this.lblResetearFecha.Location = new System.Drawing.Point(289, 32);
             this.lblResetearFecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResetearFecha.Name = "lblResetearFecha";
-            this.lblResetearFecha.Size = new System.Drawing.Size(67, 19);
+            this.lblResetearFecha.Size = new System.Drawing.Size(94, 28);
             this.lblResetearFecha.TabIndex = 7;
             this.lblResetearFecha.Text = "Resetear";
             this.lblResetearFecha.Click += new System.EventHandler(this.lblResetearFecha_Click);
@@ -92,7 +94,7 @@
             this.lblHasta.Location = new System.Drawing.Point(196, 56);
             this.lblHasta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(36, 13);
+            this.lblHasta.Size = new System.Drawing.Size(49, 21);
             this.lblHasta.TabIndex = 12;
             this.lblHasta.Text = "Hasta";
             // 
@@ -103,7 +105,7 @@
             this.lblDesde.Location = new System.Drawing.Point(10, 56);
             this.lblDesde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(39, 13);
+            this.lblDesde.Size = new System.Drawing.Size(53, 21);
             this.lblDesde.TabIndex = 11;
             this.lblDesde.Text = "Desde";
             // 
@@ -114,7 +116,7 @@
             this.dtpHasta.Location = new System.Drawing.Point(193, 80);
             this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(175, 22);
+            this.dtpHasta.Size = new System.Drawing.Size(175, 29);
             this.dtpHasta.TabIndex = 10;
             // 
             // dtpDesde
@@ -124,7 +126,7 @@
             this.dtpDesde.Location = new System.Drawing.Point(14, 80);
             this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(175, 22);
+            this.dtpDesde.Size = new System.Drawing.Size(175, 29);
             this.dtpDesde.TabIndex = 9;
             // 
             // btnEstemes
@@ -167,7 +169,7 @@
             this.lblNdePedido.Location = new System.Drawing.Point(14, 166);
             this.lblNdePedido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNdePedido.Name = "lblNdePedido";
-            this.lblNdePedido.Size = new System.Drawing.Size(98, 19);
+            this.lblNdePedido.Size = new System.Drawing.Size(135, 28);
             this.lblNdePedido.TabIndex = 16;
             this.lblNdePedido.Text = "N° de Pedido";
             // 
@@ -179,7 +181,7 @@
             this.lblResetearNumero.Location = new System.Drawing.Point(277, 166);
             this.lblResetearNumero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResetearNumero.Name = "lblResetearNumero";
-            this.lblResetearNumero.Size = new System.Drawing.Size(67, 19);
+            this.lblResetearNumero.Size = new System.Drawing.Size(94, 28);
             this.lblResetearNumero.TabIndex = 17;
             this.lblResetearNumero.Text = "Resetear";
             // 
@@ -202,7 +204,7 @@
             this.lblIngresarNumero.Location = new System.Drawing.Point(16, 205);
             this.lblIngresarNumero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIngresarNumero.Name = "lblIngresarNumero";
-            this.lblIngresarNumero.Size = new System.Drawing.Size(157, 13);
+            this.lblIngresarNumero.Size = new System.Drawing.Size(208, 21);
             this.lblIngresarNumero.TabIndex = 19;
             this.lblIngresarNumero.Text = "Ingresar numero de pedido...";
             this.lblIngresarNumero.Click += new System.EventHandler(this.lblIngresarNumero_Click);
@@ -214,7 +216,7 @@
             this.lblNombre.Location = new System.Drawing.Point(13, 248);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(65, 19);
+            this.lblNombre.Size = new System.Drawing.Size(89, 28);
             this.lblNombre.TabIndex = 20;
             this.lblNombre.Text = "Nombre";
             // 
@@ -226,7 +228,7 @@
             this.lblResetearNombre.Location = new System.Drawing.Point(276, 248);
             this.lblResetearNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResetearNombre.Name = "lblResetearNombre";
-            this.lblResetearNombre.Size = new System.Drawing.Size(67, 19);
+            this.lblResetearNombre.Size = new System.Drawing.Size(94, 28);
             this.lblResetearNombre.TabIndex = 21;
             this.lblResetearNombre.Text = "Resetear";
             this.lblResetearNombre.Click += new System.EventHandler(this.lblResetearNombre_Click);
@@ -250,7 +252,7 @@
             this.lblEscribirNombre.Location = new System.Drawing.Point(16, 287);
             this.lblEscribirNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEscribirNombre.Name = "lblEscribirNombre";
-            this.lblEscribirNombre.Size = new System.Drawing.Size(108, 13);
+            this.lblEscribirNombre.Size = new System.Drawing.Size(145, 21);
             this.lblEscribirNombre.TabIndex = 23;
             this.lblEscribirNombre.Text = "Escribir el nombre...";
             this.lblEscribirNombre.Click += new System.EventHandler(this.lblEscribirNombre_Click);
@@ -283,11 +285,24 @@
             this.btnResetearTodo.UseVisualStyleBackColor = false;
             this.btnResetearTodo.Click += new System.EventHandler(this.btnResetearTodo_Click);
             // 
+            // pctCerrar
+            // 
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(371, 5);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 56;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
             // frmFiltroPedidos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 390);
+            this.ClientSize = new System.Drawing.Size(407, 390);
+            this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.btnResetearTodo);
             this.Controls.Add(this.btnAplicarFiltros);
             this.Controls.Add(this.lblEscribirNombre);
@@ -313,6 +328,8 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmFiltroPedidos";
             this.Text = "frmFiltroPedidos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,5 +357,6 @@
         private System.Windows.Forms.Label lblEscribirNombre;
         private System.Windows.Forms.Button btnAplicarFiltros;
         private System.Windows.Forms.Button btnResetearTodo;
+        private System.Windows.Forms.PictureBox pctCerrar;
     }
 }

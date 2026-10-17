@@ -256,6 +256,11 @@ namespace pryTesisVentas
             FrmPerfil frm = new FrmPerfil();
             frm.Show();
         }
+
+        private void pctCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

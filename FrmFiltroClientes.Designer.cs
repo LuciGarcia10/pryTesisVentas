@@ -55,7 +55,7 @@
             this.btnResetearTodo.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetearTodo.ForeColor = System.Drawing.Color.Black;
             this.btnResetearTodo.Location = new System.Drawing.Point(326, 291);
-            this.btnResetearTodo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnResetearTodo.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetearTodo.Name = "btnResetearTodo";
             this.btnResetearTodo.Size = new System.Drawing.Size(220, 42);
             this.btnResetearTodo.TabIndex = 44;
@@ -69,7 +69,7 @@
             this.btnAplicarFiltros.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAplicarFiltros.ForeColor = System.Drawing.Color.White;
             this.btnAplicarFiltros.Location = new System.Drawing.Point(326, 226);
-            this.btnAplicarFiltros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAplicarFiltros.Margin = new System.Windows.Forms.Padding(2);
             this.btnAplicarFiltros.Name = "btnAplicarFiltros";
             this.btnAplicarFiltros.Size = new System.Drawing.Size(220, 60);
             this.btnAplicarFiltros.TabIndex = 43;
@@ -81,7 +81,7 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(33, 183);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(218, 36);
@@ -102,7 +102,7 @@
             // 
             this.txtNAf.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNAf.Location = new System.Drawing.Point(33, 85);
-            this.txtNAf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNAf.Margin = new System.Windows.Forms.Padding(2);
             this.txtNAf.Multiline = true;
             this.txtNAf.Name = "txtNAf";
             this.txtNAf.Size = new System.Drawing.Size(218, 36);
@@ -123,7 +123,7 @@
             // 
             this.txtApellido.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(33, 285);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Multiline = true;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(218, 36);
@@ -187,7 +187,7 @@
             // 
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
             this.pctCerrar.Location = new System.Drawing.Point(560, 3);
-            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.pctCerrar.Name = "pctCerrar";
             this.pctCerrar.Size = new System.Drawing.Size(32, 28);
             this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -281,6 +281,7 @@
             this.Name = "FrmFiltroClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmFiltroClientes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmFiltroClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.grFiltrar.ResumeLayout(false);

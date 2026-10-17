@@ -132,6 +132,7 @@
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblTituloActualizar = new System.Windows.Forms.Label();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -172,6 +173,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbPendientes)).BeginInit();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -1299,11 +1301,24 @@
             this.lblTituloActualizar.TabIndex = 27;
             this.lblTituloActualizar.Text = "Para actualizar graficos hacer click en el siguiente boton:";
             // 
+            // pctCerrar
+            // 
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(1204, 6);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 56;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
             // frmEstadisticas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 1069);
+            this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.lblTituloActualizar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.lblGanacias);
@@ -1323,6 +1338,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEstadisticas";
             this.Text = "frmEstadisticas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmEstadisticas_Load);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -1383,6 +1399,7 @@
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1488,5 +1505,6 @@
         private System.Windows.Forms.Timer timerRefresh;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label lblTituloActualizar;
+        private System.Windows.Forms.PictureBox pctCerrar;
     }
 }

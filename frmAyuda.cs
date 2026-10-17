@@ -181,5 +181,10 @@ namespace pryTesisVentas
                 MessageBox.Show("No se pudo abrir el mapa: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void pctCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

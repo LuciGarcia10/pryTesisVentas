@@ -42,9 +42,10 @@
             this.lblDirecciondeentrega = new System.Windows.Forms.Label();
             this.lblPrecioTotal = new System.Windows.Forms.Label();
             this.lblCantidadProductos = new System.Windows.Forms.Label();
-            this.lblCerrar = new System.Windows.Forms.Label();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCompras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCompras
@@ -179,25 +180,24 @@
             this.lblCantidadProductos.TabIndex = 23;
             this.lblCantidadProductos.Text = "Cantidad Productos";
             // 
-            // lblCerrar
+            // pctCerrar
             // 
-            this.lblCerrar.AutoSize = true;
-            this.lblCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCerrar.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCerrar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblCerrar.Location = new System.Drawing.Point(582, 9);
-            this.lblCerrar.Name = "lblCerrar";
-            this.lblCerrar.Size = new System.Drawing.Size(20, 21);
-            this.lblCerrar.TabIndex = 33;
-            this.lblCerrar.Text = "X";
-            this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(576, 7);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 56;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
             // 
             // frmCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 414);
-            this.Controls.Add(this.lblCerrar);
+            this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnPedir);
             this.Controls.Add(this.txtFechaEntrega);
@@ -214,10 +214,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCompras";
             this.Text = "frmCompras";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCompras_Load);
             this.Shown += new System.EventHandler(this.frmCompras_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.ptbCompras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,6 +240,6 @@
         private System.Windows.Forms.Label lblDirecciondeentrega;
         private System.Windows.Forms.Label lblPrecioTotal;
         private System.Windows.Forms.Label lblCantidadProductos;
-        private System.Windows.Forms.Label lblCerrar;
+        private System.Windows.Forms.PictureBox pctCerrar;
     }
 }

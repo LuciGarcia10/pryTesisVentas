@@ -47,6 +47,8 @@
             this.lblResetearFecha = new System.Windows.Forms.Label();
             this.lblRangoFecha = new System.Windows.Forms.Label();
             this.lblFiltrarPor = new System.Windows.Forms.Label();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -251,11 +253,24 @@
             this.lblFiltrarPor.TabIndex = 54;
             this.lblFiltrarPor.Text = "Filtrar por:";
             // 
+            // pctCerrar
+            // 
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(350, 3);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 73;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
             // frmFiltroVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 458);
+            this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblResetearNombre);
@@ -278,7 +293,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmFiltroVentas";
             this.Text = "frmFiltroVentas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmFiltroVentas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,5 +322,6 @@
         private System.Windows.Forms.Label lblResetearFecha;
         private System.Windows.Forms.Label lblRangoFecha;
         private System.Windows.Forms.Label lblFiltrarPor;
+        private System.Windows.Forms.PictureBox pctCerrar;
     }
 }

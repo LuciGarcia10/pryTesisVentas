@@ -100,6 +100,7 @@
             this.LblDatos = new System.Windows.Forms.Label();
             this.PctFotoPerfil = new System.Windows.Forms.PictureBox();
             this.LblGestion = new System.Windows.Forms.Label();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -128,6 +129,7 @@
             this.PnlCuenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctFotoPerfil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -954,11 +956,24 @@
             this.LblGestion.TabIndex = 1;
             this.LblGestion.Text = "Gestión de Cuenta y Permisos";
             // 
+            // pctCerrar
+            // 
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(1598, 10);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 56;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
             // FrmPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1599, 928);
+            this.ClientSize = new System.Drawing.Size(1637, 928);
+            this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.LblGestion);
             this.Controls.Add(this.PnlCuenta);
             this.Controls.Add(this.PnlPermisos);
@@ -969,6 +984,7 @@
             this.Name = "FrmPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPerfil";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPerfil_FormClosed);
             this.Load += new System.EventHandler(this.FrmPerfil_Load);
             this.pnlContenedorPrincipal.ResumeLayout(false);
@@ -1012,6 +1028,7 @@
             this.PnlCuenta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoDatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctFotoPerfil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1088,5 +1105,6 @@
         private System.Windows.Forms.TextBox txtBuscarGlobal;
         private System.Windows.Forms.Panel pnlBuscadorUsuario;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pctCerrar;
     }
 }

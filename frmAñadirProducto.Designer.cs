@@ -43,8 +43,10 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAñadirproducto
@@ -109,7 +111,7 @@
             this.dtpVencimiento.Location = new System.Drawing.Point(27, 312);
             this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(2);
             this.dtpVencimiento.Name = "dtpVencimiento";
-            this.dtpVencimiento.Size = new System.Drawing.Size(218, 31);
+            this.dtpVencimiento.Size = new System.Drawing.Size(297, 31);
             this.dtpVencimiento.TabIndex = 5;
             // 
             // btnCancelar
@@ -120,7 +122,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(27, 357);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(99, 56);
+            this.btnCancelar.Size = new System.Drawing.Size(136, 56);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -131,10 +133,10 @@
             this.btnAñadirproducto.BackColor = System.Drawing.Color.Teal;
             this.btnAñadirproducto.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAñadirproducto.ForeColor = System.Drawing.Color.White;
-            this.btnAñadirproducto.Location = new System.Drawing.Point(134, 357);
+            this.btnAñadirproducto.Location = new System.Drawing.Point(182, 357);
             this.btnAñadirproducto.Margin = new System.Windows.Forms.Padding(2);
             this.btnAñadirproducto.Name = "btnAñadirproducto";
-            this.btnAñadirproducto.Size = new System.Drawing.Size(111, 56);
+            this.btnAñadirproducto.Size = new System.Drawing.Size(153, 56);
             this.btnAñadirproducto.TabIndex = 20;
             this.btnAñadirproducto.Text = "Añadir producto";
             this.btnAñadirproducto.UseVisualStyleBackColor = false;
@@ -147,7 +149,7 @@
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(215, 23);
+            this.txtNombre.Size = new System.Drawing.Size(297, 23);
             this.txtNombre.TabIndex = 21;
             // 
             // cmbCategoria
@@ -163,7 +165,7 @@
             this.cmbCategoria.Location = new System.Drawing.Point(27, 121);
             this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(218, 29);
+            this.cmbCategoria.Size = new System.Drawing.Size(297, 29);
             this.cmbCategoria.TabIndex = 22;
             // 
             // numCantidad
@@ -172,7 +174,7 @@
             this.numCantidad.Location = new System.Drawing.Point(27, 179);
             this.numCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(218, 31);
+            this.numCantidad.Size = new System.Drawing.Size(297, 31);
             this.numCantidad.TabIndex = 23;
             // 
             // pictureBox6
@@ -204,14 +206,27 @@
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecio.Multiline = true;
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(215, 23);
+            this.txtPrecio.Size = new System.Drawing.Size(295, 23);
             this.txtPrecio.TabIndex = 41;
+            // 
+            // pctCerrar
+            // 
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(357, 6);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 55;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
             // 
             // frmAñadirProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 423);
+            this.ClientSize = new System.Drawing.Size(392, 423);
+            this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.pictureBox6);
@@ -232,9 +247,11 @@
             this.Name = "frmAñadirProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAñadirProducto";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmAñadirProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,5 +273,6 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.PictureBox pctCerrar;
     }
 }

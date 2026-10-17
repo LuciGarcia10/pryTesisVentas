@@ -385,8 +385,10 @@ namespace pryTesisVentas
             }
         }
 
-
-       
+        private void pctCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
     
 }

@@ -59,9 +59,11 @@
             this.LblObligatorio3 = new System.Windows.Forms.Label();
             this.LblObligatorio2 = new System.Windows.Forms.Label();
             this.LblObligatorio1 = new System.Windows.Forms.Label();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numSaldo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.grDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // LblNombre
@@ -71,7 +73,7 @@
             this.LblNombre.Location = new System.Drawing.Point(23, 149);
             this.LblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblNombre.Name = "LblNombre";
-            this.LblNombre.Size = new System.Drawing.Size(53, 15);
+            this.LblNombre.Size = new System.Drawing.Size(81, 25);
             this.LblNombre.TabIndex = 0;
             this.LblNombre.Text = "Nombre";
             // 
@@ -82,7 +84,7 @@
             this.LblApellido.Location = new System.Drawing.Point(23, 209);
             this.LblApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblApellido.Name = "LblApellido";
-            this.LblApellido.Size = new System.Drawing.Size(52, 15);
+            this.LblApellido.Size = new System.Drawing.Size(83, 25);
             this.LblApellido.TabIndex = 1;
             this.LblApellido.Text = "Apellido";
             // 
@@ -91,7 +93,7 @@
             this.TxtNombreC.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombreC.Location = new System.Drawing.Point(24, 168);
             this.TxtNombreC.Name = "TxtNombreC";
-            this.TxtNombreC.Size = new System.Drawing.Size(147, 25);
+            this.TxtNombreC.Size = new System.Drawing.Size(147, 34);
             this.TxtNombreC.TabIndex = 2;
             this.TxtNombreC.TextChanged += new System.EventHandler(this.TxtNombreC_TextChanged);
             // 
@@ -100,7 +102,7 @@
             this.TxtApC.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtApC.Location = new System.Drawing.Point(24, 228);
             this.TxtApC.Name = "TxtApC";
-            this.TxtApC.Size = new System.Drawing.Size(147, 25);
+            this.TxtApC.Size = new System.Drawing.Size(147, 34);
             this.TxtApC.TabIndex = 3;
             this.TxtApC.TextChanged += new System.EventHandler(this.TxtApC_TextChanged);
             // 
@@ -111,7 +113,7 @@
             this.LblNAfiliado.Location = new System.Drawing.Point(21, 34);
             this.LblNAfiliado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblNAfiliado.Name = "LblNAfiliado";
-            this.LblNAfiliado.Size = new System.Drawing.Size(83, 15);
+            this.LblNAfiliado.Size = new System.Drawing.Size(131, 25);
             this.LblNAfiliado.TabIndex = 4;
             this.LblNAfiliado.Text = "N° de Afiliado";
             // 
@@ -120,7 +122,7 @@
             this.TxtNAfiliado.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNAfiliado.Location = new System.Drawing.Point(24, 54);
             this.TxtNAfiliado.Name = "TxtNAfiliado";
-            this.TxtNAfiliado.Size = new System.Drawing.Size(147, 25);
+            this.TxtNAfiliado.Size = new System.Drawing.Size(147, 34);
             this.TxtNAfiliado.TabIndex = 5;
             // 
             // LblObraSocial
@@ -130,7 +132,7 @@
             this.LblObraSocial.Location = new System.Drawing.Point(191, 147);
             this.LblObraSocial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblObraSocial.Name = "LblObraSocial";
-            this.LblObraSocial.Size = new System.Drawing.Size(69, 15);
+            this.LblObraSocial.Size = new System.Drawing.Size(109, 25);
             this.LblObraSocial.TabIndex = 6;
             this.LblObraSocial.Text = "Obra Social";
             // 
@@ -141,7 +143,7 @@
             this.LblECuenta.Location = new System.Drawing.Point(189, 209);
             this.LblECuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblECuenta.Name = "LblECuenta";
-            this.LblECuenta.Size = new System.Drawing.Size(101, 15);
+            this.LblECuenta.Size = new System.Drawing.Size(158, 25);
             this.LblECuenta.TabIndex = 7;
             this.LblECuenta.Text = "Estado de cuenta";
             // 
@@ -152,7 +154,7 @@
             this.LblSaldoC.Location = new System.Drawing.Point(130, 283);
             this.LblSaldoC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblSaldoC.Name = "LblSaldoC";
-            this.LblSaldoC.Size = new System.Drawing.Size(56, 15);
+            this.LblSaldoC.Size = new System.Drawing.Size(89, 25);
             this.LblSaldoC.TabIndex = 8;
             this.LblSaldoC.Text = "Saldo    $";
             // 
@@ -162,7 +164,7 @@
             this.CmbObraS.FormattingEnabled = true;
             this.CmbObraS.Location = new System.Drawing.Point(192, 166);
             this.CmbObraS.Name = "CmbObraS";
-            this.CmbObraS.Size = new System.Drawing.Size(147, 25);
+            this.CmbObraS.Size = new System.Drawing.Size(147, 36);
             this.CmbObraS.TabIndex = 12;
             // 
             // CmbECuenta
@@ -171,7 +173,7 @@
             this.CmbECuenta.FormattingEnabled = true;
             this.CmbECuenta.Location = new System.Drawing.Point(192, 228);
             this.CmbECuenta.Name = "CmbECuenta";
-            this.CmbECuenta.Size = new System.Drawing.Size(147, 25);
+            this.CmbECuenta.Size = new System.Drawing.Size(147, 36);
             this.CmbECuenta.TabIndex = 13;
             // 
             // BtnAgregarC
@@ -217,7 +219,7 @@
             0,
             -2147483648});
             this.numSaldo.Name = "numSaldo";
-            this.numSaldo.Size = new System.Drawing.Size(147, 25);
+            this.numSaldo.Size = new System.Drawing.Size(147, 34);
             this.numSaldo.TabIndex = 24;
             // 
             // LblCliente
@@ -227,7 +229,7 @@
             this.LblCliente.Location = new System.Drawing.Point(50, 13);
             this.LblCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblCliente.Name = "LblCliente";
-            this.LblCliente.Size = new System.Drawing.Size(179, 21);
+            this.LblCliente.Size = new System.Drawing.Size(268, 32);
             this.LblCliente.TabIndex = 25;
             this.LblCliente.Text = "Agregar nuevo cliente";
             // 
@@ -250,7 +252,7 @@
             this.lblDni.Location = new System.Drawing.Point(21, 89);
             this.lblDni.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(29, 15);
+            this.lblDni.Size = new System.Drawing.Size(45, 25);
             this.lblDni.TabIndex = 40;
             this.lblDni.Text = "DNI";
             // 
@@ -259,7 +261,7 @@
             this.TxtDni.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDni.Location = new System.Drawing.Point(24, 108);
             this.TxtDni.Name = "TxtDni";
-            this.TxtDni.Size = new System.Drawing.Size(147, 25);
+            this.TxtDni.Size = new System.Drawing.Size(147, 34);
             this.TxtDni.TabIndex = 41;
             this.TxtDni.TextChanged += new System.EventHandler(this.TxtDni_TextChanged);
             // 
@@ -270,7 +272,7 @@
             this.lblEmail.Location = new System.Drawing.Point(191, 33);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(36, 15);
+            this.lblEmail.Size = new System.Drawing.Size(58, 25);
             this.lblEmail.TabIndex = 42;
             this.lblEmail.Text = "Email";
             // 
@@ -279,7 +281,7 @@
             this.TxtEmail.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtEmail.Location = new System.Drawing.Point(192, 52);
             this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(147, 25);
+            this.TxtEmail.Size = new System.Drawing.Size(147, 34);
             this.TxtEmail.TabIndex = 43;
             // 
             // lblTel
@@ -289,7 +291,7 @@
             this.lblTel.Location = new System.Drawing.Point(191, 89);
             this.lblTel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTel.Name = "lblTel";
-            this.lblTel.Size = new System.Drawing.Size(56, 15);
+            this.lblTel.Size = new System.Drawing.Size(86, 25);
             this.lblTel.TabIndex = 44;
             this.lblTel.Text = "Teléfono";
             // 
@@ -298,7 +300,7 @@
             this.TxtTel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTel.Location = new System.Drawing.Point(190, 108);
             this.TxtTel.Name = "TxtTel";
-            this.TxtTel.Size = new System.Drawing.Size(149, 25);
+            this.TxtTel.Size = new System.Drawing.Size(149, 34);
             this.TxtTel.TabIndex = 45;
             // 
             // grDatos
@@ -346,7 +348,7 @@
             this.lblErrorApellido.Location = new System.Drawing.Point(26, 254);
             this.lblErrorApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblErrorApellido.Name = "lblErrorApellido";
-            this.lblErrorApellido.Size = new System.Drawing.Size(145, 13);
+            this.lblErrorApellido.Size = new System.Drawing.Size(211, 23);
             this.lblErrorApellido.TabIndex = 53;
             this.lblErrorApellido.Text = "* El Apellido es obligatorio";
             // 
@@ -358,7 +360,7 @@
             this.lblErrorNombre.Location = new System.Drawing.Point(28, 194);
             this.lblErrorNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblErrorNombre.Name = "lblErrorNombre";
-            this.lblErrorNombre.Size = new System.Drawing.Size(143, 13);
+            this.lblErrorNombre.Size = new System.Drawing.Size(212, 23);
             this.lblErrorNombre.TabIndex = 52;
             this.lblErrorNombre.Text = "* El Nombre es obligatorio";
             // 
@@ -370,7 +372,7 @@
             this.lblErrorDni.Location = new System.Drawing.Point(28, 134);
             this.lblErrorDni.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblErrorDni.Name = "lblErrorDni";
-            this.lblErrorDni.Size = new System.Drawing.Size(121, 13);
+            this.lblErrorDni.Size = new System.Drawing.Size(179, 23);
             this.lblErrorDni.TabIndex = 51;
             this.lblErrorDni.Text = "* El DNI es obligatorio";
             // 
@@ -382,7 +384,7 @@
             this.LblObligatorios0.Location = new System.Drawing.Point(21, 358);
             this.LblObligatorios0.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblObligatorios0.Name = "LblObligatorios0";
-            this.LblObligatorios0.Size = new System.Drawing.Size(140, 17);
+            this.LblObligatorios0.Size = new System.Drawing.Size(208, 28);
             this.LblObligatorios0.TabIndex = 50;
             this.LblObligatorios0.Text = "* Campos obligatorios";
             // 
@@ -394,7 +396,7 @@
             this.LblObligatorio3.Location = new System.Drawing.Point(73, 210);
             this.LblObligatorio3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblObligatorio3.Name = "LblObligatorio3";
-            this.LblObligatorio3.Size = new System.Drawing.Size(14, 17);
+            this.LblObligatorio3.Size = new System.Drawing.Size(21, 28);
             this.LblObligatorio3.TabIndex = 49;
             this.LblObligatorio3.Text = "*";
             // 
@@ -406,7 +408,7 @@
             this.LblObligatorio2.Location = new System.Drawing.Point(73, 148);
             this.LblObligatorio2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblObligatorio2.Name = "LblObligatorio2";
-            this.LblObligatorio2.Size = new System.Drawing.Size(14, 17);
+            this.LblObligatorio2.Size = new System.Drawing.Size(21, 28);
             this.LblObligatorio2.TabIndex = 48;
             this.LblObligatorio2.Text = "*";
             // 
@@ -418,15 +420,28 @@
             this.LblObligatorio1.Location = new System.Drawing.Point(47, 89);
             this.LblObligatorio1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblObligatorio1.Name = "LblObligatorio1";
-            this.LblObligatorio1.Size = new System.Drawing.Size(14, 17);
+            this.LblObligatorio1.Size = new System.Drawing.Size(21, 28);
             this.LblObligatorio1.TabIndex = 47;
             this.LblObligatorio1.Text = "*";
             // 
+            // pctCerrar
+            // 
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(367, 8);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 56;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
             // FrmNuevoCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 451);
+            this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.grDatos);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.LblCliente);
@@ -438,11 +453,13 @@
             this.Name = "FrmNuevoCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo Cliente";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmNuevoCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numSaldo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.grDatos.ResumeLayout(false);
             this.grDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,5 +497,6 @@
         private System.Windows.Forms.Label lblErrorApellido;
         private System.Windows.Forms.Label lblErrorNombre;
         private System.Windows.Forms.Label lblErrorDni;
+        private System.Windows.Forms.PictureBox pctCerrar;
     }
 }

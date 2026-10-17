@@ -156,5 +156,10 @@ namespace pryTesisVentas
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void pctCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

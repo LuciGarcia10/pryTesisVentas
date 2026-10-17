@@ -212,5 +212,10 @@ namespace pryTesisVentas
             // Calculamos totales una sola vez
             CalcularTotalesCompras();
         }
+
+        private void pctCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

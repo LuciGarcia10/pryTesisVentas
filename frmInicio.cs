@@ -361,6 +361,11 @@ namespace pryTesisVentas
             FiltrarBusquedaRapida(txtBuscador.Text);
         }
 
+        private void pctCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
 
 

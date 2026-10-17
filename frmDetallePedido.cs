@@ -187,5 +187,10 @@ namespace pryTesisVentas
             // Mostrar el total en el TextBox
             txtPrecioTotal.Text = $"$ {total:N0}";
         }
+
+        private void pctCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -154,5 +154,15 @@ namespace pryTesisVentas
             frmRecuperarContraseña frmRecuperar = new frmRecuperarContraseña();
             frmRecuperar.ShowDialog();
         }
+
+        private void frmIngresar_Resize(object sender, EventArgs e)
+        {
+            // Obtiene el límite donde comienza el panel verde de la derecha
+            int anchoZonaBlanca = pnlIngresar.Left; // Ajusta 'pnlVerde' al nombre de tu panel derecho
+
+            // Centra pnlLogin horizontalmente en el área blanca y verticalmente en el formulario
+            pnlIngresa.Left = (anchoZonaBlanca - pnlIngresa.Width) / 2;
+            pnlIngresa.Top = (this.ClientSize.Height - pnlIngresa.Height) / 2;
+        }
     }
 }
