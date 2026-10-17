@@ -221,35 +221,73 @@ namespace pryTesisVentas
                 pcbContra.Image = Properties.Resources.show;
             }
         }
-       /* private void txtContra_TextChanged_1(object sender, EventArgs e)
+
+        private void frmLogin_Resize(object sender, EventArgs e)
         {
-            if (txtContra.ForeColor == Color.Gray) return;
+            if (pnlCrearCuenta == null || pnlCreaCuenta == null) return;
 
-            int fuerza = txtContra.Text.Length;
+            // Asegura que el panel verde quede fijo a la derecha
+            pnlCrearCuenta.Dock = DockStyle.Right;
 
-            if (fuerza == 0)
+            // Espacio libre a la izquierda del panel verde
+            int anchoDisponible = this.ClientSize.Width - pnlCrearCuenta.Width;
+
+            // 1. Centrar el formulario (pnlCreaCuenta) en el área blanca
+            pnlCreaCuenta.Left = (anchoDisponible - pnlCreaCuenta.Width) / 2;
+            pnlCreaCuenta.Top = (this.ClientSize.Height - pnlCreaCuenta.Height) / 2;
+
+            if (pnlAccesoLogin != null)
             {
-                progressBarContra.Value = 0;
-                lblEstado.Text = "";
+                // Se pega al límite izquierdo de pnlCrearCuenta menos su propio ancho y un margen de 20px
+                pnlAccesoLogin.Left = pnlCrearCuenta.Left - pnlAccesoLogin.Width - 20;
+                pnlAccesoLogin.Top = 20;
             }
-            else if (fuerza < 4)
+
+            if (pnlBranding != null && pnlCrearCuenta != null)
             {
-                progressBarContra.Value = 30;
-                lblEstado.ForeColor = Color.IndianRed;
-                lblEstado.Text = "Contraseña insegura";
+                pnlBranding.Left = (pnlCrearCuenta.Width - pnlBranding.Width) / 2;
+                pnlBranding.Top = (pnlCrearCuenta.Height - pnlBranding.Height) / 2;
             }
-            else if (fuerza < 8)
-            {
-                progressBarContra.Value = 60;
-                lblEstado.ForeColor = Color.Goldenrod;
-                lblEstado.Text = "Contraseña media";
-            }
-            else
-            {
-                progressBarContra.Value = 100;
-                lblEstado.ForeColor = Color.MediumSeaGreen;
-                lblEstado.Text = "Contraseña segura";
-            }
-        }*/
+
+        }
+
+
+
+
+
+
+
+
+
+        /* private void txtContra_TextChanged_1(object sender, EventArgs e)
+{
+    if (txtContra.ForeColor == Color.Gray) return;
+
+    int fuerza = txtContra.Text.Length;
+
+    if (fuerza == 0)
+    {
+        progressBarContra.Value = 0;
+        lblEstado.Text = "";
+    }
+    else if (fuerza < 4)
+    {
+        progressBarContra.Value = 30;
+        lblEstado.ForeColor = Color.IndianRed;
+        lblEstado.Text = "Contraseña insegura";
+    }
+    else if (fuerza < 8)
+    {
+        progressBarContra.Value = 60;
+        lblEstado.ForeColor = Color.Goldenrod;
+        lblEstado.Text = "Contraseña media";
+    }
+    else
+    {
+        progressBarContra.Value = 100;
+        lblEstado.ForeColor = Color.MediumSeaGreen;
+        lblEstado.Text = "Contraseña segura";
+    }
+}*/
     }
 }
