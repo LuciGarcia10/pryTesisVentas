@@ -110,6 +110,7 @@
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.tlpGraficos = new System.Windows.Forms.TableLayoutPanel();
             cmbVentas = new System.Windows.Forms.ComboBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -149,6 +150,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
+            this.tlpGraficos.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbVentas
@@ -847,6 +849,7 @@
             // 
             // panel11
             // 
+            this.panel11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel11.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel11.Controls.Add(this.pcbPedidosTotales);
@@ -854,9 +857,9 @@
             this.panel11.Controls.Add(this.lblPedidosTotal);
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.lblPedidoT);
-            this.panel11.Location = new System.Drawing.Point(319, 58);
+            this.panel11.Location = new System.Drawing.Point(3, 6);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(308, 100);
+            this.panel11.Size = new System.Drawing.Size(289, 100);
             this.panel11.TabIndex = 12;
             // 
             // pcbPedidosTotales
@@ -963,15 +966,16 @@
             // 
             // panel13
             // 
+            this.panel13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel13.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel13.Controls.Add(this.lblNumPedidosPendientes);
             this.panel13.Controls.Add(this.lblPorcentajeClientes);
             this.panel13.Controls.Add(this.lblPedidosPendientes);
             this.panel13.Controls.Add(this.pictureBox13);
-            this.panel13.Location = new System.Drawing.Point(640, 58);
+            this.panel13.Location = new System.Drawing.Point(298, 6);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(308, 100);
+            this.panel13.Size = new System.Drawing.Size(289, 100);
             this.panel13.TabIndex = 20;
             // 
             // lblNumPedidosPendientes
@@ -1018,15 +1022,16 @@
             // 
             // panel14
             // 
+            this.panel14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel14.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel14.Controls.Add(this.label11);
             this.panel14.Controls.Add(this.lblNumPedidoscancelados);
             this.panel14.Controls.Add(this.lblPedidoscancelados);
             this.panel14.Controls.Add(this.pictureBox14);
-            this.panel14.Location = new System.Drawing.Point(961, 59);
+            this.panel14.Location = new System.Drawing.Point(593, 6);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(308, 100);
+            this.panel14.Size = new System.Drawing.Size(290, 100);
             this.panel14.TabIndex = 21;
             // 
             // label11
@@ -1097,17 +1102,33 @@
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
             // 
+            // tlpGraficos
+            // 
+            this.tlpGraficos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlpGraficos.ColumnCount = 3;
+            this.tlpGraficos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tlpGraficos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tlpGraficos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
+            this.tlpGraficos.Controls.Add(this.panel11, 0, 0);
+            this.tlpGraficos.Controls.Add(this.panel13, 1, 0);
+            this.tlpGraficos.Controls.Add(this.panel14, 2, 0);
+            this.tlpGraficos.Location = new System.Drawing.Point(351, 46);
+            this.tlpGraficos.Name = "tlpGraficos";
+            this.tlpGraficos.RowCount = 1;
+            this.tlpGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpGraficos.Size = new System.Drawing.Size(886, 112);
+            this.tlpGraficos.TabIndex = 57;
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 944);
+            this.Controls.Add(this.tlpGraficos);
             this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.pictureBox11);
-            this.Controls.Add(this.panel14);
-            this.Controls.Add(this.panel13);
             this.Controls.Add(this.pnlBuscar);
-            this.Controls.Add(this.panel11);
             this.Controls.Add(this.pnlContenedorPrincipal);
             this.Controls.Add(this.pnlVentasdeProductos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1169,6 +1190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
+            this.tlpGraficos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1255,6 +1277,7 @@
         private System.Windows.Forms.PictureBox pcbPedidosTotales;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.PictureBox pctCerrar;
+        private System.Windows.Forms.TableLayoutPanel tlpGraficos;
     }
 }
 
