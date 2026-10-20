@@ -179,9 +179,10 @@
             this.pnlContenedorPrincipal.Controls.Add(this.panel2);
             this.pnlContenedorPrincipal.Controls.Add(this.lblDigitalFarma);
             this.pnlContenedorPrincipal.Controls.Add(this.pctLogo);
-            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(-3, 0);
+            this.pnlContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
-            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 931);
+            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 944);
             this.pnlContenedorPrincipal.TabIndex = 11;
             // 
             // panel12
@@ -759,6 +760,9 @@
             // 
             // pnlVentasdeProductos
             // 
+            this.pnlVentasdeProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlVentasdeProductos.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlVentasdeProductos.Controls.Add(this.ptbVentas);
             this.pnlVentasdeProductos.Controls.Add(cmbVentas);
@@ -793,6 +797,10 @@
             // dgvVentas
             // 
             this.dgvVentas.AllowUserToOrderColumns = true;
+            this.dgvVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvVentas.BackgroundColor = System.Drawing.Color.White;
             this.dgvVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvVentas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -818,28 +826,24 @@
             this.Productos.HeaderText = "Productos";
             this.Productos.MinimumWidth = 8;
             this.Productos.Name = "Productos";
-            this.Productos.Width = 150;
             // 
             // Stock
             // 
             this.Stock.HeaderText = "Stock";
             this.Stock.MinimumWidth = 8;
             this.Stock.Name = "Stock";
-            this.Stock.Width = 150;
             // 
             // Precio
             // 
             this.Precio.HeaderText = "Precio";
             this.Precio.MinimumWidth = 8;
             this.Precio.Name = "Precio";
-            this.Precio.Width = 150;
             // 
             // VentasTotales
             // 
             this.VentasTotales.HeaderText = "VentasTotales";
             this.VentasTotales.MinimumWidth = 8;
             this.VentasTotales.Name = "VentasTotales";
-            this.VentasTotales.Width = 150;
             // 
             // panel11
             // 
@@ -909,6 +913,7 @@
             // 
             // pnlBuscar
             // 
+            this.pnlBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBuscar.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlBuscar.Controls.Add(this.lblBuscador);
@@ -1068,6 +1073,9 @@
             // 
             // pictureBox11
             // 
+            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox11.BackColor = System.Drawing.Color.LightSeaGreen;
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
             this.pictureBox11.Location = new System.Drawing.Point(319, 165);
             this.pictureBox11.Name = "pictureBox11";
@@ -1078,6 +1086,7 @@
             // 
             // pctCerrar
             // 
+            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
             this.pctCerrar.Location = new System.Drawing.Point(1312, 8);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
