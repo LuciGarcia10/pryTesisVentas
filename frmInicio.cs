@@ -127,6 +127,8 @@ namespace pryTesisVentas
             else if (RolUsuario == "Administrador")
             {
             }
+
+            frmInicio_Resize(sender, e);
         }
         public void HacerCirculo(Control control)
         {
@@ -364,6 +366,15 @@ namespace pryTesisVentas
         private void pctCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmInicio_Resize(object sender, EventArgs e)
+        {
+            if (pnlUsuario != null && pnlUsuario.Parent != null)
+            {
+                // Ubica el panel a 20 píxeles del piso de su contenedor padre
+                pnlUsuario.Top = pnlUsuario.Parent.ClientSize.Height - pnlUsuario.Height - 20;
+            }
         }
 
 

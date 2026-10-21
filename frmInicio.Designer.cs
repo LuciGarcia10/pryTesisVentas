@@ -35,7 +35,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlUsuario = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btnUsuario1 = new System.Windows.Forms.Button();
@@ -115,7 +115,7 @@
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -171,7 +171,7 @@
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlContenedorPrincipal.Controls.Add(this.panel12);
-            this.pnlContenedorPrincipal.Controls.Add(this.panel4);
+            this.pnlContenedorPrincipal.Controls.Add(this.pnlUsuario);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
             this.pnlContenedorPrincipal.Controls.Add(this.panel9);
             this.pnlContenedorPrincipal.Controls.Add(this.panel8);
@@ -235,22 +235,23 @@
             this.btnEstadisticas.UseVisualStyleBackColor = false;
             this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
-            // panel4
+            // pnlUsuario
             // 
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.pictureBox10);
-            this.panel4.Controls.Add(this.btnUsuario1);
-            this.panel4.Location = new System.Drawing.Point(3, 831);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(288, 98);
-            this.panel4.TabIndex = 52;
+            this.pnlUsuario.Controls.Add(this.label2);
+            this.pnlUsuario.Controls.Add(this.pictureBox10);
+            this.pnlUsuario.Controls.Add(this.btnUsuario1);
+            this.pnlUsuario.Location = new System.Drawing.Point(3, 844);
+            this.pnlUsuario.Name = "pnlUsuario";
+            this.pnlUsuario.Size = new System.Drawing.Size(288, 101);
+            this.pnlUsuario.TabIndex = 52;
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(249, 38);
+            this.label2.Location = new System.Drawing.Point(249, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 20);
             this.label2.TabIndex = 38;
@@ -258,19 +259,22 @@
             // 
             // pictureBox10
             // 
+            this.pictureBox10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(24, 29);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox10.Size = new System.Drawing.Size(53, 44);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 39;
             this.pictureBox10.TabStop = false;
             // 
             // btnUsuario1
             // 
+            this.btnUsuario1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUsuario1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuario1.Location = new System.Drawing.Point(12, 5);
+            this.btnUsuario1.Location = new System.Drawing.Point(12, 9);
             this.btnUsuario1.Name = "btnUsuario1";
+            this.btnUsuario1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.btnUsuario1.Size = new System.Drawing.Size(273, 88);
             this.btnUsuario1.TabIndex = 40;
             this.btnUsuario1.Text = "Funes Garcia";
@@ -1137,12 +1141,13 @@
             this.Text = "frmInicio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmInicio_Load);
+            this.Resize += new System.EventHandler(this.frmInicio_Resize);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.pnlUsuario.ResumeLayout(false);
+            this.pnlUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -1247,7 +1252,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Button btnUsuario1;

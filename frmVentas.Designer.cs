@@ -246,6 +246,7 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.pictureBox9);
             this.panel2.Controls.Add(this.lblDescri);
