@@ -857,18 +857,18 @@
             this.panel11.Controls.Add(this.lblPedidosTotal);
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.lblPedidoT);
-            this.panel11.Location = new System.Drawing.Point(3, 6);
+            this.panel11.Location = new System.Drawing.Point(3, 3);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(289, 100);
+            this.panel11.Size = new System.Drawing.Size(309, 106);
             this.panel11.TabIndex = 12;
             // 
             // pcbPedidosTotales
             // 
             this.pcbPedidosTotales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.pcbPedidosTotales.Image = ((System.Drawing.Image)(resources.GetObject("pcbPedidosTotales.Image")));
-            this.pcbPedidosTotales.Location = new System.Drawing.Point(16, 18);
+            this.pcbPedidosTotales.Location = new System.Drawing.Point(11, 13);
             this.pcbPedidosTotales.Name = "pcbPedidosTotales";
-            this.pcbPedidosTotales.Size = new System.Drawing.Size(84, 69);
+            this.pcbPedidosTotales.Size = new System.Drawing.Size(90, 82);
             this.pcbPedidosTotales.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbPedidosTotales.TabIndex = 22;
             this.pcbPedidosTotales.TabStop = false;
@@ -878,7 +878,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Teal;
-            this.label12.Location = new System.Drawing.Point(110, 68);
+            this.label12.Location = new System.Drawing.Point(107, 61);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(152, 21);
@@ -973,16 +973,16 @@
             this.panel13.Controls.Add(this.lblPorcentajeClientes);
             this.panel13.Controls.Add(this.lblPedidosPendientes);
             this.panel13.Controls.Add(this.pictureBox13);
-            this.panel13.Location = new System.Drawing.Point(298, 6);
+            this.panel13.Location = new System.Drawing.Point(318, 3);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(289, 100);
+            this.panel13.Size = new System.Drawing.Size(309, 106);
             this.panel13.TabIndex = 20;
             // 
             // lblNumPedidosPendientes
             // 
             this.lblNumPedidosPendientes.AutoSize = true;
             this.lblNumPedidosPendientes.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumPedidosPendientes.Location = new System.Drawing.Point(106, 35);
+            this.lblNumPedidosPendientes.Location = new System.Drawing.Point(106, 26);
             this.lblNumPedidosPendientes.Name = "lblNumPedidosPendientes";
             this.lblNumPedidosPendientes.Size = new System.Drawing.Size(33, 38);
             this.lblNumPedidosPendientes.TabIndex = 5;
@@ -993,7 +993,7 @@
             this.lblPorcentajeClientes.AutoSize = true;
             this.lblPorcentajeClientes.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPorcentajeClientes.ForeColor = System.Drawing.Color.Crimson;
-            this.lblPorcentajeClientes.Location = new System.Drawing.Point(106, 72);
+            this.lblPorcentajeClientes.Location = new System.Drawing.Point(106, 59);
             this.lblPorcentajeClientes.Name = "lblPorcentajeClientes";
             this.lblPorcentajeClientes.Size = new System.Drawing.Size(115, 21);
             this.lblPorcentajeClientes.TabIndex = 4;
@@ -1003,7 +1003,7 @@
             // 
             this.lblPedidosPendientes.AutoSize = true;
             this.lblPedidosPendientes.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPedidosPendientes.Location = new System.Drawing.Point(106, 18);
+            this.lblPedidosPendientes.Location = new System.Drawing.Point(106, 10);
             this.lblPedidosPendientes.Name = "lblPedidosPendientes";
             this.lblPedidosPendientes.Size = new System.Drawing.Size(127, 19);
             this.lblPedidosPendientes.TabIndex = 1;
@@ -1013,9 +1013,9 @@
             // 
             this.pictureBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(16, 18);
+            this.pictureBox13.Location = new System.Drawing.Point(9, 9);
             this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(84, 69);
+            this.pictureBox13.Size = new System.Drawing.Size(97, 86);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox13.TabIndex = 0;
             this.pictureBox13.TabStop = false;
@@ -1029,9 +1029,9 @@
             this.panel14.Controls.Add(this.lblNumPedidoscancelados);
             this.panel14.Controls.Add(this.lblPedidoscancelados);
             this.panel14.Controls.Add(this.pictureBox14);
-            this.panel14.Location = new System.Drawing.Point(593, 6);
+            this.panel14.Location = new System.Drawing.Point(633, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(290, 100);
+            this.panel14.Size = new System.Drawing.Size(310, 106);
             this.panel14.TabIndex = 21;
             // 
             // label11
@@ -1039,7 +1039,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Teal;
-            this.label11.Location = new System.Drawing.Point(108, 72);
+            this.label11.Location = new System.Drawing.Point(104, 57);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(152, 21);
             this.label11.TabIndex = 7;
@@ -1049,7 +1049,7 @@
             // 
             this.lblNumPedidoscancelados.AutoSize = true;
             this.lblNumPedidoscancelados.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumPedidoscancelados.Location = new System.Drawing.Point(105, 38);
+            this.lblNumPedidoscancelados.Location = new System.Drawing.Point(105, 26);
             this.lblNumPedidoscancelados.Name = "lblNumPedidoscancelados";
             this.lblNumPedidoscancelados.Size = new System.Drawing.Size(33, 38);
             this.lblNumPedidoscancelados.TabIndex = 6;
@@ -1059,7 +1059,7 @@
             // 
             this.lblPedidoscancelados.AutoSize = true;
             this.lblPedidoscancelados.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPedidoscancelados.Location = new System.Drawing.Point(104, 18);
+            this.lblPedidoscancelados.Location = new System.Drawing.Point(104, 7);
             this.lblPedidoscancelados.Name = "lblPedidoscancelados";
             this.lblPedidoscancelados.Size = new System.Drawing.Size(126, 19);
             this.lblPedidoscancelados.TabIndex = 1;
@@ -1069,9 +1069,9 @@
             // 
             this.pictureBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(16, 18);
+            this.pictureBox14.Location = new System.Drawing.Point(8, 10);
             this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(84, 69);
+            this.pictureBox14.Size = new System.Drawing.Size(93, 80);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox14.TabIndex = 0;
             this.pictureBox14.TabStop = false;
@@ -1113,11 +1113,11 @@
             this.tlpGraficos.Controls.Add(this.panel11, 0, 0);
             this.tlpGraficos.Controls.Add(this.panel13, 1, 0);
             this.tlpGraficos.Controls.Add(this.panel14, 2, 0);
-            this.tlpGraficos.Location = new System.Drawing.Point(351, 46);
+            this.tlpGraficos.Location = new System.Drawing.Point(319, 46);
             this.tlpGraficos.Name = "tlpGraficos";
             this.tlpGraficos.RowCount = 1;
             this.tlpGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpGraficos.Size = new System.Drawing.Size(886, 112);
+            this.tlpGraficos.Size = new System.Drawing.Size(947, 112);
             this.tlpGraficos.TabIndex = 57;
             // 
             // frmInicio
