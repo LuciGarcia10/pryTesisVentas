@@ -30,8 +30,8 @@
         {
             System.Windows.Forms.ComboBox cmbVentas;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             this.ptbInicio = new System.Windows.Forms.PictureBox();
             this.lblInicio = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlUsuario = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblDescri = new System.Windows.Forms.Label();
@@ -93,7 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnlInicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbInicio)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBotonAyuda)).BeginInit();
@@ -119,6 +119,7 @@
             // 
             // cmbVentas
             // 
+            cmbVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             cmbVentas.BackColor = System.Drawing.SystemColors.ScrollBar;
             cmbVentas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cmbVentas.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -136,7 +137,7 @@
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlContenedorPrincipal.Controls.Add(this.panel5);
             this.pnlContenedorPrincipal.Controls.Add(this.pnlInicio);
-            this.pnlContenedorPrincipal.Controls.Add(this.panel2);
+            this.pnlContenedorPrincipal.Controls.Add(this.pnlUsuario);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
             this.pnlContenedorPrincipal.Controls.Add(this.panel9);
             this.pnlContenedorPrincipal.Controls.Add(this.panel8);
@@ -144,9 +145,10 @@
             this.pnlContenedorPrincipal.Controls.Add(this.panel6);
             this.pnlContenedorPrincipal.Controls.Add(this.lblDigitalFarma);
             this.pnlContenedorPrincipal.Controls.Add(this.pctLogo);
-            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(3, 2);
+            this.pnlContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
-            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 929);
+            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 932);
             this.pnlContenedorPrincipal.TabIndex = 2;
             // 
             // panel5
@@ -244,17 +246,16 @@
             this.btnInicio.Text = "Inicio";
             this.btnInicio.UseVisualStyleBackColor = false;
             // 
-            // panel2
+            // pnlUsuario
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.pictureBox9);
-            this.panel2.Controls.Add(this.lblDescri);
-            this.panel2.Controls.Add(this.btnUsuario);
-            this.panel2.Location = new System.Drawing.Point(2, 828);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 98);
-            this.panel2.TabIndex = 42;
+            this.pnlUsuario.Controls.Add(this.label10);
+            this.pnlUsuario.Controls.Add(this.pictureBox9);
+            this.pnlUsuario.Controls.Add(this.lblDescri);
+            this.pnlUsuario.Controls.Add(this.btnUsuario);
+            this.pnlUsuario.Location = new System.Drawing.Point(2, 828);
+            this.pnlUsuario.Name = "pnlUsuario";
+            this.pnlUsuario.Size = new System.Drawing.Size(288, 101);
+            this.pnlUsuario.TabIndex = 42;
             // 
             // label10
             // 
@@ -584,6 +585,9 @@
             // 
             // pnlVentasdeProductos
             // 
+            this.pnlVentasdeProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlVentasdeProductos.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlVentasdeProductos.Controls.Add(this.btnAgregarVenta);
             this.pnlVentasdeProductos.Controls.Add(this.pnlBuscar);
@@ -594,7 +598,7 @@
             this.pnlVentasdeProductos.Controls.Add(this.dgvVentas);
             this.pnlVentasdeProductos.Location = new System.Drawing.Point(306, 71);
             this.pnlVentasdeProductos.Name = "pnlVentasdeProductos";
-            this.pnlVentasdeProductos.Size = new System.Drawing.Size(945, 760);
+            this.pnlVentasdeProductos.Size = new System.Drawing.Size(945, 860);
             this.pnlVentasdeProductos.TabIndex = 20;
             // 
             // btnAgregarVenta
@@ -611,6 +615,7 @@
             // 
             // pnlBuscar
             // 
+            this.pnlBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBuscar.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlBuscar.Controls.Add(this.lblBuscador);
@@ -655,6 +660,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.pictureBox3);
@@ -708,6 +714,10 @@
             // dgvVentas
             // 
             this.dgvVentas.AllowUserToOrderColumns = true;
+            this.dgvVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvVentas.BackgroundColor = System.Drawing.Color.White;
             this.dgvVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvVentas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -718,60 +728,61 @@
             this.colStock,
             this.colPrecio,
             this.colVentas});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvVentas.EnableHeadersVisualStyles = false;
             this.dgvVentas.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvVentas.Location = new System.Drawing.Point(51, 105);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.RowHeadersVisible = false;
             this.dgvVentas.RowHeadersWidth = 62;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dgvVentas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgvVentas.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvVentas.RowTemplate.Height = 70;
-            this.dgvVentas.Size = new System.Drawing.Size(854, 578);
+            this.dgvVentas.Size = new System.Drawing.Size(854, 744);
             this.dgvVentas.TabIndex = 11;
             // 
             // colProducto
             // 
             this.colProducto.DataPropertyName = "nombreProd";
+            this.colProducto.FillWeight = 150F;
             this.colProducto.HeaderText = "Producto";
             this.colProducto.MinimumWidth = 8;
             this.colProducto.Name = "colProducto";
-            this.colProducto.Width = 150;
             // 
             // colStock
             // 
             this.colStock.DataPropertyName = "stockActual";
+            this.colStock.FillWeight = 60F;
             this.colStock.HeaderText = "Stock";
             this.colStock.MinimumWidth = 8;
             this.colStock.Name = "colStock";
-            this.colStock.Width = 150;
             // 
             // colPrecio
             // 
             this.colPrecio.DataPropertyName = "precioVenta";
+            this.colPrecio.FillWeight = 70F;
             this.colPrecio.HeaderText = "Precio";
             this.colPrecio.MinimumWidth = 8;
             this.colPrecio.Name = "colPrecio";
-            this.colPrecio.Width = 150;
             // 
             // colVentas
             // 
             this.colVentas.DataPropertyName = "ventasTotales";
+            this.colVentas.FillWeight = 60F;
             this.colVentas.HeaderText = "Ventas";
             this.colVentas.MinimumWidth = 8;
             this.colVentas.Name = "colVentas";
-            this.colVentas.Width = 150;
             // 
             // pctCerrar
             // 
+            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
             this.pctCerrar.Location = new System.Drawing.Point(1226, 6);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
@@ -795,6 +806,7 @@
             this.Text = "frmVentas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmVentas_Load);
+            this.Resize += new System.EventHandler(this.frmVentas_Resize);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.pnlContenedorPrincipal.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -803,8 +815,8 @@
             this.pnlInicio.ResumeLayout(false);
             this.pnlInicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbInicio)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlUsuario.ResumeLayout(false);
+            this.pnlUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -844,7 +856,7 @@
         private System.Windows.Forms.PictureBox ptbInicio;
         private System.Windows.Forms.Label lblInicio;
         private System.Windows.Forms.Button btnInicio;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlUsuario;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label lblDescri;
@@ -889,10 +901,10 @@
         private System.Windows.Forms.PictureBox pctLupa;
         private System.Windows.Forms.Label lblBuscador;
         private System.Windows.Forms.TextBox txtBuscador;
+        private System.Windows.Forms.PictureBox pctCerrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVentas;
-        private System.Windows.Forms.PictureBox pctCerrar;
     }
 }
