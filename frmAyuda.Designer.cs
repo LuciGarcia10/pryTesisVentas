@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAyuda));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -85,15 +85,16 @@
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.lblVentas = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.pnlHistorialtickects = new System.Windows.Forms.Panel();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.lblticketsSoporte = new System.Windows.Forms.Label();
             this.dgvTickets = new System.Windows.Forms.DataGridView();
-            this.Productos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Productos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -122,10 +123,11 @@
             this.pnlPreguntas.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            this.panel11.SuspendLayout();
+            this.pnlHistorialtickects.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -141,9 +143,10 @@
             this.pnlContenedorPrincipal.Controls.Add(this.pnlInicio);
             this.pnlContenedorPrincipal.Controls.Add(this.label3);
             this.pnlContenedorPrincipal.Controls.Add(this.pctLogo);
-            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(2, 0);
+            this.pnlContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
-            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 929);
+            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 937);
             this.pnlContenedorPrincipal.TabIndex = 2;
             // 
             // panel12
@@ -200,9 +203,10 @@
             this.panel2.Controls.Add(this.pictureBox9);
             this.panel2.Controls.Add(this.lblDescri);
             this.panel2.Controls.Add(this.btnUsuario);
-            this.panel2.Location = new System.Drawing.Point(2, 828);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 839);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 98);
+            this.panel2.Size = new System.Drawing.Size(291, 98);
             this.panel2.TabIndex = 42;
             // 
             // label10
@@ -562,14 +566,15 @@
             // 
             // panelGanancias
             // 
+            this.panelGanancias.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelGanancias.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panelGanancias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelGanancias.Controls.Add(this.lblCantMensajes);
             this.panelGanancias.Controls.Add(this.lblGanancias);
             this.panelGanancias.Controls.Add(this.pcbGanancias);
-            this.panelGanancias.Location = new System.Drawing.Point(374, 12);
+            this.panelGanancias.Location = new System.Drawing.Point(3, 3);
             this.panelGanancias.Name = "panelGanancias";
-            this.panelGanancias.Size = new System.Drawing.Size(308, 100);
+            this.panelGanancias.Size = new System.Drawing.Size(318, 103);
             this.panelGanancias.TabIndex = 3;
             // 
             // lblCantMensajes
@@ -607,14 +612,15 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.lblCantTickets);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(1040, 12);
+            this.panel1.Location = new System.Drawing.Point(327, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(308, 100);
+            this.panel1.Size = new System.Drawing.Size(318, 103);
             this.panel1.TabIndex = 4;
             // 
             // lblCantTickets
@@ -651,14 +657,15 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel3.Controls.Add(this.lnkMaps);
             this.panel3.Controls.Add(this.lblMaps);
             this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Location = new System.Drawing.Point(705, 12);
+            this.panel3.Location = new System.Drawing.Point(651, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(308, 100);
+            this.panel3.Size = new System.Drawing.Size(320, 103);
             this.panel3.TabIndex = 5;
             // 
             // lnkMaps
@@ -697,6 +704,8 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel4.Controls.Add(this.pnlPreguntas);
@@ -715,7 +724,7 @@
             this.pnlPreguntas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlPreguntas.Location = new System.Drawing.Point(32, 105);
             this.pnlPreguntas.Name = "pnlPreguntas";
-            this.pnlPreguntas.Size = new System.Drawing.Size(804, 200);
+            this.pnlPreguntas.Size = new System.Drawing.Size(915, 200);
             this.pnlPreguntas.TabIndex = 7;
             this.pnlPreguntas.WrapContents = false;
             // 
@@ -725,7 +734,7 @@
             this.btnPregunta.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPregunta.Location = new System.Drawing.Point(3, 3);
             this.btnPregunta.Name = "btnPregunta";
-            this.btnPregunta.Size = new System.Drawing.Size(801, 32);
+            this.btnPregunta.Size = new System.Drawing.Size(901, 32);
             this.btnPregunta.TabIndex = 12;
             this.btnPregunta.UseVisualStyleBackColor = false;
             // 
@@ -773,17 +782,20 @@
             this.lblVentas.TabIndex = 1;
             this.lblVentas.Text = "Preguntas Frecuentes";
             // 
-            // panel11
+            // pnlHistorialtickects
             // 
-            this.panel11.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.panel11.Controls.Add(this.pictureBox11);
-            this.panel11.Controls.Add(this.lblticketsSoporte);
-            this.panel11.Controls.Add(this.dgvTickets);
-            this.panel11.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel11.Location = new System.Drawing.Point(374, 502);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(974, 428);
-            this.panel11.TabIndex = 9;
+            this.pnlHistorialtickects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlHistorialtickects.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pnlHistorialtickects.Controls.Add(this.pictureBox11);
+            this.pnlHistorialtickects.Controls.Add(this.lblticketsSoporte);
+            this.pnlHistorialtickects.Controls.Add(this.dgvTickets);
+            this.pnlHistorialtickects.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlHistorialtickects.Location = new System.Drawing.Point(374, 502);
+            this.pnlHistorialtickects.Name = "pnlHistorialtickects";
+            this.pnlHistorialtickects.Size = new System.Drawing.Size(974, 428);
+            this.pnlHistorialtickects.TabIndex = 9;
             // 
             // pictureBox11
             // 
@@ -809,6 +821,10 @@
             // dgvTickets
             // 
             this.dgvTickets.AllowUserToOrderColumns = true;
+            this.dgvTickets.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTickets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTickets.BackgroundColor = System.Drawing.Color.White;
             this.dgvTickets.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTickets.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -819,14 +835,14 @@
             this.Stock,
             this.Precio,
             this.VentasTotales});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTickets.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTickets.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTickets.EnableHeadersVisualStyles = false;
             this.dgvTickets.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvTickets.Location = new System.Drawing.Point(51, 60);
@@ -837,36 +853,9 @@
             this.dgvTickets.Size = new System.Drawing.Size(854, 348);
             this.dgvTickets.TabIndex = 11;
             // 
-            // Productos
-            // 
-            this.Productos.HeaderText = "ID Ticket";
-            this.Productos.MinimumWidth = 8;
-            this.Productos.Name = "Productos";
-            this.Productos.Width = 150;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Fecha";
-            this.Stock.MinimumWidth = 8;
-            this.Stock.Name = "Stock";
-            this.Stock.Width = 150;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Ticket Problema";
-            this.Precio.MinimumWidth = 8;
-            this.Precio.Name = "Precio";
-            this.Precio.Width = 150;
-            // 
-            // VentasTotales
-            // 
-            this.VentasTotales.HeaderText = "Estado";
-            this.VentasTotales.MinimumWidth = 8;
-            this.VentasTotales.Name = "VentasTotales";
-            this.VentasTotales.Width = 150;
-            // 
             // pctCerrar
             // 
+            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
             this.pctCerrar.Location = new System.Drawing.Point(1410, 8);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
@@ -877,17 +866,57 @@
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
+            this.tableLayoutPanel1.Controls.Add(this.panelGanancias, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 2, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(374, 20);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(974, 109);
+            this.tableLayoutPanel1.TabIndex = 57;
+            // 
+            // VentasTotales
+            // 
+            this.VentasTotales.HeaderText = "Estado";
+            this.VentasTotales.MinimumWidth = 8;
+            this.VentasTotales.Name = "VentasTotales";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Ticket Problema";
+            this.Precio.MinimumWidth = 8;
+            this.Precio.Name = "Precio";
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Fecha";
+            this.Stock.MinimumWidth = 8;
+            this.Stock.Name = "Stock";
+            // 
+            // Productos
+            // 
+            this.Productos.HeaderText = "ID Ticket";
+            this.Productos.MinimumWidth = 8;
+            this.Productos.Name = "Productos";
+            // 
             // frmAyuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1450, 937);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pctCerrar);
-            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.pnlHistorialtickects);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelGanancias);
             this.Controls.Add(this.pnlContenedorPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAyuda";
@@ -937,11 +966,12 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
+            this.pnlHistorialtickects.ResumeLayout(false);
+            this.pnlHistorialtickects.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -998,19 +1028,20 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.FlowLayoutPanel pnlPreguntas;
         private System.Windows.Forms.Button btnPregunta;
-        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel pnlHistorialtickects;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Label lblticketsSoporte;
         private System.Windows.Forms.DataGridView dgvTickets;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Productos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotales;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.LinkLabel lnkMaps;
         private System.Windows.Forms.PictureBox pctCerrar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Productos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotales;
     }
 }
