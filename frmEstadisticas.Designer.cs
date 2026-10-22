@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstadisticas));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -133,6 +133,9 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblTituloActualizar = new System.Windows.Forms.Label();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -174,6 +177,9 @@
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -190,9 +196,10 @@
             this.pnlContenedorPrincipal.Controls.Add(this.panel2);
             this.pnlContenedorPrincipal.Controls.Add(this.lblDigitalFarma);
             this.pnlContenedorPrincipal.Controls.Add(this.pctLogo);
-            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(2, 0);
+            this.pnlContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
-            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 1068);
+            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 1069);
             this.pnlContenedorPrincipal.TabIndex = 12;
             // 
             // panel5
@@ -247,9 +254,10 @@
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.pictureBox10);
             this.panel4.Controls.Add(this.btnPerfil);
-            this.panel4.Location = new System.Drawing.Point(3, 969);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 971);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(288, 98);
+            this.panel4.Size = new System.Drawing.Size(291, 98);
             this.panel4.TabIndex = 52;
             // 
             // label2
@@ -648,6 +656,8 @@
             // 
             // pnlPrevisualizacion
             // 
+            this.pnlPrevisualizacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPrevisualizacion.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlPrevisualizacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlPrevisualizacion.Controls.Add(this.lblPorcentajesdelmes);
@@ -697,20 +707,23 @@
             // 
             // crtGananciasMensuales
             // 
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY2.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.Name = "ChartArea1";
-            this.crtGananciasMensuales.ChartAreas.Add(chartArea1);
+            this.crtGananciasMensuales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea5.AxisX.MajorGrid.Enabled = false;
+            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea5.AxisY.MajorGrid.Enabled = false;
+            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea5.AxisY2.LineColor = System.Drawing.Color.LightGray;
+            chartArea5.Name = "ChartArea1";
+            this.crtGananciasMensuales.ChartAreas.Add(chartArea5);
             this.crtGananciasMensuales.Location = new System.Drawing.Point(8, 92);
             this.crtGananciasMensuales.Name = "crtGananciasMensuales";
-            series1.ChartArea = "ChartArea1";
-            series1.CustomProperties = "PointWidth=0.6";
-            series1.Name = "Series1";
-            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            this.crtGananciasMensuales.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.CustomProperties = "PointWidth=0.6";
+            series5.Name = "Series1";
+            series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.crtGananciasMensuales.Series.Add(series5);
             this.crtGananciasMensuales.Size = new System.Drawing.Size(568, 182);
             this.crtGananciasMensuales.TabIndex = 4;
             this.crtGananciasMensuales.Text = "chart1";
@@ -728,6 +741,8 @@
             // 
             // pnlClintes
             // 
+            this.pnlClintes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlClintes.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlClintes.Controls.Add(this.lbl15);
             this.pnlClintes.Controls.Add(this.lblSubClientes);
@@ -774,27 +789,27 @@
             // 
             // chartClientes
             // 
-            chartArea2.InnerPlotPosition.Auto = false;
-            chartArea2.InnerPlotPosition.Width = 63.73417F;
-            chartArea2.InnerPlotPosition.X = 18.13291F;
-            chartArea2.InnerPlotPosition.Y = 2.5F;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 90F;
-            chartArea2.Position.Width = 90F;
-            chartArea2.Position.X = 5F;
-            chartArea2.Position.Y = 5F;
-            this.chartClientes.ChartAreas.Add(chartArea2);
-            this.chartClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.chartClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            chartArea6.InnerPlotPosition.Auto = false;
+            chartArea6.InnerPlotPosition.Width = 63.73417F;
+            chartArea6.InnerPlotPosition.X = 18.13291F;
+            chartArea6.InnerPlotPosition.Y = 2.5F;
+            chartArea6.Name = "ChartArea1";
+            chartArea6.Position.Auto = false;
+            chartArea6.Position.Height = 90F;
+            chartArea6.Position.Width = 90F;
+            chartArea6.Position.X = 5F;
+            chartArea6.Position.Y = 5F;
+            this.chartClientes.ChartAreas.Add(chartArea6);
             this.chartClientes.Location = new System.Drawing.Point(0, 96);
             this.chartClientes.Margin = new System.Windows.Forms.Padding(2);
             this.chartClientes.Name = "chartClientes";
             this.chartClientes.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.CustomProperties = "DoughnutRadius=40";
-            series2.Name = "SeriesProgreso";
-            this.chartClientes.Series.Add(series2);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series6.CustomProperties = "DoughnutRadius=40";
+            series6.Name = "SeriesProgreso";
+            this.chartClientes.Series.Add(series6);
             this.chartClientes.Size = new System.Drawing.Size(372, 249);
             this.chartClientes.TabIndex = 10;
             this.chartClientes.Text = "chart2";
@@ -808,7 +823,7 @@
             this.pnlGanancias.Controls.Add(this.lblPorcentaje1);
             this.pnlGanancias.Controls.Add(this.lblGana);
             this.pnlGanancias.Controls.Add(this.pcbGanancias);
-            this.pnlGanancias.Location = new System.Drawing.Point(957, 305);
+            this.pnlGanancias.Location = new System.Drawing.Point(7, 6);
             this.pnlGanancias.Name = "pnlGanancias";
             this.pnlGanancias.Size = new System.Drawing.Size(268, 100);
             this.pnlGanancias.TabIndex = 15;
@@ -870,7 +885,7 @@
             this.pnlBalance.Controls.Add(this.lblPorcentaje2);
             this.pnlBalance.Controls.Add(this.lblBalan);
             this.pnlBalance.Controls.Add(this.pcbBalance);
-            this.pnlBalance.Location = new System.Drawing.Point(958, 531);
+            this.pnlBalance.Location = new System.Drawing.Point(8, 232);
             this.pnlBalance.Name = "pnlBalance";
             this.pnlBalance.Size = new System.Drawing.Size(268, 100);
             this.pnlBalance.TabIndex = 16;
@@ -918,6 +933,7 @@
             // 
             // panel11
             // 
+            this.panel11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel11.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel11.Controls.Add(this.label12);
@@ -925,7 +941,7 @@
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.lblPedidoT);
             this.panel11.Controls.Add(this.pictureBox11);
-            this.panel11.Location = new System.Drawing.Point(310, 125);
+            this.panel11.Location = new System.Drawing.Point(3, 4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(298, 100);
             this.panel11.TabIndex = 17;
@@ -987,7 +1003,7 @@
             this.pnlVentasTotales.Controls.Add(this.lblPorcentaje3);
             this.pnlVentasTotales.Controls.Add(this.lblVentaTotal);
             this.pnlVentasTotales.Controls.Add(this.pcbPedido);
-            this.pnlVentasTotales.Location = new System.Drawing.Point(957, 418);
+            this.pnlVentasTotales.Location = new System.Drawing.Point(7, 119);
             this.pnlVentasTotales.Name = "pnlVentasTotales";
             this.pnlVentasTotales.Size = new System.Drawing.Size(270, 100);
             this.pnlVentasTotales.TabIndex = 18;
@@ -1042,7 +1058,7 @@
             this.panelGanancias.Controls.Add(this.lblNumeroClientesNuevos);
             this.panelGanancias.Controls.Add(this.lblClientesnuevos);
             this.panelGanancias.Controls.Add(this.pictureBox3);
-            this.panelGanancias.Location = new System.Drawing.Point(698, 722);
+            this.panelGanancias.Location = new System.Drawing.Point(3, 3);
             this.panelGanancias.Name = "panelGanancias";
             this.panelGanancias.Size = new System.Drawing.Size(248, 100);
             this.panelGanancias.TabIndex = 19;
@@ -1097,7 +1113,7 @@
             this.panel6.Controls.Add(this.lblPorcentajeClientes);
             this.panel6.Controls.Add(this.lblClientes);
             this.panel6.Controls.Add(this.pcbClientes);
-            this.panel6.Location = new System.Drawing.Point(698, 854);
+            this.panel6.Location = new System.Drawing.Point(3, 135);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(248, 100);
             this.panel6.TabIndex = 20;
@@ -1146,12 +1162,13 @@
             // 
             // panel12
             // 
+            this.panel12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel12.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel12.Controls.Add(this.lblNumeroPedidospendientes);
             this.panel12.Controls.Add(this.lblPedidospendientes);
             this.panel12.Controls.Add(this.pcbPendientes);
-            this.panel12.Location = new System.Drawing.Point(621, 125);
+            this.panel12.Location = new System.Drawing.Point(307, 4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(297, 100);
             this.panel12.TabIndex = 21;
@@ -1189,13 +1206,14 @@
             // 
             // panel13
             // 
+            this.panel13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel13.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel13.Controls.Add(this.label13);
             this.panel13.Controls.Add(this.lblNumPedidoscancelados);
             this.panel13.Controls.Add(this.lblPedidoscancelados);
             this.panel13.Controls.Add(this.pictureBox12);
-            this.panel13.Location = new System.Drawing.Point(927, 125);
+            this.panel13.Location = new System.Drawing.Point(612, 4);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(297, 100);
             this.panel13.TabIndex = 22;
@@ -1280,6 +1298,7 @@
             // 
             // btnActualizar
             // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnActualizar.BackColor = System.Drawing.Color.Teal;
             this.btnActualizar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
@@ -1303,6 +1322,7 @@
             // 
             // pctCerrar
             // 
+            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
             this.pctCerrar.Location = new System.Drawing.Point(1204, 6);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
@@ -1313,25 +1333,59 @@
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
+            this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel12, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel13, 2, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(312, 122);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(913, 108);
+            this.tableLayoutPanel1.TabIndex = 57;
+            // 
+            // panel14
+            // 
+            this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel14.Controls.Add(this.pnlGanancias);
+            this.panel14.Controls.Add(this.pnlBalance);
+            this.panel14.Controls.Add(this.pnlVentasTotales);
+            this.panel14.Location = new System.Drawing.Point(952, 300);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(278, 338);
+            this.panel14.TabIndex = 58;
+            // 
+            // panel15
+            // 
+            this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel15.Controls.Add(this.panelGanancias);
+            this.panel15.Controls.Add(this.panel6);
+            this.panel15.Location = new System.Drawing.Point(696, 717);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(260, 244);
+            this.panel15.TabIndex = 59;
+            // 
             // frmEstadisticas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 1069);
+            this.Controls.Add(this.panel15);
+            this.Controls.Add(this.panel14);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.lblTituloActualizar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.lblGanacias);
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.lblPedidos);
-            this.Controls.Add(this.panel13);
-            this.Controls.Add(this.panel12);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panelGanancias);
-            this.Controls.Add(this.pnlVentasTotales);
-            this.Controls.Add(this.panel11);
-            this.Controls.Add(this.pnlBalance);
-            this.Controls.Add(this.pnlGanancias);
             this.Controls.Add(this.pnlClintes);
             this.Controls.Add(this.pnlPrevisualizacion);
             this.Controls.Add(this.pnlContenedorPrincipal);
@@ -1400,6 +1454,9 @@
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1506,5 +1563,8 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label lblTituloActualizar;
         private System.Windows.Forms.PictureBox pctCerrar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel15;
     }
 }
