@@ -279,5 +279,11 @@ namespace pryTesisVentas
                 pnlUsuario.Top = pnlUsuario.Parent.ClientSize.Height - pnlUsuario.Height - 20;
             }
         }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            frmInicio frm = new frmInicio();
+            frm.ShowDialog();
+        }
     }
 }

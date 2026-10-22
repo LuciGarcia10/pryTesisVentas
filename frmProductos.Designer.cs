@@ -79,13 +79,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblProductos = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -127,9 +127,10 @@
             this.pnlContenedorPrincipal.Controls.Add(this.pnlInicio);
             this.pnlContenedorPrincipal.Controls.Add(this.label3);
             this.pnlContenedorPrincipal.Controls.Add(this.pctLogo);
-            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(2, 2);
+            this.pnlContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
-            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 929);
+            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 932);
             this.pnlContenedorPrincipal.TabIndex = 3;
             this.pnlContenedorPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenedorPrincipal_Paint);
             // 
@@ -183,6 +184,8 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.pictureBox9);
             this.panel2.Controls.Add(this.lblDescri);
@@ -548,6 +551,9 @@
             // 
             // panel11
             // 
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel11.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel11.Controls.Add(this.pnlcmbOrden);
             this.panel11.Controls.Add(this.btnAgregarProductos);
@@ -563,6 +569,7 @@
             // 
             // pnlcmbOrden
             // 
+            this.pnlcmbOrden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlcmbOrden.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlcmbOrden.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlcmbOrden.Controls.Add(this.cmbOrden);
@@ -597,6 +604,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.pictureBox1);
@@ -630,6 +638,7 @@
             // 
             // pnlBuscador
             // 
+            this.pnlBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBuscador.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlBuscador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlBuscador.Controls.Add(this.lblBuscar);
@@ -691,6 +700,10 @@
             // dgvProductos
             // 
             this.dgvProductos.AllowUserToOrderColumns = true;
+            this.dgvProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
             this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -718,56 +731,15 @@
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidth = 62;
             this.dgvProductos.RowTemplate.Height = 70;
-            this.dgvProductos.Size = new System.Drawing.Size(1158, 576);
+            this.dgvProductos.Size = new System.Drawing.Size(1158, 706);
             this.dgvProductos.TabIndex = 11;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             this.dgvProductos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvProductos_CellPainting);
             this.dgvProductos.Paint += new System.Windows.Forms.PaintEventHandler(this.dgvProductos_Paint);
             // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.MinimumWidth = 8;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 150;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 8;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 150;
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.MinimumWidth = 8;
-            this.Categoria.Name = "Categoria";
-            this.Categoria.Width = 150;
-            // 
-            // FechaVencimiento
-            // 
-            this.FechaVencimiento.HeaderText = "Fecha Vencimiento";
-            this.FechaVencimiento.MinimumWidth = 8;
-            this.FechaVencimiento.Name = "FechaVencimiento";
-            this.FechaVencimiento.Width = 150;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.MinimumWidth = 8;
-            this.Precio.Name = "Precio";
-            this.Precio.Width = 150;
-            // 
-            // Acciones
-            // 
-            this.Acciones.HeaderText = "Acciones";
-            this.Acciones.MinimumWidth = 8;
-            this.Acciones.Name = "Acciones";
-            this.Acciones.Width = 150;
-            // 
             // pctCerrar
             // 
+            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
             this.pctCerrar.Location = new System.Drawing.Point(1518, 6);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
@@ -777,6 +749,43 @@
             this.pctCerrar.TabIndex = 56;
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 8;
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Nombre
+            // 
+            this.Nombre.FillWeight = 160F;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 8;
+            this.Nombre.Name = "Nombre";
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.MinimumWidth = 8;
+            this.Categoria.Name = "Categoria";
+            // 
+            // FechaVencimiento
+            // 
+            this.FechaVencimiento.HeaderText = "Fecha Vencimiento";
+            this.FechaVencimiento.MinimumWidth = 8;
+            this.FechaVencimiento.Name = "FechaVencimiento";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.MinimumWidth = 8;
+            this.Precio.Name = "Precio";
+            // 
+            // Acciones
+            // 
+            this.Acciones.HeaderText = "Acciones";
+            this.Acciones.MinimumWidth = 8;
+            this.Acciones.Name = "Acciones";
             // 
             // frmProductos
             // 
@@ -871,12 +880,6 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label lblProductos;
         private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaVencimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Acciones;
         private System.Windows.Forms.Panel pnlBuscador;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -892,5 +895,11 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.PictureBox pctCerrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaVencimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Acciones;
     }
 }
