@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPedidos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.lblBuscarArriba = new System.Windows.Forms.Label();
             this.txtBuscarArriba = new System.Windows.Forms.TextBox();
@@ -40,7 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlUsuario = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblDescri = new System.Windows.Forms.Label();
@@ -103,12 +103,13 @@
             this.btnVerDetalle = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).BeginInit();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -135,10 +136,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBuscar
             // 
+            this.pnlBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBuscar.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlBuscar.Controls.Add(this.lblBuscarArriba);
@@ -189,7 +192,7 @@
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlContenedorPrincipal.Controls.Add(this.panel5);
-            this.pnlContenedorPrincipal.Controls.Add(this.panel2);
+            this.pnlContenedorPrincipal.Controls.Add(this.pnlUsuario);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
             this.pnlContenedorPrincipal.Controls.Add(this.panel9);
             this.pnlContenedorPrincipal.Controls.Add(this.panel8);
@@ -198,9 +201,10 @@
             this.pnlContenedorPrincipal.Controls.Add(this.pnlInicio);
             this.pnlContenedorPrincipal.Controls.Add(this.label3);
             this.pnlContenedorPrincipal.Controls.Add(this.pctLogo);
+            this.pnlContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
-            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 929);
+            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 938);
             this.pnlContenedorPrincipal.TabIndex = 16;
             // 
             // panel5
@@ -251,16 +255,16 @@
             this.btnEstadisticas.UseVisualStyleBackColor = false;
             this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
-            // panel2
+            // pnlUsuario
             // 
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.pictureBox9);
-            this.panel2.Controls.Add(this.lblDescri);
-            this.panel2.Controls.Add(this.btnUsuario);
-            this.panel2.Location = new System.Drawing.Point(2, 828);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 98);
-            this.panel2.TabIndex = 42;
+            this.pnlUsuario.Controls.Add(this.label10);
+            this.pnlUsuario.Controls.Add(this.pictureBox9);
+            this.pnlUsuario.Controls.Add(this.lblDescri);
+            this.pnlUsuario.Controls.Add(this.btnUsuario);
+            this.pnlUsuario.Location = new System.Drawing.Point(2, 836);
+            this.pnlUsuario.Name = "pnlUsuario";
+            this.pnlUsuario.Size = new System.Drawing.Size(288, 98);
+            this.pnlUsuario.TabIndex = 42;
             // 
             // label10
             // 
@@ -619,15 +623,16 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel3.Controls.Add(this.lblNumPedidosPendientes);
             this.panel3.Controls.Add(this.lblPorcentajeClientes);
             this.panel3.Controls.Add(this.lblPedidosPendientes);
             this.panel3.Controls.Add(this.pictureBox10);
-            this.panel3.Location = new System.Drawing.Point(639, 58);
+            this.panel3.Location = new System.Drawing.Point(327, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(308, 100);
+            this.panel3.Size = new System.Drawing.Size(318, 106);
             this.panel3.TabIndex = 19;
             // 
             // lblNumPedidosPendientes
@@ -674,15 +679,16 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.lblNumPedidoscancelados);
             this.panel4.Controls.Add(this.lblPedidoscancelados);
             this.panel4.Controls.Add(this.pictureBox11);
-            this.panel4.Location = new System.Drawing.Point(974, 58);
+            this.panel4.Location = new System.Drawing.Point(651, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(308, 100);
+            this.panel4.Size = new System.Drawing.Size(320, 106);
             this.panel4.TabIndex = 18;
             // 
             // label1
@@ -729,15 +735,16 @@
             // 
             // panelGanancias
             // 
+            this.panelGanancias.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelGanancias.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panelGanancias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelGanancias.Controls.Add(this.lblPorcentajeClientesNuevos);
             this.panelGanancias.Controls.Add(this.lblNumPedidostotales);
             this.panelGanancias.Controls.Add(this.lblPedidostotales);
             this.panelGanancias.Controls.Add(this.pcbGanancias);
-            this.panelGanancias.Location = new System.Drawing.Point(308, 58);
+            this.panelGanancias.Location = new System.Drawing.Point(3, 3);
             this.panelGanancias.Name = "panelGanancias";
-            this.panelGanancias.Size = new System.Drawing.Size(308, 100);
+            this.panelGanancias.Size = new System.Drawing.Size(318, 106);
             this.panelGanancias.TabIndex = 17;
             // 
             // lblPorcentajeClientesNuevos
@@ -784,6 +791,9 @@
             // 
             // pnlPedidos
             // 
+            this.pnlPedidos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPedidos.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlPedidos.Controls.Add(this.pictureBox2);
             this.pnlPedidos.Controls.Add(this.btnLimpiar);
@@ -810,6 +820,7 @@
             // 
             // btnLimpiar
             // 
+            this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpiar.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
@@ -836,6 +847,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.pictureBox1);
@@ -882,6 +894,10 @@
             // dgvPedidos
             // 
             this.dgvPedidos.AllowUserToOrderColumns = true;
+            this.dgvPedidos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPedidos.BackgroundColor = System.Drawing.Color.White;
             this.dgvPedidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPedidos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -895,14 +911,14 @@
             this.Estado,
             this.btnVerDetalle});
             this.dgvPedidos.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPedidos.EnableHeadersVisualStyles = false;
             this.dgvPedidos.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvPedidos.Location = new System.Drawing.Point(26, 112);
@@ -910,58 +926,48 @@
             this.dgvPedidos.RowHeadersVisible = false;
             this.dgvPedidos.RowHeadersWidth = 62;
             this.dgvPedidos.RowTemplate.Height = 70;
-            this.dgvPedidos.Size = new System.Drawing.Size(904, 348);
+            this.dgvPedidos.Size = new System.Drawing.Size(904, 627);
             this.dgvPedidos.TabIndex = 11;
             this.dgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellContentClick);
             // 
             // IdPedido
             // 
             this.IdPedido.DataPropertyName = "IdPedido";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.IdPedido.DefaultCellStyle = dataGridViewCellStyle1;
-            this.IdPedido.Frozen = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            this.IdPedido.DefaultCellStyle = dataGridViewCellStyle5;
             this.IdPedido.HeaderText = "N°Pedido";
             this.IdPedido.MinimumWidth = 8;
             this.IdPedido.Name = "IdPedido";
-            this.IdPedido.Width = 150;
             // 
             // Fecha
             // 
             this.Fecha.DataPropertyName = "Fecha";
-            this.Fecha.Frozen = true;
             this.Fecha.HeaderText = "Fecha de Pedido";
             this.Fecha.MinimumWidth = 8;
             this.Fecha.Name = "Fecha";
-            this.Fecha.Width = 150;
             // 
             // CantidadDeProductos
             // 
             this.CantidadDeProductos.DataPropertyName = "CantidadDeProductos";
-            this.CantidadDeProductos.Frozen = true;
             this.CantidadDeProductos.HeaderText = "Cantidad de productos";
             this.CantidadDeProductos.MinimumWidth = 8;
             this.CantidadDeProductos.Name = "CantidadDeProductos";
-            this.CantidadDeProductos.Width = 150;
             // 
             // Proveedor
             // 
             this.Proveedor.DataPropertyName = "Proveedor";
-            this.Proveedor.Frozen = true;
             this.Proveedor.HeaderText = "Proveedor";
             this.Proveedor.MinimumWidth = 8;
             this.Proveedor.Name = "Proveedor";
-            this.Proveedor.Width = 150;
             // 
             // Estado
             // 
             this.Estado.DataPropertyName = "Estado";
-            this.Estado.Frozen = true;
             this.Estado.HeaderText = "Pedido Recibido";
             this.Estado.MinimumWidth = 8;
             this.Estado.Name = "Estado";
-            this.Estado.Width = 150;
             // 
             // btnVerDetalle
             // 
@@ -972,7 +978,6 @@
             this.btnVerDetalle.Name = "btnVerDetalle";
             this.btnVerDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnVerDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnVerDetalle.Width = 150;
             // 
             // dataGridViewImageColumn1
             // 
@@ -987,6 +992,7 @@
             // 
             // pctCerrar
             // 
+            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
             this.pctCerrar.Location = new System.Drawing.Point(1308, 10);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
@@ -997,16 +1003,32 @@
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33111F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33112F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33778F));
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panelGanancias, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(308, 65);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(974, 112);
+            this.tableLayoutPanel1.TabIndex = 57;
+            // 
             // frmPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 938);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.pnlPedidos);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panelGanancias);
             this.Controls.Add(this.pnlContenedorPrincipal);
             this.Controls.Add(this.pnlBuscar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1015,6 +1037,7 @@
             this.Text = "frmPedidos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPedidos_Load);
+            this.Resize += new System.EventHandler(this.frmPedidos_Resize);
             this.pnlBuscar.ResumeLayout(false);
             this.pnlBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).EndInit();
@@ -1023,8 +1046,8 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlUsuario.ResumeLayout(false);
+            this.pnlUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -1061,6 +1084,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1072,7 +1096,7 @@
         private System.Windows.Forms.TextBox txtBuscarArriba;
         private System.Windows.Forms.PictureBox ptbLupa;
         private System.Windows.Forms.Panel pnlContenedorPrincipal;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlUsuario;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label lblDescri;
@@ -1132,12 +1156,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Button btnEstadisticas;
+        private System.Windows.Forms.PictureBox pctCerrar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdPedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantidadDeProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewImageColumn btnVerDetalle;
-        private System.Windows.Forms.PictureBox pctCerrar;
     }
 }
