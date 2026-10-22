@@ -31,6 +31,7 @@ namespace pryTesisVentas
 
             // 2. Carga y muestra de datos REALES desde SQL Server
             CargarDatosDesdeBase();
+            frmCuentasCorrientes_Resize(sender, e);
         }
 
         private void CargarDatosDesdeBase()
@@ -388,6 +389,21 @@ namespace pryTesisVentas
         private void pctCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmCuentasCorrientes_Resize(object sender, EventArgs e)
+        {
+            if (pnlUsuario != null)
+            {
+                // Si está colocado directamente en el Formulario:
+                pnlUsuario.Top = this.ClientSize.Height - pnlUsuario.Height - 20;
+
+                // Si está adentro de un panel lateral (ejemplo pnlMenu):
+                if (pnlUsuario.Parent != null)
+                {
+                    pnlUsuario.Top = pnlUsuario.Parent.ClientSize.Height - pnlUsuario.Height - 20;
+                }
+            }
         }
     }
     

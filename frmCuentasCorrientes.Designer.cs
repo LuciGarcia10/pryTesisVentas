@@ -38,7 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlUsuario = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblDescri = new System.Windows.Forms.Label();
@@ -92,7 +92,7 @@
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -120,7 +120,7 @@
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlContenedorPrincipal.Controls.Add(this.panel5);
-            this.pnlContenedorPrincipal.Controls.Add(this.panel2);
+            this.pnlContenedorPrincipal.Controls.Add(this.pnlUsuario);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
             this.pnlContenedorPrincipal.Controls.Add(this.panel9);
             this.pnlContenedorPrincipal.Controls.Add(this.panel8);
@@ -129,9 +129,10 @@
             this.pnlContenedorPrincipal.Controls.Add(this.pnlInicio);
             this.pnlContenedorPrincipal.Controls.Add(this.label3);
             this.pnlContenedorPrincipal.Controls.Add(this.pctLogo);
-            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(0, 2);
+            this.pnlContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
-            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 929);
+            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 931);
             this.pnlContenedorPrincipal.TabIndex = 17;
             // 
             // panel5
@@ -182,16 +183,16 @@
             this.btnEstadisticas.UseVisualStyleBackColor = false;
             this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
-            // panel2
+            // pnlUsuario
             // 
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.pictureBox9);
-            this.panel2.Controls.Add(this.lblDescri);
-            this.panel2.Controls.Add(this.btnUsuario);
-            this.panel2.Location = new System.Drawing.Point(2, 828);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 98);
-            this.panel2.TabIndex = 42;
+            this.pnlUsuario.Controls.Add(this.label10);
+            this.pnlUsuario.Controls.Add(this.pictureBox9);
+            this.pnlUsuario.Controls.Add(this.lblDescri);
+            this.pnlUsuario.Controls.Add(this.btnUsuario);
+            this.pnlUsuario.Location = new System.Drawing.Point(2, 828);
+            this.pnlUsuario.Name = "pnlUsuario";
+            this.pnlUsuario.Size = new System.Drawing.Size(288, 98);
+            this.pnlUsuario.TabIndex = 42;
             // 
             // label10
             // 
@@ -550,6 +551,9 @@
             // 
             // pnlPedidos
             // 
+            this.pnlPedidos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPedidos.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlPedidos.Controls.Add(this.pnlFiltrar);
             this.pnlPedidos.Controls.Add(this.pictureBox12);
@@ -561,11 +565,12 @@
             this.pnlPedidos.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlPedidos.Location = new System.Drawing.Point(314, 40);
             this.pnlPedidos.Name = "pnlPedidos";
-            this.pnlPedidos.Size = new System.Drawing.Size(1246, 786);
+            this.pnlPedidos.Size = new System.Drawing.Size(1246, 886);
             this.pnlPedidos.TabIndex = 24;
             // 
             // pnlFiltrar
             // 
+            this.pnlFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFiltrar.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlFiltrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlFiltrar.Controls.Add(this.pictureBox10);
@@ -608,6 +613,7 @@
             // 
             // pictureBox12
             // 
+            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox12.BackColor = System.Drawing.Color.LightGray;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
             this.pictureBox12.Location = new System.Drawing.Point(741, 22);
@@ -619,6 +625,7 @@
             // 
             // btnExp
             // 
+            this.btnExp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExp.ForeColor = System.Drawing.Color.Black;
@@ -633,6 +640,7 @@
             // 
             // btnLimpiar
             // 
+            this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpiar.BackColor = System.Drawing.Color.LightCyan;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Teal;
@@ -670,6 +678,9 @@
             // dgvCuentasC
             // 
             this.dgvCuentasC.AllowUserToOrderColumns = true;
+            this.dgvCuentasC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCuentasC.BackgroundColor = System.Drawing.Color.White;
             this.dgvCuentasC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCuentasC.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -705,7 +716,7 @@
             this.dgvCuentasC.RowHeadersVisible = false;
             this.dgvCuentasC.RowHeadersWidth = 62;
             this.dgvCuentasC.RowTemplate.Height = 70;
-            this.dgvCuentasC.Size = new System.Drawing.Size(1218, 608);
+            this.dgvCuentasC.Size = new System.Drawing.Size(1218, 767);
             this.dgvCuentasC.TabIndex = 11;
             this.dgvCuentasC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCuentasC_CellClick);
             this.dgvCuentasC.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvCuentasC_CellPainting);
@@ -788,6 +799,7 @@
             // 
             // pctCerrar
             // 
+            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
             this.pctCerrar.Location = new System.Drawing.Point(1561, 5);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
@@ -813,13 +825,14 @@
             this.Text = "Cuentas Corrientes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCuentasCorrientes_Load);
+            this.Resize += new System.EventHandler(this.frmCuentasCorrientes_Resize);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.pnlContenedorPrincipal.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlUsuario.ResumeLayout(false);
+            this.pnlUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -855,7 +868,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlContenedorPrincipal;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlUsuario;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label lblDescri;
