@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPerfil));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -77,10 +77,6 @@
             this.TxtBuscarU = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.DgvPermisos = new System.Windows.Forms.DataGridView();
-            this.ClmUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmAcciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PctIconoPermisos = new System.Windows.Forms.PictureBox();
             this.LblPermisos = new System.Windows.Forms.Label();
             this.PnlCuenta = new System.Windows.Forms.Panel();
@@ -101,6 +97,9 @@
             this.PctFotoPerfil = new System.Windows.Forms.PictureBox();
             this.LblGestion = new System.Windows.Forms.Label();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.ClmUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -145,9 +144,10 @@
             this.pnlContenedorPrincipal.Controls.Add(this.pnlInicio);
             this.pnlContenedorPrincipal.Controls.Add(this.label3);
             this.pnlContenedorPrincipal.Controls.Add(this.pctLogo);
+            this.pnlContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlContenedorPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorPrincipal.Name = "pnlContenedorPrincipal";
-            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 929);
+            this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 928);
             this.pnlContenedorPrincipal.TabIndex = 18;
             // 
             // panel5
@@ -204,9 +204,10 @@
             this.panel2.Controls.Add(this.pictureBox9);
             this.panel2.Controls.Add(this.lblDescri);
             this.panel2.Controls.Add(this.btnUsuario);
-            this.panel2.Location = new System.Drawing.Point(2, 828);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 830);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 98);
+            this.panel2.Size = new System.Drawing.Size(291, 98);
             this.panel2.TabIndex = 42;
             // 
             // label10
@@ -562,6 +563,7 @@
             // 
             // pnlBuscar
             // 
+            this.pnlBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBuscar.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pnlBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlBuscar.Controls.Add(this.lblBuscarArriba);
@@ -570,7 +572,7 @@
             this.pnlBuscar.Controls.Add(this.ptbLupa);
             this.pnlBuscar.Location = new System.Drawing.Point(753, 31);
             this.pnlBuscar.Name = "pnlBuscar";
-            this.pnlBuscar.Size = new System.Drawing.Size(823, 32);
+            this.pnlBuscar.Size = new System.Drawing.Size(840, 32);
             this.pnlBuscar.TabIndex = 24;
             // 
             // lblBuscarArriba
@@ -616,6 +618,9 @@
             // 
             // PnlPermisos
             // 
+            this.PnlPermisos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PnlPermisos.BackColor = System.Drawing.Color.White;
             this.PnlPermisos.Controls.Add(this.pnlBuscadorUsuario);
             this.PnlPermisos.Controls.Add(this.DgvPermisos);
@@ -625,7 +630,7 @@
             this.PnlPermisos.Location = new System.Drawing.Point(753, 82);
             this.PnlPermisos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PnlPermisos.Name = "PnlPermisos";
-            this.PnlPermisos.Size = new System.Drawing.Size(822, 826);
+            this.PnlPermisos.Size = new System.Drawing.Size(871, 826);
             this.PnlPermisos.TabIndex = 25;
             // 
             // pnlBuscadorUsuario
@@ -662,6 +667,10 @@
             // DgvPermisos
             // 
             this.DgvPermisos.AllowUserToOrderColumns = true;
+            this.DgvPermisos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DgvPermisos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvPermisos.BackgroundColor = System.Drawing.Color.White;
             this.DgvPermisos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvPermisos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -670,17 +679,16 @@
             this.DgvPermisos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ClmUsuario,
             this.ClmRol,
-            this.ClmEstado,
-            this.ClmAcciones});
+            this.ClmEstado});
             this.DgvPermisos.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvPermisos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvPermisos.DefaultCellStyle = dataGridViewCellStyle6;
             this.DgvPermisos.EnableHeadersVisualStyles = false;
             this.DgvPermisos.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.DgvPermisos.Location = new System.Drawing.Point(27, 125);
@@ -688,49 +696,9 @@
             this.DgvPermisos.RowHeadersVisible = false;
             this.DgvPermisos.RowHeadersWidth = 62;
             this.DgvPermisos.RowTemplate.Height = 70;
-            this.DgvPermisos.Size = new System.Drawing.Size(764, 348);
+            this.DgvPermisos.Size = new System.Drawing.Size(826, 681);
             this.DgvPermisos.TabIndex = 43;
             this.DgvPermisos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPermisos_CellClick);
-            // 
-            // ClmUsuario
-            // 
-            this.ClmUsuario.DataPropertyName = "Usuario";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.ClmUsuario.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ClmUsuario.Frozen = true;
-            this.ClmUsuario.HeaderText = "Usuario";
-            this.ClmUsuario.MinimumWidth = 8;
-            this.ClmUsuario.Name = "ClmUsuario";
-            this.ClmUsuario.Width = 150;
-            // 
-            // ClmRol
-            // 
-            this.ClmRol.DataPropertyName = "Rol";
-            this.ClmRol.Frozen = true;
-            this.ClmRol.HeaderText = "Rol";
-            this.ClmRol.MinimumWidth = 8;
-            this.ClmRol.Name = "ClmRol";
-            this.ClmRol.Width = 150;
-            // 
-            // ClmEstado
-            // 
-            this.ClmEstado.DataPropertyName = "Estado";
-            this.ClmEstado.Frozen = true;
-            this.ClmEstado.HeaderText = "Estado";
-            this.ClmEstado.MinimumWidth = 8;
-            this.ClmEstado.Name = "ClmEstado";
-            this.ClmEstado.Width = 150;
-            // 
-            // ClmAcciones
-            // 
-            this.ClmAcciones.DataPropertyName = "Acciones";
-            this.ClmAcciones.Frozen = true;
-            this.ClmAcciones.HeaderText = "Acciones";
-            this.ClmAcciones.MinimumWidth = 8;
-            this.ClmAcciones.Name = "ClmAcciones";
-            this.ClmAcciones.Width = 150;
             // 
             // PctIconoPermisos
             // 
@@ -754,6 +722,8 @@
             // 
             // PnlCuenta
             // 
+            this.PnlCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.PnlCuenta.BackColor = System.Drawing.Color.White;
             this.PnlCuenta.Controls.Add(this.BtnVerContra);
             this.PnlCuenta.Controls.Add(this.LinkCerrarSesion);
@@ -771,10 +741,10 @@
             this.PnlCuenta.Controls.Add(this.LblDatos);
             this.PnlCuenta.Controls.Add(this.PctFotoPerfil);
             this.PnlCuenta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PnlCuenta.Location = new System.Drawing.Point(324, 82);
+            this.PnlCuenta.Location = new System.Drawing.Point(371, 85);
             this.PnlCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PnlCuenta.Name = "PnlCuenta";
-            this.PnlCuenta.Size = new System.Drawing.Size(404, 826);
+            this.PnlCuenta.Size = new System.Drawing.Size(350, 829);
             this.PnlCuenta.TabIndex = 26;
             // 
             // BtnVerContra
@@ -783,7 +753,7 @@
             this.BtnVerContra.BackgroundImage = global::pryTesisVentas.Properties.Resources.show;
             this.BtnVerContra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnVerContra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVerContra.Location = new System.Drawing.Point(322, 609);
+            this.BtnVerContra.Location = new System.Drawing.Point(275, 696);
             this.BtnVerContra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnVerContra.Name = "BtnVerContra";
             this.BtnVerContra.Size = new System.Drawing.Size(32, 32);
@@ -796,7 +766,7 @@
             this.LinkCerrarSesion.AutoSize = true;
             this.LinkCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LinkCerrarSesion.LinkColor = System.Drawing.Color.DarkSlateGray;
-            this.LinkCerrarSesion.Location = new System.Drawing.Point(244, 718);
+            this.LinkCerrarSesion.Location = new System.Drawing.Point(227, 803);
             this.LinkCerrarSesion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LinkCerrarSesion.Name = "LinkCerrarSesion";
             this.LinkCerrarSesion.Size = new System.Drawing.Size(109, 23);
@@ -810,9 +780,9 @@
             this.BtnGuardar.BackColor = System.Drawing.Color.Teal;
             this.BtnGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.Color.White;
-            this.BtnGuardar.Location = new System.Drawing.Point(152, 674);
+            this.BtnGuardar.Location = new System.Drawing.Point(99, 743);
             this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(204, 42);
+            this.BtnGuardar.Size = new System.Drawing.Size(240, 54);
             this.BtnGuardar.TabIndex = 40;
             this.BtnGuardar.Text = "Guardar cambios";
             this.BtnGuardar.UseVisualStyleBackColor = false;
@@ -820,94 +790,95 @@
             // 
             // TxtContraNueva
             // 
-            this.TxtContraNueva.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContraNueva.Location = new System.Drawing.Point(62, 609);
+            this.TxtContraNueva.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtContraNueva.Location = new System.Drawing.Point(31, 698);
             this.TxtContraNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtContraNueva.Name = "TxtContraNueva";
-            this.TxtContraNueva.Size = new System.Drawing.Size(292, 31);
+            this.TxtContraNueva.Size = new System.Drawing.Size(280, 34);
             this.TxtContraNueva.TabIndex = 39;
             this.TxtContraNueva.Text = "************";
             // 
             // LblContraNueva
             // 
             this.LblContraNueva.AutoSize = true;
-            this.LblContraNueva.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblContraNueva.Location = new System.Drawing.Point(57, 578);
+            this.LblContraNueva.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblContraNueva.Location = new System.Drawing.Point(26, 654);
             this.LblContraNueva.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.LblContraNueva.Name = "LblContraNueva";
-            this.LblContraNueva.Size = new System.Drawing.Size(168, 28);
+            this.LblContraNueva.Size = new System.Drawing.Size(206, 32);
             this.LblContraNueva.TabIndex = 38;
             this.LblContraNueva.Text = "Nueva contraseña";
             // 
             // TxtContraActual
             // 
-            this.TxtContraActual.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContraActual.Location = new System.Drawing.Point(62, 525);
+            this.TxtContraActual.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtContraActual.Location = new System.Drawing.Point(31, 603);
             this.TxtContraActual.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtContraActual.Name = "TxtContraActual";
-            this.TxtContraActual.Size = new System.Drawing.Size(292, 31);
+            this.TxtContraActual.Size = new System.Drawing.Size(280, 34);
             this.TxtContraActual.TabIndex = 37;
             this.TxtContraActual.Text = "************";
             // 
             // LblContra
             // 
             this.LblContra.AutoSize = true;
-            this.LblContra.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblContra.Location = new System.Drawing.Point(57, 494);
+            this.LblContra.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblContra.Location = new System.Drawing.Point(26, 561);
             this.LblContra.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.LblContra.Name = "LblContra";
-            this.LblContra.Size = new System.Drawing.Size(110, 28);
+            this.LblContra.Size = new System.Drawing.Size(134, 32);
             this.LblContra.TabIndex = 36;
             this.LblContra.Text = "Contraseña";
             // 
             // TxtUsuario
             // 
-            this.TxtUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUsuario.Location = new System.Drawing.Point(62, 348);
+            this.TxtUsuario.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtUsuario.Location = new System.Drawing.Point(31, 419);
             this.TxtUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtUsuario.Name = "TxtUsuario";
-            this.TxtUsuario.Size = new System.Drawing.Size(292, 31);
+            this.TxtUsuario.Size = new System.Drawing.Size(280, 34);
             this.TxtUsuario.TabIndex = 35;
             this.TxtUsuario.Text = "Valeria";
             // 
             // LblUsuario
             // 
             this.LblUsuario.AutoSize = true;
-            this.LblUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUsuario.Location = new System.Drawing.Point(57, 311);
+            this.LblUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUsuario.Location = new System.Drawing.Point(26, 378);
             this.LblUsuario.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.LblUsuario.Name = "LblUsuario";
-            this.LblUsuario.Size = new System.Drawing.Size(181, 28);
+            this.LblUsuario.Size = new System.Drawing.Size(221, 32);
             this.LblUsuario.TabIndex = 34;
             this.LblUsuario.Text = "Nombre de usuario";
             // 
             // TxtEmail
             // 
-            this.TxtEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEmail.Location = new System.Drawing.Point(62, 437);
+            this.TxtEmail.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtEmail.Location = new System.Drawing.Point(31, 511);
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(292, 31);
+            this.TxtEmail.Size = new System.Drawing.Size(280, 34);
             this.TxtEmail.TabIndex = 33;
             this.TxtEmail.Text = "vale@gmail.com";
             // 
             // LblEmail
             // 
             this.LblEmail.AutoSize = true;
-            this.LblEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEmail.Location = new System.Drawing.Point(57, 406);
+            this.LblEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEmail.Location = new System.Drawing.Point(26, 473);
             this.LblEmail.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.LblEmail.Name = "LblEmail";
-            this.LblEmail.Size = new System.Drawing.Size(149, 28);
+            this.LblEmail.Size = new System.Drawing.Size(181, 32);
             this.LblEmail.TabIndex = 31;
             this.LblEmail.Text = "Email vinculado";
             // 
             // BtnCambiarFoto
             // 
+            this.BtnCambiarFoto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnCambiarFoto.BackColor = System.Drawing.Color.Teal;
             this.BtnCambiarFoto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCambiarFoto.ForeColor = System.Drawing.Color.White;
-            this.BtnCambiarFoto.Location = new System.Drawing.Point(120, 234);
+            this.BtnCambiarFoto.Location = new System.Drawing.Point(116, 295);
             this.BtnCambiarFoto.Name = "BtnCambiarFoto";
             this.BtnCambiarFoto.Size = new System.Drawing.Size(152, 42);
             this.BtnCambiarFoto.TabIndex = 29;
@@ -937,11 +908,13 @@
             // 
             // PctFotoPerfil
             // 
+            this.PctFotoPerfil.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PctFotoPerfil.Image = global::pryTesisVentas.Properties.Resources.user;
-            this.PctFotoPerfil.Location = new System.Drawing.Point(136, 111);
+            this.PctFotoPerfil.Location = new System.Drawing.Point(103, 111);
             this.PctFotoPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PctFotoPerfil.Name = "PctFotoPerfil";
-            this.PctFotoPerfil.Size = new System.Drawing.Size(122, 115);
+            this.PctFotoPerfil.Padding = new System.Windows.Forms.Padding(115, 0, 0, 0);
+            this.PctFotoPerfil.Size = new System.Drawing.Size(178, 165);
             this.PctFotoPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctFotoPerfil.TabIndex = 0;
             this.PctFotoPerfil.TabStop = false;
@@ -958,6 +931,7 @@
             // 
             // pctCerrar
             // 
+            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
             this.pctCerrar.Location = new System.Drawing.Point(1598, 10);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
@@ -967,6 +941,34 @@
             this.pctCerrar.TabIndex = 56;
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
+            // ClmUsuario
+            // 
+            this.ClmUsuario.DataPropertyName = "Usuario";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            this.ClmUsuario.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ClmUsuario.FillWeight = 140F;
+            this.ClmUsuario.HeaderText = "Usuario";
+            this.ClmUsuario.MinimumWidth = 8;
+            this.ClmUsuario.Name = "ClmUsuario";
+            // 
+            // ClmRol
+            // 
+            this.ClmRol.DataPropertyName = "Rol";
+            this.ClmRol.FillWeight = 90F;
+            this.ClmRol.HeaderText = "Rol";
+            this.ClmRol.MinimumWidth = 8;
+            this.ClmRol.Name = "ClmRol";
+            // 
+            // ClmEstado
+            // 
+            this.ClmEstado.DataPropertyName = "Estado";
+            this.ClmEstado.FillWeight = 80F;
+            this.ClmEstado.HeaderText = "Estado";
+            this.ClmEstado.MinimumWidth = 8;
+            this.ClmEstado.Name = "ClmEstado";
             // 
             // FrmPerfil
             // 
@@ -987,6 +989,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPerfil_FormClosed);
             this.Load += new System.EventHandler(this.FrmPerfil_Load);
+            this.Resize += new System.EventHandler(this.FrmPerfil_Resize);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.pnlContenedorPrincipal.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1092,10 +1095,6 @@
         private System.Windows.Forms.Label LblPermisos;
         private System.Windows.Forms.PictureBox PctIconoPermisos;
         private System.Windows.Forms.DataGridView DgvPermisos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmRol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmAcciones;
         private System.Windows.Forms.Button BtnVerContra;
         private System.Windows.Forms.TextBox TxtBuscarU;
         private System.Windows.Forms.Panel panel5;
@@ -1106,5 +1105,8 @@
         private System.Windows.Forms.Panel pnlBuscadorUsuario;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pctCerrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmRol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmEstado;
     }
 }

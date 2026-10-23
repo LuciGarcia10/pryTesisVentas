@@ -37,6 +37,7 @@ namespace pryTesisVentas
 
             // Cargar datos de prueba para la grilla de control de permisos
             CargarGrillaUsuarios();
+            AcomodarTarjetaDatosPersonales();
         }
 
         private void ConfigurarEstilosExclusivos()
@@ -56,18 +57,136 @@ namespace pryTesisVentas
             BtnCambiarFoto.FlatAppearance.BorderSize = 1;
             BtnCambiarFoto.Font = new Font("Segoe UI", 9, FontStyle.Bold);
 
-            // Ajustar propiedades de la grilla de usuarios
+            // --- Estilización profesional de la grilla de cuentas ---
             DgvPermisos.BackgroundColor = Color.White;
             DgvPermisos.BorderStyle = BorderStyle.None;
+            DgvPermisos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            DgvPermisos.GridColor = Color.FromArgb(230, 235, 240); // Línea divisoria suave
             DgvPermisos.RowHeadersVisible = false;
             DgvPermisos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgvPermisos.MultiSelect = false;
             DgvPermisos.AllowUserToAddRows = false;
-           // DgvPermisos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DgvPermisos.AllowUserToResizeRows = false;
+            DgvPermisos.ShowCellToolTips = false;
+
+            // Altura cómoda para cada fila (evita que el texto y el engranaje queden apretados)
+            DgvPermisos.RowTemplate.Height = 40;
+
+            // Encabezados (títulos de columnas): fondo gris sutil y texto oscuro nítido
+            DgvPermisos.EnableHeadersVisualStyles = false; // Permite aplicar los colores personalizados
+            DgvPermisos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            DgvPermisos.ColumnHeadersHeight = 38;
+            DgvPermisos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(248, 249, 250);
+            DgvPermisos.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(70, 75, 85); // Texto gris oscuro legible
+            DgvPermisos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9.5f, FontStyle.Bold);
+            DgvPermisos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+            // Celdas de contenido: TEXTO OSCURO FUERTE
+            DgvPermisos.DefaultCellStyle.BackColor = Color.White;
+            DgvPermisos.DefaultCellStyle.ForeColor = Color.FromArgb(30, 30, 30); // Negro suave de alta legibilidad
+            DgvPermisos.DefaultCellStyle.Font = new Font("Segoe UI", 9.5f, FontStyle.Regular);
+            DgvPermisos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            DgvPermisos.DefaultCellStyle.Padding = new Padding(8, 0, 0, 0);
+
+            // Color de fila seleccionada (verde institucional suave en sintonía con DigitalFarma)
+            DgvPermisos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(220, 240, 235);
+            DgvPermisos.DefaultCellStyle.SelectionForeColor = Color.FromArgb(0, 70, 60); // Texto verde oscuro al marcar la fila
+        }
+        private void AcomodarTarjetaDatosPersonales()
+        {
+            // Reemplazá 'pnlDatosPersonales' por el (Name) de tu panel blanco izquierdo
+            // Si no tiene nombre especial, fijate en propiedades cómo se llama (ej: panel1, pnlDatos, etc.)
+            Control panel = PctFotoPerfil.Parent;
+            if (panel == null) return;
+
+            int anchoPanel = panel.ClientSize.Width;
+            int altoPanel = panel.ClientSize.Height;
+
+            // 1. Ancho uniforme y centrado de los TextBox
+            int anchoCampos = anchoPanel - 60; // Deja 30px de margen a cada lado
+            if (anchoCampos > 320) anchoCampos = 320; // Límite para que no queden exageradamente anchos
+
+            int posXCentrada = (anchoPanel - anchoCampos) / 2;
+
+            TxtUsuario.Width = anchoCampos;
+            TxtUsuario.Left = posXCentrada;
+
+            TxtEmail.Width = anchoCampos;
+            TxtEmail.Left = posXCentrada;
+
+            TxtContraActual.Width = anchoCampos;
+            TxtContraActual.Left = posXCentrada;
+
+            TxtContraNueva.Width = anchoCampos - 35; // Espacio para el ojito
+            TxtContraNueva.Left = posXCentrada;
+            BtnVerContra.Left = TxtContraNueva.Right + 5;
+
+            // 2. Centrar Foto y Botón Cambiar Foto
+            PctFotoPerfil.Left = (anchoPanel - PctFotoPerfil.Width) / 2;
+            BtnCambiarFoto.Left = (anchoPanel - BtnCambiarFoto.Width) / 2;
+
+            // 3. Botón Guardar y Link Cerrar Sesión
+            BtnGuardar.Width = anchoCampos;
+            BtnGuardar.Height = 42;
+            BtnGuardar.Left = posXCentrada;
+            LinkCerrarSesion.Left = (anchoPanel - LinkCerrarSesion.Width) / 2;
+
+            // 4. DISTRIBUCIÓN VERTICAL CON AIRE
+            // Calculamos el espacio vertical dinámicamente según la altura de la pantalla
+            int posY = 55; // Comienza debajo del título "Datos Personales"
+
+            PctFotoPerfil.Top = posY;
+            posY = PctFotoPerfil.Bottom + 10;
+
+            BtnCambiarFoto.Top = posY;
+
+            // Espacio generoso entre la foto y el primer campo para que no se encimen
+            int espacioEntreBloques = (altoPanel > 650) ? 22 : 14;
+            posY = BtnCambiarFoto.Bottom + (espacioEntreBloques + 10);
+
+            // Campo Usuario (buscamos su etiqueta arriba)
+            MoverEtiquetaYCampo(TxtUsuario, ref posY, espacioEntreBloques);
+
+            // Campo Email
+            MoverEtiquetaYCampo(TxtEmail, ref posY, espacioEntreBloques);
+
+            // Campo Contraseña Actual
+            MoverEtiquetaYCampo(TxtContraActual, ref posY, espacioEntreBloques);
+
+            // Campo Nueva Contraseña
+            MoverEtiquetaYCampo(TxtContraNueva, ref posY, espacioEntreBloques);
+            BtnVerContra.Top = TxtContraNueva.Top;
+
+            // Botón Guardar Cambios
+            posY += 15;
+            BtnGuardar.Top = posY;
+
+            // Link Cerrar Sesión
+            LinkCerrarSesion.Top = BtnGuardar.Bottom + 14;
+        }
+
+        // Función auxiliar para mover cada TextBox junto a su Label correspondiente
+        private void MoverEtiquetaYCampo(TextBox txt, ref int posY, int espacioEntreBloques)
+        {
+            Control panel = txt.Parent;
+            // Busca el label que está justo encima del TextBox
+            foreach (Control c in panel.Controls)
+            {
+                if (c is Label && c.Bounds.IntersectsWith(new Rectangle(txt.Left - 10, txt.Top - 35, txt.Width + 20, 35)))
+                {
+                    c.Left = txt.Left;
+                    c.Top = posY;
+                    posY = c.Bottom + 6;
+                    break;
+                }
+            }
+
+            txt.Top = posY;
+            posY = txt.Bottom + espacioEntreBloques;
         }
 
         private void CargarGrillaUsuarios(string filtro = "")
         {
-            // Consulta SQL trayendo el ID interno, el nombre, el rol y el estado real
             string query = @"SELECT U.id_usuario, U.nombre AS [Usuario], R.nombre_rol AS [Rol], 
                             CASE WHEN U.activo = 1 THEN 'Activo' ELSE 'Inactivo' END AS [Estado]
                      FROM Usuarios U
@@ -93,45 +212,71 @@ namespace pryTesisVentas
                         DataTable dt = new DataTable();
                         adaptador.Fill(dt);
 
-                        DgvPermisos.DataSource = null;
+                        // Evitar que genere columnas extras automáticamente
+                        DgvPermisos.AutoGenerateColumns = false;
+
+                        // Enlazar los campos con las columnas creadas en el diseñador
+                        if (DgvPermisos.Columns["ClmUsuario"] != null)
+                            DgvPermisos.Columns["ClmUsuario"].DataPropertyName = "Usuario";
+
+                        if (DgvPermisos.Columns["Rol"] != null)
+                            DgvPermisos.Columns["Rol"].DataPropertyName = "Rol";
+
+                        if (DgvPermisos.Columns["Estado"] != null)
+                            DgvPermisos.Columns["Estado"].DataPropertyName = "Estado";
+
                         DgvPermisos.DataSource = dt;
                     }
                 }
 
-                // Ocultamos la columna del ID para que no se vea en la interfaz de usuario
-                if (DgvPermisos.Columns["id_usuario"] != null)
+                // Configurar la columna de Acciones existente (sin agregar una duplicada)
+                if (DgvPermisos.Columns.Contains("Acciones"))
                 {
-                    DgvPermisos.Columns["id_usuario"].Visible = false;
+                    var colAccion = DgvPermisos.Columns["Acciones"] as DataGridViewImageColumn;
+                    if (colAccion != null)
+                    {
+                        colAccion.Image = Properties.Resources.Acciones;
+                        colAccion.ImageLayout = DataGridViewImageCellLayout.Zoom; // Mantiene el tamaño compacto
+                        colAccion.Width = 70;
+                        colAccion.AutoSizeMode = DataGridViewAutoSizeColumnMode.None; // Ancho fijo
+                        colAccion.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    }
                 }
-                // Acciones
-                if (!DgvPermisos.Columns.Contains("btnAcciones"))
+                else if (!DgvPermisos.Columns.Contains("btnAcciones"))
                 {
-                    DataGridViewImageColumn colAccion = new DataGridViewImageColumn();
-                    colAccion.Name = "btnAcciones";
-                    colAccion.HeaderText = "Acciones";
-
-                    colAccion.Image = Properties.Resources.Acciones;
-
-                    colAccion.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                    colAccion.Width = 80;
+                    // Solo si no existiera de antes en el diseñador:
+                    DataGridViewImageColumn colAccion = new DataGridViewImageColumn
+                    {
+                        Name = "btnAcciones",
+                        HeaderText = "Acciones",
+                        Image = Properties.Resources.Acciones,
+                        ImageLayout = DataGridViewImageCellLayout.Zoom,
+                        Width = 70,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    };
                     colAccion.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    colAccion.DefaultCellStyle.NullValue = null;
 
                     DgvPermisos.Columns.Add(colAccion);
                 }
-                // Configurar e insertar la columna de engranaje (Acciones) si no existe
-                if (!DgvPermisos.Columns.Contains("btnAcciones"))
+
+                // Quitar inmovilización para que no falle el modo Fill
+                foreach (DataGridViewColumn col in DgvPermisos.Columns)
                 {
-                    DataGridViewImageColumn colAccion = new DataGridViewImageColumn();
-                    colAccion.Name = "btnAcciones";
-                    colAccion.HeaderText = "Acciones";
-
-                    // Si tenés el engranaje en tus recursos, descomentá la línea de abajo:
-                    // colAccion.Image = Properties.Resources.engranaje; 
-
-                    colAccion.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                    colAccion.Width = 60;
-                    DgvPermisos.Columns.Add(colAccion);
+                    col.Frozen = false;
                 }
+
+                // Activar modo Fill y pesos relativos
+                DgvPermisos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                if (DgvPermisos.Columns["ClmUsuario"] != null)
+                    DgvPermisos.Columns["ClmUsuario"].FillWeight = 140;
+
+                if (DgvPermisos.Columns["Rol"] != null)
+                    DgvPermisos.Columns["Rol"].FillWeight = 90;
+
+                if (DgvPermisos.Columns["Estado"] != null)
+                    DgvPermisos.Columns["Estado"].FillWeight = 80;
             }
             catch (Exception ex)
             {
@@ -536,6 +681,11 @@ namespace pryTesisVentas
         private void pctCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmPerfil_Resize(object sender, EventArgs e)
+        {
+            AcomodarTarjetaDatosPersonales();
         }
     }
 }
