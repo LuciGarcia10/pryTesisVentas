@@ -135,7 +135,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCambiarRol";
             this.Text = "frmCambiarRol";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCambiarRol_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);

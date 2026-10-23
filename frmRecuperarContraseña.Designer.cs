@@ -121,7 +121,6 @@
             this.Name = "frmRecuperarContraseña";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRecuperarContraseña";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmRecuperarContraseña_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);

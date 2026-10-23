@@ -219,7 +219,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmNuevoPedido";
             this.Text = "frmNuevoPedido";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmNuevoPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

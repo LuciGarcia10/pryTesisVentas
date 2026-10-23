@@ -247,7 +247,6 @@
             this.Name = "frmAñadirProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAñadirProducto";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmAñadirProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();

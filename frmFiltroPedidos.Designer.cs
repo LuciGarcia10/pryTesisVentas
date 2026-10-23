@@ -328,7 +328,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmFiltroPedidos";
             this.Text = "frmFiltroPedidos";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

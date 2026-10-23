@@ -453,7 +453,6 @@
             this.Name = "FrmNuevoCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo Cliente";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmNuevoCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numSaldo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();

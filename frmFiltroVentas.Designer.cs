@@ -293,7 +293,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmFiltroVentas";
             this.Text = "frmFiltroVentas";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmFiltroVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);

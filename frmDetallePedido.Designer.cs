@@ -39,7 +39,6 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPrecioTotal = new System.Windows.Forms.Label();
             this.txtPrecioTotal = new System.Windows.Forms.TextBox();
-            this.lblCerrar = new System.Windows.Forms.Label();
             this.PctIconoDetalle = new System.Windows.Forms.PictureBox();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
@@ -154,22 +153,6 @@
             this.txtPrecioTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrecioTotal.TextChanged += new System.EventHandler(this.txtPrecioTotal_TextChanged);
             // 
-            // lblCerrar
-            // 
-            this.lblCerrar.AutoSize = true;
-            this.lblCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCerrar.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCerrar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblCerrar.Location = new System.Drawing.Point(529, 9);
-            this.lblCerrar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCerrar.Name = "lblCerrar";
-            this.lblCerrar.Size = new System.Drawing.Size(20, 21);
-            this.lblCerrar.TabIndex = 7;
-            this.lblCerrar.Text = "X";
-            this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
-            this.lblCerrar.MouseEnter += new System.EventHandler(this.lblCerrar_MouseEnter);
-            this.lblCerrar.MouseLeave += new System.EventHandler(this.lblCerrar_MouseLeave);
-            // 
             // PctIconoDetalle
             // 
             this.PctIconoDetalle.Image = ((System.Drawing.Image)(resources.GetObject("PctIconoDetalle.Image")));
@@ -184,7 +167,7 @@
             // pctCerrar
             // 
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
-            this.pctCerrar.Location = new System.Drawing.Point(484, 5);
+            this.pctCerrar.Location = new System.Drawing.Point(495, 5);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.pctCerrar.Name = "pctCerrar";
             this.pctCerrar.Size = new System.Drawing.Size(32, 28);
@@ -198,10 +181,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(554, 393);
+            this.ClientSize = new System.Drawing.Size(537, 393);
             this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.PctIconoDetalle);
-            this.Controls.Add(this.lblCerrar);
             this.Controls.Add(this.txtPrecioTotal);
             this.Controls.Add(this.lblPrecioTotal);
             this.Controls.Add(this.dgvDetalles);
@@ -215,7 +197,6 @@
             this.Name = "frmDetallePedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDetallePedido";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDetallePedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoDetalle)).EndInit();
@@ -237,7 +218,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.Label lblCerrar;
         private System.Windows.Forms.PictureBox PctIconoDetalle;
         private System.Windows.Forms.PictureBox pctCerrar;
     }

@@ -281,7 +281,6 @@
             this.Name = "FrmFiltroClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmFiltroClientes";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmFiltroClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.grFiltrar.ResumeLayout(false);

@@ -214,7 +214,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCompras";
             this.Text = "frmCompras";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCompras_Load);
             this.Shown += new System.EventHandler(this.frmCompras_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.ptbCompras)).EndInit();

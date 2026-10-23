@@ -18,7 +18,23 @@ namespace pryTesisVentas
         {
             InitializeComponent();
         }
+        public FrmEditarProducto(Producto prod) : this()
+        {
+            ProductoSeleccionado = prod;
+            CargarDatosDelProducto();
+        }
 
+        private void CargarDatosDelProducto()
+        {
+            if (ProductoSeleccionado != null)
+            {
+                txtNombre.Text = ProductoSeleccionado.Nombre;
+                // cboCategoria.Text = ProductoSeleccionado.Categoria;
+                // numStock.Value = ProductoSeleccionado.Stock;
+                // txtPrecio.Text = ProductoSeleccionado.Precio.ToString();
+                // dtpVencimiento.Value = ProductoSeleccionado.FechaVencimiento;
+            }
+        }
         private void FrmEditarProducto_Load(object sender, EventArgs e)
         {
             CargarComboCategorias();

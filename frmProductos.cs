@@ -80,15 +80,11 @@ namespace pryTesisVentas
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    // 1. Borramos físicamente de la base de datos SQL Server
                     bool eliminadoOk = clsConsultas.EliminarProducto(prod.Id);
 
                     if (eliminadoOk)
                     {
-                        // 2. Si se borró en SQL Server, lo quitamos de la memoria de la pantalla
                         listaProductos.Remove(prod);
-
-                        // 3. Refrescamos la interfaz filtrando lo que queda
                         ActualizarGrilla(listaProductos);
                         MessageBox.Show("Producto eliminado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -98,8 +94,8 @@ namespace pryTesisVentas
             else if (dgvProductos.Columns[e.ColumnIndex].Name == "btnEditar")
             {
                 Producto prod = (Producto)dgvProductos.Rows[e.RowIndex].DataBoundItem;
-                MessageBox.Show("Abriendo edición para: " + prod.Nombre);
-                // Aquí abrirías tu formulario de edición pasándole el objeto 'prod'
+
+                
             }
         }
 

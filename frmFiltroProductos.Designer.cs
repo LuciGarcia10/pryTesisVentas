@@ -300,7 +300,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmFiltroProductos";
             this.Text = " ";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmFiltro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.ResumeLayout(false);

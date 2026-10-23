@@ -111,15 +111,7 @@ namespace pryTesisVentas
             this.Close();
         }
 
-        private void lblCerrar_MouseEnter(object sender, EventArgs e)
-        {
-            lblCerrar.ForeColor = Color.Red;
-        }
-
-        private void lblCerrar_MouseLeave(object sender, EventArgs e)
-        {
-            lblCerrar.ForeColor = Color.DimGray; // Vuelve al color original
-        }
+       
 
         private void lblPrecioTotal_Click(object sender, EventArgs e)
         {
