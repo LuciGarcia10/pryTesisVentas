@@ -39,16 +39,35 @@ namespace pryTesisVentas
         private void btnNuevoPedido_Click(object sender, EventArgs e)
         {
             frmNuevoPedido ventana = new frmNuevoPedido();
-            // Le decimos que use al formulario principal como centro
             ventana.StartPosition = FormStartPosition.CenterParent;
-            // Al usar ShowDialog(this), el "this" le indica que el padre es el formulario de Productos
-            ventana.ShowDialog(this);
+            if (ventana.ShowDialog(this) == DialogResult.OK)
+            {
+                CargarPedidosDesdeBD();
+            }
         }
+        private void ConfigurarColumnaBotonRecibido()
+        {
+            if (!dgvPedidos.Columns.Contains("btnRecibir"))
+            {
+                DataGridViewButtonColumn colBoton = new DataGridViewButtonColumn();
+                colBoton.Name = "btnRecibir";
+                colBoton.HeaderText = "Recepción";
+                colBoton.FlatStyle = FlatStyle.Flat;
+                colBoton.Width = 110;
+                colBoton.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
+                // Estilo base
+                colBoton.DefaultCellStyle.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
+                colBoton.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                dgvPedidos.Columns.Add(colBoton);
+            }
+        }
         private void frmPedidos_Load(object sender, EventArgs e)
         {
-            EstilizarGrilla(); 
-            ActualizarGrilla(listaPedidos);
+            ConfigurarColumnaBotonRecibido();
+            EstilizarGrilla();
+            CargarPedidosDesdeBD();
             frmPedidos_Resize(sender, e);
             pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
         }
@@ -56,7 +75,6 @@ namespace pryTesisVentas
         private void CargarPedidosDesdeBD()
         {
             listaPedidos.Clear();
-
             // Consultamos la tabla Pedidos uniendo con Proveedores y Estados (si existen)
             string query = @"
              SELECT p.IdPedido, 
@@ -71,7 +89,7 @@ namespace pryTesisVentas
                ISNULL((SELECT SUM(dp.Cantidad) FROM DetallePedido dp WHERE dp.IdPedido = p.IdPedido), 0) AS CantidadTotal
             FROM Pedidos p
             LEFT JOIN Proveedores prov ON p.IdProveedor = prov.IdProveedor
-            ORDER BY p.IdPedido ASC";
+            ORDER BY p.IdPedido DESC";
 
             using (SqlConnection conexion = new SqlConnection(clsConsultas.cadena))
             {
@@ -98,7 +116,6 @@ namespace pryTesisVentas
                             }
                         }
                     }
-
                     // Actualizamos la grilla con los pedidos reales (1, 2, 3...)
                     ActualizarGrilla(listaPedidos);
                 }
@@ -111,50 +128,60 @@ namespace pryTesisVentas
         }
         private void EstilizarGrilla()
         {
-            // 1. Descongelar columnas para evitar el error de InvalidOperationException
             foreach (DataGridViewColumn col in dgvPedidos.Columns)
             {
                 col.Frozen = false;
             }
 
-            // 2. Colores de fondo y bordes generales
             dgvPedidos.BackgroundColor = Color.White;
             dgvPedidos.BorderStyle = BorderStyle.None;
             dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvPedidos.GridColor = Color.FromArgb(240, 240, 240); // Gris muy clarito
+            dgvPedidos.GridColor = Color.FromArgb(240, 240, 240);
 
-            // 3. Estilo de los encabezados (N° Pedido, Fecha, etc.)
             dgvPedidos.EnableHeadersVisualStyles = false;
             dgvPedidos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvPedidos.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
-            dgvPedidos.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(160, 160, 160); // Gris texto
+            dgvPedidos.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(160, 160, 160);
             dgvPedidos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvPedidos.ColumnHeadersHeight = 40;
 
-            // 4. Estilo de las filas y texto
-            dgvPedidos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(235, 250, 245); // Verde muy claro
+            dgvPedidos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(235, 250, 245);
             dgvPedidos.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvPedidos.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64); // Gris oscuro (más legible)
+            dgvPedidos.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64);
             dgvPedidos.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvPedidos.RowTemplate.Height = 50; // Filas más altas
+            dgvPedidos.RowTemplate.Height = 50;
 
-            // 5. Configuración de comportamiento y limpieza visual
-            dgvPedidos.RowHeadersVisible = false; // Quita la columna gris de la izquierda
-            dgvPedidos.AllowUserToAddRows = false; // Evita la fila vacía al final
-            dgvPedidos.ReadOnly = true; // Evita que el usuario escriba sobre la grilla
-            dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Selecciona toda la fila
+            dgvPedidos.RowHeadersVisible = false;
+            dgvPedidos.AllowUserToAddRows = false;
+            dgvPedidos.ReadOnly = false; // Debe ser false para permitir hacer clic en el botón de la celda
 
-            // 6. Ajuste automático de columnas al ancho total
+            // Ponemos todas las columnas existentes como ReadOnly excepto los botones
+            foreach (DataGridViewColumn col in dgvPedidos.Columns)
+            {
+                if (col.Name != "btnRecibir" && col.Name != "btnVerDetalle")
+                {
+                    col.ReadOnly = true;
+                }
+            }
+
+            dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // 7. Ajuste específico para la columna del Ojito
             if (dgvPedidos.Columns.Contains("btnVerDetalle"))
             {
                 dgvPedidos.Columns["btnVerDetalle"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dgvPedidos.Columns["btnVerDetalle"].Width = 80; // Ancho fijo para el ojo
+                dgvPedidos.Columns["btnVerDetalle"].Width = 80;
                 dgvPedidos.Columns["btnVerDetalle"].DefaultCellStyle.BackColor = Color.White;
                 dgvPedidos.Columns["btnVerDetalle"].DefaultCellStyle.SelectionBackColor = Color.White;
             }
+
+            if (dgvPedidos.Columns.Contains("btnRecibir"))
+            {
+                dgvPedidos.Columns["btnRecibir"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dgvPedidos.Columns["btnRecibir"].Width = 110;
+            }
+            dgvPedidos.ShowCellToolTips = false;
+            dgvPedidos.StandardTab = true;
         }
         private void cmbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -200,63 +227,45 @@ namespace pryTesisVentas
 
         private void cmbFiltrar_DropDown(object sender, EventArgs e)
         {
-            // Esto evita que se abra la lista del combo y abre directamente tu ventana pro
             SendKeys.Send("{ESC}");
             AbrirFiltro(); // Meté tu lógica de apertura en un método aparte
         }
         private void AbrirFiltro()
         {
-            // 1. Creamos la instancia de la ventana de filtros
             frmFiltroPedidos ventanaFiltro = new frmFiltroPedidos();
-
-            // 2. Le pasamos la lista de pedidos (asegurándonos que no sea null)
             if (this.listaPedidos == null)
             {
                 this.listaPedidos = new List<clsPedido>();
             }
             ventanaFiltro.listaParaFiltrar = this.listaPedidos;
-
-            // 3. Configuración de posición (para que aparezca debajo del combo)
             ventanaFiltro.StartPosition = FormStartPosition.Manual;
             Point puntoAparicion = cmbFiltrar.PointToScreen(new Point(0, cmbFiltrar.Height));
             ventanaFiltro.Location = puntoAparicion;
-
-            // 4. Mostramos la ventana
             ventanaFiltro.ShowDialog();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            // 1. Verificamos que la lista original no esté vacía
             if (listaPedidos != null && listaPedidos.Count > 0)
             {
-                // 2. Volvemos a mostrar la lista completa sin filtros
                 ActualizarGrilla(listaPedidos);
-
-                // 3. Opcional: Resetear el texto del combo de filtrar para que se vea limpio
                 cmbFiltrar.Text = "Filtrar";
-
-                // Mensaje chiquito en la barra de estado (opcional)
-                // MessageBox.Show("Filtros quitados. Mostrando todos los pedidos.");
             }
         }
 
         private void dgvPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verificamos que no sea el encabezado y que sea la columna del ojito
-            if (e.RowIndex >= 0 && dgvPedidos.Columns[e.ColumnIndex].Name == "btnVerDetalle")
-            {
-                clsPedido pedidoSeleccionado = null;
+            if (e.RowIndex < 0) return;
 
-                // Intentamos obtenerlo de DataBoundItem si usas DataSource
-                if (dgvPedidos.Rows[e.RowIndex].DataBoundItem is clsPedido item)
+            string colNombre = dgvPedidos.Columns[e.ColumnIndex].Name;
+
+            // 1. Clic en VER DETALLE (Ojito)
+            if (colNombre == "btnVerDetalle")
+            {
+                clsPedido pedidoSeleccionado = dgvPedidos.Rows[e.RowIndex].DataBoundItem as clsPedido;
+
+                if (pedidoSeleccionado == null)
                 {
-                    pedidoSeleccionado = item;
-                }
-                else
-                {
-                    // Respaldo seguro: Si se cargó manualmente con Rows.Add(), leemos la celda directamente
-                    // (Ajustá "colNumeroPedido" o el índice de celda según el nombre de tu columna de ID)
                     var valorCelda = dgvPedidos.Rows[e.RowIndex].Cells["colNumeroPedido"]?.Value
                                   ?? dgvPedidos.Rows[e.RowIndex].Cells[0].Value;
 
@@ -268,7 +277,6 @@ namespace pryTesisVentas
 
                 if (pedidoSeleccionado == null) return;
 
-                // Abrimos la ventana de detalle
                 using (frmDetallePedido ventanaDetalle = new frmDetallePedido())
                 {
                     ventanaDetalle.PedidoSeleccionado = pedidoSeleccionado;
@@ -277,8 +285,96 @@ namespace pryTesisVentas
                     ventanaDetalle.ShowDialog(this);
                 }
             }
-        }
 
+            // 2. Clic en BOTÓN RECIBIR
+            if (colNombre == "btnRecibir")
+            {
+                clsPedido pedidoSeleccionado = dgvPedidos.Rows[e.RowIndex].DataBoundItem as clsPedido;
+                if (pedidoSeleccionado == null) return;
+
+                if (pedidoSeleccionado.Estado == "Recibido")
+                {
+                    MessageBox.Show("Este pedido ya fue recibido previamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                DialogResult res = MessageBox.Show(
+                    $"¿Desea confirmar la recepción del Pedido N° {pedidoSeleccionado.IdPedido}?\nSe actualizará el stock de los productos ingresados en el inventario.",
+                    "Confirmar Recepción",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (res == DialogResult.Yes)
+                {
+                    RegistrarRecepcionPedido(pedidoSeleccionado.IdPedido);
+                }
+            }
+        }
+        private void RegistrarRecepcionPedido(int idPedido)
+        {
+            // Cambia el estado a 2 (Recibido)
+            string queryPedido = "UPDATE Pedidos SET IdEstado = 2 WHERE IdPedido = @IdPedido AND IdEstado = 1";
+
+            // Suma la cantidad comprada al stock de cada producto
+            string queryStock = @"
+                UPDATE prod
+                SET prod.Stock = prod.Stock + dp.Cantidad
+                FROM Productos prod
+                INNER JOIN DetallePedido dp ON prod.IdProducto = dp.IdProducto
+                WHERE dp.IdPedido = @IdPedido";
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(clsConsultas.cadena))
+                {
+                    conexion.Open();
+                    using (SqlTransaction transaccion = conexion.BeginTransaction())
+                    {
+                        try
+                        {
+                            // 1. Actualizar el pedido
+                            using (SqlCommand cmdPedido = new SqlCommand(queryPedido, conexion, transaccion))
+                            {
+                                cmdPedido.Parameters.AddWithValue("@IdPedido", idPedido);
+                                int filas = cmdPedido.ExecuteNonQuery();
+
+                                if (filas == 0)
+                                {
+                                    transaccion.Rollback();
+                                    MessageBox.Show("El pedido ya se encontraba recibido o no se pudo actualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+                            }
+
+                            // 2. Aumentar stock de productos
+                            using (SqlCommand cmdStock = new SqlCommand(queryStock, conexion, transaccion))
+                            {
+                                cmdStock.Parameters.AddWithValue("@IdPedido", idPedido);
+                                cmdStock.ExecuteNonQuery();
+                            }
+
+                            // Confirmar la transacción
+                            transaccion.Commit();
+
+                            MessageBox.Show($"¡Pedido N° {idPedido} marcado como Recibido y stock actualizado!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Recargar pedidos para refrescar la grilla y los botones
+                            CargarPedidosDesdeBD();
+                        }
+                        catch (Exception exTrans)
+                        {
+                            transaccion.Rollback();
+                            throw exTrans;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar la recepción del pedido: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnInicio_Click(object sender, EventArgs e)
         {
             frmInicio frm = new frmInicio();
@@ -357,6 +453,38 @@ namespace pryTesisVentas
                 if (pnlUsuario.Parent != null)
                 {
                     pnlUsuario.Top = pnlUsuario.Parent.ClientSize.Height - pnlUsuario.Height - 20;
+                }
+            }
+        }
+
+        private void dgvPedidos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            if (dgvPedidos.Columns[e.ColumnIndex].Name == "btnRecibir")
+            {
+                clsPedido pedido = dgvPedidos.Rows[e.RowIndex].DataBoundItem as clsPedido;
+                if (pedido != null)
+                {
+                    if (pedido.Estado == "Recibido")
+                    {
+                        e.Value = "✓ Recibido";
+                        // Color gris claro suave para pedidos terminados
+                        e.CellStyle.BackColor = Color.FromArgb(245, 245, 245);
+                        e.CellStyle.ForeColor = Color.FromArgb(140, 140, 140);
+                        e.CellStyle.SelectionBackColor = Color.FromArgb(245, 245, 245);
+                        e.CellStyle.SelectionForeColor = Color.FromArgb(140, 140, 140);
+                    }
+                    else
+                    {
+                        e.Value = "Recibir";
+                        // Verde DigitalFarma uniforme
+                        Color verdeNormal = Color.FromArgb(0, 105, 92);
+                        e.CellStyle.BackColor = verdeNormal;
+                        e.CellStyle.ForeColor = Color.White;
+                        e.CellStyle.SelectionBackColor = verdeNormal;
+                        e.CellStyle.SelectionForeColor = Color.White;
+                    }
                 }
             }
         }
