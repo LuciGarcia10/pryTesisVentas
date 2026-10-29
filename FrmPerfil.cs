@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace pryTesisVentas
         //private List<clsUsuarioSimulado> listaUsuarios;
         // Tu cadena de conexión real apuntando a BDDigitalFarma
         private string cadenaConexion = clsConsultas.cadena;
+        private int idUsuarioActual = 0;
         public FrmPerfil()
         {
             InitializeComponent();
@@ -25,21 +27,18 @@ namespace pryTesisVentas
 
         private void FrmPerfil_Load(object sender, EventArgs e)
         {
-            // Cargar datos actuales del Admin en los TextBox
-            TxtUsuario.Text = "Valeria.Admin";
-            TxtEmail.Text = "valeria.admin@digitalfarma.com";
-            TxtContraActual.Text = "123456789";
-            TxtContraNueva.Text = "";
-
             // Configurar contraseñas ocultas inicialmente
             TxtContraActual.PasswordChar = '●';
             TxtContraNueva.PasswordChar = '●';
-
+            string usuarioLogueado = !string.IsNullOrEmpty(frmIngresar.UsuarioSesion) ? frmIngresar.UsuarioSesion : "Valeria.Admin";
             // Cargar datos de prueba para la grilla de control de permisos
             CargarGrillaUsuarios();
             AcomodarTarjetaDatosPersonales();
             VerificarPermisosUsuario();
-            pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
+            if (pnlEstadisticas != null)
+            {
+                pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
+            }
         }
 
         private void ConfigurarEstilosExclusivos()
@@ -231,6 +230,8 @@ namespace pryTesisVentas
                     }
                 }
 
+                string colAccionName = DgvPermisos.Columns.Contains("Acciones") ? "Acciones" : (DgvPermisos.Columns.Contains("btnAcciones") ? "btnAcciones" : "");
+
                 // Configurar la columna de Acciones existente (sin agregar una duplicada)
                 if (DgvPermisos.Columns.Contains("Acciones"))
                 {
@@ -267,7 +268,6 @@ namespace pryTesisVentas
                 {
                     col.Frozen = false;
                 }
-
                 // Activar modo Fill y pesos relativos
                 DgvPermisos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -336,6 +336,54 @@ namespace pryTesisVentas
             }
         }
 
+        private void CargarDatosUsuarioPorNombre(string nombreUsuario)
+        {
+            string query = "SELECT id_usuario, nombre, mail, contrasenia, foto FROM Usuarios WHERE nombre = @Nombre";
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@Nombre", nombreUsuario);
+                        conexion.Open();
+
+                        using (SqlDataReader lector = comando.ExecuteReader())
+                        {
+                            if (lector.Read())
+                            {
+                                idUsuarioActual = Convert.ToInt32(lector["id_usuario"]);
+                                TxtUsuario.Text = lector["nombre"].ToString();
+                                TxtEmail.Text = lector["mail"].ToString();
+                                TxtContraActual.Text = "";
+                                TxtContraNueva.Text = "";
+                                rutaFotoSeleccionada = "";
+
+                                if (lector["foto"] != DBNull.Value)
+                                {
+                                    byte[] imagenBytes = (byte[])lector["foto"];
+                                    using (MemoryStream ms = new MemoryStream(imagenBytes))
+                                    {
+                                        PctFotoPerfil.Image = Image.FromStream(ms);
+                                        PctFotoPerfil.SizeMode = PictureBoxSizeMode.Zoom;
+                                    }
+                                }
+                                else
+                                {
+                                    PctFotoPerfil.Image = null;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del usuario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void BtnVerContra_Click(object sender, EventArgs e)
         {
             if (TxtContraNueva.PasswordChar == '●')
@@ -356,16 +404,17 @@ namespace pryTesisVentas
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                // Filtramos para que solo muestre formatos de imagen comunes
-                ofd.Filter = "Imágenes (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+                ofd.Filter = "Imágenes (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+                ofd.Title = "Seleccionar foto de perfil";
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    // Guardamos la ruta del archivo seleccionado
                     rutaFotoSeleccionada = ofd.FileName;
-
-                    // Mostramos la foto en el PictureBox de tu diseño
-                    PctFotoPerfil.Image = Image.FromFile(ofd.FileName);
+                    // Cargamos en un stream para no bloquear el archivo en el explorador de Windows
+                    using (FileStream fs = new FileStream(rutaFotoSeleccionada, FileMode.Open, FileAccess.Read))
+                    {
+                        PctFotoPerfil.Image = Image.FromStream(fs);
+                    }
                     PctFotoPerfil.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
@@ -380,6 +429,7 @@ namespace pryTesisVentas
                 fs.Read(datos, 0, System.Convert.ToInt32(fs.Length));
                 return datos;
             }
+            
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -402,9 +452,7 @@ namespace pryTesisVentas
                 return;
             }
 
-            // 2. Conectamos a SQL Server
-            string queryVerificar = "SELECT contrasenia FROM Usuarios WHERE mail = @Email";
-
+            // 2. Conexión y operaciones en SQL Server
             try
             {
                 using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -412,7 +460,7 @@ namespace pryTesisVentas
                     conexion.Open();
 
                     // PASO A: Verificar contraseña actual
-                    using (SqlCommand cmdVerificar = new SqlCommand(queryVerificar, conexion))
+                    using (SqlCommand cmdVerificar = new SqlCommand("SELECT contrasenia FROM Usuarios WHERE mail = @Email", conexion))
                     {
                         cmdVerificar.Parameters.AddWithValue("@Email", email);
                         object resultado = cmdVerificar.ExecuteScalar();
@@ -436,7 +484,6 @@ namespace pryTesisVentas
                     bool cambiaContrasenia = !string.IsNullOrWhiteSpace(contraNueva);
                     bool cambiaFoto = !string.IsNullOrEmpty(rutaFotoSeleccionada);
 
-                    // Armamos dinámicamente el query según lo que modificó el usuario
                     string queryUpdate = "UPDATE Usuarios SET nombre = @Nombre";
 
                     if (cambiaContrasenia) queryUpdate += ", contrasenia = @NuevaContra";
@@ -456,7 +503,6 @@ namespace pryTesisVentas
 
                         if (cambiaFoto)
                         {
-                            // Convertimos la imagen seleccionada a un arreglo de bytes para guardarla en SQL
                             byte[] imagenBytes = ConvertirImagenABytes(rutaFotoSeleccionada);
                             cmdUpdate.Parameters.AddWithValue("@Foto", imagenBytes);
                         }
@@ -467,7 +513,6 @@ namespace pryTesisVentas
                         {
                             MessageBox.Show("¡Cambios de perfil guardados con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Limpiamos variables y campos temporales de contraseñas
                             TxtContraActual.Text = "";
                             TxtContraNueva.Text = "";
                             rutaFotoSeleccionada = "";
@@ -531,37 +576,29 @@ namespace pryTesisVentas
 
         private void DgvPermisos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Evitamos errores si el usuario hace clic en los encabezados de las columnas
+            // Evitamos errores si el usuario hace clic en los encabezados
             if (e.RowIndex < 0) return;
 
-            // Verificamos si hizo clic específicamente en la columna de la imagen del engranaje
-            if (DgvPermisos.Columns[e.ColumnIndex].Name == "btnAcciones")
+            string colName = DgvPermisos.Columns[e.ColumnIndex].Name;
+
+            // Verificamos si hizo clic en la columna de engranaje (por nombre o porque es celda de imagen)
+            if (colName == "btnAcciones" || colName == "Acciones" || colName == "ClmAcciones" || DgvPermisos.Columns[e.ColumnIndex] is DataGridViewImageColumn)
             {
                 DataRowView filaSeleccionada = DgvPermisos.Rows[e.RowIndex].DataBoundItem as DataRowView;
 
                 if (filaSeleccionada != null)
                 {
-                    // Rescatamos los valores reales de la fila
+                    // Rescatamos el id_usuario real de la base de datos
                     int idUsuario = Convert.ToInt32(filaSeleccionada["id_usuario"]);
-                    string usuario = filaSeleccionada["Usuario"].ToString();
-                    string rolActual = filaSeleccionada["Rol"].ToString();
-                    string estadoActual = filaSeleccionada["Estado"].ToString();
 
-                    // Aquí podés abrir un pequeño formulario modal (ej: frmEditarRol) pasándole el idUsuario
-                    // Por ahora, te dejo el aviso funcional que demuestra que captura el ID correcto:
-                    MessageBox.Show($"ID de Cuenta: {idUsuario}\n" +
-                                    $"Usuario: {usuario}\n" +
-                                    $"Rol Actual: {rolActual}\n" +
-                                    $"Estado: {estadoActual}\n\n" +
-                                    $"¡Listo para conectar con un combo de actualización!",
-                                    "Gestión de Permisos",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-
-                    frmCambiarRol frm = new frmCambiarRol(idUsuario);
-                    if (frm.ShowDialog() == DialogResult.OK)
+                    // Abrimos directamente el formulario modal
+                    using (frmCambiarRol frm = new frmCambiarRol(idUsuario))
                     {
-                        CargarGrillaUsuarios(); 
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            // Si guardó cambios exitosamente, recargamos la grilla para ver el nuevo rol/estado
+                            CargarGrillaUsuarios();
+                        }
                     }
                 }
             }
