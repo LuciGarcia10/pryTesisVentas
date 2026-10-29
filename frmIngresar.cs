@@ -13,6 +13,8 @@ namespace pryTesisVentas
 {
     public partial class frmIngresar : Form
     {
+        public static string RolSesion = "";
+        public static string UsuarioSesion = "";
         public frmIngresar()
         {
             InitializeComponent();
@@ -20,37 +22,38 @@ namespace pryTesisVentas
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            string mailIngresado = txtMail.Text.Trim();
+            string contraIngresada = txtContra.Text.Trim();
             // Requerimiento: Verificar que los campos no estén vacíos
-            if (string.IsNullOrEmpty(txtMail.Text) || string.IsNullOrEmpty(txtContra.Text) ||
-                txtMail.Text == "Mail" || txtContra.Text == "Contraseña")
+            if (string.IsNullOrEmpty(txtMail.Text) || string.IsNullOrEmpty(txtContra.Text) || txtMail.Text == "Mail" || txtContra.Text == "Contraseña")
             {
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
             }
-
             // Variable para guardar el rol que inició sesión
             string rolUsuario = "";
-
-            // 1. Validación de credenciales para ADMINISTRADOR
+            // Validación de credenciales para ADMINISTRADOR
             if (txtMail.Text == "admin.digitalfarma@gmail.com" && txtContra.Text == "1234")
             {
                 rolUsuario = "Administrador";
+                frmIngresar.RolSesion = "Administrador";
+                frmIngresar.UsuarioSesion = "Administrador";
             }
-            // 2. NUEVO ROL: Validación de credenciales para EMPLEADO/VENDEDOR
-            else if (txtMail.Text == "empleado.digitalfarma@gmail.com" && txtContra.Text == "5678")
+            //NUEVO ROL: Validación de credenciales para EMPLEADO/VENDEDOR
+            else if (txtMail.Text == "valeria.digitalfarma@gmail.com" && txtContra.Text == "5678")
             {
                 rolUsuario = "Empleado";
+                frmIngresar.RolSesion = "Empleado";
+                frmIngresar.UsuarioSesion = "Valeria";
             }
             // Puedes agregar más roles aquí usando otros 'else if'
-
             // Si el rolUsuario cambió, significa que las credenciales son correctas
             if (rolUsuario != "")
             {
-                // --- ¡NUEVA LÓGICA DE RECORDAR CREDENCIALES ACÁ! ---
                 if (chkRecordar.Checked)
                 {
                     // Guardamos el mail ingresado y activamos el estado en la memoria del disco
-                    Properties.Settings.Default.UsuarioRecordado = txtMail.Text.Trim();
+                    Properties.Settings.Default.UsuarioRecordado = mailIngresado;
                     Properties.Settings.Default.RecordarCredenciales = true;
                 }
                 else
@@ -61,19 +64,17 @@ namespace pryTesisVentas
                 }
                 // Impactamos el guardado de manera física
                 Properties.Settings.Default.Save();
-                // ----------------------------------------------------
 
-                // Creamos el formulario de inicio
                 frmInicio frm = new frmInicio();
                 frm.Show();
 
-                // Ocultamos el formulario de login actual
                 this.Hide();
             }
             else
             {
                 // Requerimiento 17.1: Mostrar mensaje si son incorrectos 
                 MessageBox.Show("Mail o contraseña incorrectos");
+
             }
         }
 

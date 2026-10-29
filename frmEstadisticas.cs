@@ -57,10 +57,19 @@ namespace pryTesisVentas
 
         private void frmEstadisticas_Load(object sender, EventArgs e)
         {
-            // 1. FUNDAMENTAL: Detiene el renderizado fallido en el editor de Visual Studio
+            if (frmIngresar.RolSesion != "Administrador")
+            {
+                MessageBox.Show("No tiene los permisos necesarios para acceder a estadísticas.",
+                                "Acceso denegado",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                this.Close();
+            }
+
+            // FUNDAMENTAL: Detiene el renderizado fallido en el editor de Visual Studio
             if (System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime) return;
 
-            // 2. CARGA DE INDICADORES SUPERIORES DESDE LA CLASE CONSULTAS
+            // CARGA DE INDICADORES SUPERIORES DESDE LA CLASE CONSULTAS
             try
             {
                 // GANANCIAS (Mes Actual)

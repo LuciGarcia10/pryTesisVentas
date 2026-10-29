@@ -30,6 +30,7 @@ namespace pryTesisVentas
             ConfigurarColumnasGrilla();
             CargarDatosDesdeBD();
             frmVentas_Resize(sender, e);
+            pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
         }
 
         private void ConfigurarColumnasGrilla()

@@ -58,6 +58,7 @@ namespace pryTesisVentas
         {
             CargarPreguntasFrecuentes();
             CargarIndicadores();
+            pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
         }
 
         private void btnInicio_Click(object sender, EventArgs e)

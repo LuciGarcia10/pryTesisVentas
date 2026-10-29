@@ -31,7 +31,7 @@
             System.Windows.Forms.ComboBox cmbVentas;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
+            this.pnlEstadisticas = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
@@ -113,7 +113,7 @@
             this.tlpGraficos = new System.Windows.Forms.TableLayoutPanel();
             cmbVentas = new System.Windows.Forms.ComboBox();
             this.pnlContenedorPrincipal.SuspendLayout();
-            this.panel12.SuspendLayout();
+            this.pnlEstadisticas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -170,7 +170,7 @@
             // pnlContenedorPrincipal
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlContenedorPrincipal.Controls.Add(this.panel12);
+            this.pnlContenedorPrincipal.Controls.Add(this.pnlEstadisticas);
             this.pnlContenedorPrincipal.Controls.Add(this.pnlUsuario);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
             this.pnlContenedorPrincipal.Controls.Add(this.panel9);
@@ -187,17 +187,17 @@
             this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 944);
             this.pnlContenedorPrincipal.TabIndex = 11;
             // 
-            // panel12
+            // pnlEstadisticas
             // 
-            this.panel12.BackColor = System.Drawing.Color.White;
-            this.panel12.Controls.Add(this.label4);
-            this.panel12.Controls.Add(this.pictureBox12);
-            this.panel12.Controls.Add(this.btnEstadisticas);
-            this.panel12.Location = new System.Drawing.Point(17, 600);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel12.Size = new System.Drawing.Size(242, 48);
-            this.panel12.TabIndex = 54;
+            this.pnlEstadisticas.BackColor = System.Drawing.Color.White;
+            this.pnlEstadisticas.Controls.Add(this.label4);
+            this.pnlEstadisticas.Controls.Add(this.pictureBox12);
+            this.pnlEstadisticas.Controls.Add(this.btnEstadisticas);
+            this.pnlEstadisticas.Location = new System.Drawing.Point(17, 600);
+            this.pnlEstadisticas.Name = "pnlEstadisticas";
+            this.pnlEstadisticas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnlEstadisticas.Size = new System.Drawing.Size(242, 48);
+            this.pnlEstadisticas.TabIndex = 54;
             // 
             // label4
             // 
@@ -229,7 +229,7 @@
             this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
             this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
             this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
+            this.btnEstadisticas.Size = new System.Drawing.Size(236, 42);
             this.btnEstadisticas.TabIndex = 34;
             this.btnEstadisticas.Text = "Estadisticas";
             this.btnEstadisticas.UseVisualStyleBackColor = false;
@@ -1143,8 +1143,8 @@
             this.Load += new System.EventHandler(this.frmInicio_Load);
             this.Resize += new System.EventHandler(this.frmInicio_Resize);
             this.pnlContenedorPrincipal.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
+            this.pnlEstadisticas.ResumeLayout(false);
+            this.pnlEstadisticas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.pnlUsuario.ResumeLayout(false);
             this.pnlUsuario.PerformLayout();
@@ -1265,7 +1265,7 @@
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.PictureBox ptbLupa;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel pnlEstadisticas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Button btnEstadisticas;

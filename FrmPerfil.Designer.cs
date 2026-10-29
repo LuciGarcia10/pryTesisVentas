@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPerfil));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnlEstadisticas = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
@@ -77,6 +77,9 @@
             this.TxtBuscarU = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.DgvPermisos = new System.Windows.Forms.DataGridView();
+            this.ClmUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PctIconoPermisos = new System.Windows.Forms.PictureBox();
             this.LblPermisos = new System.Windows.Forms.Label();
             this.PnlCuenta = new System.Windows.Forms.Panel();
@@ -97,11 +100,8 @@
             this.PctFotoPerfil = new System.Windows.Forms.PictureBox();
             this.LblGestion = new System.Windows.Forms.Label();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
-            this.ClmUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContenedorPrincipal.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.pnlEstadisticas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -134,7 +134,7 @@
             // pnlContenedorPrincipal
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlContenedorPrincipal.Controls.Add(this.panel5);
+            this.pnlContenedorPrincipal.Controls.Add(this.pnlEstadisticas);
             this.pnlContenedorPrincipal.Controls.Add(this.panel2);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
             this.pnlContenedorPrincipal.Controls.Add(this.panel9);
@@ -150,17 +150,17 @@
             this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 928);
             this.pnlContenedorPrincipal.TabIndex = 18;
             // 
-            // panel5
+            // pnlEstadisticas
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Controls.Add(this.btnEstadisticas);
-            this.panel5.Location = new System.Drawing.Point(9, 552);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(242, 48);
-            this.panel5.TabIndex = 54;
+            this.pnlEstadisticas.BackColor = System.Drawing.Color.White;
+            this.pnlEstadisticas.Controls.Add(this.label4);
+            this.pnlEstadisticas.Controls.Add(this.pictureBox2);
+            this.pnlEstadisticas.Controls.Add(this.btnEstadisticas);
+            this.pnlEstadisticas.Location = new System.Drawing.Point(9, 552);
+            this.pnlEstadisticas.Name = "pnlEstadisticas";
+            this.pnlEstadisticas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnlEstadisticas.Size = new System.Drawing.Size(242, 48);
+            this.pnlEstadisticas.TabIndex = 54;
             // 
             // label4
             // 
@@ -681,14 +681,14 @@
             this.ClmRol,
             this.ClmEstado});
             this.DgvPermisos.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvPermisos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvPermisos.DefaultCellStyle = dataGridViewCellStyle2;
             this.DgvPermisos.EnableHeadersVisualStyles = false;
             this.DgvPermisos.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.DgvPermisos.Location = new System.Drawing.Point(27, 125);
@@ -699,6 +699,34 @@
             this.DgvPermisos.Size = new System.Drawing.Size(826, 681);
             this.DgvPermisos.TabIndex = 43;
             this.DgvPermisos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPermisos_CellClick);
+            // 
+            // ClmUsuario
+            // 
+            this.ClmUsuario.DataPropertyName = "Usuario";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            this.ClmUsuario.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ClmUsuario.FillWeight = 140F;
+            this.ClmUsuario.HeaderText = "Usuario";
+            this.ClmUsuario.MinimumWidth = 8;
+            this.ClmUsuario.Name = "ClmUsuario";
+            // 
+            // ClmRol
+            // 
+            this.ClmRol.DataPropertyName = "Rol";
+            this.ClmRol.FillWeight = 90F;
+            this.ClmRol.HeaderText = "Rol";
+            this.ClmRol.MinimumWidth = 8;
+            this.ClmRol.Name = "ClmRol";
+            // 
+            // ClmEstado
+            // 
+            this.ClmEstado.DataPropertyName = "Estado";
+            this.ClmEstado.FillWeight = 80F;
+            this.ClmEstado.HeaderText = "Estado";
+            this.ClmEstado.MinimumWidth = 8;
+            this.ClmEstado.Name = "ClmEstado";
             // 
             // PctIconoPermisos
             // 
@@ -942,34 +970,6 @@
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
             // 
-            // ClmUsuario
-            // 
-            this.ClmUsuario.DataPropertyName = "Usuario";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            this.ClmUsuario.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ClmUsuario.FillWeight = 140F;
-            this.ClmUsuario.HeaderText = "Usuario";
-            this.ClmUsuario.MinimumWidth = 8;
-            this.ClmUsuario.Name = "ClmUsuario";
-            // 
-            // ClmRol
-            // 
-            this.ClmRol.DataPropertyName = "Rol";
-            this.ClmRol.FillWeight = 90F;
-            this.ClmRol.HeaderText = "Rol";
-            this.ClmRol.MinimumWidth = 8;
-            this.ClmRol.Name = "ClmRol";
-            // 
-            // ClmEstado
-            // 
-            this.ClmEstado.DataPropertyName = "Estado";
-            this.ClmEstado.FillWeight = 80F;
-            this.ClmEstado.HeaderText = "Estado";
-            this.ClmEstado.MinimumWidth = 8;
-            this.ClmEstado.Name = "ClmEstado";
-            // 
             // FrmPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -992,8 +992,8 @@
             this.Resize += new System.EventHandler(this.FrmPerfil_Resize);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.pnlContenedorPrincipal.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.pnlEstadisticas.ResumeLayout(false);
+            this.pnlEstadisticas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1097,7 +1097,7 @@
         private System.Windows.Forms.DataGridView DgvPermisos;
         private System.Windows.Forms.Button BtnVerContra;
         private System.Windows.Forms.TextBox TxtBuscarU;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel pnlEstadisticas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnEstadisticas;

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAyuda));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
+            this.pnlEstadisticas = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
@@ -89,14 +89,14 @@
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.lblticketsSoporte = new System.Windows.Forms.Label();
             this.dgvTickets = new System.Windows.Forms.DataGridView();
+            this.Productos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Productos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContenedorPrincipal.SuspendLayout();
-            this.panel12.SuspendLayout();
+            this.pnlEstadisticas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -133,7 +133,7 @@
             // pnlContenedorPrincipal
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlContenedorPrincipal.Controls.Add(this.panel12);
+            this.pnlContenedorPrincipal.Controls.Add(this.pnlEstadisticas);
             this.pnlContenedorPrincipal.Controls.Add(this.panel2);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
             this.pnlContenedorPrincipal.Controls.Add(this.panel9);
@@ -149,17 +149,17 @@
             this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 937);
             this.pnlContenedorPrincipal.TabIndex = 2;
             // 
-            // panel12
+            // pnlEstadisticas
             // 
-            this.panel12.BackColor = System.Drawing.Color.White;
-            this.panel12.Controls.Add(this.label12);
-            this.panel12.Controls.Add(this.pictureBox12);
-            this.panel12.Controls.Add(this.btnEstadisticas);
-            this.panel12.Location = new System.Drawing.Point(10, 553);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel12.Size = new System.Drawing.Size(242, 48);
-            this.panel12.TabIndex = 54;
+            this.pnlEstadisticas.BackColor = System.Drawing.Color.White;
+            this.pnlEstadisticas.Controls.Add(this.label12);
+            this.pnlEstadisticas.Controls.Add(this.pictureBox12);
+            this.pnlEstadisticas.Controls.Add(this.btnEstadisticas);
+            this.pnlEstadisticas.Location = new System.Drawing.Point(10, 553);
+            this.pnlEstadisticas.Name = "pnlEstadisticas";
+            this.pnlEstadisticas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnlEstadisticas.Size = new System.Drawing.Size(242, 48);
+            this.pnlEstadisticas.TabIndex = 54;
             // 
             // label12
             // 
@@ -191,7 +191,7 @@
             this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
             this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
             this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(236, 40);
+            this.btnEstadisticas.Size = new System.Drawing.Size(236, 42);
             this.btnEstadisticas.TabIndex = 34;
             this.btnEstadisticas.Text = "Estadisticas";
             this.btnEstadisticas.UseVisualStyleBackColor = false;
@@ -835,14 +835,14 @@
             this.Stock,
             this.Precio,
             this.VentasTotales});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTickets.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTickets.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTickets.EnableHeadersVisualStyles = false;
             this.dgvTickets.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvTickets.Location = new System.Drawing.Point(51, 60);
@@ -852,6 +852,30 @@
             this.dgvTickets.RowTemplate.Height = 70;
             this.dgvTickets.Size = new System.Drawing.Size(854, 348);
             this.dgvTickets.TabIndex = 11;
+            // 
+            // Productos
+            // 
+            this.Productos.HeaderText = "ID Ticket";
+            this.Productos.MinimumWidth = 8;
+            this.Productos.Name = "Productos";
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Fecha";
+            this.Stock.MinimumWidth = 8;
+            this.Stock.Name = "Stock";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Ticket Problema";
+            this.Precio.MinimumWidth = 8;
+            this.Precio.Name = "Precio";
+            // 
+            // VentasTotales
+            // 
+            this.VentasTotales.HeaderText = "Estado";
+            this.VentasTotales.MinimumWidth = 8;
+            this.VentasTotales.Name = "VentasTotales";
             // 
             // pctCerrar
             // 
@@ -884,30 +908,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(974, 109);
             this.tableLayoutPanel1.TabIndex = 57;
             // 
-            // VentasTotales
-            // 
-            this.VentasTotales.HeaderText = "Estado";
-            this.VentasTotales.MinimumWidth = 8;
-            this.VentasTotales.Name = "VentasTotales";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Ticket Problema";
-            this.Precio.MinimumWidth = 8;
-            this.Precio.Name = "Precio";
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Fecha";
-            this.Stock.MinimumWidth = 8;
-            this.Stock.Name = "Stock";
-            // 
-            // Productos
-            // 
-            this.Productos.HeaderText = "ID Ticket";
-            this.Productos.MinimumWidth = 8;
-            this.Productos.Name = "Productos";
-            // 
             // frmAyuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -926,8 +926,8 @@
             this.Load += new System.EventHandler(this.frmAyuda_Load);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.pnlContenedorPrincipal.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
+            this.pnlEstadisticas.ResumeLayout(false);
+            this.pnlEstadisticas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1032,7 +1032,7 @@
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Label lblticketsSoporte;
         private System.Windows.Forms.DataGridView dgvTickets;
-        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel pnlEstadisticas;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Button btnEstadisticas;

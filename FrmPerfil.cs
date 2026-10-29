@@ -38,6 +38,8 @@ namespace pryTesisVentas
             // Cargar datos de prueba para la grilla de control de permisos
             CargarGrillaUsuarios();
             AcomodarTarjetaDatosPersonales();
+            VerificarPermisosUsuario();
+            pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
         }
 
         private void ConfigurarEstilosExclusivos()
@@ -283,6 +285,56 @@ namespace pryTesisVentas
                 MessageBox.Show("Error al cargar la tabla de permisos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void VerificarPermisosUsuario()
+        {
+            // Consulta directa a la base de datos uniendo Usuarios y Roles
+            string query = @"SELECT R.nombre_rol 
+                     FROM Usuarios U 
+                     INNER JOIN Roles R ON U.id_rol = R.id_rol 
+                     WHERE U.nombre = @NombreUsuario";
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        // Toma el nombre que figura actualmente en el formulario
+                        comando.Parameters.AddWithValue("@NombreUsuario", TxtUsuario.Text.Trim());
+
+                        conexion.Open();
+                        object resultado = comando.ExecuteScalar();
+
+                        if (resultado != null)
+                        {
+                            string rol = resultado.ToString().ToLower();
+
+                            // Si el rol NO contiene "admin", aplicamos las restricciones
+                            if (!rol.Contains("admin"))
+                            {
+                                // 1. Ocultar el botón de estadísticas del menú lateral
+                                btnEstadisticas.Visible = false;
+
+                                // 2. Ocultar la grilla de permisos de la derecha para que no edite otros roles
+                                DgvPermisos.Visible = false;
+                                TxtBuscarU.Visible = false;
+                            }
+                            else
+                            {
+                                // Si es administrador, tiene acceso completo
+                                btnEstadisticas.Visible = true;
+                                DgvPermisos.Visible = true;
+                                TxtBuscarU.Visible = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al comprobar permisos: " + ex.Message);
+            }
+        }
 
         private void BtnVerContra_Click(object sender, EventArgs e)
         {
@@ -506,13 +558,11 @@ namespace pryTesisVentas
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
 
-                    /* 
-                       Idea para el futuro inmediato:
-                       frmCambiarRol frm = new frmCambiarRol(idUsuario);
-                       if(frm.ShowDialog() == DialogResult.OK) {
-                           CargarGrillaUsuarios(); // Recarga la grilla si hubo cambios
-                       }
-                    */
+                    frmCambiarRol frm = new frmCambiarRol(idUsuario);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        CargarGrillaUsuarios(); 
+                    }
                 }
             }
         }

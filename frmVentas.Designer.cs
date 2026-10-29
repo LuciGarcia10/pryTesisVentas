@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnlEstadisticas = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
@@ -89,7 +89,7 @@
             this.pctCerrar = new System.Windows.Forms.PictureBox();
             cmbVentas = new System.Windows.Forms.ComboBox();
             this.pnlContenedorPrincipal.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.pnlEstadisticas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnlInicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbInicio)).BeginInit();
@@ -135,7 +135,7 @@
             // pnlContenedorPrincipal
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlContenedorPrincipal.Controls.Add(this.panel5);
+            this.pnlContenedorPrincipal.Controls.Add(this.pnlEstadisticas);
             this.pnlContenedorPrincipal.Controls.Add(this.pnlInicio);
             this.pnlContenedorPrincipal.Controls.Add(this.pnlUsuario);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
@@ -151,17 +151,17 @@
             this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 932);
             this.pnlContenedorPrincipal.TabIndex = 2;
             // 
-            // panel5
+            // pnlEstadisticas
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Controls.Add(this.btnEstadisticas);
-            this.panel5.Location = new System.Drawing.Point(12, 555);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(242, 48);
-            this.panel5.TabIndex = 54;
+            this.pnlEstadisticas.BackColor = System.Drawing.Color.White;
+            this.pnlEstadisticas.Controls.Add(this.label4);
+            this.pnlEstadisticas.Controls.Add(this.pictureBox4);
+            this.pnlEstadisticas.Controls.Add(this.btnEstadisticas);
+            this.pnlEstadisticas.Location = new System.Drawing.Point(12, 555);
+            this.pnlEstadisticas.Name = "pnlEstadisticas";
+            this.pnlEstadisticas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnlEstadisticas.Size = new System.Drawing.Size(242, 48);
+            this.pnlEstadisticas.TabIndex = 54;
             // 
             // label4
             // 
@@ -810,8 +810,8 @@
             this.Resize += new System.EventHandler(this.frmVentas_Resize);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.pnlContenedorPrincipal.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.pnlEstadisticas.ResumeLayout(false);
+            this.pnlEstadisticas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.pnlInicio.ResumeLayout(false);
             this.pnlInicio.PerformLayout();
@@ -894,7 +894,7 @@
         private System.Windows.Forms.PictureBox ptbVentas;
         private System.Windows.Forms.Label lblVentas;
         private System.Windows.Forms.DataGridView dgvVentas;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel pnlEstadisticas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnEstadisticas;

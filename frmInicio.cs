@@ -99,7 +99,8 @@ namespace pryTesisVentas
         }
         private void frmInicio_Load(object sender, EventArgs e)
         {
-
+            bool esAdmin = frmIngresar.RolSesion == "Administrador";
+            pnlEstadisticas.Visible = esAdmin;
             // Estilos estéticos de la grilla de ventas
             dgvVentas.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64);
             dgvVentas.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gray;

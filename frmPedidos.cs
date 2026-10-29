@@ -50,6 +50,7 @@ namespace pryTesisVentas
             EstilizarGrilla(); 
             ActualizarGrilla(listaPedidos);
             frmPedidos_Resize(sender, e);
+            pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
         }
 
         private void CargarPedidosDesdeBD()
