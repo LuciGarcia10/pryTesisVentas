@@ -28,8 +28,8 @@ namespace pryTesisVentas
         private void FrmPerfil_Load(object sender, EventArgs e)
         {
             // Configurar contraseñas ocultas inicialmente
-            TxtContraActual.PasswordChar = '●';
-            TxtContraNueva.PasswordChar = '●';
+            txtContraActual.PasswordChar = '●';
+            txtContraNueva.PasswordChar = '●';
             string usuarioLogueado = !string.IsNullOrEmpty(frmIngresar.UsuarioSesion) ? frmIngresar.UsuarioSesion : "Valeria.Admin";
             // Cargar datos de prueba para la grilla de control de permisos
             CargarGrillaUsuarios();
@@ -95,75 +95,82 @@ namespace pryTesisVentas
         }
         private void AcomodarTarjetaDatosPersonales()
         {
-            // Reemplazá 'pnlDatosPersonales' por el (Name) de tu panel blanco izquierdo
-            // Si no tiene nombre especial, fijate en propiedades cómo se llama (ej: panel1, pnlDatos, etc.)
             Control panel = PctFotoPerfil.Parent;
             if (panel == null) return;
 
             int anchoPanel = panel.ClientSize.Width;
             int altoPanel = panel.ClientSize.Height;
 
-            // 1. Ancho uniforme y centrado de los TextBox
-            int anchoCampos = anchoPanel - 60; // Deja 30px de margen a cada lado
-            if (anchoCampos > 320) anchoCampos = 320; // Límite para que no queden exageradamente anchos
+            int anchoCampos = anchoPanel - 60;
+            if (anchoCampos > 320) anchoCampos = 320;
 
             int posXCentrada = (anchoPanel - anchoCampos) / 2;
 
-            TxtUsuario.Width = anchoCampos;
-            TxtUsuario.Left = posXCentrada;
+            txtUsuario.Width = anchoCampos;
+            txtUsuario.Left = posXCentrada;
 
-            TxtEmail.Width = anchoCampos;
-            TxtEmail.Left = posXCentrada;
+            txtEmail.Width = anchoCampos;
+            txtEmail.Left = posXCentrada;
 
-            TxtContraActual.Width = anchoCampos;
-            TxtContraActual.Left = posXCentrada;
+            txtContraActual.Width = anchoCampos;
+            txtContraActual.Left = posXCentrada;
 
-            TxtContraNueva.Width = anchoCampos - 35; // Espacio para el ojito
-            TxtContraNueva.Left = posXCentrada;
-            BtnVerContra.Left = TxtContraNueva.Right + 5;
+            txtContraNueva.Width = anchoCampos - 35; 
+            txtContraNueva.Left = posXCentrada;
+            BtnVerContra.Left = txtContraNueva.Right + 5;
 
-            // 2. Centrar Foto y Botón Cambiar Foto
+            txtLegajo.Width = anchoCampos;
+            txtLegajo.Left = posXCentrada;
+
+            txtTelefono.Width = anchoCampos;
+            txtTelefono.Left = posXCentrada;
+
             PctFotoPerfil.Left = (anchoPanel - PctFotoPerfil.Width) / 2;
             BtnCambiarFoto.Left = (anchoPanel - BtnCambiarFoto.Width) / 2;
 
-            // 3. Botón Guardar y Link Cerrar Sesión
             BtnGuardar.Width = anchoCampos;
-            BtnGuardar.Height = 42;
+            BtnGuardar.Height = 38;
             BtnGuardar.Left = posXCentrada;
             LinkCerrarSesion.Left = (anchoPanel - LinkCerrarSesion.Width) / 2;
 
-            // 4. DISTRIBUCIÓN VERTICAL CON AIRE
-            // Calculamos el espacio vertical dinámicamente según la altura de la pantalla
-            int posY = 55; // Comienza debajo del título "Datos Personales"
+            int posY = 35;
 
             PctFotoPerfil.Top = posY;
-            posY = PctFotoPerfil.Bottom + 10;
+            posY = PctFotoPerfil.Bottom + 6;
 
             BtnCambiarFoto.Top = posY;
 
-            // Espacio generoso entre la foto y el primer campo para que no se encimen
-            int espacioEntreBloques = (altoPanel > 650) ? 22 : 14;
-            posY = BtnCambiarFoto.Bottom + (espacioEntreBloques + 10);
+            int espacioEntreBloques = (altoPanel > 750) ? 12 : 7;
+            posY = BtnCambiarFoto.Bottom + (espacioEntreBloques + 6);
 
-            // Campo Usuario (buscamos su etiqueta arriba)
-            MoverEtiquetaYCampo(TxtUsuario, ref posY, espacioEntreBloques);
+            PosicionarBloque(lblUsuario, txtUsuario, ref posY, posXCentrada, espacioEntreBloques);
+            PosicionarBloque(lblEmail, txtEmail, ref posY, posXCentrada, espacioEntreBloques);
+            PosicionarBloque(lblContraActual, txtContraActual, ref posY, posXCentrada, espacioEntreBloques);
 
-            // Campo Email
-            MoverEtiquetaYCampo(TxtEmail, ref posY, espacioEntreBloques);
+            PosicionarBloque(lblContraNueva, txtContraNueva, ref posY, posXCentrada, espacioEntreBloques);
+            BtnVerContra.Top = txtContraNueva.Top;
 
-            // Campo Contraseña Actual
-            MoverEtiquetaYCampo(TxtContraActual, ref posY, espacioEntreBloques);
+            PosicionarBloque(lblLegajo, txtLegajo, ref posY, posXCentrada, espacioEntreBloques);
+            PosicionarBloque(lblTelefono, txtTelefono, ref posY, posXCentrada, espacioEntreBloques);
 
-            // Campo Nueva Contraseña
-            MoverEtiquetaYCampo(TxtContraNueva, ref posY, espacioEntreBloques);
-            BtnVerContra.Top = TxtContraNueva.Top;
-
-            // Botón Guardar Cambios
-            posY += 15;
+            posY += 8;
             BtnGuardar.Top = posY;
+            LinkCerrarSesion.Top = BtnGuardar.Bottom + 8;
+        }
+        private void PosicionarBloque(Label lbl, TextBox txt, ref int posY, int posX, int espacioEntreBloques)
+        {
+            if (lbl != null)
+            {
+                lbl.Left = posX;
+                lbl.Top = posY;
+                posY = lbl.Bottom + 3; 
+            }
 
-            // Link Cerrar Sesión
-            LinkCerrarSesion.Top = BtnGuardar.Bottom + 14;
+            if (txt != null)
+            {
+                txt.Top = posY;
+                posY = txt.Bottom + espacioEntreBloques; 
+            }
         }
 
         // Función auxiliar para mover cada TextBox junto a su Label correspondiente
@@ -300,7 +307,7 @@ namespace pryTesisVentas
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
                         // Toma el nombre que figura actualmente en el formulario
-                        comando.Parameters.AddWithValue("@NombreUsuario", TxtUsuario.Text.Trim());
+                        comando.Parameters.AddWithValue("@NombreUsuario", txtUsuario.Text.Trim());
 
                         conexion.Open();
                         object resultado = comando.ExecuteScalar();
@@ -338,7 +345,7 @@ namespace pryTesisVentas
 
         private void CargarDatosUsuarioPorNombre(string nombreUsuario)
         {
-            string query = "SELECT id_usuario, nombre, mail, contrasenia, foto FROM Usuarios WHERE nombre = @Nombre";
+            string query = "SELECT id_usuario, nombre, mail, legajo, telefono, contrasenia, foto FROM Usuarios WHERE nombre = @Nombre";
 
             try
             {
@@ -354,12 +361,18 @@ namespace pryTesisVentas
                             if (lector.Read())
                             {
                                 idUsuarioActual = Convert.ToInt32(lector["id_usuario"]);
-                                TxtUsuario.Text = lector["nombre"].ToString();
-                                TxtEmail.Text = lector["mail"].ToString();
-                                TxtContraActual.Text = "";
-                                TxtContraNueva.Text = "";
+                                txtUsuario.Text = lector["nombre"].ToString();
+                                txtEmail.Text = lector["mail"].ToString();
+
+                                // Cargamos Legajo y Teléfono verificando que no vengan vacíos/nulos desde la BD
+                                txtLegajo.Text = lector["legajo"] != DBNull.Value ? lector["legajo"].ToString() : "";
+                                txtTelefono.Text = lector["telefono"] != DBNull.Value ? lector["telefono"].ToString() : "";
+
+                                txtContraActual.Text = "";
+                                txtContraNueva.Text = "";
                                 rutaFotoSeleccionada = "";
 
+                                // Carga de la foto de perfil
                                 if (lector["foto"] != DBNull.Value)
                                 {
                                     byte[] imagenBytes = (byte[])lector["foto"];
@@ -386,14 +399,14 @@ namespace pryTesisVentas
 
         private void BtnVerContra_Click(object sender, EventArgs e)
         {
-            if (TxtContraNueva.PasswordChar == '●')
+            if (txtContraNueva.PasswordChar == '●')
             {
-                TxtContraNueva.PasswordChar = '\0'; // Muestra el texto plano
+                txtContraNueva.PasswordChar = '\0'; // Muestra el texto plano
                 BtnVerContra.Image = Properties.Resources.hide;
             }
             else
             {
-                TxtContraNueva.PasswordChar = '●'; // Oculta el texto
+                txtContraNueva.PasswordChar = '●'; // Oculta el texto
                 BtnVerContra.Image = Properties.Resources.show;
             }
         }
@@ -434,11 +447,12 @@ namespace pryTesisVentas
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            // 1. Validaciones básicas de interfaz
-            string nombre = TxtUsuario.Text.Trim();
-            string email = TxtEmail.Text.Trim();
-            string contraActual = TxtContraActual.Text;
-            string contraNueva = TxtContraNueva.Text;
+            string nombre = txtUsuario.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string legajo = txtLegajo.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
+            string contraActual = txtContraActual.Text;
+            string contraNueva = txtContraNueva.Text;
 
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(email))
             {
@@ -452,22 +466,22 @@ namespace pryTesisVentas
                 return;
             }
 
-            // 2. Conexión y operaciones en SQL Server
+            // Conexión y operaciones en SQL Server
             try
             {
                 using (SqlConnection conexion = new SqlConnection(cadenaConexion))
                 {
                     conexion.Open();
 
-                    // PASO A: Verificar contraseña actual
-                    using (SqlCommand cmdVerificar = new SqlCommand("SELECT contrasenia FROM Usuarios WHERE mail = @Email", conexion))
+                    // Verificar contraseña actual usando el id_usuario cargado
+                    using (SqlCommand cmdVerificar = new SqlCommand("SELECT contrasenia FROM Usuarios WHERE id_usuario = @IdUsuario", conexion))
                     {
-                        cmdVerificar.Parameters.AddWithValue("@Email", email);
+                        cmdVerificar.Parameters.AddWithValue("@IdUsuario", idUsuarioActual);
                         object resultado = cmdVerificar.ExecuteScalar();
 
                         if (resultado == null)
                         {
-                            MessageBox.Show("No se encontró ningún usuario con el correo electrónico vinculado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No se encontró el registro del usuario en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
 
@@ -480,21 +494,24 @@ namespace pryTesisVentas
                         }
                     }
 
-                    // PASO B: Preparar la consulta de actualización
+                    // Preparar la consulta de actualización con legajo y telefono
                     bool cambiaContrasenia = !string.IsNullOrWhiteSpace(contraNueva);
                     bool cambiaFoto = !string.IsNullOrEmpty(rutaFotoSeleccionada);
 
-                    string queryUpdate = "UPDATE Usuarios SET nombre = @Nombre";
+                    string queryUpdate = "UPDATE Usuarios SET nombre = @Nombre, mail = @Email, legajo = @Legajo, telefono = @Telefono";
 
                     if (cambiaContrasenia) queryUpdate += ", contrasenia = @NuevaContra";
                     if (cambiaFoto) queryUpdate += ", foto = @Foto";
 
-                    queryUpdate += " WHERE mail = @Email";
+                    queryUpdate += " WHERE id_usuario = @IdUsuario";
 
                     using (SqlCommand cmdUpdate = new SqlCommand(queryUpdate, conexion))
                     {
                         cmdUpdate.Parameters.AddWithValue("@Nombre", nombre);
                         cmdUpdate.Parameters.AddWithValue("@Email", email);
+                        cmdUpdate.Parameters.AddWithValue("@Legajo", string.IsNullOrWhiteSpace(legajo) ? (object)DBNull.Value : legajo);
+                        cmdUpdate.Parameters.AddWithValue("@Telefono", string.IsNullOrWhiteSpace(telefono) ? (object)DBNull.Value : telefono);
+                        cmdUpdate.Parameters.AddWithValue("@IdUsuario", idUsuarioActual);
 
                         if (cambiaContrasenia)
                         {
@@ -513,8 +530,8 @@ namespace pryTesisVentas
                         {
                             MessageBox.Show("¡Cambios de perfil guardados con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            TxtContraActual.Text = "";
-                            TxtContraNueva.Text = "";
+                            txtContraActual.Text = "";
+                            txtContraNueva.Text = "";
                             rutaFotoSeleccionada = "";
 
                             CargarGrillaUsuarios();
@@ -534,7 +551,7 @@ namespace pryTesisVentas
 
         private void LinkCerrarSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // 1. Mostrar el cuadro de diálogo de confirmación
+            // Mostrar el cuadro de diálogo de confirmación
             DialogResult res = MessageBox.Show(
                 "¿Está seguro de que desea cerrar la sesión actual?",
                 "Cerrar Sesión",
@@ -547,7 +564,7 @@ namespace pryTesisVentas
                 // Ocultamos la pantalla actual (FrmPerfil)
                 this.Hide();
 
-                // 2. Buscamos si el formulario de Login ya está creado en la memoria de la app
+                // Buscamos si el formulario de Login ya está creado en la memoria de la app
                 Form loginAbierto = Application.OpenForms["FrmLogin"];
 
                 if (loginAbierto != null)
@@ -569,7 +586,7 @@ namespace pryTesisVentas
                     frmLogin.Show();
                 }
 
-                // 3. Cerramos definitivamente esta pantalla de Perfil para liberar memoria
+                // Cerramos definitivamente esta pantalla de Perfil para liberar memoria
                 this.Close();
             }
         }
@@ -717,10 +734,10 @@ namespace pryTesisVentas
                                 if (lector.Read())
                                 {
                                     // Cargamos los campos de texto
-                                    TxtUsuario.Text = lector["nombre"].ToString();
-                                    TxtEmail.Text = lector["mail"].ToString();
-                                    TxtContraActual.Text = lector["contrasenia"].ToString();
-                                    TxtContraNueva.Text = "";
+                                    txtUsuario.Text = lector["nombre"].ToString();
+                                    txtEmail.Text = lector["mail"].ToString();
+                                    txtContraActual.Text = lector["contrasenia"].ToString();
+                                    txtContraNueva.Text = "";
 
                                     // 2. LEER LA FOTO DESDE LA BASE DE DATOS
                                     if (lector["foto"] != DBNull.Value)
