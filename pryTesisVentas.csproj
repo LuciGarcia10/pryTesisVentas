@@ -104,6 +104,7 @@
     <Compile Include="clsCuentasC.cs" />
     <Compile Include="clsDetallePedido.cs" />
     <Compile Include="clsDetalleVentas.cs" />
+    <Compile Include="clsEmailProveedor.cs" />
     <Compile Include="clsPedido.cs" />
     <Compile Include="frmAñadirProducto.cs">
       <SubType>Form</SubType>
