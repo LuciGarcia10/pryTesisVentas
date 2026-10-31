@@ -42,9 +42,11 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.cmbProductos = new System.Windows.Forms.ComboBox();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.pctMas = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMas)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHacerPedido
@@ -187,7 +189,7 @@
             // pctCerrar
             // 
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
-            this.pctCerrar.Location = new System.Drawing.Point(287, 11);
+            this.pctCerrar.Location = new System.Drawing.Point(309, 7);
             this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.pctCerrar.Name = "pctCerrar";
             this.pctCerrar.Size = new System.Drawing.Size(32, 28);
@@ -196,11 +198,24 @@
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
             // 
+            // pctMas
+            // 
+            this.pctMas.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pctMas.Image = ((System.Drawing.Image)(resources.GetObject("pctMas.Image")));
+            this.pctMas.Location = new System.Drawing.Point(311, 83);
+            this.pctMas.Name = "pctMas";
+            this.pctMas.Size = new System.Drawing.Size(23, 31);
+            this.pctMas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctMas.TabIndex = 57;
+            this.pctMas.TabStop = false;
+            this.pctMas.Click += new System.EventHandler(this.pctMas_Click);
+            // 
             // frmNuevoPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 348);
+            this.ClientSize = new System.Drawing.Size(340, 344);
+            this.Controls.Add(this.pctMas);
             this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.cmbProductos);
             this.Controls.Add(this.pictureBox5);
@@ -223,6 +238,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +259,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.ComboBox cmbProductos;
         private System.Windows.Forms.PictureBox pctCerrar;
+        private System.Windows.Forms.PictureBox pctMas;
     }
 }

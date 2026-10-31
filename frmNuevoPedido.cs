@@ -14,49 +14,50 @@ namespace pryTesisVentas
     public partial class frmNuevoPedido : Form
     {
         List<clsDetallePedido> compra = new List<clsDetallePedido>();
-        
+        DataTable dtProductos = new DataTable();
         public frmNuevoPedido()
         {
             InitializeComponent();
             CargarProductosDesdeBase();
         }
+        // Estructura para vincular cada selector de producto con su respectiva cantidad
+        private class FilaProductoControl
+        {
+            public ComboBox CmbProd { get; set; }
+            public NumericUpDown NumCant { get; set; }
+        }
 
+        private List<FilaProductoControl> filasDinamicas = new List<FilaProductoControl>();
         private void frmNuevoPedido_Load(object sender, EventArgs e)
         {
-
+            // Registramos la primera fila que ya existe en el diseño
+            filasDinamicas.Add(new FilaProductoControl
+            {
+                CmbProd = cmbProductos,
+                NumCant = numCantidad
+            });
         }
         private void CargarProductosDesdeBase()
         {
-            // 1. Cadena de conexión a tu base de datos
             string cadenaConexion = clsConsultas.cadena;
-
-            // 2. Consulta SQL: Traemos el ID (clave primaria) y el Nombre de los productos
-            string query = "SELECT IdProducto, Nombre FROM Productos ORDER BY Nombre ASC";
+            // Traemos también PrecioVenta para calcular los importes reales
+            string query = "SELECT IdProducto, Nombre, PrecioVenta FROM Productos ORDER BY Nombre ASC";
 
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 try
                 {
                     conexion.Open();
-
-                    // 3. Adaptador para llenar los datos en memoria
                     SqlDataAdapter adaptador = new SqlDataAdapter(query, conexion);
-                    DataTable dt = new DataTable();
-                    adaptador.Fill(dt);
+                    dtProductos.Clear();
+                    adaptador.Fill(dtProductos);
 
-                    // 4. Vincular los datos extraídos de SQL con tu ComboBox
-                    // DisplayMember es lo que ve el usuario en la lista (el nombre)
                     cmbProductos.DisplayMember = "Nombre";
-
-                    // ValueMember es el ID real del producto que queda oculto en memoria (sirve para registrar el pedido)
                     cmbProductos.ValueMember = "IdProducto";
+                    cmbProductos.DataSource = dtProductos;
 
-                    // Le pasamos la tabla con los datos reales
-                    cmbProductos.DataSource = dt;
-
-                    // 5. Configuración visual inicial
-                    cmbProductos.SelectedIndex = -1; // Hace que empiece vacío
-                    cmbProductos.Text = "Escribir o elegir producto..."; // Texto de ayuda idéntico a tu diseño
+                    cmbProductos.SelectedIndex = -1;
+                    cmbProductos.Text = "Escribir o elegir producto...";
                 }
                 catch (Exception ex)
                 {
@@ -64,12 +65,9 @@ namespace pryTesisVentas
                 }
             }
         }
-
         
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            // Si el carrito tiene productos, avisamos antes de cerrar
             if (compra.Count > 0)
             {
                 DialogResult respuesta = MessageBox.Show(
@@ -80,70 +78,156 @@ namespace pryTesisVentas
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    this.Close(); // Cerramos la ventana
+                    this.Close();
                 }
             }
             else
             {
-                // Si no hay nada, cerramos directamente
                 this.Close();
             }
         }
 
         private void btnAgregararCompras_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cmbProductos.Text))
+            if (string.IsNullOrWhiteSpace(cmbProveedores.Text) || cmbProveedores.SelectedIndex == -1)
             {
-                MessageBox.Show("Por favor, ingrese o seleccione un producto.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, seleccioná un proveedor.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            if (string.IsNullOrWhiteSpace(cmbProveedores.Text))
+            // Validar que la cantidad ingresada sea válida
+            if (numCantidad.Value <= 0)
             {
-                MessageBox.Show("Por favor, seleccione un proveedor.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingresá una cantidad mayor a 0.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Creamos el detalle
-            clsDetallePedido nuevoItem = new clsDetallePedido
+            string proveedor = cmbProveedores.Text.Trim();
+            int cantidad = (int)numCantidad.Value;
+            int agregadosEnEstePaso = 0;
+            // Recorrer la lista de filas dinámicas (el combo original + los generados con el '+')
+            foreach (var fila in filasDinamicas)
             {
-                IdProducto = Convert.ToInt32(cmbProductos.SelectedValue), // O el ID que corresponda
-                Producto = cmbProductos.Text,
-                Cantidad = (int)numCantidad.Value,
-                Proveedor = cmbProveedores.Text,
-                Precio = 1500.00m // O el precio que traiga tu base de datos
-            };
+                if (fila.CmbProd.SelectedIndex != -1 && fila.CmbProd.SelectedValue != null)
+                {
+                    int idProd = Convert.ToInt32(fila.CmbProd.SelectedValue);
+                    string nombreProd = fila.CmbProd.Text;
+                    // Extraer el precio real del producto vinculado
+                    decimal precio = 0;
+                    DataRowView rowView = fila.CmbProd.SelectedItem as DataRowView;
+                    if (rowView != null && rowView["PrecioVenta"] != DBNull.Value)
+                    {
+                        precio = Convert.ToDecimal(rowView["PrecioVenta"]);
+                    }
+                    // Comprobar si ya existe en la lista para sumar cantidad o crearlo nuevo
+                    var existente = compra.FirstOrDefault(x => x.IdProducto == idProd);
+                    if (existente != null)
+                    {
+                        existente.Cantidad += cantidad;
+                    }
+                    else
+                    {
+                        compra.Add(new clsDetallePedido
+                        {
+                            IdProducto = idProd,
+                            Producto = nombreProd,
+                            Cantidad = cantidad,
+                            Precio = precio,
+                            Proveedor = proveedor
+                        });
+                    }
 
-            compra.Add(nuevoItem);
-
-            // Limpiamos los campos
-            cmbProductos.SelectedIndex = -1;
+                    agregadosEnEstePaso++;
+                }
+            }
+            // Si ningún combo tenía un producto elegido, avisar
+            if (agregadosEnEstePaso == 0)
+            {
+                MessageBox.Show("Por favor, seleccioná al menos un producto de la lista.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // Bloquear proveedor para mantener la orden bajo el mismo proveedor
+            cmbProveedores.Enabled = false;
+            // Notificación y reset de campos
+            int totalUnidades = compra.Sum(x => x.Cantidad);
+            MessageBox.Show($"¡Se cargaron {agregadosEnEstePaso} producto(s) a la compra!\nLlevás {compra.Count} producto(s) en total ({totalUnidades} unidades). Ya podés verlos en 'Ver compras'.",
+                            "Productos Agregados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Limpiar selectores
+            foreach (var fila in filasDinamicas)
+            {
+                fila.CmbProd.SelectedIndex = -1;
+                fila.CmbProd.Text = "Elegir Producto...";
+            }
             numCantidad.Value = 1;
-
-            MessageBox.Show("Producto agregado a la lista de compras.", "DigitalFarma", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void btnVerCompras_Click(object sender, EventArgs e)
-        {
-            if (compra.Count == 0)
-            {
-                MessageBox.Show("Todavia no se ha agregado ningun producto.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            frmCompras ventanaCompras = new frmCompras(compra);
-            ventanaCompras.StartPosition = FormStartPosition.CenterParent;
-            ventanaCompras.ShowDialog(this);
         }
 
         private void cmbProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+        private void btnVerCompras_Click(object sender, EventArgs e)
+        {
+            if (compra.Count == 0)
+            {
+                MessageBox.Show("Todavía no se ha agregado ningún producto.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            this.Hide(); // Oculta "Hacer Pedido" para que no quede detrás
+
+            frmCompras ventanaCompras = new frmCompras(compra);
+            ventanaCompras.StartPosition = FormStartPosition.CenterParent;
+            ventanaCompras.ShowDialog();
+
+            // Si el pedido se confirmó, se cierra definitivamente
+            if (compra.Count == 0)
+            {
+                this.Close();
+            }
+            else
+            {
+                this.Show(); // Si volvió sin pedir, reaparece "Hacer Pedido"
+            }
+        }
 
         private void pctCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pctMas_Click(object sender, EventArgs e)
+        {
+            int separacion = 35; // Distancia en píxeles que baja cada sección
+            // Desplazar hacia abajo los controles inferiores (el PictureBox NO se mueve)
+            lblCantidad.Top += separacion;
+            numCantidad.Top += separacion;
+            lblProveedores.Top += separacion;
+            cmbProveedores.Top += separacion;
+            btnVerCompras.Top += separacion;
+            btnAgregararCompras.Top += separacion;
+            this.Height += separacion; // Agranda la ventana para que los botones no queden tapados
+            // Determinar la posición Y debajo del último ComboBox creado
+            FilaProductoControl ultimaFila = filasDinamicas.Last();
+            int nuevoTop = ultimaFila.CmbProd.Top + separacion;
+            // Crear el nuevo ComboBox alineado con el primero
+            ComboBox nuevoCmb = new ComboBox();
+            nuevoCmb.Left = cmbProductos.Left;
+            nuevoCmb.Top = nuevoTop;
+            nuevoCmb.Width = cmbProductos.Width;
+            nuevoCmb.Font = cmbProductos.Font;
+            nuevoCmb.DropDownStyle = ComboBoxStyle.DropDownList;
+            // Asignar los datos independientes traídos de SQL
+            nuevoCmb.DisplayMember = "Nombre";
+            nuevoCmb.ValueMember = "IdProducto";
+            nuevoCmb.DataSource = dtProductos.Copy();
+            nuevoCmb.SelectedIndex = -1;
+            // Agregar el nuevo ComboBox al formulario
+            this.Controls.Add(nuevoCmb);
+            nuevoCmb.BringToFront();
+            // Registrar el nuevo control en la lista dinámica
+            filasDinamicas.Add(new FilaProductoControl
+            {
+                CmbProd = nuevoCmb,
+                NumCant = numCantidad
+            });
         }
     }
 }
