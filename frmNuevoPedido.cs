@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,7 @@ namespace pryTesisVentas
                 NumCant = numCantidad
             });
         }
+        
         private void CargarProductosDesdeBase()
         {
             string cadenaConexion = clsConsultas.cadena;
@@ -229,5 +231,6 @@ namespace pryTesisVentas
                 NumCant = numCantidad
             });
         }
+
     }
 }

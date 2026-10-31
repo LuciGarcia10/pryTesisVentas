@@ -202,9 +202,10 @@
             // 
             this.pctMas.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pctMas.Image = ((System.Drawing.Image)(resources.GetObject("pctMas.Image")));
-            this.pctMas.Location = new System.Drawing.Point(311, 83);
+            this.pctMas.Location = new System.Drawing.Point(307, 86);
             this.pctMas.Name = "pctMas";
-            this.pctMas.Size = new System.Drawing.Size(23, 31);
+            this.pctMas.Padding = new System.Windows.Forms.Padding(6, 140, 0, 0);
+            this.pctMas.Size = new System.Drawing.Size(32, 26);
             this.pctMas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctMas.TabIndex = 57;
             this.pctMas.TabStop = false;
