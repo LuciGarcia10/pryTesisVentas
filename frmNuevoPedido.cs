@@ -173,21 +173,15 @@ namespace pryTesisVentas
                 return;
             }
 
-            this.Hide(); // Oculta "Hacer Pedido" para que no quede detrás
-
+            // Instanciamos la ventana de compras
             frmCompras ventanaCompras = new frmCompras(compra);
             ventanaCompras.StartPosition = FormStartPosition.CenterParent;
-            ventanaCompras.ShowDialog();
 
-            // Si el pedido se confirmó, se cierra definitivamente
-            if (compra.Count == 0)
-            {
-                this.Close();
-            }
-            else
-            {
-                this.Show(); // Si volvió sin pedir, reaparece "Hacer Pedido"
-            }
+            // Cerramos definitivamente el modal "Hacer Pedido"
+            this.Close();
+
+            // Mostramos la ventana de compras modal sobre la pantalla principal
+            ventanaCompras.ShowDialog();
         }
 
         private void pctCerrar_Click(object sender, EventArgs e)
