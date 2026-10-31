@@ -94,15 +94,15 @@ namespace pryTesisVentas
                             {
                                 // Insertar pedido y recuperar ID generado
                                 string queryPedido = @"
-                            INSERT INTO Pedidos (FechaPedido, DireccionEntrega, Total, IdEstado, IdProveedor) 
-                            VALUES (
-                                @fecha, 
-                                @direccion, 
-                                @total, 
-                                1, 
-                                (SELECT TOP 1 IdProveedor FROM Proveedores WHERE RazonSocial LIKE '%' + @proveedor + '%')
-                            ); 
-                            SELECT SCOPE_IDENTITY();";
+                    INSERT INTO Pedidos (FechaPedido, DireccionEntrega, Total, IdEstado, IdProveedor) 
+                    VALUES (
+                        @fecha, 
+                        @direccion, 
+                        @total, 
+                        1, 
+                        (SELECT TOP 1 IdProveedor FROM Proveedores WHERE RazonSocial LIKE '%' + @proveedor + '%')
+                    ); 
+                    SELECT SCOPE_IDENTITY();";
 
                                 using (SqlCommand cmdPedido = new SqlCommand(queryPedido, conexion, transaccion))
                                 {
@@ -117,7 +117,7 @@ namespace pryTesisVentas
 
                                 // Insertar detalle de productos
                                 string queryDetalle = @"INSERT INTO DetallePedido (IdPedido, IdProducto, Cantidad, PrecioCosto) 
-                                               VALUES (@idPedido, @idProducto, @cantidad, @precio);";
+                                       VALUES (@idPedido, @idProducto, @cantidad, @precio);";
 
                                 foreach (clsDetallePedido detalle in listaLocal)
                                 {
@@ -132,7 +132,7 @@ namespace pryTesisVentas
                                     }
                                 }
 
-                                // Enviar y registrar correo si el proveedor es Belleza
+                                // Enviar y registrar mensaje si el proveedor es Belleza
                                 if (!string.IsNullOrEmpty(proveedorDestino) && proveedorDestino.Trim().Equals("Belleza", StringComparison.OrdinalIgnoreCase))
                                 {
                                     // Obtener idProveedor y mail de la tabla Proveedores
@@ -167,22 +167,23 @@ namespace pryTesisVentas
                                     string remitente = "farmaciafunesgarcia@gmail.com";
                                     string contenidoFinal = sbContenido.ToString();
 
-                                    // Registrar en la tabla MensajesProveedores (idMensaje, contenido, fecha, remitente, idPedido, idProveedor)
-                                    string queryMensaje = @"INSERT INTO MensajesProveedores (contenido, fecha, remitente, idPedido, idProveedor) 
-                                                   VALUES (@contenido, @fecha, @remitente, @idPedido, @idProveedor);";
+                                    // Registrar en tu tabla Mensaje usando sus columnas reales: Contenido, FechaRemitente, Destinatario, IdPedido, IdProveedor, Estado
+                                    string queryMensaje = @"INSERT INTO Mensaje (Contenido, FechaRemitente, Destinatario, IdPedido, IdProveedor, Estado) 
+                                                   VALUES (@Contenido, @FechaRemitente, @Destinatario, @IdPedido, @IdProveedor, @Estado);";
 
                                     using (SqlCommand cmdMsg = new SqlCommand(queryMensaje, conexion, transaccion))
                                     {
-                                        cmdMsg.Parameters.AddWithValue("@contenido", contenidoFinal);
-                                        cmdMsg.Parameters.AddWithValue("@fecha", DateTime.Now);
-                                        cmdMsg.Parameters.AddWithValue("@remitente", remitente);
-                                        cmdMsg.Parameters.AddWithValue("@idPedido", idPedidoGenerado);
-                                        cmdMsg.Parameters.AddWithValue("@idProveedor", idProveedor);
+                                        cmdMsg.Parameters.AddWithValue("@Contenido", contenidoFinal);
+                                        cmdMsg.Parameters.AddWithValue("@FechaRemitente", DateTime.Now);
+                                        cmdMsg.Parameters.AddWithValue("@Destinatario", emailDestino);
+                                        cmdMsg.Parameters.AddWithValue("@IdPedido", idPedidoGenerado);
+                                        cmdMsg.Parameters.AddWithValue("@IdProveedor", idProveedor);
+                                        cmdMsg.Parameters.AddWithValue("@Estado", "Enviado");
 
                                         await cmdMsg.ExecuteNonQueryAsync();
                                     }
 
-                                    // Envío SMTP en segundo plano para no demorar la transacción
+                                    // Envío SMTP en segundo plano
                                     _ = Task.Run(() =>
                                     {
                                         try
@@ -205,7 +206,7 @@ namespace pryTesisVentas
                                         }
                                         catch
                                         {
-                                            // El mensaje ya quedó persistido en la base de datos
+                                            // El mensaje ya quedó registrado en la tabla Mensaje de la base de datos
                                         }
                                     });
                                 }
@@ -248,7 +249,7 @@ namespace pryTesisVentas
                     }
 
                     MessageBox.Show($"¡Pedido realizado con éxito! Orden N° {idPedidoGenerado}" +
-                                    (proveedorDestino.Equals("Belleza", StringComparison.OrdinalIgnoreCase) ? "\nSe ha registrado y emitido la notificación al proveedor Belleza." : " y enviado a la droguería."),
+                                    (proveedorDestino.Equals("Belleza", StringComparison.OrdinalIgnoreCase) ? "\nSe ha registrado el mensaje y emitido la notificación al proveedor Belleza." : " y enviado a la droguería."),
                                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     listaLocal.Clear();
