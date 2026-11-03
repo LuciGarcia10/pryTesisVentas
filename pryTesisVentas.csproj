@@ -105,6 +105,7 @@
     <Compile Include="clsDetallePedido.cs" />
     <Compile Include="clsDetalleVentas.cs" />
     <Compile Include="clsPedido.cs" />
+    <Compile Include="ClsUsuario.cs" />
     <Compile Include="frmAñadirProducto.cs">
       <SubType>Form</SubType>
     </Compile>

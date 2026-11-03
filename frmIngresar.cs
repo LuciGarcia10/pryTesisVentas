@@ -24,58 +24,83 @@ namespace pryTesisVentas
             if (string.IsNullOrEmpty(txtMail.Text) || string.IsNullOrEmpty(txtContra.Text) ||
                 txtMail.Text == "Mail" || txtContra.Text == "Contraseña")
             {
-                MessageBox.Show("Por favor, complete todos los campos.");
+                MessageBox.Show("Por favor, complete todos los campos.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Variable para guardar el rol que inició sesión
-            string rolUsuario = "";
+            string mailIngresado = txtMail.Text.Trim();
+            string contraIngresada = txtContra.Text.Trim();
 
-            // 1. Validación de credenciales para ADMINISTRADOR
-            if (txtMail.Text == "admin.digitalfarma@gmail.com" && txtContra.Text == "1234")
-            {
-                rolUsuario = "Administrador";
-            }
-            // 2. NUEVO ROL: Validación de credenciales para EMPLEADO/VENDEDOR
-            else if (txtMail.Text == "empleado.digitalfarma@gmail.com" && txtContra.Text == "5678")
-            {
-                rolUsuario = "Empleado";
-            }
-            // Puedes agregar más roles aquí usando otros 'else if'
+            // Consulta SQL para buscar al usuario por su mail y traer también su rol
+            string query = @"SELECT U.id_usuario, U.nombre, U.mail, U.contrasenia, R.nombre_rol 
+                     FROM Usuarios U 
+                     INNER JOIN Roles R ON U.id_rol = R.id_rol 
+                     WHERE U.mail = @Mail";
 
-            // Si el rolUsuario cambió, significa que las credenciales son correctas
-            if (rolUsuario != "")
+            try
             {
-                // --- ¡NUEVA LÓGICA DE RECORDAR CREDENCIALES ACÁ! ---
-                if (chkRecordar.Checked)
+                using (SqlConnection conexion = new SqlConnection(clsConsultas.cadena))
                 {
-                    // Guardamos el mail ingresado y activamos el estado en la memoria del disco
-                    Properties.Settings.Default.UsuarioRecordado = txtMail.Text.Trim();
-                    Properties.Settings.Default.RecordarCredenciales = true;
-                }
-                else
-                {
-                    // Si entraron bien pero desmarcaron el botón, borramos el recuerdo
-                    Properties.Settings.Default.UsuarioRecordado = string.Empty;
-                    Properties.Settings.Default.RecordarCredenciales = false;
-                }
-                // Impactamos el guardado de manera física
-                Properties.Settings.Default.Save();
-                // ----------------------------------------------------
+                    conexion.Open();
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@Mail", mailIngresado);
 
-                // Creamos el formulario de inicio
-                frmInicio frm = new frmInicio();
-                frm.Show();
+                        using (SqlDataReader lector = comando.ExecuteReader())
+                        {
+                            if (lector.Read())
+                            {
+                                string contraEnBD = lector["contrasenia"].ToString();
 
-                // Ocultamos el formulario de login actual
-                this.Hide();
+                                // Validamos si la contraseña coincide
+                                if (contraEnBD == contraIngresada)
+                                {
+                                    // --- ¡GUARDAMOS LOS DATOS EN NUESTRA CLASE CLSUSUARIO! ---
+                                    ClsUsuario.IdUsuario = Convert.ToInt32(lector["id_usuario"]);
+                                    ClsUsuario.UsuarioLogueado = lector["nombre"].ToString();
+                                    ClsUsuario.EmailLogueado = lector["mail"].ToString();
+                                    ClsUsuario.RolLogueado = lector["nombre_rol"].ToString();
+                                    // ---------------------------------------------------------
+
+                                    // Lógica de recordar credenciales
+                                    if (chkRecordar.Checked)
+                                    {
+                                        Properties.Settings.Default.UsuarioRecordado = mailIngresado;
+                                        Properties.Settings.Default.RecordarCredenciales = true;
+                                    }
+                                    else
+                                    {
+                                        Properties.Settings.Default.UsuarioRecordado = string.Empty;
+                                        Properties.Settings.Default.RecordarCredenciales = false;
+                                    }
+                                    Properties.Settings.Default.Save();
+
+                                    // Abrimos el formulario de inicio
+                                    frmInicio frm = new frmInicio();
+                                    frm.Show();
+
+                                    // Ocultamos el login actual
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Contraseña incorrecta.", "Error de acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontró ninguna cuenta registrada con ese correo electrónico.", "Usuario no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // Requerimiento 17.1: Mostrar mensaje si son incorrectos 
-                MessageBox.Show("Mail o contraseña incorrectos");
+                MessageBox.Show("Error al conectar con la base de datos: " + ex.Message, "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    
 
         private void btnCrearCuenta_Click(object sender, EventArgs e)
         {

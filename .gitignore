@@ -359,8 +359,8 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# Fody - auto-generated XML schema
-FodyWeavers.xsd
-/Datos/BDDigitalFarma.mdf
-/Datos/BDDigitalFarma_log.ldf
-/.gitignore
+
+# Para que ignore la carpet
+Datos/
+*.mdf
+*.ldf

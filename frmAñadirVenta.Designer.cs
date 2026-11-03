@@ -65,9 +65,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(4, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 32);
+            this.pictureBox1.Size = new System.Drawing.Size(24, 21);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -76,9 +77,10 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(49, 13);
+            this.lblTitulo.Location = new System.Drawing.Point(33, 8);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(123, 25);
+            this.lblTitulo.Size = new System.Drawing.Size(78, 15);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Añadir Venta";
             // 
@@ -86,9 +88,10 @@
             // 
             this.lblProducto.AutoSize = true;
             this.lblProducto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProducto.Location = new System.Drawing.Point(6, 60);
+            this.lblProducto.Location = new System.Drawing.Point(4, 39);
+            this.lblProducto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(90, 25);
+            this.lblProducto.Size = new System.Drawing.Size(58, 15);
             this.lblProducto.TabIndex = 2;
             this.lblProducto.Text = "Producto";
             // 
@@ -96,9 +99,10 @@
             // 
             this.lblCompras.AutoSize = true;
             this.lblCompras.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompras.Location = new System.Drawing.Point(305, 60);
+            this.lblCompras.Location = new System.Drawing.Point(203, 39);
+            this.lblCompras.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCompras.Name = "lblCompras";
-            this.lblCompras.Size = new System.Drawing.Size(86, 25);
+            this.lblCompras.Size = new System.Drawing.Size(55, 15);
             this.lblCompras.TabIndex = 3;
             this.lblCompras.Text = "Compras";
             // 
@@ -110,9 +114,10 @@
             this.panel12.Controls.Add(this.txtBuscar);
             this.panel12.Controls.Add(this.pictureBox12);
             this.panel12.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel12.Location = new System.Drawing.Point(6, 88);
+            this.panel12.Location = new System.Drawing.Point(4, 57);
+            this.panel12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(265, 32);
+            this.panel12.Size = new System.Drawing.Size(177, 21);
             this.panel12.TabIndex = 15;
             // 
             // lblBuscarArriba
@@ -121,9 +126,10 @@
             this.lblBuscarArriba.BackColor = System.Drawing.Color.Transparent;
             this.lblBuscarArriba.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lblBuscarArriba.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblBuscarArriba.Location = new System.Drawing.Point(3, 6);
+            this.lblBuscarArriba.Location = new System.Drawing.Point(2, 4);
+            this.lblBuscarArriba.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBuscarArriba.Name = "lblBuscarArriba";
-            this.lblBuscarArriba.Size = new System.Drawing.Size(56, 21);
+            this.lblBuscarArriba.Size = new System.Drawing.Size(41, 13);
             this.lblBuscarArriba.TabIndex = 18;
             this.lblBuscarArriba.Text = "Buscar";
             // 
@@ -133,17 +139,19 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtBuscar.Location = new System.Drawing.Point(0, 5);
+            this.txtBuscar.Location = new System.Drawing.Point(0, 3);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(166, 22);
+            this.txtBuscar.Size = new System.Drawing.Size(111, 15);
             this.txtBuscar.TabIndex = 9;
             // 
             // pictureBox12
             // 
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(233, 0);
+            this.pictureBox12.Location = new System.Drawing.Point(155, 0);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(32, 31);
+            this.pictureBox12.Size = new System.Drawing.Size(21, 20);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox12.TabIndex = 11;
             this.pictureBox12.TabStop = false;
@@ -152,17 +160,19 @@
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(6, 140);
+            this.lblCantidad.Location = new System.Drawing.Point(4, 91);
+            this.lblCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(88, 25);
+            this.lblCantidad.Size = new System.Drawing.Size(55, 15);
             this.lblCantidad.TabIndex = 16;
             this.lblCantidad.Text = "Cantidad";
             // 
             // numCantidad
             // 
-            this.numCantidad.Location = new System.Drawing.Point(100, 142);
+            this.numCantidad.Location = new System.Drawing.Point(67, 92);
+            this.numCantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numCantidad.Name = "numCantidad";
-            this.numCantidad.Size = new System.Drawing.Size(120, 26);
+            this.numCantidad.Size = new System.Drawing.Size(80, 20);
             this.numCantidad.TabIndex = 18;
             // 
             // btnAñadiraCompras
@@ -170,9 +180,10 @@
             this.btnAñadiraCompras.BackColor = System.Drawing.Color.Teal;
             this.btnAñadiraCompras.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAñadiraCompras.ForeColor = System.Drawing.Color.White;
-            this.btnAñadiraCompras.Location = new System.Drawing.Point(115, 185);
+            this.btnAñadiraCompras.Location = new System.Drawing.Point(77, 120);
+            this.btnAñadiraCompras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAñadiraCompras.Name = "btnAñadiraCompras";
-            this.btnAñadiraCompras.Size = new System.Drawing.Size(156, 38);
+            this.btnAñadiraCompras.Size = new System.Drawing.Size(104, 40);
             this.btnAñadiraCompras.TabIndex = 65;
             this.btnAñadiraCompras.Text = "Añadir a compras()";
             this.btnAñadiraCompras.UseVisualStyleBackColor = false;
@@ -182,9 +193,10 @@
             this.btnEliminar.BackColor = System.Drawing.Color.LightCyan;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(9, 185);
+            this.btnEliminar.Location = new System.Drawing.Point(6, 120);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(100, 38);
+            this.btnEliminar.Size = new System.Drawing.Size(67, 40);
             this.btnEliminar.TabIndex = 66;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -197,24 +209,27 @@
             this.pnlVentasdeProductos.Controls.Add(this.lblPrecioTotal);
             this.pnlVentasdeProductos.Controls.Add(this.dgvCompras);
             this.pnlVentasdeProductos.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlVentasdeProductos.Location = new System.Drawing.Point(298, 88);
+            this.pnlVentasdeProductos.Location = new System.Drawing.Point(199, 57);
+            this.pnlVentasdeProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlVentasdeProductos.Name = "pnlVentasdeProductos";
-            this.pnlVentasdeProductos.Size = new System.Drawing.Size(472, 314);
+            this.pnlVentasdeProductos.Size = new System.Drawing.Size(315, 204);
             this.pnlVentasdeProductos.TabIndex = 67;
             // 
             // txtPrecioTotal
             // 
-            this.txtPrecioTotal.Location = new System.Drawing.Point(339, 257);
+            this.txtPrecioTotal.Location = new System.Drawing.Point(226, 167);
+            this.txtPrecioTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPrecioTotal.Name = "txtPrecioTotal";
-            this.txtPrecioTotal.Size = new System.Drawing.Size(115, 29);
+            this.txtPrecioTotal.Size = new System.Drawing.Size(78, 22);
             this.txtPrecioTotal.TabIndex = 13;
             // 
             // lblPrecioTotal
             // 
             this.lblPrecioTotal.AutoSize = true;
-            this.lblPrecioTotal.Location = new System.Drawing.Point(244, 259);
+            this.lblPrecioTotal.Location = new System.Drawing.Point(163, 168);
+            this.lblPrecioTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrecioTotal.Name = "lblPrecioTotal";
-            this.lblPrecioTotal.Size = new System.Drawing.Size(89, 21);
+            this.lblPrecioTotal.Size = new System.Drawing.Size(65, 13);
             this.lblPrecioTotal.TabIndex = 12;
             this.lblPrecioTotal.Text = "Precio Total";
             // 
@@ -240,12 +255,13 @@
             this.dgvCompras.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCompras.EnableHeadersVisualStyles = false;
             this.dgvCompras.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dgvCompras.Location = new System.Drawing.Point(12, 6);
+            this.dgvCompras.Location = new System.Drawing.Point(8, 4);
+            this.dgvCompras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvCompras.Name = "dgvCompras";
             this.dgvCompras.RowHeadersVisible = false;
             this.dgvCompras.RowHeadersWidth = 62;
             this.dgvCompras.RowTemplate.Height = 70;
-            this.dgvCompras.Size = new System.Drawing.Size(457, 234);
+            this.dgvCompras.Size = new System.Drawing.Size(305, 152);
             this.dgvCompras.TabIndex = 11;
             this.dgvCompras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCompras_CellContentClick);
             // 
@@ -275,9 +291,10 @@
             this.btnCancelar.BackColor = System.Drawing.Color.LightCyan;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.Location = new System.Drawing.Point(455, 408);
+            this.btnCancelar.Location = new System.Drawing.Point(303, 265);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(153, 38);
+            this.btnCancelar.Size = new System.Drawing.Size(102, 25);
             this.btnCancelar.TabIndex = 68;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -288,9 +305,10 @@
             this.btnCobrar.BackColor = System.Drawing.Color.Teal;
             this.btnCobrar.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.ForeColor = System.Drawing.Color.White;
-            this.btnCobrar.Location = new System.Drawing.Point(614, 410);
+            this.btnCobrar.Location = new System.Drawing.Point(409, 266);
+            this.btnCobrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCobrar.Name = "btnCobrar";
-            this.btnCobrar.Size = new System.Drawing.Size(156, 38);
+            this.btnCobrar.Size = new System.Drawing.Size(104, 25);
             this.btnCobrar.TabIndex = 69;
             this.btnCobrar.Text = "Cobrar";
             this.btnCobrar.UseVisualStyleBackColor = false;
@@ -299,9 +317,10 @@
             // lblCerrar
             // 
             this.lblCerrar.AutoSize = true;
-            this.lblCerrar.Location = new System.Drawing.Point(747, 13);
+            this.lblCerrar.Location = new System.Drawing.Point(498, 8);
+            this.lblCerrar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCerrar.Name = "lblCerrar";
-            this.lblCerrar.Size = new System.Drawing.Size(20, 20);
+            this.lblCerrar.Size = new System.Drawing.Size(14, 13);
             this.lblCerrar.TabIndex = 70;
             this.lblCerrar.Text = "X";
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
@@ -309,10 +328,10 @@
             // pctCerrar
             // 
             this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
-            this.pctCerrar.Location = new System.Drawing.Point(704, 8);
-            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Location = new System.Drawing.Point(469, 5);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pctCerrar.Name = "pctCerrar";
-            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.Size = new System.Drawing.Size(21, 18);
             this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctCerrar.TabIndex = 71;
             this.pctCerrar.TabStop = false;
@@ -320,9 +339,9 @@
             // 
             // frmAñadirVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(781, 460);
+            this.ClientSize = new System.Drawing.Size(521, 299);
             this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.lblCerrar);
             this.Controls.Add(this.btnCobrar);
@@ -338,6 +357,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmAñadirVenta";
             this.Text = "frmAñadirVenta";
             this.Load += new System.EventHandler(this.frmAñadirVenta_Load);

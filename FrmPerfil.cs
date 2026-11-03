@@ -25,10 +25,9 @@ namespace pryTesisVentas
 
         private void FrmPerfil_Load(object sender, EventArgs e)
         {
-            // Cargar datos actuales del Admin en los TextBox
-            TxtUsuario.Text = "Valeria.Admin";
-            TxtEmail.Text = "valeria.admin@digitalfarma.com";
-            TxtContraActual.Text = "123456789";
+            // Cargamos dinámicamente los datos del usuario logueado desde la base de datos
+            CargarDatosUsuarioActual();
+            TxtContraActual.Text = "";
             TxtContraNueva.Text = "";
 
             // Configurar contraseñas ocultas inicialmente
@@ -39,6 +38,7 @@ namespace pryTesisVentas
             CargarGrillaUsuarios();
             AcomodarTarjetaDatosPersonales();
         }
+
 
         private void ConfigurarEstilosExclusivos()
         {
@@ -183,6 +183,75 @@ namespace pryTesisVentas
 
             txt.Top = posY;
             posY = txt.Bottom + espacioEntreBloques;
+        }
+
+        /*private void CargarDatosUsuarioActual()
+        {
+            // ⚠️ REEMPLAZÁ "Valeria.Admin" por la variable o clase estática donde guardas 
+            // el nombre del usuario que hizo login exitosamente (ej: clsSesion.UsuarioLogueado)
+            string usuarioLogueado = "Administrador";
+
+            string query = "SELECT nombre, mail FROM Usuarios WHERE nombre = @Nombre";
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    conexion.Open();
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@Nombre", usuarioLogueado);
+
+                        using (SqlDataReader lector = comando.ExecuteReader())
+                        {
+                            if (lector.Read())
+                            {
+                                TxtUsuario.Text = lector["nombre"].ToString();
+                                TxtEmail.Text = lector["mail"].ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontraron los datos del usuario en la base de datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener los datos del perfil: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }*/
+        private void CargarDatosUsuarioActual()
+        {
+            string query = "SELECT TOP 1 nombre, mail FROM Usuarios";
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    conexion.Open();
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        using (SqlDataReader lector = comando.ExecuteReader())
+                        {
+                            if (lector.Read())
+                            {
+                                TxtUsuario.Text = lector["nombre"].ToString();
+                                TxtEmail.Text = lector["mail"].ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("La tabla Usuarios está completamente vacía.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al conectar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CargarGrillaUsuarios(string filtro = "")

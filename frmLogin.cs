@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,64 @@ namespace pryTesisVentas
         {
             frmIngresar ventanaIngresar = new frmIngresar();
             ventanaIngresar.Show();
+        }
+
+        private void btnValidarIngreso_Click(object sender, EventArgs e)
+        {
+            string usuarioOEmail = txtMail.Text.Trim(); // El textbox donde ingresa su mail o nombre
+            string contraIngresada = txtContra.Text.Trim(); // El textbox de la contraseña
+
+            string query = "SELECT id_usuario, nombre, mail, contrasenia, id_rol FROM Usuarios WHERE nombre = @Param OR mail = @Param";
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(clsConsultas.cadena))
+                {
+                    conexion.Open();
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@Param", usuarioOEmail);
+
+                        using (SqlDataReader lector = comando.ExecuteReader())
+                        {
+                            if (lector.Read())
+                            {
+                                string contraEnBD = lector["contrasenia"].ToString();
+
+                                // Verificamos si la contraseña coincide
+                                if (contraEnBD == contraIngresada)
+                                {
+                                    // 1. CARGAMOS LOS DATOS EN NUESTRA CLASE CLSUSUARIO
+                                    ClsUsuario.IdUsuario = Convert.ToInt32(lector["id_usuario"]);
+                                    ClsUsuario.UsuarioLogueado = lector["nombre"].ToString();
+                                    ClsUsuario.EmailLogueado = lector["mail"].ToString();
+
+                                    // Si querés guardar el rol también, podés traerlo o dejarlo listo
+
+                                    MessageBox.Show("¡Bienvenido/a " + ClsUsuario.UsuarioLogueado + "!", "Acceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    // 2. Abrimos el formulario principal o el menú y ocultamos el login
+                                    frmInicio principal = new frmInicio();
+                                    principal.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Contraseña incorrecta.", "Error de acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontró una cuenta con ese usuario o correo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al conectar con la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSig_Click(object sender, EventArgs e)
