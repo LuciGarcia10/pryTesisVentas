@@ -32,6 +32,7 @@ namespace pryTesisVentas
             // 2. Carga y muestra de datos REALES desde SQL Server
             CargarDatosDesdeBase();
             frmCuentasCorrientes_Resize(sender, e);
+            pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
         }
 
         private void CargarDatosDesdeBase()

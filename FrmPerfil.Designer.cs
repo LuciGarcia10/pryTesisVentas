@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPerfil));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnlEstadisticas = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
@@ -77,31 +77,35 @@
             this.TxtBuscarU = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.DgvPermisos = new System.Windows.Forms.DataGridView();
+            this.ClmUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PctIconoPermisos = new System.Windows.Forms.PictureBox();
             this.LblPermisos = new System.Windows.Forms.Label();
             this.PnlCuenta = new System.Windows.Forms.Panel();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.txtLegajo = new System.Windows.Forms.TextBox();
+            this.lblLegajo = new System.Windows.Forms.Label();
             this.BtnVerContra = new System.Windows.Forms.Button();
             this.LinkCerrarSesion = new System.Windows.Forms.LinkLabel();
             this.BtnGuardar = new System.Windows.Forms.Button();
-            this.TxtContraNueva = new System.Windows.Forms.TextBox();
-            this.LblContraNueva = new System.Windows.Forms.Label();
-            this.TxtContraActual = new System.Windows.Forms.TextBox();
-            this.LblContra = new System.Windows.Forms.Label();
-            this.TxtUsuario = new System.Windows.Forms.TextBox();
-            this.LblUsuario = new System.Windows.Forms.Label();
-            this.TxtEmail = new System.Windows.Forms.TextBox();
-            this.LblEmail = new System.Windows.Forms.Label();
+            this.txtContraNueva = new System.Windows.Forms.TextBox();
+            this.lblContraNueva = new System.Windows.Forms.Label();
+            this.txtContraActual = new System.Windows.Forms.TextBox();
+            this.lblContraActual = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.BtnCambiarFoto = new System.Windows.Forms.Button();
             this.PctIconoDatos = new System.Windows.Forms.PictureBox();
             this.LblDatos = new System.Windows.Forms.Label();
             this.PctFotoPerfil = new System.Windows.Forms.PictureBox();
             this.LblGestion = new System.Windows.Forms.Label();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
-            this.ClmUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContenedorPrincipal.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.pnlEstadisticas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -134,7 +138,7 @@
             // pnlContenedorPrincipal
             // 
             this.pnlContenedorPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlContenedorPrincipal.Controls.Add(this.panel5);
+            this.pnlContenedorPrincipal.Controls.Add(this.pnlEstadisticas);
             this.pnlContenedorPrincipal.Controls.Add(this.panel2);
             this.pnlContenedorPrincipal.Controls.Add(this.panel10);
             this.pnlContenedorPrincipal.Controls.Add(this.panel9);
@@ -150,17 +154,17 @@
             this.pnlContenedorPrincipal.Size = new System.Drawing.Size(291, 928);
             this.pnlContenedorPrincipal.TabIndex = 18;
             // 
-            // panel5
+            // pnlEstadisticas
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Controls.Add(this.btnEstadisticas);
-            this.panel5.Location = new System.Drawing.Point(9, 552);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(242, 48);
-            this.panel5.TabIndex = 54;
+            this.pnlEstadisticas.BackColor = System.Drawing.Color.White;
+            this.pnlEstadisticas.Controls.Add(this.label4);
+            this.pnlEstadisticas.Controls.Add(this.pictureBox2);
+            this.pnlEstadisticas.Controls.Add(this.btnEstadisticas);
+            this.pnlEstadisticas.Location = new System.Drawing.Point(9, 552);
+            this.pnlEstadisticas.Name = "pnlEstadisticas";
+            this.pnlEstadisticas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnlEstadisticas.Size = new System.Drawing.Size(242, 48);
+            this.pnlEstadisticas.TabIndex = 54;
             // 
             // label4
             // 
@@ -681,14 +685,14 @@
             this.ClmRol,
             this.ClmEstado});
             this.DgvPermisos.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvPermisos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvPermisos.DefaultCellStyle = dataGridViewCellStyle2;
             this.DgvPermisos.EnableHeadersVisualStyles = false;
             this.DgvPermisos.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.DgvPermisos.Location = new System.Drawing.Point(27, 125);
@@ -699,6 +703,34 @@
             this.DgvPermisos.Size = new System.Drawing.Size(826, 681);
             this.DgvPermisos.TabIndex = 43;
             this.DgvPermisos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPermisos_CellClick);
+            // 
+            // ClmUsuario
+            // 
+            this.ClmUsuario.DataPropertyName = "Usuario";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            this.ClmUsuario.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ClmUsuario.FillWeight = 140F;
+            this.ClmUsuario.HeaderText = "Usuario";
+            this.ClmUsuario.MinimumWidth = 8;
+            this.ClmUsuario.Name = "ClmUsuario";
+            // 
+            // ClmRol
+            // 
+            this.ClmRol.DataPropertyName = "Rol";
+            this.ClmRol.FillWeight = 90F;
+            this.ClmRol.HeaderText = "Rol";
+            this.ClmRol.MinimumWidth = 8;
+            this.ClmRol.Name = "ClmRol";
+            // 
+            // ClmEstado
+            // 
+            this.ClmEstado.DataPropertyName = "Estado";
+            this.ClmEstado.FillWeight = 80F;
+            this.ClmEstado.HeaderText = "Estado";
+            this.ClmEstado.MinimumWidth = 8;
+            this.ClmEstado.Name = "ClmEstado";
             // 
             // PctIconoPermisos
             // 
@@ -725,17 +757,21 @@
             this.PnlCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PnlCuenta.BackColor = System.Drawing.Color.White;
+            this.PnlCuenta.Controls.Add(this.txtTelefono);
+            this.PnlCuenta.Controls.Add(this.lblTelefono);
+            this.PnlCuenta.Controls.Add(this.txtLegajo);
+            this.PnlCuenta.Controls.Add(this.lblLegajo);
             this.PnlCuenta.Controls.Add(this.BtnVerContra);
             this.PnlCuenta.Controls.Add(this.LinkCerrarSesion);
             this.PnlCuenta.Controls.Add(this.BtnGuardar);
-            this.PnlCuenta.Controls.Add(this.TxtContraNueva);
-            this.PnlCuenta.Controls.Add(this.LblContraNueva);
-            this.PnlCuenta.Controls.Add(this.TxtContraActual);
-            this.PnlCuenta.Controls.Add(this.LblContra);
-            this.PnlCuenta.Controls.Add(this.TxtUsuario);
-            this.PnlCuenta.Controls.Add(this.LblUsuario);
-            this.PnlCuenta.Controls.Add(this.TxtEmail);
-            this.PnlCuenta.Controls.Add(this.LblEmail);
+            this.PnlCuenta.Controls.Add(this.txtContraNueva);
+            this.PnlCuenta.Controls.Add(this.lblContraNueva);
+            this.PnlCuenta.Controls.Add(this.txtContraActual);
+            this.PnlCuenta.Controls.Add(this.lblContraActual);
+            this.PnlCuenta.Controls.Add(this.txtUsuario);
+            this.PnlCuenta.Controls.Add(this.lblUsuario);
+            this.PnlCuenta.Controls.Add(this.txtEmail);
+            this.PnlCuenta.Controls.Add(this.lblEmail);
             this.PnlCuenta.Controls.Add(this.BtnCambiarFoto);
             this.PnlCuenta.Controls.Add(this.PctIconoDatos);
             this.PnlCuenta.Controls.Add(this.LblDatos);
@@ -747,13 +783,55 @@
             this.PnlCuenta.Size = new System.Drawing.Size(350, 829);
             this.PnlCuenta.TabIndex = 26;
             // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(31, 718);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(280, 34);
+            this.txtTelefono.TabIndex = 46;
+            this.txtTelefono.Text = "351937486";
+            // 
+            // lblTelefono
+            // 
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.Location = new System.Drawing.Point(26, 685);
+            this.lblTelefono.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(195, 28);
+            this.lblTelefono.TabIndex = 45;
+            this.lblTelefono.Text = "Teléfono de contacto";
+            // 
+            // txtLegajo
+            // 
+            this.txtLegajo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLegajo.Location = new System.Drawing.Point(31, 649);
+            this.txtLegajo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtLegajo.Name = "txtLegajo";
+            this.txtLegajo.Size = new System.Drawing.Size(280, 34);
+            this.txtLegajo.TabIndex = 44;
+            this.txtLegajo.Text = "001";
+            // 
+            // lblLegajo
+            // 
+            this.lblLegajo.AutoSize = true;
+            this.lblLegajo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLegajo.Location = new System.Drawing.Point(26, 616);
+            this.lblLegajo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblLegajo.Name = "lblLegajo";
+            this.lblLegajo.Size = new System.Drawing.Size(125, 28);
+            this.lblLegajo.TabIndex = 43;
+            this.lblLegajo.Text = "N° de Legajo";
+            // 
             // BtnVerContra
             // 
             this.BtnVerContra.BackColor = System.Drawing.Color.Transparent;
             this.BtnVerContra.BackgroundImage = global::pryTesisVentas.Properties.Resources.show;
             this.BtnVerContra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnVerContra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVerContra.Location = new System.Drawing.Point(275, 696);
+            this.BtnVerContra.Location = new System.Drawing.Point(275, 575);
             this.BtnVerContra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnVerContra.Name = "BtnVerContra";
             this.BtnVerContra.Size = new System.Drawing.Size(32, 32);
@@ -780,7 +858,7 @@
             this.BtnGuardar.BackColor = System.Drawing.Color.Teal;
             this.BtnGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.Color.White;
-            this.BtnGuardar.Location = new System.Drawing.Point(99, 743);
+            this.BtnGuardar.Location = new System.Drawing.Point(99, 751);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(240, 54);
             this.BtnGuardar.TabIndex = 40;
@@ -788,89 +866,89 @@
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
-            // TxtContraNueva
+            // txtContraNueva
             // 
-            this.TxtContraNueva.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContraNueva.Location = new System.Drawing.Point(31, 698);
-            this.TxtContraNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtContraNueva.Name = "TxtContraNueva";
-            this.TxtContraNueva.Size = new System.Drawing.Size(280, 34);
-            this.TxtContraNueva.TabIndex = 39;
-            this.TxtContraNueva.Text = "************";
+            this.txtContraNueva.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraNueva.Location = new System.Drawing.Point(31, 577);
+            this.txtContraNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtContraNueva.Name = "txtContraNueva";
+            this.txtContraNueva.Size = new System.Drawing.Size(280, 34);
+            this.txtContraNueva.TabIndex = 39;
+            this.txtContraNueva.Text = "************";
             // 
-            // LblContraNueva
+            // lblContraNueva
             // 
-            this.LblContraNueva.AutoSize = true;
-            this.LblContraNueva.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblContraNueva.Location = new System.Drawing.Point(26, 654);
-            this.LblContraNueva.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.LblContraNueva.Name = "LblContraNueva";
-            this.LblContraNueva.Size = new System.Drawing.Size(206, 32);
-            this.LblContraNueva.TabIndex = 38;
-            this.LblContraNueva.Text = "Nueva contraseña";
+            this.lblContraNueva.AutoSize = true;
+            this.lblContraNueva.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraNueva.Location = new System.Drawing.Point(26, 546);
+            this.lblContraNueva.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblContraNueva.Name = "lblContraNueva";
+            this.lblContraNueva.Size = new System.Drawing.Size(168, 28);
+            this.lblContraNueva.TabIndex = 38;
+            this.lblContraNueva.Text = "Nueva contraseña";
             // 
-            // TxtContraActual
+            // txtContraActual
             // 
-            this.TxtContraActual.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContraActual.Location = new System.Drawing.Point(31, 603);
-            this.TxtContraActual.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtContraActual.Name = "TxtContraActual";
-            this.TxtContraActual.Size = new System.Drawing.Size(280, 34);
-            this.TxtContraActual.TabIndex = 37;
-            this.TxtContraActual.Text = "************";
+            this.txtContraActual.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraActual.Location = new System.Drawing.Point(31, 508);
+            this.txtContraActual.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtContraActual.Name = "txtContraActual";
+            this.txtContraActual.Size = new System.Drawing.Size(280, 34);
+            this.txtContraActual.TabIndex = 37;
+            this.txtContraActual.Text = "************";
             // 
-            // LblContra
+            // lblContraActual
             // 
-            this.LblContra.AutoSize = true;
-            this.LblContra.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblContra.Location = new System.Drawing.Point(26, 561);
-            this.LblContra.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.LblContra.Name = "LblContra";
-            this.LblContra.Size = new System.Drawing.Size(134, 32);
-            this.LblContra.TabIndex = 36;
-            this.LblContra.Text = "Contraseña";
+            this.lblContraActual.AutoSize = true;
+            this.lblContraActual.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraActual.Location = new System.Drawing.Point(26, 477);
+            this.lblContraActual.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblContraActual.Name = "lblContraActual";
+            this.lblContraActual.Size = new System.Drawing.Size(110, 28);
+            this.lblContraActual.TabIndex = 36;
+            this.lblContraActual.Text = "Contraseña";
             // 
-            // TxtUsuario
+            // txtUsuario
             // 
-            this.TxtUsuario.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUsuario.Location = new System.Drawing.Point(31, 419);
-            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtUsuario.Name = "TxtUsuario";
-            this.TxtUsuario.Size = new System.Drawing.Size(280, 34);
-            this.TxtUsuario.TabIndex = 35;
-            this.TxtUsuario.Text = "Valeria";
+            this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(31, 367);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(280, 34);
+            this.txtUsuario.TabIndex = 35;
+            this.txtUsuario.Text = "Valeria";
             // 
-            // LblUsuario
+            // lblUsuario
             // 
-            this.LblUsuario.AutoSize = true;
-            this.LblUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUsuario.Location = new System.Drawing.Point(26, 378);
-            this.LblUsuario.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.LblUsuario.Name = "LblUsuario";
-            this.LblUsuario.Size = new System.Drawing.Size(221, 32);
-            this.LblUsuario.TabIndex = 34;
-            this.LblUsuario.Text = "Nombre de usuario";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(26, 336);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(181, 28);
+            this.lblUsuario.TabIndex = 34;
+            this.lblUsuario.Text = "Nombre de usuario";
             // 
-            // TxtEmail
+            // txtEmail
             // 
-            this.TxtEmail.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEmail.Location = new System.Drawing.Point(31, 511);
-            this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(280, 34);
-            this.TxtEmail.TabIndex = 33;
-            this.TxtEmail.Text = "vale@gmail.com";
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(31, 438);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(280, 34);
+            this.txtEmail.TabIndex = 33;
+            this.txtEmail.Text = "vale@gmail.com";
             // 
-            // LblEmail
+            // lblEmail
             // 
-            this.LblEmail.AutoSize = true;
-            this.LblEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEmail.Location = new System.Drawing.Point(26, 473);
-            this.LblEmail.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.LblEmail.Name = "LblEmail";
-            this.LblEmail.Size = new System.Drawing.Size(181, 32);
-            this.LblEmail.TabIndex = 31;
-            this.LblEmail.Text = "Email vinculado";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(26, 408);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(149, 28);
+            this.lblEmail.TabIndex = 31;
+            this.lblEmail.Text = "Email vinculado";
             // 
             // BtnCambiarFoto
             // 
@@ -942,42 +1020,14 @@
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
             // 
-            // ClmUsuario
-            // 
-            this.ClmUsuario.DataPropertyName = "Usuario";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            this.ClmUsuario.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ClmUsuario.FillWeight = 140F;
-            this.ClmUsuario.HeaderText = "Usuario";
-            this.ClmUsuario.MinimumWidth = 8;
-            this.ClmUsuario.Name = "ClmUsuario";
-            // 
-            // ClmRol
-            // 
-            this.ClmRol.DataPropertyName = "Rol";
-            this.ClmRol.FillWeight = 90F;
-            this.ClmRol.HeaderText = "Rol";
-            this.ClmRol.MinimumWidth = 8;
-            this.ClmRol.Name = "ClmRol";
-            // 
-            // ClmEstado
-            // 
-            this.ClmEstado.DataPropertyName = "Estado";
-            this.ClmEstado.FillWeight = 80F;
-            this.ClmEstado.HeaderText = "Estado";
-            this.ClmEstado.MinimumWidth = 8;
-            this.ClmEstado.Name = "ClmEstado";
-            // 
             // FrmPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1637, 928);
+            this.Controls.Add(this.PnlCuenta);
             this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.LblGestion);
-            this.Controls.Add(this.PnlCuenta);
             this.Controls.Add(this.PnlPermisos);
             this.Controls.Add(this.pnlBuscar);
             this.Controls.Add(this.pnlContenedorPrincipal);
@@ -992,8 +1042,8 @@
             this.Resize += new System.EventHandler(this.FrmPerfil_Resize);
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.pnlContenedorPrincipal.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.pnlEstadisticas.ResumeLayout(false);
+            this.pnlEstadisticas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1082,14 +1132,14 @@
         private System.Windows.Forms.Label LblDatos;
         private System.Windows.Forms.PictureBox PctIconoDatos;
         private System.Windows.Forms.Button BtnCambiarFoto;
-        private System.Windows.Forms.TextBox TxtUsuario;
-        private System.Windows.Forms.Label LblUsuario;
-        private System.Windows.Forms.TextBox TxtEmail;
-        private System.Windows.Forms.Label LblEmail;
-        private System.Windows.Forms.TextBox TxtContraNueva;
-        private System.Windows.Forms.Label LblContraNueva;
-        private System.Windows.Forms.TextBox TxtContraActual;
-        private System.Windows.Forms.Label LblContra;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtContraNueva;
+        private System.Windows.Forms.Label lblContraNueva;
+        private System.Windows.Forms.TextBox txtContraActual;
+        private System.Windows.Forms.Label lblContraActual;
         private System.Windows.Forms.LinkLabel LinkCerrarSesion;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Label LblPermisos;
@@ -1097,7 +1147,7 @@
         private System.Windows.Forms.DataGridView DgvPermisos;
         private System.Windows.Forms.Button BtnVerContra;
         private System.Windows.Forms.TextBox TxtBuscarU;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel pnlEstadisticas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnEstadisticas;
@@ -1108,5 +1158,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmRol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmEstado;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.TextBox txtLegajo;
+        private System.Windows.Forms.Label lblLegajo;
     }
 }

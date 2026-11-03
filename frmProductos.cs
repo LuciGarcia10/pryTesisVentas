@@ -152,6 +152,7 @@ namespace pryTesisVentas
             // Cargar datos
             CargarProductosDesdeBD();
             dgvProductos.Paint += dgvProductos_Paint;
+            pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
         }
 
         // Recupera los registros reales de SQL Server y los almacena en la lista global

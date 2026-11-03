@@ -25,7 +25,6 @@ namespace pryTesisVentas
         {
             // Centra el cartel en el medio de la pantalla principal
             this.StartPosition = FormStartPosition.CenterParent;
-
             // Evita que el usuario maximice o deforme el tamaño de la ventanita
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -37,7 +36,7 @@ namespace pryTesisVentas
         }
         private void CargarComboRoles()
         {
-            string query = "SELECT id_rol, nombre_rol FROM Roles";
+            string query = "SELECT id_rol, nombre_rol FROM Roles ORDER BY nombre_rol ASC";
             try
             {
                 using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -53,7 +52,7 @@ namespace pryTesisVentas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar roles: " + ex.Message);
+                MessageBox.Show("Error al cargar la lista de roles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void ConfigurarComboEstado()
@@ -81,15 +80,21 @@ namespace pryTesisVentas
                     {
                         comando.Parameters.AddWithValue("@Id", idUsuarioSeleccionado);
                         conexion.Open();
+
                         using (SqlDataReader lector = comando.ExecuteReader())
                         {
                             if (lector.Read())
                             {
-                                cmbRoles.SelectedValue = Convert.ToInt32(lector["id_rol"]);
+                                if (lector["id_rol"] != DBNull.Value)
+                                {
+                                    cmbRoles.SelectedValue = Convert.ToInt32(lector["id_rol"]);
+                                }
 
-                                // Lee el BIT (0 o 1) de la BD y selecciona el ítem correcto en el combo
-                                int estadoBD = Convert.ToBoolean(lector["activo"]) ? 1 : 0;
-                                cmbEstado.SelectedValue = estadoBD;
+                                if (lector["activo"] != DBNull.Value)
+                                {
+                                    int estado = Convert.ToBoolean(lector["activo"]) ? 1 : 0;
+                                    cmbEstado.SelectedValue = estado;
+                                }
                             }
                         }
                     }
@@ -97,35 +102,51 @@ namespace pryTesisVentas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar datos del usuario: " + ex.Message);
+                MessageBox.Show("Error al cargar los datos del usuario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnGuardarPermisos_Click(object sender, EventArgs e)
         {
+            // Validar que realmente haya una opción seleccionada
+            if (cmbRoles.SelectedValue == null || cmbEstado.SelectedValue == null)
+            {
+                MessageBox.Show("Por favor, seleccione un rol y un estado válidos.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string query = "UPDATE Usuarios SET id_rol = @IdRol, activo = @Activo WHERE id_usuario = @IdUsuario";
+
             try
             {
                 using (SqlConnection conexion = new SqlConnection(cadenaConexion))
                 {
                     using (SqlCommand comando = new SqlCommand(query, conexion))
                     {
-                        comando.Parameters.AddWithValue("@IdRol", cmbRoles.SelectedValue);
-                        // Toma el 1 o 0 seleccionado en el ComboBox de estado
-                        comando.Parameters.AddWithValue("@Activo", cmbEstado.SelectedValue);
+                        // Casteo explícito a int para asegurar el tipo de dato en SQL Server
+                        comando.Parameters.AddWithValue("@IdRol", Convert.ToInt32(cmbRoles.SelectedValue));
+                        comando.Parameters.AddWithValue("@Activo", Convert.ToInt32(cmbEstado.SelectedValue));
                         comando.Parameters.AddWithValue("@IdUsuario", idUsuarioSeleccionado);
 
                         conexion.Open();
-                        comando.ExecuteNonQuery();
+                        int filas = comando.ExecuteNonQuery();
+
+                        if (filas > 0)
+                        {
+                            MessageBox.Show("¡Permisos y rol actualizados correctamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.DialogResult = DialogResult.OK; // Esto avisa a FrmPerfil que refresque la grilla
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontró el registro para actualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                 }
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al actualizar permisos: " + ex.Message);
+                MessageBox.Show("Error al actualizar permisos en la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace pryTesisVentas
         //private List<clsUsuarioSimulado> listaUsuarios;
         // Tu cadena de conexión real apuntando a BDDigitalFarma
         private string cadenaConexion = clsConsultas.cadena;
+        private int idUsuarioActual = 0;
         public FrmPerfil()
         {
             InitializeComponent();
@@ -25,20 +27,19 @@ namespace pryTesisVentas
 
         private void FrmPerfil_Load(object sender, EventArgs e)
         {
-            // Cargamos dinámicamente los datos del usuario logueado desde la base de datos
-            CargarDatosUsuarioActual();
-            TxtContraActual.Text = "";
-            TxtContraNueva.Text = "";
-
             // Configurar contraseñas ocultas inicialmente
-            TxtContraActual.PasswordChar = '●';
-            TxtContraNueva.PasswordChar = '●';
-
+            txtContraActual.PasswordChar = '●';
+            txtContraNueva.PasswordChar = '●';
+            string usuarioLogueado = !string.IsNullOrEmpty(frmIngresar.UsuarioSesion) ? frmIngresar.UsuarioSesion : "Valeria.Admin";
             // Cargar datos de prueba para la grilla de control de permisos
             CargarGrillaUsuarios();
             AcomodarTarjetaDatosPersonales();
+            VerificarPermisosUsuario();
+            if (pnlEstadisticas != null)
+            {
+                pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
+            }
         }
-
 
         private void ConfigurarEstilosExclusivos()
         {
@@ -94,75 +95,82 @@ namespace pryTesisVentas
         }
         private void AcomodarTarjetaDatosPersonales()
         {
-            // Reemplazá 'pnlDatosPersonales' por el (Name) de tu panel blanco izquierdo
-            // Si no tiene nombre especial, fijate en propiedades cómo se llama (ej: panel1, pnlDatos, etc.)
             Control panel = PctFotoPerfil.Parent;
             if (panel == null) return;
 
             int anchoPanel = panel.ClientSize.Width;
             int altoPanel = panel.ClientSize.Height;
 
-            // 1. Ancho uniforme y centrado de los TextBox
-            int anchoCampos = anchoPanel - 60; // Deja 30px de margen a cada lado
-            if (anchoCampos > 320) anchoCampos = 320; // Límite para que no queden exageradamente anchos
+            int anchoCampos = anchoPanel - 60;
+            if (anchoCampos > 320) anchoCampos = 320;
 
             int posXCentrada = (anchoPanel - anchoCampos) / 2;
 
-            TxtUsuario.Width = anchoCampos;
-            TxtUsuario.Left = posXCentrada;
+            txtUsuario.Width = anchoCampos;
+            txtUsuario.Left = posXCentrada;
 
-            TxtEmail.Width = anchoCampos;
-            TxtEmail.Left = posXCentrada;
+            txtEmail.Width = anchoCampos;
+            txtEmail.Left = posXCentrada;
 
-            TxtContraActual.Width = anchoCampos;
-            TxtContraActual.Left = posXCentrada;
+            txtContraActual.Width = anchoCampos;
+            txtContraActual.Left = posXCentrada;
 
-            TxtContraNueva.Width = anchoCampos - 35; // Espacio para el ojito
-            TxtContraNueva.Left = posXCentrada;
-            BtnVerContra.Left = TxtContraNueva.Right + 5;
+            txtContraNueva.Width = anchoCampos - 35; 
+            txtContraNueva.Left = posXCentrada;
+            BtnVerContra.Left = txtContraNueva.Right + 5;
 
-            // 2. Centrar Foto y Botón Cambiar Foto
+            txtLegajo.Width = anchoCampos;
+            txtLegajo.Left = posXCentrada;
+
+            txtTelefono.Width = anchoCampos;
+            txtTelefono.Left = posXCentrada;
+
             PctFotoPerfil.Left = (anchoPanel - PctFotoPerfil.Width) / 2;
             BtnCambiarFoto.Left = (anchoPanel - BtnCambiarFoto.Width) / 2;
 
-            // 3. Botón Guardar y Link Cerrar Sesión
             BtnGuardar.Width = anchoCampos;
-            BtnGuardar.Height = 42;
+            BtnGuardar.Height = 38;
             BtnGuardar.Left = posXCentrada;
             LinkCerrarSesion.Left = (anchoPanel - LinkCerrarSesion.Width) / 2;
 
-            // 4. DISTRIBUCIÓN VERTICAL CON AIRE
-            // Calculamos el espacio vertical dinámicamente según la altura de la pantalla
-            int posY = 55; // Comienza debajo del título "Datos Personales"
+            int posY = 35;
 
             PctFotoPerfil.Top = posY;
-            posY = PctFotoPerfil.Bottom + 10;
+            posY = PctFotoPerfil.Bottom + 6;
 
             BtnCambiarFoto.Top = posY;
 
-            // Espacio generoso entre la foto y el primer campo para que no se encimen
-            int espacioEntreBloques = (altoPanel > 650) ? 22 : 14;
-            posY = BtnCambiarFoto.Bottom + (espacioEntreBloques + 10);
+            int espacioEntreBloques = (altoPanel > 750) ? 12 : 7;
+            posY = BtnCambiarFoto.Bottom + (espacioEntreBloques + 6);
 
-            // Campo Usuario (buscamos su etiqueta arriba)
-            MoverEtiquetaYCampo(TxtUsuario, ref posY, espacioEntreBloques);
+            PosicionarBloque(lblUsuario, txtUsuario, ref posY, posXCentrada, espacioEntreBloques);
+            PosicionarBloque(lblEmail, txtEmail, ref posY, posXCentrada, espacioEntreBloques);
+            PosicionarBloque(lblContraActual, txtContraActual, ref posY, posXCentrada, espacioEntreBloques);
 
-            // Campo Email
-            MoverEtiquetaYCampo(TxtEmail, ref posY, espacioEntreBloques);
+            PosicionarBloque(lblContraNueva, txtContraNueva, ref posY, posXCentrada, espacioEntreBloques);
+            BtnVerContra.Top = txtContraNueva.Top;
 
-            // Campo Contraseña Actual
-            MoverEtiquetaYCampo(TxtContraActual, ref posY, espacioEntreBloques);
+            PosicionarBloque(lblLegajo, txtLegajo, ref posY, posXCentrada, espacioEntreBloques);
+            PosicionarBloque(lblTelefono, txtTelefono, ref posY, posXCentrada, espacioEntreBloques);
 
-            // Campo Nueva Contraseña
-            MoverEtiquetaYCampo(TxtContraNueva, ref posY, espacioEntreBloques);
-            BtnVerContra.Top = TxtContraNueva.Top;
-
-            // Botón Guardar Cambios
-            posY += 15;
+            posY += 8;
             BtnGuardar.Top = posY;
+            LinkCerrarSesion.Top = BtnGuardar.Bottom + 8;
+        }
+        private void PosicionarBloque(Label lbl, TextBox txt, ref int posY, int posX, int espacioEntreBloques)
+        {
+            if (lbl != null)
+            {
+                lbl.Left = posX;
+                lbl.Top = posY;
+                posY = lbl.Bottom + 3; 
+            }
 
-            // Link Cerrar Sesión
-            LinkCerrarSesion.Top = BtnGuardar.Bottom + 14;
+            if (txt != null)
+            {
+                txt.Top = posY;
+                posY = txt.Bottom + espacioEntreBloques; 
+            }
         }
 
         // Función auxiliar para mover cada TextBox junto a su Label correspondiente
@@ -183,75 +191,6 @@ namespace pryTesisVentas
 
             txt.Top = posY;
             posY = txt.Bottom + espacioEntreBloques;
-        }
-
-        /*private void CargarDatosUsuarioActual()
-        {
-            // ⚠️ REEMPLAZÁ "Valeria.Admin" por la variable o clase estática donde guardas 
-            // el nombre del usuario que hizo login exitosamente (ej: clsSesion.UsuarioLogueado)
-            string usuarioLogueado = "Administrador";
-
-            string query = "SELECT nombre, mail FROM Usuarios WHERE nombre = @Nombre";
-
-            try
-            {
-                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
-                {
-                    conexion.Open();
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        comando.Parameters.AddWithValue("@Nombre", usuarioLogueado);
-
-                        using (SqlDataReader lector = comando.ExecuteReader())
-                        {
-                            if (lector.Read())
-                            {
-                                TxtUsuario.Text = lector["nombre"].ToString();
-                                TxtEmail.Text = lector["mail"].ToString();
-                            }
-                            else
-                            {
-                                MessageBox.Show("No se encontraron los datos del usuario en la base de datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al obtener los datos del perfil: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }*/
-        private void CargarDatosUsuarioActual()
-        {
-            string query = "SELECT TOP 1 nombre, mail FROM Usuarios";
-
-            try
-            {
-                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
-                {
-                    conexion.Open();
-                    using (SqlCommand comando = new SqlCommand(query, conexion))
-                    {
-                        using (SqlDataReader lector = comando.ExecuteReader())
-                        {
-                            if (lector.Read())
-                            {
-                                TxtUsuario.Text = lector["nombre"].ToString();
-                                TxtEmail.Text = lector["mail"].ToString();
-                            }
-                            else
-                            {
-                                MessageBox.Show("La tabla Usuarios está completamente vacía.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al conectar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void CargarGrillaUsuarios(string filtro = "")
@@ -298,6 +237,8 @@ namespace pryTesisVentas
                     }
                 }
 
+                string colAccionName = DgvPermisos.Columns.Contains("Acciones") ? "Acciones" : (DgvPermisos.Columns.Contains("btnAcciones") ? "btnAcciones" : "");
+
                 // Configurar la columna de Acciones existente (sin agregar una duplicada)
                 if (DgvPermisos.Columns.Contains("Acciones"))
                 {
@@ -334,7 +275,6 @@ namespace pryTesisVentas
                 {
                     col.Frozen = false;
                 }
-
                 // Activar modo Fill y pesos relativos
                 DgvPermisos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -352,17 +292,121 @@ namespace pryTesisVentas
                 MessageBox.Show("Error al cargar la tabla de permisos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void VerificarPermisosUsuario()
+        {
+            // Consulta directa a la base de datos uniendo Usuarios y Roles
+            string query = @"SELECT R.nombre_rol 
+                     FROM Usuarios U 
+                     INNER JOIN Roles R ON U.id_rol = R.id_rol 
+                     WHERE U.nombre = @NombreUsuario";
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        // Toma el nombre que figura actualmente en el formulario
+                        comando.Parameters.AddWithValue("@NombreUsuario", txtUsuario.Text.Trim());
+
+                        conexion.Open();
+                        object resultado = comando.ExecuteScalar();
+
+                        if (resultado != null)
+                        {
+                            string rol = resultado.ToString().ToLower();
+
+                            // Si el rol NO contiene "admin", aplicamos las restricciones
+                            if (!rol.Contains("admin"))
+                            {
+                                // 1. Ocultar el botón de estadísticas del menú lateral
+                                btnEstadisticas.Visible = false;
+
+                                // 2. Ocultar la grilla de permisos de la derecha para que no edite otros roles
+                                DgvPermisos.Visible = false;
+                                TxtBuscarU.Visible = false;
+                            }
+                            else
+                            {
+                                // Si es administrador, tiene acceso completo
+                                btnEstadisticas.Visible = true;
+                                DgvPermisos.Visible = true;
+                                TxtBuscarU.Visible = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al comprobar permisos: " + ex.Message);
+            }
+        }
+
+        private void CargarDatosUsuarioPorNombre(string nombreUsuario)
+        {
+            string query = "SELECT id_usuario, nombre, mail, legajo, telefono, contrasenia, foto FROM Usuarios WHERE nombre = @Nombre";
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                {
+                    using (SqlCommand comando = new SqlCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@Nombre", nombreUsuario);
+                        conexion.Open();
+
+                        using (SqlDataReader lector = comando.ExecuteReader())
+                        {
+                            if (lector.Read())
+                            {
+                                idUsuarioActual = Convert.ToInt32(lector["id_usuario"]);
+                                txtUsuario.Text = lector["nombre"].ToString();
+                                txtEmail.Text = lector["mail"].ToString();
+
+                                // Cargamos Legajo y Teléfono verificando que no vengan vacíos/nulos desde la BD
+                                txtLegajo.Text = lector["legajo"] != DBNull.Value ? lector["legajo"].ToString() : "";
+                                txtTelefono.Text = lector["telefono"] != DBNull.Value ? lector["telefono"].ToString() : "";
+
+                                txtContraActual.Text = "";
+                                txtContraNueva.Text = "";
+                                rutaFotoSeleccionada = "";
+
+                                // Carga de la foto de perfil
+                                if (lector["foto"] != DBNull.Value)
+                                {
+                                    byte[] imagenBytes = (byte[])lector["foto"];
+                                    using (MemoryStream ms = new MemoryStream(imagenBytes))
+                                    {
+                                        PctFotoPerfil.Image = Image.FromStream(ms);
+                                        PctFotoPerfil.SizeMode = PictureBoxSizeMode.Zoom;
+                                    }
+                                }
+                                else
+                                {
+                                    PctFotoPerfil.Image = null;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del usuario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void BtnVerContra_Click(object sender, EventArgs e)
         {
-            if (TxtContraNueva.PasswordChar == '●')
+            if (txtContraNueva.PasswordChar == '●')
             {
-                TxtContraNueva.PasswordChar = '\0'; // Muestra el texto plano
+                txtContraNueva.PasswordChar = '\0'; // Muestra el texto plano
                 BtnVerContra.Image = Properties.Resources.hide;
             }
             else
             {
-                TxtContraNueva.PasswordChar = '●'; // Oculta el texto
+                txtContraNueva.PasswordChar = '●'; // Oculta el texto
                 BtnVerContra.Image = Properties.Resources.show;
             }
         }
@@ -373,16 +417,17 @@ namespace pryTesisVentas
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                // Filtramos para que solo muestre formatos de imagen comunes
-                ofd.Filter = "Imágenes (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+                ofd.Filter = "Imágenes (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+                ofd.Title = "Seleccionar foto de perfil";
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    // Guardamos la ruta del archivo seleccionado
                     rutaFotoSeleccionada = ofd.FileName;
-
-                    // Mostramos la foto en el PictureBox de tu diseño
-                    PctFotoPerfil.Image = Image.FromFile(ofd.FileName);
+                    // Cargamos en un stream para no bloquear el archivo en el explorador de Windows
+                    using (FileStream fs = new FileStream(rutaFotoSeleccionada, FileMode.Open, FileAccess.Read))
+                    {
+                        PctFotoPerfil.Image = Image.FromStream(fs);
+                    }
                     PctFotoPerfil.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
@@ -397,15 +442,17 @@ namespace pryTesisVentas
                 fs.Read(datos, 0, System.Convert.ToInt32(fs.Length));
                 return datos;
             }
+            
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            // 1. Validaciones básicas de interfaz
-            string nombre = TxtUsuario.Text.Trim();
-            string email = TxtEmail.Text.Trim();
-            string contraActual = TxtContraActual.Text;
-            string contraNueva = TxtContraNueva.Text;
+            string nombre = txtUsuario.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string legajo = txtLegajo.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
+            string contraActual = txtContraActual.Text;
+            string contraNueva = txtContraNueva.Text;
 
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(email))
             {
@@ -419,24 +466,22 @@ namespace pryTesisVentas
                 return;
             }
 
-            // 2. Conectamos a SQL Server
-            string queryVerificar = "SELECT contrasenia FROM Usuarios WHERE mail = @Email";
-
+            // Conexión y operaciones en SQL Server
             try
             {
                 using (SqlConnection conexion = new SqlConnection(cadenaConexion))
                 {
                     conexion.Open();
 
-                    // PASO A: Verificar contraseña actual
-                    using (SqlCommand cmdVerificar = new SqlCommand(queryVerificar, conexion))
+                    // Verificar contraseña actual usando el id_usuario cargado
+                    using (SqlCommand cmdVerificar = new SqlCommand("SELECT contrasenia FROM Usuarios WHERE id_usuario = @IdUsuario", conexion))
                     {
-                        cmdVerificar.Parameters.AddWithValue("@Email", email);
+                        cmdVerificar.Parameters.AddWithValue("@IdUsuario", idUsuarioActual);
                         object resultado = cmdVerificar.ExecuteScalar();
 
                         if (resultado == null)
                         {
-                            MessageBox.Show("No se encontró ningún usuario con el correo electrónico vinculado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No se encontró el registro del usuario en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
 
@@ -449,22 +494,24 @@ namespace pryTesisVentas
                         }
                     }
 
-                    // PASO B: Preparar la consulta de actualización
+                    // Preparar la consulta de actualización con legajo y telefono
                     bool cambiaContrasenia = !string.IsNullOrWhiteSpace(contraNueva);
                     bool cambiaFoto = !string.IsNullOrEmpty(rutaFotoSeleccionada);
 
-                    // Armamos dinámicamente el query según lo que modificó el usuario
-                    string queryUpdate = "UPDATE Usuarios SET nombre = @Nombre";
+                    string queryUpdate = "UPDATE Usuarios SET nombre = @Nombre, mail = @Email, legajo = @Legajo, telefono = @Telefono";
 
                     if (cambiaContrasenia) queryUpdate += ", contrasenia = @NuevaContra";
                     if (cambiaFoto) queryUpdate += ", foto = @Foto";
 
-                    queryUpdate += " WHERE mail = @Email";
+                    queryUpdate += " WHERE id_usuario = @IdUsuario";
 
                     using (SqlCommand cmdUpdate = new SqlCommand(queryUpdate, conexion))
                     {
                         cmdUpdate.Parameters.AddWithValue("@Nombre", nombre);
                         cmdUpdate.Parameters.AddWithValue("@Email", email);
+                        cmdUpdate.Parameters.AddWithValue("@Legajo", string.IsNullOrWhiteSpace(legajo) ? (object)DBNull.Value : legajo);
+                        cmdUpdate.Parameters.AddWithValue("@Telefono", string.IsNullOrWhiteSpace(telefono) ? (object)DBNull.Value : telefono);
+                        cmdUpdate.Parameters.AddWithValue("@IdUsuario", idUsuarioActual);
 
                         if (cambiaContrasenia)
                         {
@@ -473,7 +520,6 @@ namespace pryTesisVentas
 
                         if (cambiaFoto)
                         {
-                            // Convertimos la imagen seleccionada a un arreglo de bytes para guardarla en SQL
                             byte[] imagenBytes = ConvertirImagenABytes(rutaFotoSeleccionada);
                             cmdUpdate.Parameters.AddWithValue("@Foto", imagenBytes);
                         }
@@ -484,9 +530,8 @@ namespace pryTesisVentas
                         {
                             MessageBox.Show("¡Cambios de perfil guardados con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Limpiamos variables y campos temporales de contraseñas
-                            TxtContraActual.Text = "";
-                            TxtContraNueva.Text = "";
+                            txtContraActual.Text = "";
+                            txtContraNueva.Text = "";
                             rutaFotoSeleccionada = "";
 
                             CargarGrillaUsuarios();
@@ -506,7 +551,7 @@ namespace pryTesisVentas
 
         private void LinkCerrarSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // 1. Mostrar el cuadro de diálogo de confirmación
+            // Mostrar el cuadro de diálogo de confirmación
             DialogResult res = MessageBox.Show(
                 "¿Está seguro de que desea cerrar la sesión actual?",
                 "Cerrar Sesión",
@@ -519,7 +564,7 @@ namespace pryTesisVentas
                 // Ocultamos la pantalla actual (FrmPerfil)
                 this.Hide();
 
-                // 2. Buscamos si el formulario de Login ya está creado en la memoria de la app
+                // Buscamos si el formulario de Login ya está creado en la memoria de la app
                 Form loginAbierto = Application.OpenForms["FrmLogin"];
 
                 if (loginAbierto != null)
@@ -541,47 +586,37 @@ namespace pryTesisVentas
                     frmLogin.Show();
                 }
 
-                // 3. Cerramos definitivamente esta pantalla de Perfil para liberar memoria
+                // Cerramos definitivamente esta pantalla de Perfil para liberar memoria
                 this.Close();
             }
         }
 
         private void DgvPermisos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Evitamos errores si el usuario hace clic en los encabezados de las columnas
+            // Evitamos errores si el usuario hace clic en los encabezados
             if (e.RowIndex < 0) return;
 
-            // Verificamos si hizo clic específicamente en la columna de la imagen del engranaje
-            if (DgvPermisos.Columns[e.ColumnIndex].Name == "btnAcciones")
+            string colName = DgvPermisos.Columns[e.ColumnIndex].Name;
+
+            // Verificamos si hizo clic en la columna de engranaje (por nombre o porque es celda de imagen)
+            if (colName == "btnAcciones" || colName == "Acciones" || colName == "ClmAcciones" || DgvPermisos.Columns[e.ColumnIndex] is DataGridViewImageColumn)
             {
                 DataRowView filaSeleccionada = DgvPermisos.Rows[e.RowIndex].DataBoundItem as DataRowView;
 
                 if (filaSeleccionada != null)
                 {
-                    // Rescatamos los valores reales de la fila
+                    // Rescatamos el id_usuario real de la base de datos
                     int idUsuario = Convert.ToInt32(filaSeleccionada["id_usuario"]);
-                    string usuario = filaSeleccionada["Usuario"].ToString();
-                    string rolActual = filaSeleccionada["Rol"].ToString();
-                    string estadoActual = filaSeleccionada["Estado"].ToString();
 
-                    // Aquí podés abrir un pequeño formulario modal (ej: frmEditarRol) pasándole el idUsuario
-                    // Por ahora, te dejo el aviso funcional que demuestra que captura el ID correcto:
-                    MessageBox.Show($"ID de Cuenta: {idUsuario}\n" +
-                                    $"Usuario: {usuario}\n" +
-                                    $"Rol Actual: {rolActual}\n" +
-                                    $"Estado: {estadoActual}\n\n" +
-                                    $"¡Listo para conectar con un combo de actualización!",
-                                    "Gestión de Permisos",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-
-                    /* 
-                       Idea para el futuro inmediato:
-                       frmCambiarRol frm = new frmCambiarRol(idUsuario);
-                       if(frm.ShowDialog() == DialogResult.OK) {
-                           CargarGrillaUsuarios(); // Recarga la grilla si hubo cambios
-                       }
-                    */
+                    // Abrimos directamente el formulario modal
+                    using (frmCambiarRol frm = new frmCambiarRol(idUsuario))
+                    {
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            // Si guardó cambios exitosamente, recargamos la grilla para ver el nuevo rol/estado
+                            CargarGrillaUsuarios();
+                        }
+                    }
                 }
             }
         }
@@ -699,10 +734,10 @@ namespace pryTesisVentas
                                 if (lector.Read())
                                 {
                                     // Cargamos los campos de texto
-                                    TxtUsuario.Text = lector["nombre"].ToString();
-                                    TxtEmail.Text = lector["mail"].ToString();
-                                    TxtContraActual.Text = lector["contrasenia"].ToString();
-                                    TxtContraNueva.Text = "";
+                                    txtUsuario.Text = lector["nombre"].ToString();
+                                    txtEmail.Text = lector["mail"].ToString();
+                                    txtContraActual.Text = lector["contrasenia"].ToString();
+                                    txtContraNueva.Text = "";
 
                                     // 2. LEER LA FOTO DESDE LA BASE DE DATOS
                                     if (lector["foto"] != DBNull.Value)
