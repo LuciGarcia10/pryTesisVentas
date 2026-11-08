@@ -364,3 +364,5 @@ MigrationBackup/
 Datos/
 *.mdf
 *.ldf
+/Datos/BDDigitalFarma.mdf
+/Datos/BDDigitalFarma_log.ldf
