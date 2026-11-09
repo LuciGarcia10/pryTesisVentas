@@ -17,7 +17,7 @@ namespace pryTesisVentas
         // Lista global que guardará los productos en la memoria de la PC
         List<Producto> listaProductos = new List<Producto>();
         // Cadena de conexión a tu base de datos en Córdoba
-        public static string cadena = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Datos\BDDigitalFarma.mdf;Integrated Security=True;Connect Timeout=30;";
+        public static string cadena = System.Configuration.ConfigurationManager.ConnectionStrings["CadenaConexion"].ConnectionString;
         public frmProductos()
         {
             InitializeComponent();

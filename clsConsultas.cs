@@ -17,7 +17,7 @@ namespace pryTesisVentas
         //Pedidos Totales
         // 1. Centralizamos la cadena de conexión para cambiarla una sola vez acá
         // RECUERDA: Pon tu cadena real (la que sacaste del Explorador de Servidores)
-        public static string cadena = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Datos\BDDigitalFarma.mdf;Integrated Security=True;Connect Timeout=30;";
+        public static string cadena = System.Configuration.ConfigurationManager.ConnectionStrings["CadenaConexion"].ConnectionString;
 
         // PEDIDOS TOTALES 
         public static decimal ObtenerTotalVentas()
