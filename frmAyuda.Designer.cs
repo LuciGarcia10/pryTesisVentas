@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAyuda));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAyuda));
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.pnlEstadisticas = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -95,9 +94,9 @@
             this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.pnlEstadisticas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel10.SuspendLayout();
@@ -128,6 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -152,8 +152,8 @@
             // pnlEstadisticas
             // 
             this.pnlEstadisticas.BackColor = System.Drawing.Color.White;
-            this.pnlEstadisticas.Controls.Add(this.label12);
             this.pnlEstadisticas.Controls.Add(this.pictureBox12);
+            this.pnlEstadisticas.Controls.Add(this.label12);
             this.pnlEstadisticas.Controls.Add(this.btnEstadisticas);
             this.pnlEstadisticas.Location = new System.Drawing.Point(10, 553);
             this.pnlEstadisticas.Name = "pnlEstadisticas";
@@ -172,16 +172,6 @@
             this.label12.TabIndex = 39;
             this.label12.Text = ">";
             // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 38;
-            this.pictureBox12.TabStop = false;
-            // 
             // btnEstadisticas
             // 
             this.btnEstadisticas.BackColor = System.Drawing.Color.White;
@@ -189,11 +179,14 @@
             this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
-            this.btnEstadisticas.Location = new System.Drawing.Point(3, 3);
+            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticas.Location = new System.Drawing.Point(28, 3);
             this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(236, 42);
+            this.btnEstadisticas.Size = new System.Drawing.Size(211, 42);
             this.btnEstadisticas.TabIndex = 34;
-            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.Text = "       Estadisticas";
+            this.btnEstadisticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEstadisticas.UseVisualStyleBackColor = false;
             this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
@@ -908,6 +901,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(974, 109);
             this.tableLayoutPanel1.TabIndex = 57;
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(1, 7);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 55;
+            this.pictureBox12.TabStop = false;
+            // 
             // frmAyuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -928,7 +931,6 @@
             this.pnlContenedorPrincipal.PerformLayout();
             this.pnlEstadisticas.ResumeLayout(false);
             this.pnlEstadisticas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -972,6 +974,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1034,7 +1037,6 @@
         private System.Windows.Forms.DataGridView dgvTickets;
         private System.Windows.Forms.Panel pnlEstadisticas;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.LinkLabel lnkMaps;
         private System.Windows.Forms.PictureBox pctCerrar;
@@ -1043,5 +1045,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotales;
+        private System.Windows.Forms.PictureBox pictureBox12;
     }
 }

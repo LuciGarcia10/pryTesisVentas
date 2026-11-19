@@ -59,6 +59,16 @@ namespace pryTesisVentas
             CargarPreguntasFrecuentes();
             CargarIndicadores();
             pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
+            btnEstadisticas.Image = FormatearIcono(btnEstadisticas.Image);
+            
+        }
+
+        // Este método achica la imagen a 20x20 y convierte el color blanco en transparente
+        private Image FormatearIcono(Image imagenOriginal, int ancho = 20, int alto = 20)
+        {
+            Bitmap bmp = new Bitmap(imagenOriginal, new Size(ancho, alto));
+            bmp.MakeTransparent(Color.White); // Borra el fondo blanco
+            return bmp;
         }
 
         private void btnInicio_Click(object sender, EventArgs e)

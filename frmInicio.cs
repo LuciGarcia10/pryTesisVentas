@@ -99,7 +99,9 @@ namespace pryTesisVentas
         }
         private void frmInicio_Load(object sender, EventArgs e)
         {
+
             bool esAdmin = frmIngresar.RolSesion == "Administrador";
+
             pnlEstadisticas.Visible = esAdmin;
             // Estilos estéticos de la grilla de ventas
             dgvVentas.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64);
@@ -130,6 +132,24 @@ namespace pryTesisVentas
             }
 
             frmInicio_Resize(sender, e);
+
+            using (var original = Properties.Resources.Inicio)
+            {
+                int lado = 24;
+                var bmp = new Bitmap(lado, lado);
+                using (var g = Graphics.FromImage(bmp))
+                {
+                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    g.SmoothingMode = SmoothingMode.HighQuality;
+                    float escala = Math.Min((float)lado / original.Width, (float)lado / original.Height);
+                    float w = original.Width * escala, h = original.Height * escala;
+                    g.DrawImage(original, (lado - w) / 2, (lado - h) / 2, w, h);
+                }
+                btninicio1.Image = bmp;
+            }
+            btninicio1.ImageAlign = ContentAlignment.MiddleLeft;
+            btninicio1.TextImageRelation = TextImageRelation.Overlay;
+            btninicio1.Padding = new Padding(0, 0, 0, 0);
         }
         public void HacerCirculo(Control control)
         {

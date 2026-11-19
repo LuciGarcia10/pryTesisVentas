@@ -117,6 +117,15 @@ namespace pryTesisVentas
             // 4. LLAMADAS LIMPIAS A TUS MÉTODOS DE CONFIGURACIÓN
             ConfigurarGraficoClientes();
             ConfigurarGraficoBarras(); // Esto ya dibuja las barras y les saca las líneas grises
+
+            // El botón no escala las imágenes, así que la achicamos a 24x24
+            using (var icono = Properties.Resources.Estadisticas)
+            {
+                btnEstadisticas.Image = new Bitmap(icono, new Size(24, 24));
+            }
+            btnEstadisticas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEstadisticas.TextImageRelation = TextImageRelation.Overlay;
+
         }
 
         private void ConfigurarGraficoBarras()

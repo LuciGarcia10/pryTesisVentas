@@ -29,51 +29,41 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstadisticas));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btnPerfil = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.btnAyuda = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnClientes = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnProductos = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnPedidos = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnVentas = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblRol = new System.Windows.Forms.Label();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.lblDigitalFarma = new System.Windows.Forms.Label();
-            this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pnlPrevisualizacion = new System.Windows.Forms.Panel();
             this.lblPorcentajesdelmes = new System.Windows.Forms.Label();
             this.lblGananciasmensuales = new System.Windows.Forms.Label();
@@ -90,96 +80,104 @@
             this.lblGanancias = new System.Windows.Forms.Label();
             this.lblPorcentaje1 = new System.Windows.Forms.Label();
             this.lblGana = new System.Windows.Forms.Label();
-            this.pcbGanancias = new System.Windows.Forms.PictureBox();
             this.pnlBalance = new System.Windows.Forms.Panel();
             this.lblBalance = new System.Windows.Forms.Label();
             this.lblPorcentaje2 = new System.Windows.Forms.Label();
             this.lblBalan = new System.Windows.Forms.Label();
-            this.pcbBalance = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.lblPedidosTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblPedidoT = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pnlVentasTotales = new System.Windows.Forms.Panel();
             this.lblPedidosTotales = new System.Windows.Forms.Label();
             this.lblPorcentaje3 = new System.Windows.Forms.Label();
             this.lblVentaTotal = new System.Windows.Forms.Label();
-            this.pcbPedido = new System.Windows.Forms.PictureBox();
             this.panelGanancias = new System.Windows.Forms.Panel();
             this.lblPorcentajeClientesNuevos = new System.Windows.Forms.Label();
             this.lblNumeroClientesNuevos = new System.Windows.Forms.Label();
             this.lblClientesnuevos = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblNumeroClientes = new System.Windows.Forms.Label();
             this.lblPorcentajeClientes = new System.Windows.Forms.Label();
             this.lblClientes = new System.Windows.Forms.Label();
-            this.pcbClientes = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.lblNumeroPedidospendientes = new System.Windows.Forms.Label();
             this.lblPedidospendientes = new System.Windows.Forms.Label();
-            this.pcbPendientes = new System.Windows.Forms.PictureBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.lblNumPedidoscancelados = new System.Windows.Forms.Label();
             this.lblPedidoscancelados = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.lblPedidos = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblGanacias = new System.Windows.Forms.Label();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblTituloActualizar = new System.Windows.Forms.Label();
-            this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pcbClientes = new System.Windows.Forms.PictureBox();
+            this.pcbGanancias = new System.Windows.Forms.PictureBox();
+            this.pcbBalance = new System.Windows.Forms.PictureBox();
+            this.pcbPedido = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pcbPendientes = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlPrevisualizacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.crtGananciasMensuales)).BeginInit();
             this.pnlClintes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartClientes)).BeginInit();
             this.pnlGanancias.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).BeginInit();
             this.pnlBalance.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBalance)).BeginInit();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.pnlVentasTotales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPedido)).BeginInit();
             this.panelGanancias.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbClientes)).BeginInit();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPendientes)).BeginInit();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBalance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPedido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPendientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -204,9 +202,8 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BackColor = System.Drawing.Color.Teal;
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.pictureBox2);
             this.panel5.Controls.Add(this.btnEstadisticas);
             this.panel5.Location = new System.Drawing.Point(16, 606);
             this.panel5.Name = "panel5";
@@ -224,16 +221,6 @@
             this.label4.Size = new System.Drawing.Size(18, 20);
             this.label4.TabIndex = 39;
             this.label4.Text = ">";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 38;
-            this.pictureBox2.TabStop = false;
             // 
             // btnEstadisticas
             // 
@@ -271,16 +258,6 @@
             this.label2.TabIndex = 38;
             this.label2.Text = ">";
             // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(24, 29);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 39;
-            this.pictureBox10.TabStop = false;
-            // 
             // btnPerfil
             // 
             this.btnPerfil.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,16 +291,6 @@
             this.label9.Size = new System.Drawing.Size(18, 20);
             this.label9.TabIndex = 39;
             this.label9.Text = ">";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 38;
-            this.pictureBox8.TabStop = false;
             // 
             // btnAyuda
             // 
@@ -363,16 +330,6 @@
             this.label8.TabIndex = 39;
             this.label8.Text = ">";
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(4, 8);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 38;
-            this.pictureBox7.TabStop = false;
-            // 
             // btnClientes
             // 
             this.btnClientes.BackColor = System.Drawing.Color.White;
@@ -410,16 +367,6 @@
             this.label7.Size = new System.Drawing.Size(18, 20);
             this.label7.TabIndex = 39;
             this.label7.Text = ">";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 38;
-            this.pictureBox6.TabStop = false;
             // 
             // btnProductos
             // 
@@ -459,16 +406,6 @@
             this.label6.TabIndex = 39;
             this.label6.Text = ">";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 38;
-            this.pictureBox5.TabStop = false;
-            // 
             // btnPedidos
             // 
             this.btnPedidos.BackColor = System.Drawing.Color.White;
@@ -495,16 +432,6 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panel3.Size = new System.Drawing.Size(242, 48);
             this.panel3.TabIndex = 47;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 38;
-            this.pictureBox4.TabStop = false;
             // 
             // label3
             // 
@@ -543,17 +470,6 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panel1.Size = new System.Drawing.Size(242, 48);
             this.panel1.TabIndex = 44;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -601,16 +517,6 @@
             this.label10.TabIndex = 38;
             this.label10.Text = ">";
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Location = new System.Drawing.Point(24, 29);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 39;
-            this.pictureBox9.TabStop = false;
-            // 
             // lblRol
             // 
             this.lblRol.AutoSize = true;
@@ -642,17 +548,6 @@
             this.lblDigitalFarma.Size = new System.Drawing.Size(164, 32);
             this.lblDigitalFarma.TabIndex = 33;
             this.lblDigitalFarma.Text = "DigitalFarma";
-            // 
-            // pctLogo
-            // 
-            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(21, 18);
-            this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(72, 71);
-            this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctLogo.TabIndex = 32;
-            this.pctLogo.TabStop = false;
             // 
             // pnlPrevisualizacion
             // 
@@ -710,20 +605,20 @@
             this.crtGananciasMensuales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea5.AxisX.MajorGrid.Enabled = false;
-            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea5.AxisY.MajorGrid.Enabled = false;
-            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea5.AxisY2.LineColor = System.Drawing.Color.LightGray;
-            chartArea5.Name = "ChartArea1";
-            this.crtGananciasMensuales.ChartAreas.Add(chartArea5);
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisY2.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.Name = "ChartArea1";
+            this.crtGananciasMensuales.ChartAreas.Add(chartArea1);
             this.crtGananciasMensuales.Location = new System.Drawing.Point(8, 92);
             this.crtGananciasMensuales.Name = "crtGananciasMensuales";
-            series5.ChartArea = "ChartArea1";
-            series5.CustomProperties = "PointWidth=0.6";
-            series5.Name = "Series1";
-            series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            this.crtGananciasMensuales.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.CustomProperties = "PointWidth=0.6";
+            series1.Name = "Series1";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.crtGananciasMensuales.Series.Add(series1);
             this.crtGananciasMensuales.Size = new System.Drawing.Size(568, 182);
             this.crtGananciasMensuales.TabIndex = 4;
             this.crtGananciasMensuales.Text = "chart1";
@@ -790,26 +685,26 @@
             // chartClientes
             // 
             this.chartClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            chartArea6.InnerPlotPosition.Auto = false;
-            chartArea6.InnerPlotPosition.Width = 63.73417F;
-            chartArea6.InnerPlotPosition.X = 18.13291F;
-            chartArea6.InnerPlotPosition.Y = 2.5F;
-            chartArea6.Name = "ChartArea1";
-            chartArea6.Position.Auto = false;
-            chartArea6.Position.Height = 90F;
-            chartArea6.Position.Width = 90F;
-            chartArea6.Position.X = 5F;
-            chartArea6.Position.Y = 5F;
-            this.chartClientes.ChartAreas.Add(chartArea6);
+            chartArea2.InnerPlotPosition.Auto = false;
+            chartArea2.InnerPlotPosition.Width = 63.73417F;
+            chartArea2.InnerPlotPosition.X = 18.13291F;
+            chartArea2.InnerPlotPosition.Y = 2.5F;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 90F;
+            chartArea2.Position.Width = 90F;
+            chartArea2.Position.X = 5F;
+            chartArea2.Position.Y = 5F;
+            this.chartClientes.ChartAreas.Add(chartArea2);
             this.chartClientes.Location = new System.Drawing.Point(0, 96);
             this.chartClientes.Margin = new System.Windows.Forms.Padding(2);
             this.chartClientes.Name = "chartClientes";
             this.chartClientes.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series6.CustomProperties = "DoughnutRadius=40";
-            series6.Name = "SeriesProgreso";
-            this.chartClientes.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.CustomProperties = "DoughnutRadius=40";
+            series2.Name = "SeriesProgreso";
+            this.chartClientes.Series.Add(series2);
             this.chartClientes.Size = new System.Drawing.Size(372, 249);
             this.chartClientes.TabIndex = 10;
             this.chartClientes.Text = "chart2";
@@ -867,17 +762,6 @@
             this.lblGana.TabIndex = 1;
             this.lblGana.Text = "Ganancias";
             // 
-            // pcbGanancias
-            // 
-            this.pcbGanancias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pcbGanancias.Image = ((System.Drawing.Image)(resources.GetObject("pcbGanancias.Image")));
-            this.pcbGanancias.Location = new System.Drawing.Point(14, 11);
-            this.pcbGanancias.Name = "pcbGanancias";
-            this.pcbGanancias.Size = new System.Drawing.Size(84, 69);
-            this.pcbGanancias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbGanancias.TabIndex = 0;
-            this.pcbGanancias.TabStop = false;
-            // 
             // pnlBalance
             // 
             this.pnlBalance.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -919,17 +803,6 @@
             this.lblBalan.Size = new System.Drawing.Size(55, 19);
             this.lblBalan.TabIndex = 2;
             this.lblBalan.Text = "Balance";
-            // 
-            // pcbBalance
-            // 
-            this.pcbBalance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(203)))), ((int)(((byte)(255)))));
-            this.pcbBalance.Image = ((System.Drawing.Image)(resources.GetObject("pcbBalance.Image")));
-            this.pcbBalance.Location = new System.Drawing.Point(8, 14);
-            this.pcbBalance.Name = "pcbBalance";
-            this.pcbBalance.Size = new System.Drawing.Size(88, 75);
-            this.pcbBalance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbBalance.TabIndex = 0;
-            this.pcbBalance.TabStop = false;
             // 
             // panel11
             // 
@@ -985,17 +858,6 @@
             this.lblPedidoT.TabIndex = 1;
             this.lblPedidoT.Text = "Pedidos Totales";
             // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(14, 17);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(84, 69);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 0;
-            this.pictureBox11.TabStop = false;
-            // 
             // pnlVentasTotales
             // 
             this.pnlVentasTotales.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1038,17 +900,6 @@
             this.lblVentaTotal.Size = new System.Drawing.Size(103, 17);
             this.lblVentaTotal.TabIndex = 2;
             this.lblVentaTotal.Text = "Ventas Totales";
-            // 
-            // pcbPedido
-            // 
-            this.pcbPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(155)))), ((int)(((byte)(205)))));
-            this.pcbPedido.Image = ((System.Drawing.Image)(resources.GetObject("pcbPedido.Image")));
-            this.pcbPedido.Location = new System.Drawing.Point(14, 14);
-            this.pcbPedido.Name = "pcbPedido";
-            this.pcbPedido.Size = new System.Drawing.Size(82, 69);
-            this.pcbPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbPedido.TabIndex = 0;
-            this.pcbPedido.TabStop = false;
             // 
             // panelGanancias
             // 
@@ -1094,17 +945,6 @@
             this.lblClientesnuevos.TabIndex = 1;
             this.lblClientesnuevos.Text = "Clientes nuevos";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(16, 22);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(84, 69);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.HighlightText;
@@ -1149,17 +989,6 @@
             this.lblClientes.TabIndex = 1;
             this.lblClientes.Text = "Clientes";
             // 
-            // pcbClientes
-            // 
-            this.pcbClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pcbClientes.Image = ((System.Drawing.Image)(resources.GetObject("pcbClientes.Image")));
-            this.pcbClientes.Location = new System.Drawing.Point(16, 22);
-            this.pcbClientes.Name = "pcbClientes";
-            this.pcbClientes.Size = new System.Drawing.Size(84, 69);
-            this.pcbClientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbClientes.TabIndex = 0;
-            this.pcbClientes.TabStop = false;
-            // 
             // panel12
             // 
             this.panel12.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1192,17 +1021,6 @@
             this.lblPedidospendientes.Size = new System.Drawing.Size(127, 19);
             this.lblPedidospendientes.TabIndex = 1;
             this.lblPedidospendientes.Text = "Pedidos pendientes";
-            // 
-            // pcbPendientes
-            // 
-            this.pcbPendientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pcbPendientes.Image = ((System.Drawing.Image)(resources.GetObject("pcbPendientes.Image")));
-            this.pcbPendientes.Location = new System.Drawing.Point(16, 22);
-            this.pcbPendientes.Name = "pcbPendientes";
-            this.pcbPendientes.Size = new System.Drawing.Size(84, 69);
-            this.pcbPendientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbPendientes.TabIndex = 0;
-            this.pcbPendientes.TabStop = false;
             // 
             // panel13
             // 
@@ -1248,17 +1066,6 @@
             this.lblPedidoscancelados.Size = new System.Drawing.Size(126, 19);
             this.lblPedidoscancelados.TabIndex = 1;
             this.lblPedidoscancelados.Text = "Pedidos cancelados";
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(16, 22);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(84, 69);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 0;
-            this.pictureBox12.TabStop = false;
             // 
             // lblPedidos
             // 
@@ -1320,19 +1127,6 @@
             this.lblTituloActualizar.TabIndex = 27;
             this.lblTituloActualizar.Text = "Para actualizar graficos hacer click en el siguiente boton:";
             // 
-            // pctCerrar
-            // 
-            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
-            this.pctCerrar.Location = new System.Drawing.Point(1204, 6);
-            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.pctCerrar.Name = "pctCerrar";
-            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
-            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctCerrar.TabIndex = 56;
-            this.pctCerrar.TabStop = false;
-            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1372,6 +1166,199 @@
             this.panel15.Size = new System.Drawing.Size(260, 244);
             this.panel15.TabIndex = 59;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(16, 22);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(84, 69);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pcbClientes
+            // 
+            this.pcbClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pcbClientes.Image = ((System.Drawing.Image)(resources.GetObject("pcbClientes.Image")));
+            this.pcbClientes.Location = new System.Drawing.Point(16, 22);
+            this.pcbClientes.Name = "pcbClientes";
+            this.pcbClientes.Size = new System.Drawing.Size(84, 69);
+            this.pcbClientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbClientes.TabIndex = 0;
+            this.pcbClientes.TabStop = false;
+            // 
+            // pcbGanancias
+            // 
+            this.pcbGanancias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pcbGanancias.Image = ((System.Drawing.Image)(resources.GetObject("pcbGanancias.Image")));
+            this.pcbGanancias.Location = new System.Drawing.Point(14, 11);
+            this.pcbGanancias.Name = "pcbGanancias";
+            this.pcbGanancias.Size = new System.Drawing.Size(84, 69);
+            this.pcbGanancias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbGanancias.TabIndex = 0;
+            this.pcbGanancias.TabStop = false;
+            // 
+            // pcbBalance
+            // 
+            this.pcbBalance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(203)))), ((int)(((byte)(255)))));
+            this.pcbBalance.Image = ((System.Drawing.Image)(resources.GetObject("pcbBalance.Image")));
+            this.pcbBalance.Location = new System.Drawing.Point(8, 14);
+            this.pcbBalance.Name = "pcbBalance";
+            this.pcbBalance.Size = new System.Drawing.Size(88, 75);
+            this.pcbBalance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbBalance.TabIndex = 0;
+            this.pcbBalance.TabStop = false;
+            // 
+            // pcbPedido
+            // 
+            this.pcbPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(155)))), ((int)(((byte)(205)))));
+            this.pcbPedido.Image = ((System.Drawing.Image)(resources.GetObject("pcbPedido.Image")));
+            this.pcbPedido.Location = new System.Drawing.Point(14, 14);
+            this.pcbPedido.Name = "pcbPedido";
+            this.pcbPedido.Size = new System.Drawing.Size(82, 69);
+            this.pcbPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbPedido.TabIndex = 0;
+            this.pcbPedido.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(14, 17);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(84, 69);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 0;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pcbPendientes
+            // 
+            this.pcbPendientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pcbPendientes.Image = ((System.Drawing.Image)(resources.GetObject("pcbPendientes.Image")));
+            this.pcbPendientes.Location = new System.Drawing.Point(16, 22);
+            this.pcbPendientes.Name = "pcbPendientes";
+            this.pcbPendientes.Size = new System.Drawing.Size(84, 69);
+            this.pcbPendientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbPendientes.TabIndex = 0;
+            this.pcbPendientes.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(16, 22);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(84, 69);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 0;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pctCerrar
+            // 
+            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(1204, 6);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 56;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(24, 29);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 39;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 38;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(4, 8);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 38;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 38;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 38;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 38;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(38, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Location = new System.Drawing.Point(24, 29);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 39;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pctLogo
+            // 
+            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
+            this.pctLogo.Location = new System.Drawing.Point(21, 18);
+            this.pctLogo.Name = "pctLogo";
+            this.pctLogo.Size = new System.Drawing.Size(72, 71);
+            this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctLogo.TabIndex = 32;
+            this.pctLogo.TabStop = false;
+            // 
             // frmEstadisticas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1397,32 +1384,22 @@
             this.pnlContenedorPrincipal.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlPrevisualizacion.ResumeLayout(false);
             this.pnlPrevisualizacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.crtGananciasMensuales)).EndInit();
@@ -1431,32 +1408,41 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartClientes)).EndInit();
             this.pnlGanancias.ResumeLayout(false);
             this.pnlGanancias.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).EndInit();
             this.pnlBalance.ResumeLayout(false);
             this.pnlBalance.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBalance)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.pnlVentasTotales.ResumeLayout(false);
             this.pnlVentasTotales.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPedido)).EndInit();
             this.panelGanancias.ResumeLayout(false);
             this.panelGanancias.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbClientes)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPendientes)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGanancias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBalance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPendientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1502,7 +1488,6 @@
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.Panel pnlPrevisualizacion;
         private System.Windows.Forms.Label lblPorcentajesdelmes;

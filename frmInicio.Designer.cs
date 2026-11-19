@@ -60,7 +60,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnventas1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btninicio1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -71,7 +70,6 @@
             this.lblDigitalFarma = new System.Windows.Forms.Label();
             this.pctLogo = new System.Windows.Forms.PictureBox();
             this.lblFlechaProductos = new System.Windows.Forms.Label();
-            this.ptbBotonProductos = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.ptbBotonVentas = new System.Windows.Forms.PictureBox();
             this.lblFlechaVentas = new System.Windows.Forms.Label();
@@ -108,9 +106,10 @@
             this.lblNumPedidoscancelados = new System.Windows.Forms.Label();
             this.lblPedidoscancelados = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.tlpGraficos = new System.Windows.Forms.TableLayoutPanel();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.ptbBotonProductos = new System.Windows.Forms.PictureBox();
             cmbVentas = new System.Windows.Forms.ComboBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.pnlEstadisticas.SuspendLayout();
@@ -128,11 +127,9 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbBotonProductos)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBotonVentas)).BeginInit();
             this.pnlInicio.SuspendLayout();
@@ -148,9 +145,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.tlpGraficos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbBotonProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbVentas
@@ -523,8 +521,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btninicio1);
             this.panel1.Location = new System.Drawing.Point(14, 142);
@@ -532,17 +529,6 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panel1.Size = new System.Drawing.Size(242, 48);
             this.panel1.TabIndex = 44;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -558,13 +544,16 @@
             // btninicio1
             // 
             this.btninicio1.BackColor = System.Drawing.Color.Teal;
+            this.btninicio1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btninicio1.FlatAppearance.BorderSize = 0;
             this.btninicio1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninicio1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btninicio1.ForeColor = System.Drawing.Color.White;
-            this.btninicio1.Location = new System.Drawing.Point(2, 3);
+            this.btninicio1.Image = global::pryTesisVentas.Properties.Resources.Inicio;
+            this.btninicio1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btninicio1.Location = new System.Drawing.Point(7, 3);
             this.btninicio1.Name = "btninicio1";
-            this.btninicio1.Size = new System.Drawing.Size(238, 40);
+            this.btninicio1.Size = new System.Drawing.Size(236, 40);
             this.btninicio1.TabIndex = 34;
             this.btninicio1.Text = "Inicio";
             this.btninicio1.UseVisualStyleBackColor = false;
@@ -652,16 +641,6 @@
             this.lblFlechaProductos.Size = new System.Drawing.Size(13, 13);
             this.lblFlechaProductos.TabIndex = 39;
             this.lblFlechaProductos.Text = ">";
-            // 
-            // ptbBotonProductos
-            // 
-            this.ptbBotonProductos.Image = ((System.Drawing.Image)(resources.GetObject("ptbBotonProductos.Image")));
-            this.ptbBotonProductos.Location = new System.Drawing.Point(4, 6);
-            this.ptbBotonProductos.Margin = new System.Windows.Forms.Padding(2);
-            this.ptbBotonProductos.Name = "ptbBotonProductos";
-            this.ptbBotonProductos.Size = new System.Drawing.Size(25, 22);
-            this.ptbBotonProductos.TabIndex = 0;
-            this.ptbBotonProductos.TabStop = false;
             // 
             // panel6
             // 
@@ -1080,32 +1059,6 @@
             this.pictureBox14.TabIndex = 0;
             this.pictureBox14.TabStop = false;
             // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox11.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(319, 165);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(947, 355);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox11.TabIndex = 22;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pctCerrar
-            // 
-            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
-            this.pctCerrar.Location = new System.Drawing.Point(1312, 8);
-            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.pctCerrar.Name = "pctCerrar";
-            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
-            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctCerrar.TabIndex = 56;
-            this.pctCerrar.TabStop = false;
-            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
-            // 
             // tlpGraficos
             // 
             this.tlpGraficos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1123,6 +1076,42 @@
             this.tlpGraficos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpGraficos.Size = new System.Drawing.Size(947, 112);
             this.tlpGraficos.TabIndex = 57;
+            // 
+            // pctCerrar
+            // 
+            this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(1312, 8);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 56;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox11.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(319, 165);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(947, 355);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 22;
+            this.pictureBox11.TabStop = false;
+            // 
+            // ptbBotonProductos
+            // 
+            this.ptbBotonProductos.Image = ((System.Drawing.Image)(resources.GetObject("ptbBotonProductos.Image")));
+            this.ptbBotonProductos.Location = new System.Drawing.Point(4, 6);
+            this.ptbBotonProductos.Margin = new System.Windows.Forms.Padding(2);
+            this.ptbBotonProductos.Name = "ptbBotonProductos";
+            this.ptbBotonProductos.Size = new System.Drawing.Size(25, 22);
+            this.ptbBotonProductos.TabIndex = 0;
+            this.ptbBotonProductos.TabStop = false;
             // 
             // frmInicio
             // 
@@ -1166,12 +1155,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbBotonProductos)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbBotonVentas)).EndInit();
             this.pnlInicio.ResumeLayout(false);
@@ -1193,9 +1180,10 @@
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.tlpGraficos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbBotonProductos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1231,7 +1219,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btninicio1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label3;
