@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAyuda));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.pnlEstadisticas = new System.Windows.Forms.Panel();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -41,7 +42,6 @@
             this.btnUsuario = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.btnAyuda = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -94,13 +94,12 @@
             this.VentasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.pnlEstadisticas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel8.SuspendLayout();
@@ -127,7 +126,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -160,6 +158,16 @@
             this.pnlEstadisticas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.pnlEstadisticas.Size = new System.Drawing.Size(242, 48);
             this.pnlEstadisticas.TabIndex = 54;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(1, 7);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 55;
+            this.pictureBox12.TabStop = false;
             // 
             // label12
             // 
@@ -248,9 +256,8 @@
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.BackColor = System.Drawing.Color.Teal;
             this.panel10.Controls.Add(this.label9);
-            this.panel10.Controls.Add(this.pictureBox8);
             this.panel10.Controls.Add(this.btnAyuda);
             this.panel10.Location = new System.Drawing.Point(9, 488);
             this.panel10.Name = "panel10";
@@ -269,16 +276,6 @@
             this.label9.TabIndex = 39;
             this.label9.Text = ">";
             this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 38;
-            this.pictureBox8.TabStop = false;
             // 
             // btnAyuda
             // 
@@ -828,14 +825,14 @@
             this.Stock,
             this.Precio,
             this.VentasTotales});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTickets.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTickets.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTickets.EnableHeadersVisualStyles = false;
             this.dgvTickets.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvTickets.Location = new System.Drawing.Point(51, 60);
@@ -901,16 +898,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(974, 109);
             this.tableLayoutPanel1.TabIndex = 57;
             // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(1, 7);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 55;
-            this.pictureBox12.TabStop = false;
-            // 
             // frmAyuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -931,12 +918,12 @@
             this.pnlContenedorPrincipal.PerformLayout();
             this.pnlEstadisticas.ResumeLayout(false);
             this.pnlEstadisticas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -974,7 +961,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -989,7 +975,6 @@
         private System.Windows.Forms.Button btnUsuario;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Button btnAyuda;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label8;

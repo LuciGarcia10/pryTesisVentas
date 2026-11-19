@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing.Drawing2D;
 
 namespace pryTesisVentas
 {
@@ -59,17 +60,27 @@ namespace pryTesisVentas
             CargarPreguntasFrecuentes();
             CargarIndicadores();
             pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
-            btnEstadisticas.Image = FormatearIcono(btnEstadisticas.Image);
-            
+
+            using (var original = Properties.Resources.Ayuda)
+            {
+                int lado = 24;
+                var bmp = new Bitmap(lado, lado);
+                using (var g = Graphics.FromImage(bmp))
+                {
+                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    g.SmoothingMode = SmoothingMode.HighQuality;
+                    float escala = Math.Min((float)lado / original.Width, (float)lado / original.Height);
+                    float w = original.Width * escala, h = original.Height * escala;
+                    g.DrawImage(original, (lado - w) / 2, (lado - h) / 2, w, h);
+                }
+                btnAyuda.Image = bmp;
+            }
+            btnAyuda.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAyuda.TextImageRelation = TextImageRelation.Overlay;
+            btnAyuda.Padding = new Padding(0, 0, 0, 0);
         }
 
-        // Este método achica la imagen a 20x20 y convierte el color blanco en transparente
-        private Image FormatearIcono(Image imagenOriginal, int ancho = 20, int alto = 20)
-        {
-            Bitmap bmp = new Bitmap(imagenOriginal, new Size(ancho, alto));
-            bmp.MakeTransparent(Color.White); // Borra el fondo blanco
-            return bmp;
-        }
+        
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
