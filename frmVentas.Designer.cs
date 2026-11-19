@@ -63,7 +63,6 @@
             this.ptbBotonPedidos = new System.Windows.Forms.PictureBox();
             this.btnPedidos = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVentas = new System.Windows.Forms.Button();
             this.ptbBotonVentas = new System.Windows.Forms.PictureBox();
@@ -104,7 +103,6 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBotonPedidos)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBotonVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlVentasdeProductos.SuspendLayout();
@@ -496,7 +494,6 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.pictureBox1);
             this.panel6.Controls.Add(this.label1);
             this.panel6.Controls.Add(this.btnVentas);
             this.panel6.Controls.Add(this.ptbBotonVentas);
@@ -506,16 +503,6 @@
             this.panel6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panel6.Size = new System.Drawing.Size(242, 48);
             this.panel6.TabIndex = 37;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 38);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 41;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -833,7 +820,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbBotonPedidos)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBotonVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlVentasdeProductos.ResumeLayout(false);
@@ -879,7 +865,6 @@
         private System.Windows.Forms.PictureBox ptbBotonPedidos;
         private System.Windows.Forms.Button btnPedidos;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.PictureBox ptbBotonVentas;
