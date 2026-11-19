@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing.Drawing2D;
 
 namespace pryTesisVentas
 {
@@ -70,6 +71,24 @@ namespace pryTesisVentas
             CargarPedidosDesdeBD();
             frmPedidos_Resize(sender, e);
             pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
+
+            using (var original = Properties.Resources.Pedidos)
+            {
+                int lado = 24;
+                var bmp = new Bitmap(lado, lado);
+                using (var g = Graphics.FromImage(bmp))
+                {
+                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    g.SmoothingMode = SmoothingMode.HighQuality;
+                    float escala = Math.Min((float)lado / original.Width, (float)lado / original.Height);
+                    float w = original.Width * escala, h = original.Height * escala;
+                    g.DrawImage(original, (lado - w) / 2, (lado - h) / 2, w, h);
+                }
+                btnPedidos.Image = bmp;
+            }
+            btnPedidos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPedidos.TextImageRelation = TextImageRelation.Overlay;
+            btnPedidos.Padding = new Padding(0, 0, 0, 0);
         }
 
         private void CargarPedidosDesdeBD()
