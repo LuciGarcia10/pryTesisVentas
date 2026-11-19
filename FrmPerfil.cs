@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,24 @@ namespace pryTesisVentas
             {
                 pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
             }
+
+            using (var original = Properties.Resources.Perfil)
+            {
+                int lado = 24;
+                var bmp = new Bitmap(lado, lado);
+                using (var g = Graphics.FromImage(bmp))
+                {
+                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    g.SmoothingMode = SmoothingMode.HighQuality;
+                    float escala = Math.Min((float)lado / original.Width, (float)lado / original.Height);
+                    float w = original.Width * escala, h = original.Height * escala;
+                    g.DrawImage(original, (lado - w) / 2, (lado - h) / 2, w, h);
+                }
+                btnUsuario.Image = bmp;
+            }
+            btnUsuario.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUsuario.TextImageRelation = TextImageRelation.Overlay;
+            btnUsuario.Padding = new Padding(0, 0, 0, 0);
         }
 
         private void ConfigurarEstilosExclusivos()

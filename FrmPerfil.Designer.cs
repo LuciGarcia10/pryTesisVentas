@@ -38,7 +38,6 @@
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblDescri = new System.Windows.Forms.Label();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -108,7 +107,6 @@
             this.pnlEstadisticas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel9.SuspendLayout();
@@ -205,7 +203,6 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.pictureBox9);
             this.panel2.Controls.Add(this.lblDescri);
             this.panel2.Controls.Add(this.btnUsuario);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -224,17 +221,6 @@
             this.label10.Size = new System.Drawing.Size(18, 20);
             this.label10.TabIndex = 38;
             this.label10.Text = ">";
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackColor = System.Drawing.Color.Teal;
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(24, 29);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 39;
-            this.pictureBox9.TabStop = false;
             // 
             // lblDescri
             // 
@@ -1047,7 +1033,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -1092,7 +1077,6 @@
         private System.Windows.Forms.Panel pnlContenedorPrincipal;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label lblDescri;
         private System.Windows.Forms.Button btnUsuario;
         private System.Windows.Forms.Panel panel10;
