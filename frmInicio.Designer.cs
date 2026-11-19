@@ -549,7 +549,6 @@
             this.btninicio1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninicio1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btninicio1.ForeColor = System.Drawing.Color.White;
-            this.btninicio1.Image = global::pryTesisVentas.Properties.Resources.Inicio;
             this.btninicio1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btninicio1.Location = new System.Drawing.Point(7, 3);
             this.btninicio1.Name = "btninicio1";

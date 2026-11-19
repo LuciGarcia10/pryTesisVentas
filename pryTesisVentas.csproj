@@ -386,6 +386,7 @@
     <None Include="Resources\Ventas.png" />
     <None Include="Resources\Pedidos.png" />
     <None Include="Resources\Ayuda.png" />
+    <None Include="Resources\Productos.png" />
     <Content Include="SQLConsultaBase.sql" />
     <None Include="Resources\Acciones.png" />
     <None Include="Resources\Captura de pantalla 2026-07-17 183404.png" />

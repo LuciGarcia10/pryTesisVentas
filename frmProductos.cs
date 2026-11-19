@@ -153,6 +153,24 @@ namespace pryTesisVentas
             CargarProductosDesdeBD();
             dgvProductos.Paint += dgvProductos_Paint;
             pnlEstadisticas.Visible = (frmIngresar.RolSesion == "Administrador");
+
+            using (var original = Properties.Resources.Productos)
+            {
+                int lado = 24;
+                var bmp = new Bitmap(lado, lado);
+                using (var g = Graphics.FromImage(bmp))
+                {
+                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    g.SmoothingMode = SmoothingMode.HighQuality;
+                    float escala = Math.Min((float)lado / original.Width, (float)lado / original.Height);
+                    float w = original.Width * escala, h = original.Height * escala;
+                    g.DrawImage(original, (lado - w) / 2, (lado - h) / 2, w, h);
+                }
+                btnProductos.Image = bmp;
+            }
+            btnProductos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnProductos.TextImageRelation = TextImageRelation.Overlay;
+            btnProductos.Padding = new Padding(0, 0, 0, 0);
         }
 
         // Recupera los registros reales de SQL Server y los almacena en la lista global
