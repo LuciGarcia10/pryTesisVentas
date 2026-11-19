@@ -49,7 +49,6 @@
             this.btnAyuda = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnClientes = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -97,7 +96,6 @@
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel7.SuspendLayout();
@@ -288,9 +286,8 @@
             // 
             // panel9
             // 
-            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.BackColor = System.Drawing.Color.Teal;
             this.panel9.Controls.Add(this.label8);
-            this.panel9.Controls.Add(this.pictureBox7);
             this.panel9.Controls.Add(this.btnClientes);
             this.panel9.Location = new System.Drawing.Point(9, 412);
             this.panel9.Name = "panel9";
@@ -308,17 +305,6 @@
             this.label8.Size = new System.Drawing.Size(18, 20);
             this.label8.TabIndex = 39;
             this.label8.Text = ">";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(4, 8);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 38;
-            this.pictureBox7.TabStop = false;
             // 
             // btnClientes
             // 
@@ -839,7 +825,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -879,7 +864,6 @@
         private System.Windows.Forms.Button btnAyuda;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label7;
