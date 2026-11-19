@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPerfil));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPerfil));
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.pnlEstadisticas = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -42,51 +41,40 @@
             this.btnUsuario = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.btnAyuda = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnClientes = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnProductos = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnPedidos = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnVentas = new System.Windows.Forms.Button();
             this.pnlInicio = new System.Windows.Forms.Panel();
             this.lblInicio = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pnlBuscar = new System.Windows.Forms.Panel();
             this.lblBuscarArriba = new System.Windows.Forms.Label();
             this.txtBuscarGlobal = new System.Windows.Forms.TextBox();
             this.txtBuscarArriba = new System.Windows.Forms.TextBox();
-            this.ptbLupa = new System.Windows.Forms.PictureBox();
             this.PnlPermisos = new System.Windows.Forms.Panel();
             this.pnlBuscadorUsuario = new System.Windows.Forms.Panel();
             this.TxtBuscarU = new System.Windows.Forms.TextBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.DgvPermisos = new System.Windows.Forms.DataGridView();
             this.ClmUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PctIconoPermisos = new System.Windows.Forms.PictureBox();
             this.LblPermisos = new System.Windows.Forms.Label();
             this.PnlCuenta = new System.Windows.Forms.Panel();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.lblLegajo = new System.Windows.Forms.Label();
-            this.BtnVerContra = new System.Windows.Forms.Button();
             this.LinkCerrarSesion = new System.Windows.Forms.LinkLabel();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.txtContraNueva = new System.Windows.Forms.TextBox();
@@ -98,39 +86,51 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.BtnCambiarFoto = new System.Windows.Forms.Button();
-            this.PctIconoDatos = new System.Windows.Forms.PictureBox();
             this.LblDatos = new System.Windows.Forms.Label();
-            this.PctFotoPerfil = new System.Windows.Forms.PictureBox();
             this.LblGestion = new System.Windows.Forms.Label();
+            this.BtnVerContra = new System.Windows.Forms.Button();
+            this.PctIconoDatos = new System.Windows.Forms.PictureBox();
+            this.PctFotoPerfil = new System.Windows.Forms.PictureBox();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.PctIconoPermisos = new System.Windows.Forms.PictureBox();
+            this.ptbLupa = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pctLogo = new System.Windows.Forms.PictureBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.pnlEstadisticas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnlInicio.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.pnlBuscar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).BeginInit();
             this.PnlPermisos.SuspendLayout();
             this.pnlBuscadorUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPermisos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PctIconoPermisos)).BeginInit();
             this.PnlCuenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctFotoPerfil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctIconoPermisos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorPrincipal
@@ -174,16 +174,6 @@
             this.label4.Size = new System.Drawing.Size(18, 20);
             this.label4.TabIndex = 39;
             this.label4.Text = ">";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 38;
-            this.pictureBox2.TabStop = false;
             // 
             // btnEstadisticas
             // 
@@ -268,16 +258,6 @@
             this.label9.TabIndex = 39;
             this.label9.Text = ">";
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 38;
-            this.pictureBox8.TabStop = false;
-            // 
             // btnAyuda
             // 
             this.btnAyuda.BackColor = System.Drawing.Color.White;
@@ -314,17 +294,6 @@
             this.label8.Size = new System.Drawing.Size(18, 20);
             this.label8.TabIndex = 39;
             this.label8.Text = ">";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(4, 8);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 38;
-            this.pictureBox7.TabStop = false;
             // 
             // btnClientes
             // 
@@ -363,16 +332,6 @@
             this.label7.TabIndex = 39;
             this.label7.Text = ">";
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 38;
-            this.pictureBox6.TabStop = false;
-            // 
             // btnProductos
             // 
             this.btnProductos.BackColor = System.Drawing.Color.White;
@@ -410,16 +369,6 @@
             this.label6.TabIndex = 39;
             this.label6.Text = ">";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(4, 6);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 38;
-            this.pictureBox5.TabStop = false;
-            // 
             // btnPedidos
             // 
             this.btnPedidos.BackColor = System.Drawing.Color.White;
@@ -445,16 +394,6 @@
             this.panel6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panel6.Size = new System.Drawing.Size(242, 48);
             this.panel6.TabIndex = 37;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(4, 8);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(38, 34);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 38;
-            this.pictureBox4.TabStop = false;
             // 
             // label2
             // 
@@ -518,17 +457,6 @@
             this.btnInicio.UseVisualStyleBackColor = false;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(4, 8);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(38, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 35;
-            this.pictureBox3.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -539,17 +467,6 @@
             this.label3.Size = new System.Drawing.Size(161, 28);
             this.label3.TabIndex = 33;
             this.label3.Text = "DigitalFarma";
-            // 
-            // pctLogo
-            // 
-            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
-            this.pctLogo.Location = new System.Drawing.Point(14, 12);
-            this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(72, 71);
-            this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctLogo.TabIndex = 32;
-            this.pctLogo.TabStop = false;
             // 
             // pnlBuscar
             // 
@@ -596,16 +513,6 @@
             this.txtBuscarArriba.Size = new System.Drawing.Size(126, 22);
             this.txtBuscarArriba.TabIndex = 9;
             // 
-            // ptbLupa
-            // 
-            this.ptbLupa.Image = ((System.Drawing.Image)(resources.GetObject("ptbLupa.Image")));
-            this.ptbLupa.Location = new System.Drawing.Point(2, 2);
-            this.ptbLupa.Name = "ptbLupa";
-            this.ptbLupa.Size = new System.Drawing.Size(32, 31);
-            this.ptbLupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbLupa.TabIndex = 11;
-            this.ptbLupa.TabStop = false;
-            // 
             // PnlPermisos
             // 
             this.PnlPermisos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -643,16 +550,6 @@
             this.TxtBuscarU.TabIndex = 44;
             this.TxtBuscarU.Text = "Buscar usuario...";
             this.TxtBuscarU.TextChanged += new System.EventHandler(this.TxtBuscarU_TextChanged);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(301, 5);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(32, 31);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 11;
-            this.pictureBox10.TabStop = false;
             // 
             // DgvPermisos
             // 
@@ -717,16 +614,6 @@
             this.ClmEstado.HeaderText = "Estado";
             this.ClmEstado.MinimumWidth = 8;
             this.ClmEstado.Name = "ClmEstado";
-            // 
-            // PctIconoPermisos
-            // 
-            this.PctIconoPermisos.Image = ((System.Drawing.Image)(resources.GetObject("PctIconoPermisos.Image")));
-            this.PctIconoPermisos.Location = new System.Drawing.Point(26, 34);
-            this.PctIconoPermisos.Name = "PctIconoPermisos";
-            this.PctIconoPermisos.Size = new System.Drawing.Size(32, 28);
-            this.PctIconoPermisos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PctIconoPermisos.TabIndex = 42;
-            this.PctIconoPermisos.TabStop = false;
             // 
             // LblPermisos
             // 
@@ -810,20 +697,6 @@
             this.lblLegajo.Size = new System.Drawing.Size(125, 28);
             this.lblLegajo.TabIndex = 43;
             this.lblLegajo.Text = "N° de Legajo";
-            // 
-            // BtnVerContra
-            // 
-            this.BtnVerContra.BackColor = System.Drawing.Color.Transparent;
-            this.BtnVerContra.BackgroundImage = global::pryTesisVentas.Properties.Resources.show;
-            this.BtnVerContra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnVerContra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVerContra.Location = new System.Drawing.Point(275, 575);
-            this.BtnVerContra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnVerContra.Name = "BtnVerContra";
-            this.BtnVerContra.Size = new System.Drawing.Size(32, 32);
-            this.BtnVerContra.TabIndex = 42;
-            this.BtnVerContra.UseVisualStyleBackColor = false;
-            this.BtnVerContra.Click += new System.EventHandler(this.BtnVerContra_Click);
             // 
             // LinkCerrarSesion
             // 
@@ -950,16 +823,6 @@
             this.BtnCambiarFoto.UseVisualStyleBackColor = false;
             this.BtnCambiarFoto.Click += new System.EventHandler(this.BtnCambiarFoto_Click);
             // 
-            // PctIconoDatos
-            // 
-            this.PctIconoDatos.Image = ((System.Drawing.Image)(resources.GetObject("PctIconoDatos.Image")));
-            this.PctIconoDatos.Location = new System.Drawing.Point(18, 34);
-            this.PctIconoDatos.Name = "PctIconoDatos";
-            this.PctIconoDatos.Size = new System.Drawing.Size(32, 28);
-            this.PctIconoDatos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PctIconoDatos.TabIndex = 28;
-            this.PctIconoDatos.TabStop = false;
-            // 
             // LblDatos
             // 
             this.LblDatos.AutoSize = true;
@@ -969,6 +832,40 @@
             this.LblDatos.Size = new System.Drawing.Size(191, 31);
             this.LblDatos.TabIndex = 27;
             this.LblDatos.Text = "Datos Personales";
+            // 
+            // LblGestion
+            // 
+            this.LblGestion.AutoSize = true;
+            this.LblGestion.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblGestion.Location = new System.Drawing.Point(316, 25);
+            this.LblGestion.Name = "LblGestion";
+            this.LblGestion.Size = new System.Drawing.Size(405, 38);
+            this.LblGestion.TabIndex = 1;
+            this.LblGestion.Text = "Gestión de Cuenta y Permisos";
+            // 
+            // BtnVerContra
+            // 
+            this.BtnVerContra.BackColor = System.Drawing.Color.Transparent;
+            this.BtnVerContra.BackgroundImage = global::pryTesisVentas.Properties.Resources.show;
+            this.BtnVerContra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnVerContra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVerContra.Location = new System.Drawing.Point(275, 575);
+            this.BtnVerContra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnVerContra.Name = "BtnVerContra";
+            this.BtnVerContra.Size = new System.Drawing.Size(32, 32);
+            this.BtnVerContra.TabIndex = 42;
+            this.BtnVerContra.UseVisualStyleBackColor = false;
+            this.BtnVerContra.Click += new System.EventHandler(this.BtnVerContra_Click);
+            // 
+            // PctIconoDatos
+            // 
+            this.PctIconoDatos.Image = ((System.Drawing.Image)(resources.GetObject("PctIconoDatos.Image")));
+            this.PctIconoDatos.Location = new System.Drawing.Point(18, 34);
+            this.PctIconoDatos.Name = "PctIconoDatos";
+            this.PctIconoDatos.Size = new System.Drawing.Size(32, 28);
+            this.PctIconoDatos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PctIconoDatos.TabIndex = 28;
+            this.PctIconoDatos.TabStop = false;
             // 
             // PctFotoPerfil
             // 
@@ -983,16 +880,6 @@
             this.PctFotoPerfil.TabIndex = 0;
             this.PctFotoPerfil.TabStop = false;
             // 
-            // LblGestion
-            // 
-            this.LblGestion.AutoSize = true;
-            this.LblGestion.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblGestion.Location = new System.Drawing.Point(316, 25);
-            this.LblGestion.Name = "LblGestion";
-            this.LblGestion.Size = new System.Drawing.Size(405, 38);
-            this.LblGestion.TabIndex = 1;
-            this.LblGestion.Text = "Gestión de Cuenta y Permisos";
-            // 
             // pctCerrar
             // 
             this.pctCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1005,6 +892,119 @@
             this.pctCerrar.TabIndex = 56;
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(301, 5);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(32, 31);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 11;
+            this.pictureBox10.TabStop = false;
+            // 
+            // PctIconoPermisos
+            // 
+            this.PctIconoPermisos.Image = ((System.Drawing.Image)(resources.GetObject("PctIconoPermisos.Image")));
+            this.PctIconoPermisos.Location = new System.Drawing.Point(26, 34);
+            this.PctIconoPermisos.Name = "PctIconoPermisos";
+            this.PctIconoPermisos.Size = new System.Drawing.Size(32, 28);
+            this.PctIconoPermisos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PctIconoPermisos.TabIndex = 42;
+            this.PctIconoPermisos.TabStop = false;
+            // 
+            // ptbLupa
+            // 
+            this.ptbLupa.Image = ((System.Drawing.Image)(resources.GetObject("ptbLupa.Image")));
+            this.ptbLupa.Location = new System.Drawing.Point(2, 2);
+            this.ptbLupa.Name = "ptbLupa";
+            this.ptbLupa.Size = new System.Drawing.Size(32, 31);
+            this.ptbLupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbLupa.TabIndex = 11;
+            this.ptbLupa.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 38;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 38;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(4, 8);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 38;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 38;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 38;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(4, 8);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(38, 34);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 38;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(4, 8);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(38, 35);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 35;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pctLogo
+            // 
+            this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pctLogo.Image = ((System.Drawing.Image)(resources.GetObject("pctLogo.Image")));
+            this.pctLogo.Location = new System.Drawing.Point(14, 12);
+            this.pctLogo.Name = "pctLogo";
+            this.pctLogo.Size = new System.Drawing.Size(72, 71);
+            this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctLogo.TabIndex = 32;
+            this.pctLogo.TabStop = false;
             // 
             // FrmPerfil
             // 
@@ -1030,43 +1030,43 @@
             this.pnlContenedorPrincipal.PerformLayout();
             this.pnlEstadisticas.ResumeLayout(false);
             this.pnlEstadisticas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.pnlInicio.ResumeLayout(false);
             this.pnlInicio.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.pnlBuscar.ResumeLayout(false);
             this.pnlBuscar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).EndInit();
             this.PnlPermisos.ResumeLayout(false);
             this.PnlPermisos.PerformLayout();
             this.pnlBuscadorUsuario.ResumeLayout(false);
             this.pnlBuscadorUsuario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPermisos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PctIconoPermisos)).EndInit();
             this.PnlCuenta.ResumeLayout(false);
             this.PnlCuenta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctIconoDatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctFotoPerfil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctIconoPermisos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLupa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
