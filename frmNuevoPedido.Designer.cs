@@ -39,14 +39,14 @@
             this.btnAgregararCompras = new System.Windows.Forms.Button();
             this.lblHacerPedido1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.cmbProductos = new System.Windows.Forms.ComboBox();
-            this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.pctMas = new System.Windows.Forms.PictureBox();
+            this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHacerPedido
@@ -157,7 +157,7 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(28)))), ((int)(((byte)(3)))));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(53, 294);
+            this.btnCancelar.Location = new System.Drawing.Point(55, 294);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(224, 42);
@@ -165,17 +165,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(20, 23);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(25, 22);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 39;
-            this.pictureBox5.TabStop = false;
             // 
             // cmbProductos
             // 
@@ -185,18 +174,6 @@
             this.cmbProductos.Size = new System.Drawing.Size(291, 29);
             this.cmbProductos.TabIndex = 40;
             this.cmbProductos.SelectedIndexChanged += new System.EventHandler(this.cmbProductos_SelectedIndexChanged);
-            // 
-            // pctCerrar
-            // 
-            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
-            this.pctCerrar.Location = new System.Drawing.Point(309, 7);
-            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.pctCerrar.Name = "pctCerrar";
-            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
-            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctCerrar.TabIndex = 56;
-            this.pctCerrar.TabStop = false;
-            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
             // 
             // pctMas
             // 
@@ -211,11 +188,34 @@
             this.pctMas.TabStop = false;
             this.pctMas.Click += new System.EventHandler(this.pctMas_Click);
             // 
+            // pctCerrar
+            // 
+            this.pctCerrar.Image = global::pryTesisVentas.Properties.Resources.cerrar;
+            this.pctCerrar.Location = new System.Drawing.Point(305, 7);
+            this.pctCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.pctCerrar.Name = "pctCerrar";
+            this.pctCerrar.Size = new System.Drawing.Size(32, 28);
+            this.pctCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctCerrar.TabIndex = 56;
+            this.pctCerrar.TabStop = false;
+            this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::pryTesisVentas.Properties.Resources.Hacer_Pedidos;
+            this.pictureBox5.Location = new System.Drawing.Point(20, 23);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(25, 22);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 39;
+            this.pictureBox5.TabStop = false;
+            // 
             // frmNuevoPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 344);
+            this.ClientSize = new System.Drawing.Size(340, 353);
             this.Controls.Add(this.pctMas);
             this.Controls.Add(this.pctCerrar);
             this.Controls.Add(this.cmbProductos);
@@ -237,9 +237,9 @@
             this.Text = "frmNuevoPedido";
             this.Load += new System.EventHandler(this.frmNuevoPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctMas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
