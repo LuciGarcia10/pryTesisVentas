@@ -133,10 +133,13 @@ namespace pryTesisVentas
 
         private void dgvCompras_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void lblCerrar_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void pctCerrar_Click(object sender, EventArgs e)
         {
             // Si la grilla o lista del carrito tiene elementos cargados
             if (dgvCompras.Rows.Count > 0)
@@ -154,11 +157,6 @@ namespace pryTesisVentas
             }
 
             this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void pctCerrar_Click(object sender, EventArgs e)
-        {
             this.Close();
         }
     }
