@@ -54,15 +54,7 @@ namespace pryTesisVentas
 
         private void txtIngresarNumero_TextChanged(object sender, EventArgs e)
         {
-            if (txtIngresarNumero.Text.Trim().Length > 0)
-            {
-                lblNombre.Visible = false;
-            }
-            else
-            {
-                // Si borra todo, volvemos a mostrar el label "Elegir el nombre..."
-                lblIngresarNumero.Visible = true;
-            }
+            lblIngresarNumero.Visible = txtIngresarNumero.Text.Trim().Length == 0;
         }
 
         private void txtIngresarNumero_Enter(object sender, EventArgs e)
@@ -72,7 +64,7 @@ namespace pryTesisVentas
 
         private void txtIngresarNumero_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            if (string.IsNullOrWhiteSpace(txtIngresarNumero.Text))
             {
                 lblIngresarNumero.Visible = true;
             }
@@ -93,7 +85,7 @@ namespace pryTesisVentas
         private void lblResetearNombre_Click(object sender, EventArgs e)
         {
             txtNombre.Clear();
-            lblEscribirNombre.Visible = true;
+            lblNombre.Visible = true;
         }
 
         private void btnAplicarFiltros_Click(object sender, EventArgs e)

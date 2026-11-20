@@ -22,8 +22,10 @@ namespace pryTesisVentas
 
         private void btnHoy_Click(object sender, EventArgs e)
         {
-            dtpDesde.Value = DateTime.Now;
-            dtpHasta.Value = DateTime.Now;
+            dtpDesde.Checked = true;
+            dtpHasta.Checked = true;
+            dtpDesde.Value = DateTime.Today;
+            dtpHasta.Value = DateTime.Today;
         }
 
         private void btnAplicarFiltros_Click(object sender, EventArgs e)
@@ -33,7 +35,7 @@ namespace pryTesisVentas
 
             DateTime desde = dtpDesde.Value.Date;
             DateTime hasta = dtpHasta.Value.Date;
-
+            bool usarFechas = dtpDesde.Checked && dtpHasta.Checked;
             // Verificamos categoría con Trim()
             string catSeleccionada = cmbCategoria.Text != null ? cmbCategoria.Text.Trim() : "";
             bool filtrarPorCategoria = !string.IsNullOrEmpty(catSeleccionada)
@@ -48,12 +50,12 @@ namespace pryTesisVentas
 
             // Filtrado en memoria
             var listaFiltrada = listaParaFiltrar.Where(x =>
-                // Filtro de categoría
-                (!filtrarPorCategoria || (x.Categoria != null && x.Categoria.Trim().Equals(catSeleccionada, StringComparison.OrdinalIgnoreCase))) &&
-
-                // Filtro de nombre
-                (!filtrarPorNombre || (x.Nombre != null && x.Nombre.ToLower().Contains(nombreBusqueda)))
-            ).ToList();
+                (!usarFechas || (x.FechaVencimiento != DateTime.MinValue &&
+                     x.FechaVencimiento.Date >= desde &&
+                     x.FechaVencimiento.Date <= hasta)) &&
+                     (!filtrarPorCategoria || (x.Categoria != null && x.Categoria.Trim().Equals(catSeleccionada, StringComparison.OrdinalIgnoreCase))) &&
+                     (!filtrarPorNombre || (x.Nombre != null && x.Nombre.ToLower().Contains(nombreBusqueda)))
+).                   ToList();
 
             // Guardamos en la propiedad de resultado
             this.listaResultado = listaFiltrada;
@@ -78,14 +80,21 @@ namespace pryTesisVentas
 
         private void btnEstasemana_Click(object sender, EventArgs e)
         {
-            dtpDesde.Value = DateTime.Now; // Hoy
-            dtpHasta.Value = DateTime.Now.AddDays(7); // 7 días hacia adelante
+            // Semana de lunes a domingo
+            DateTime hoy = DateTime.Today;
+            int diasDesdeLunes = (7 + (int)hoy.DayOfWeek - (int)DayOfWeek.Monday) % 7;
+            DateTime lunes = hoy.AddDays(-diasDesdeLunes);
+
+            dtpDesde.Checked = true;
+            dtpHasta.Checked = true;
+            dtpDesde.Value = lunes;
+            dtpHasta.Value = lunes.AddDays(6);
         }
 
         private void btnEstemes_Click(object sender, EventArgs e)
         {
-            dtpDesde.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            dtpHasta.Value = dtpDesde.Value.AddMonths(1).AddDays(-1); // Último día del mes
+            dtpDesde.Checked = true;
+            dtpHasta.Checked = true;
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
@@ -125,7 +134,10 @@ namespace pryTesisVentas
 
         private void frmFiltroVentas_Load(object sender, EventArgs e)
         {
-
+            dtpDesde.ShowCheckBox = true;
+            dtpHasta.ShowCheckBox = true;
+            dtpDesde.Checked = false;
+            dtpHasta.Checked = false;
         }
 
         private void btnResetearTodo_Click(object sender, EventArgs e)
@@ -143,8 +155,8 @@ namespace pryTesisVentas
         private void LimpiarTodosLosFiltros()
         {
             // 1. Restablecer fechas a un rango por defecto (por ejemplo, el último año o fechas estándar)
-            dtpDesde.Value = DateTime.Today.AddYears(-1);
-            dtpHasta.Value = DateTime.Today;
+            dtpDesde.Checked = false;
+            dtpHasta.Checked = false;
 
             // 2. Restablecer el ComboBox a la primera opción ("Elegir categoría..." o "Todas")
             if (cmbCategoria.Items.Count > 0)
@@ -158,8 +170,8 @@ namespace pryTesisVentas
 
         private void lblResetearFecha_Click(object sender, EventArgs e)
         {
-            dtpDesde.Value = DateTime.Today.AddYears(-1);
-            dtpHasta.Value = DateTime.Today;
+            dtpDesde.Checked = false;
+            dtpHasta.Checked = false;
         }
 
         private void lblResetearCategoria_Click(object sender, EventArgs e)

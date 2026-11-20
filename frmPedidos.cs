@@ -306,11 +306,11 @@ namespace pryTesisVentas
 
             // Suma la cantidad comprada al stock de cada producto
             string queryStock = @"
-                UPDATE prod
-                SET prod.Stock = prod.Stock + dp.Cantidad
-                FROM Productos prod
-                INNER JOIN DetallePedido dp ON prod.IdProducto = dp.IdProducto
-                WHERE dp.IdPedido = @IdPedido";
+                 UPDATE prod
+                 SET prod.StockActual = prod.StockActual + dp.Cantidad
+                 FROM Productos prod
+                 INNER JOIN DetallePedido dp ON prod.IdProducto = dp.IdProducto
+                 WHERE dp.IdPedido = @IdPedido";
 
             try
             {
