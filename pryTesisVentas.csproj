@@ -391,6 +391,7 @@
     <None Include="Resources\Perfil.png" />
     <None Include="Resources\Hacer Pedidos.png" />
     <None Include="Resources\Anadir Producto.png" />
+    <None Include="Resources\Compras.png" />
     <Content Include="SQLConsultaBase.sql" />
     <None Include="Resources\Acciones.png" />
     <None Include="Resources\Captura de pantalla 2026-07-17 183404.png" />
