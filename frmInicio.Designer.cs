@@ -612,7 +612,7 @@
             // 
             // lblDigitalFarma
             // 
-            this.lblDigitalFarma.Location = new System.Drawing.Point(90, 38);
+            this.lblDigitalFarma.Location = new System.Drawing.Point(94, 38);
             this.lblDigitalFarma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDigitalFarma.Name = "lblDigitalFarma";
             this.lblDigitalFarma.Size = new System.Drawing.Size(164, 32);
