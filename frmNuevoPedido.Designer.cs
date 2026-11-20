@@ -203,10 +203,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::pryTesisVentas.Properties.Resources.Hacer_Pedidos;
-            this.pictureBox5.Location = new System.Drawing.Point(20, 23);
+            this.pictureBox5.Location = new System.Drawing.Point(11, 23);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(25, 22);
+            this.pictureBox5.Size = new System.Drawing.Size(36, 33);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 39;
             this.pictureBox5.TabStop = false;
