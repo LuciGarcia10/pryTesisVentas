@@ -50,7 +50,7 @@
             // 
             this.lblDetallePedido.AutoSize = true;
             this.lblDetallePedido.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetallePedido.Location = new System.Drawing.Point(34, 15);
+            this.lblDetallePedido.Location = new System.Drawing.Point(38, 15);
             this.lblDetallePedido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDetallePedido.Name = "lblDetallePedido";
             this.lblDetallePedido.Size = new System.Drawing.Size(150, 28);
@@ -156,10 +156,10 @@
             // PctIconoDetalle
             // 
             this.PctIconoDetalle.Image = ((System.Drawing.Image)(resources.GetObject("PctIconoDetalle.Image")));
-            this.PctIconoDetalle.Location = new System.Drawing.Point(9, 15);
+            this.PctIconoDetalle.Location = new System.Drawing.Point(3, 15);
             this.PctIconoDetalle.Margin = new System.Windows.Forms.Padding(2);
             this.PctIconoDetalle.Name = "PctIconoDetalle";
-            this.PctIconoDetalle.Size = new System.Drawing.Size(21, 18);
+            this.PctIconoDetalle.Size = new System.Drawing.Size(37, 28);
             this.PctIconoDetalle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctIconoDetalle.TabIndex = 12;
             this.PctIconoDetalle.TabStop = false;
