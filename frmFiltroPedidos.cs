@@ -104,9 +104,10 @@ namespace pryTesisVentas
             string busquedaNumero = txtIngresarNumero.Text.Trim();
             DateTime desde = dtpDesde.Value.Date;
             DateTime hasta = dtpHasta.Value.Date;
+            bool usarFechas = dtpDesde.Checked && dtpHasta.Checked;
 
             var filtrados = listaParaFiltrar.Where(p =>
-                (p.Fecha.Date >= desde && p.Fecha.Date <= hasta) &&
+                (!usarFechas || (p.Fecha.Date >= desde && p.Fecha.Date <= hasta)) &&
                 (string.IsNullOrEmpty(busquedaNombre) || p.Proveedor.ToLower().Contains(busquedaNombre)) &&
                 (string.IsNullOrEmpty(busquedaNumero) || p.IdPedido.ToString().Contains(busquedaNumero))
             ).ToList();
@@ -124,8 +125,8 @@ namespace pryTesisVentas
         {
             txtNombre.Clear();
             txtIngresarNumero.Clear();
-            dtpDesde.Value = DateTime.Now.AddMonths(-1);
-            dtpHasta.Value = DateTime.Now;
+            dtpDesde.Checked = false;
+            dtpHasta.Checked = false;
             lblEscribirNombre.Visible = true;
             lblIngresarNumero.Visible = true;
         }
@@ -133,6 +134,14 @@ namespace pryTesisVentas
         private void pctCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmFiltroPedidos_Load(object sender, EventArgs e)
+        {
+            dtpDesde.ShowCheckBox = true;
+            dtpHasta.ShowCheckBox = true;
+            dtpDesde.Checked = false;
+            dtpHasta.Checked = false;
         }
     }
 }

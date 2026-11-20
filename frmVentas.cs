@@ -54,10 +54,7 @@ namespace pryTesisVentas
 
         private void ConfigurarColumnasGrilla()
         {
-
-            // ====================================================================
             // 🎨 ESTILIZACIÓN IDÉNTICA A CUENTAS CORRIENTES
-            // ====================================================================
 
             // Bordes y estructura general
             dgvVentas.BackgroundColor = Color.White;
@@ -193,20 +190,18 @@ namespace pryTesisVentas
             MostrarEnGrilla(filtrados);
         }
 
+        private void AbrirFiltro()
+        {
+            using (frmFiltroVentas ventanaFiltro = new frmFiltroVentas())
+            {
+                ventanaFiltro.listaParaFiltrar = this.listaProductos;
+                ventanaFiltro.StartPosition = FormStartPosition.CenterParent;
+                ventanaFiltro.ShowDialog(this);
+            }
+        }
+
         private void cmbFiltrar_MouseClick(object sender, MouseEventArgs e)
         {
-            frmFiltroVentas ventanaFiltro = new frmFiltroVentas();
-            ventanaFiltro.listaParaFiltrar = this.listaProductos;
-
-            ventanaFiltro.StartPosition = FormStartPosition.Manual;
-            Point puntoAparicion = cmbFiltrar.PointToScreen(new Point(0, cmbFiltrar.Height));
-            ventanaFiltro.Location = puntoAparicion;
-
-            if (ventanaFiltro.ShowDialog() == DialogResult.OK)
-            {
-                // Si la ventana de filtros devuelve una lista filtrada, actualizar la grilla:
-                //MostrarEnGrilla(ventanaFiltro.listaResultado);
-            }
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
@@ -304,6 +299,21 @@ namespace pryTesisVentas
         {
             frmInicio frm = new frmInicio();
             frm.ShowDialog();
+        }
+
+        private void cmbFiltrar_DropDown(object sender, EventArgs e)
+        {
+            SendKeys.Send("{ESC}");
+            AbrirFiltro();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            if (listaProductos != null && listaProductos.Count > 0)
+            {
+                ActualizarGrilla(listaProductos);
+                cmbFiltrar.Text = "Filtrar";
+            }
         }
     }
 }

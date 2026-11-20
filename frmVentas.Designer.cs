@@ -30,8 +30,8 @@
         {
             System.Windows.Forms.ComboBox cmbVentas;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContenedorPrincipal = new System.Windows.Forms.Panel();
             this.pnlEstadisticas = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -86,6 +86,7 @@
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             cmbVentas = new System.Windows.Forms.ComboBox();
             this.pnlContenedorPrincipal.SuspendLayout();
             this.pnlEstadisticas.SuspendLayout();
@@ -125,7 +126,7 @@
             cmbVentas.FormattingEnabled = true;
             cmbVentas.Items.AddRange(new object[] {
             "Ultimos 30 dias"});
-            cmbVentas.Location = new System.Drawing.Point(610, 15);
+            cmbVentas.Location = new System.Drawing.Point(492, 15);
             cmbVentas.Name = "cmbVentas";
             cmbVentas.Size = new System.Drawing.Size(133, 28);
             cmbVentas.TabIndex = 12;
@@ -577,6 +578,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlVentasdeProductos.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pnlVentasdeProductos.Controls.Add(this.btnLimpiar);
             this.pnlVentasdeProductos.Controls.Add(this.btnAgregarVenta);
             this.pnlVentasdeProductos.Controls.Add(this.pnlBuscar);
             this.pnlVentasdeProductos.Controls.Add(this.panel1);
@@ -609,7 +611,7 @@
             this.pnlBuscar.Controls.Add(this.lblBuscador);
             this.pnlBuscar.Controls.Add(this.txtBuscador);
             this.pnlBuscar.Controls.Add(this.pctLupa);
-            this.pnlBuscar.Location = new System.Drawing.Point(422, 15);
+            this.pnlBuscar.Location = new System.Drawing.Point(304, 15);
             this.pnlBuscar.Name = "pnlBuscar";
             this.pnlBuscar.Size = new System.Drawing.Size(180, 32);
             this.pnlBuscar.TabIndex = 19;
@@ -653,7 +655,7 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.cmbFiltrar);
-            this.panel1.Location = new System.Drawing.Point(758, 9);
+            this.panel1.Location = new System.Drawing.Point(636, 11);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(160, 38);
             this.panel1.TabIndex = 14;
@@ -676,6 +678,7 @@
             this.cmbFiltrar.Size = new System.Drawing.Size(121, 28);
             this.cmbFiltrar.TabIndex = 16;
             this.cmbFiltrar.Text = "Filtrar";
+            this.cmbFiltrar.DropDown += new System.EventHandler(this.cmbFiltrar_DropDown);
             this.cmbFiltrar.SelectedIndexChanged += new System.EventHandler(this.cmbFiltrar_SelectedIndexChanged);
             this.cmbFiltrar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbFiltrar_MouseClick);
             // 
@@ -716,22 +719,22 @@
             this.colStock,
             this.colPrecio,
             this.colVentas});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVentas.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvVentas.EnableHeadersVisualStyles = false;
             this.dgvVentas.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dgvVentas.Location = new System.Drawing.Point(51, 105);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.RowHeadersVisible = false;
             this.dgvVentas.RowHeadersWidth = 62;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dgvVentas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgvVentas.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvVentas.RowTemplate.Height = 70;
             this.dgvVentas.Size = new System.Drawing.Size(854, 744);
             this.dgvVentas.TabIndex = 11;
@@ -780,6 +783,20 @@
             this.pctCerrar.TabIndex = 56;
             this.pctCerrar.TabStop = false;
             this.pctCerrar.Click += new System.EventHandler(this.pctCerrar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpiar.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiar.Location = new System.Drawing.Point(801, 9);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(140, 42);
+            this.btnLimpiar.TabIndex = 20;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // frmVentas
             // 
@@ -892,5 +909,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colVentas;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
