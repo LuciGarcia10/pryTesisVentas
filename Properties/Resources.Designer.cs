@@ -73,6 +73,16 @@ namespace pryTesisVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Anadir_Producto {
+            get {
+                object obj = ResourceManager.GetObject("Anadir_Producto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ayuda {
             get {
                 object obj = ResourceManager.GetObject("Ayuda", resourceCulture);
