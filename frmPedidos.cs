@@ -204,44 +204,12 @@ namespace pryTesisVentas
         }
         private void cmbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // 1. Creamos la instancia
-            frmFiltroPedidos ventanaFiltro = new frmFiltroPedidos();
-
-            // 2. Le pasamos la lista de productos
-            if (this.listaPedidos == null)
-            {
-                this.listaPedidos = new List<clsPedido>();
-            }
-            ventanaFiltro.listaParaFiltrar = this.listaPedidos;
-
-            // --- 3.Lógica de posicionamiento ---
-
-            // Le decimos a Windows que nosotros definiremos la ubicación manualmente
-            ventanaFiltro.StartPosition = FormStartPosition.Manual;
-
-            // Calculamos el punto exacto: 
-            // Tomamos la posición del ComboBox en la pantalla y le sumamos su altura (Height)
-            // para que el filtro empiece justo donde termina el combo.
-            Point puntoAparicion = cmbFiltrar.PointToScreen(new Point(0, cmbFiltrar.Height));
-
-            // Si la ventana de filtros es más ancha que el combo, podés restarle un poco a la X 
-            // para que quede alineada a la derecha o centrada.
-            ventanaFiltro.Location = puntoAparicion;
-
-            // 4. Abrimos la ventana
-            ventanaFiltro.ShowDialog();
+            
         }
 
         private void cmbFiltrar_MouseClick(object sender, MouseEventArgs e)
         {
-            frmFiltroPedidos ventanaFiltro = new frmFiltroPedidos();
-            ventanaFiltro.listaParaFiltrar = this.listaPedidos;
-            ventanaFiltro.StartPosition = FormStartPosition.Manual;
-
-            Point puntoAparicion = cmbFiltrar.PointToScreen(new Point(0, cmbFiltrar.Height));
-            ventanaFiltro.Location = puntoAparicion;
-
-            ventanaFiltro.ShowDialog();
+            
         }
 
         private void cmbFiltrar_DropDown(object sender, EventArgs e)
@@ -251,16 +219,17 @@ namespace pryTesisVentas
         }
         private void AbrirFiltro()
         {
-            frmFiltroPedidos ventanaFiltro = new frmFiltroPedidos();
             if (this.listaPedidos == null)
             {
                 this.listaPedidos = new List<clsPedido>();
             }
-            ventanaFiltro.listaParaFiltrar = this.listaPedidos;
-            ventanaFiltro.StartPosition = FormStartPosition.Manual;
-            Point puntoAparicion = cmbFiltrar.PointToScreen(new Point(0, cmbFiltrar.Height));
-            ventanaFiltro.Location = puntoAparicion;
-            ventanaFiltro.ShowDialog();
+
+            using (frmFiltroPedidos ventanaFiltro = new frmFiltroPedidos())
+            {
+                ventanaFiltro.listaParaFiltrar = this.listaPedidos;
+                ventanaFiltro.StartPosition = FormStartPosition.CenterParent;
+                ventanaFiltro.ShowDialog(this);
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
