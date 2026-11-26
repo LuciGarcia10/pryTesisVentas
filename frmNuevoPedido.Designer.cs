@@ -93,6 +93,7 @@
             // btnCanalProveedor
             // 
             this.btnCanalProveedor.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnCanalProveedor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCanalProveedor.ForeColor = System.Drawing.Color.White;
             this.btnCanalProveedor.Location = new System.Drawing.Point(122, 205);
             this.btnCanalProveedor.Margin = new System.Windows.Forms.Padding(2);
@@ -117,6 +118,7 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Teal;
             this.btnCancelar.Location = new System.Drawing.Point(23, 205);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);

@@ -124,8 +124,8 @@ namespace pryTesisVentas
                 string productoInicial = cmbProductos.SelectedIndex != -1 ? cmbProductos.Text.Trim() : "";
 
                 // Reemplazá FrmPedidoWhatsApp por el nombre real del formulario de WhatsApp que crees
-               //////// var frmWpp = new FrmPedidoWhatsApp(nombreProveedor, telefonoProveedor, productoInicial);
-               ////// frmWpp.ShowDialog();
+               //var frmWpp = new FrmPedidoWhatsApp(nombreProveedor, telefonoProveedor, productoInicial);
+               //frmWpp.ShowDialog();
             }
             else
             {

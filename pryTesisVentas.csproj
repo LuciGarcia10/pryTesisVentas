@@ -237,6 +237,12 @@
     <Compile Include="frmPedidos.Designer.cs">
       <DependentUpon>frmPedidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPedidoWhatsApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPedidoWhatsApp.Designer.cs">
+      <DependentUpon>FrmPedidoWhatsApp.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPedidos.resx">
       <DependentUpon>frmPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPedidoWhatsApp.resx">
+      <DependentUpon>FrmPedidoWhatsApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPerfil.resx">
       <DependentUpon>FrmPerfil.cs</DependentUpon>
